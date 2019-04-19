@@ -12,16 +12,16 @@ import com.skhu.NWFA.service.testService;
 
 @Controller
 public class testController {
-	
-	
+
+
 	@Autowired
 	testService service;
-	
+
 	@RequestMapping("/")
 	public String test(Model model) {
-				
-		List<testModel> list = service.printModel();
 
+		List<testModel> list = service.printModel();
+		//주석
 		model.addAttribute("li", list);
 		return "index";
 	}
