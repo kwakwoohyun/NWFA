@@ -1,38 +1,47 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.skhu.NWFA.model.testModel"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-	<%
-		List<testModel> list = new ArrayList<testModel>();
-	%>
-	<table border="1">
-		<tr>
-			<th>ID</th>
-			<th>Stu Name</th>
-			<th>Name</th>
-			<th>departmentID</th>
-			<th>year</th>
-		</tr>
-		<c:forEach items="${li}" var="dto" varStatus="status">
-				<tr>
-					<td>${dto.id}</td>
-					<td>${dto.studentName}</td>
-					<td>${dto.name}</td>
-					<td>${dto.departmentId}</td>
-					<td>${dto.year}</td>
-				<tr>
-			</c:forEach>
-	</table>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>메인페이지</title>
+    <meta name="viewport" content="width=device-width initial-scale=1.0" />
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-</body>
+    <!-- J쿼리 -->
+    <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
+    <script type="text/javascript">
+      // alert(window.innerHeight);
+      // alert(window.innerWidth);
+    </script>
+  </head>
+  <body id="page_main" class="page_main" class="background" >
+    <header class="page_main" >
+      <div class="L_headerbar">
+
+      </div>
+      <div class="C_headerbar">
+
+      </div>
+      <div class="R_headerbar">
+        <div class="UI login"  onclick="location.href='tmepmenu'">
+          <!-- <object type="image/svg+xml" data="icon/user.svg"></object> -->
+        </div>
+      </div>
+    </header>
+    <article class="page_main" >
+      <div id="mainpage_logo"></div>
+      <div class="UI UI_bt" onclick="location.href='KingWordGame'" data-transition="flip">게임</div>
+      <div class="UI UI_bt" onclick="location.href='personal'" data-transition="flip">사전</div>
+    </article>
+    <footer class="page_main flex justify align-end" >
+      <div class="UI mini_bt justify align-end" onclick="location.href='personal.html'" data-transition="flip">종료</div>
+      <div class="UI mini_bt justify align-end" onclick="location.href='personal.html'" data-transition="flip">사전</div>
+
+    </footer>
+  </body>
 </html>

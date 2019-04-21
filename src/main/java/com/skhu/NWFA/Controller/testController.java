@@ -21,8 +21,6 @@ public class testController {
 	public String test(Model model) {
 
 		List<testModel> list = service.printModel();
-		//주석
-		//주석2
 		model.addAttribute("li", list);
 		return "index";
 	}

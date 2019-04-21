@@ -1,0 +1,590 @@
+@import url('https://fonts.googleapis.com/css?family=Black+And+White+Picture|Black+Han+Sans|Cute+Font|Do+Hyeon|Dokdo|East+Sea+Dokdo|Gaegu|Gamja+Flower|Gothic+A1|Gugi|Hi+Melody|Jua|Kirang+Haerang|Nanum+Brush+Script|Nanum+Gothic|Nanum+Gothic+Coding|Nanum+Myeongjo|Nanum+Pen+Script|Noto+Sans+KR|Poor+Story|Song+Myung|Stylish|Sunflower:300|Yeon+Sung');
+/* �젅�씠�븘�썐 */
+#page_main{
+  display: flex;
+  flex-direction : column;
+}
+
+/* �뿤�뜑諛붽린蹂� */
+body{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0px;
+}
+
+header {
+  width: 100%;
+  height: 15vh;
+  display: flex;
+}
+.L_headerbar{
+  flex: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.C_headerbar{
+  flex: 80;
+  justify-content: center;
+  align-items: center;
+}
+.R_headerbar{
+  flex: 10;
+  justify-content: center;
+  align-items: center;
+}
+/* 而⑦뀗痢� 湲곕낯 */
+article{
+  width: 100%;
+  height: 70vh;
+}
+footer{
+  width: 100%;
+  height: 15vh;
+}
+
+.Userfooter{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+
+a{
+  text-decoration:none
+}
+a:visited{
+  color: White;
+}
+
+/* 諛깃렇�씪�슫�뱶 移쇰씪�꽑�젙 */
+#page_main{
+  background-color: #ffc000;
+  display: flex;
+}
+
+.page_normal{
+  background-color: #fad644;
+  display: flex;
+}
+
+.page_ChallengeQuiz{
+  background-color: #284135;
+  display: flex;
+}
+
+
+.UI{
+  /* padding: 3%; */
+  background-color: #ff5050;
+  border: solid 5px white;
+  border-radius: 50%;
+  color: white;
+}
+.UI_bt{
+  font-family: 'Jua', sans-serif;
+  width: 30vh;
+  height: 8vh;
+  line-height: 8vh;
+  /* padding: 3vh; */
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 30px;
+  font-size:6vh;
+  text-align: center;
+}
+.mini_bt{
+  font-family: 'Jua', sans-serif;
+  width: 10vh;
+  height: 3vh;
+  line-height: 3vh;
+  border-radius: 50px;
+  font-size: 4vh;
+  padding: 2vh;
+  text-align: center;
+  margin: 3vh;
+}
+
+.flex{
+  display: flex;
+  flex-direction: row;
+}
+.justify{
+  justify-content: space-between;
+}
+.align-end{
+  align-self: flex-end;
+}
+
+.login {
+  width: 10vh;
+  height: 10vh;
+  background-image: url("icon/user.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+  margin: 3vh;
+}
+/* 諛깃렇�씪�슫�뱶 移쇰씪�꽑�젙 */
+  #mainpage_logo{
+  margin: auto;
+  width: 30vh;
+  height: 33vh;
+  background-image: url("icon/logo.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+  #mini_logo{
+  margin: auto;
+  width: 10vh;
+  height: 10vh;
+  background-image: url("icon/logo.png");
+  background-repeat: no-repeat;
+  background-size: 90%;
+}
+.personal_titleBar{
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 9vh;
+}
+.Sort_BT_Bar{
+  display: flex;
+  justify-content: flex-end;
+  /* flex-wrap: wrap-reverse; */
+}
+.Sort_BT{
+  background-color: #ffc000;
+  border-radius: 20px;
+  font-family: 'Jua', sans-serif;
+  color: white;
+  font-size: 3vh;
+  text-align: center;
+  padding: 1vh 3vh 1vh 3vh;
+  margin-left: 1vh;
+  margin-right: 1vh;
+}
+.Sort_BT:hover{
+  background-color: #ff5050;
+}
+.goal_contents{
+  display: flex;
+}
+.personal_sidemenu{
+  flex: 2;
+  background-color: #fdeca5;
+  border-radius: 20px;
+  margin: 3vh;
+  height: 60vh;
+}
+.goal_main_contents{
+  flex: 8;
+  background-color: #fdeca5;
+  border-radius: 20px;
+  margin: 3vh;
+  height: 60vh;
+}
+.personal_sidemenu_BT{
+  margin: 2vh;
+  background-color: #fad644;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  color: white;
+  font-size: 5vh;
+  text-align: center;
+  padding: 1vh 3vh 1vh 3vh;
+}
+
+.personal_sidemenu_BT:hover{
+  background-color: #ffc000;
+
+}
+
+.KingWordGameTitle{
+  font-family: 'Sunflower', sans-serif;
+  color: white;
+}
+.viewBox{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.ControlBox{
+  flex: 1;
+  /* height: 85vh; 誘몃뵒�뼱荑쇰━ 李몄“ */
+  width: 100%;
+}
+.DisplayBox{
+  flex: 1;
+  /* height: 85vh; 誘몃뵒�뼱荑쇰━李몄큹 */
+  width: 100%;
+}
+/* 濡쒓렇�씤 CSS */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.login_main{
+    display:flex;
+    flex-direction: row;
+}
+.login_page{
+  flex: 1;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Yeon Sung', cursive;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  border-right: 3px dashed black;
+}
+.login_Introduce{
+  margin-top: 5vh;
+  text-align: center;
+  border-radius: 15px;
+  border: 5px solid black;
+  font-size: 4vh;
+  margin: 5vh 5vh ;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+.login_id{
+  width: 80%;
+  margin: auto;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-radius: 15px;
+  font-family: 'Jua', sans-serif;
+  text-align: center;
+  font-size: 5vh;
+  color: white;
+  background-color: #00b0f0;
+}
+
+.find_id{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/* �쉶�썝媛��엯 CSS */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.account_main{
+    display:flex;
+    flex-direction: row;
+}
+.account {
+  flex: 1;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Yeon Sung', cursive;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  border-right: 3px dashed black;
+}
+
+.account_form{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 2vh;
+  font-size: 3vh;
+}
+.intro {
+  flex: 1;
+}
+.account_form label{
+  width: 30%;
+  margin-right: 10%;
+  text-align: right;
+}
+.account_form_input{
+  background-color: #fdeca5;
+  width: 50%;
+  margin-right: 10%;
+  border: 0px;
+  border-radius: 5px;
+}
+.account_form_sex{
+  display: flex;
+  width: 50%;
+  margin-right: 10%;
+
+}
+.make_id{
+  width: 80%;
+  margin: auto;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  border-radius: 15px;
+  font-family: 'Jua', sans-serif;
+  text-align: center;
+  font-size: 5vh;
+  color: white;
+  background-color: #ff5050;
+}
+.intro{
+  text-align: center;
+  font-family: 'Jua', sans-serif;
+}
+@media screen and (max-width:699px) {
+  .intro{
+    display: none;
+  }
+  .account {
+    border-right: 0px;
+  }
+  .login_page{
+    border-right: 0px;
+  }
+}
+
+/* �솗寃뚯엫 媛쒕퀎CSS */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.KingWordGamePanel{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.KingWordGamefooter{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.KWGQ_BT{
+  background-color: white;
+  width: 23%;
+  height: 30%;
+  margin: auto 5% auto 5%;
+  font-family: 'Jua', sans-serif;
+  color: black;
+  /* font-size: 17vh;  誘몃뵒�뼱荑쇰━ 李몄“ */
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 1vh 1vh #cda705;
+  border: 0
+}
+.KWGQ_BT:visited{
+  background-color: #ffc834;
+}
+.KW_BTstyle{
+  background-color: #cda705;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  color: white;
+  font-size: 3vh;
+  text-align: center;
+  padding: 1vh 4vh 1vh 4vh;
+  margin: auto auto 1vh auto;
+  height: auto;
+}
+.KWGQ_quiz{
+  width: 100%;
+  height: 40vh;
+  margin: auto;
+  background-image: url('icon/wordgame_quiz.png');
+  background-size: 80% 80%;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.KWGQ_Stage_panel{
+  font-family: 'Jua', sans-serif;
+  font-size: 3vh;
+  padding-right: 5vh;
+  padding-left: 5vh;
+}
+
+.KWGQ_quiz_panel{
+  font-family: 'Jua', sans-serif;
+  font-size: 3vh;
+  text-align: center;
+  padding-top: 2vh;
+
+}
+
+.info_panel{
+  width: 100%;
+  margin: auto;
+  flex-direction: row;
+}
+.point_panel{
+  flex: 1;
+  flex-direction: column;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+.Star_point{
+  background-color: #fdeca5;
+  display: inline;
+  text-align: center;
+  border-radius: 15px;
+  font-family: 'Jua', sans-serif;
+  font-size: 6vh;
+}
+
+.Heart_point{
+  background-color: #fdeca5;
+  display: inline;
+  text-align: center;
+  border-radius: 15px;
+  font-family: 'Jua', sans-serif;
+  font-size: 6vh;
+}
+.KingWordGameporint{
+  font-family: 'Yeon Sung', cursive;
+  font-size: 3vh;
+}
+.kingimg{
+  flex: 2;
+  /* margin: auto; */
+  flex-direction: column;
+  background-image: url('icon/king.png');
+  background-size: 80% 80%;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+/* �솗�댁쫰 紐⑤뱺 誘몃뵒�뼱 荑쇰━ */
+@media screen and (max-width:699px) {
+
+  .viewBox{
+    /* height: 35vh; */
+    flex-direction: column-reverse;
+  }
+  .ControlBox{
+    /* height: 85vh; 誘몃뵒�뼱荑쇰━ 李몄“ */
+    height: 50vh;
+  }
+  #page_KingWordGame .DisplayBox{
+    /* height: 85vh; 誘몃뵒�뼱荑쇰━李몄큹 */
+    height: 35vh;
+  }
+  .KingWordGameTitle{
+    font-size: 3vh;
+    line-height: 2vh;
+    margin-top: 3vh;
+  }
+  .KingWordGamePanel{
+    height: 35vh;
+  }
+
+  .KingWordGamefooter{
+    height: 15vh;
+  }
+  .KWGQ_BT{
+    font-size: 10vh;
+  }
+  .kingimg{
+    display: none;
+  }
+  .point_panel{
+    flex: 1;
+    flex-direction: row;
+    padding-top: 0%;
+    padding-bottom: 0%;
+  }
+  .KWGQ_quiz{
+    height: 25vh;
+    background-size: 90% 100%;
+  }
+  .KWGQ_quiz_panel{
+    font-size: 2vh;
+  }
+  .KingWordGameporint {
+    justify-content: space-around;
+  }
+
+}
+
+/* �솗�댁쫰 紐⑤뱺 誘몃뵒�뼱 荑쇰━ */
+@media screen and (min-width:700px) {
+  .viewBox{
+    flex-direction: row;
+    /* height: 35vh; */
+  }
+  .ControlBox{
+    /* height: 85vh; 誘몃뵒�뼱荑쇰━ 李몄“ */
+  }
+  #page_KingWordGame .DisplayBox{
+    height: 85vh;
+  }
+  .KingWordGameTitle{
+    font-size: 7vh;
+    line-height: 7vh;
+    margin-top: 3vh;
+  }
+  .KingWordGamePanel{
+    height: 70vh;
+  }
+
+  .KingWordGamefooter{
+    height: 15vh;
+  }
+  .KWGQ_BT{
+    font-size: 17vh;
+  }
+  .info_panel{
+    height: 45vh;
+  }
+}
+/* �룄�쟾 �떒�뼱�댁쫰 媛쒕퀎CSS */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+
+.page_ChallengeQuiz .UI{
+  /* padding: 3%; */
+  background-color: #284135;
+  border: solid 5px white;
+  border-radius: 50%;
+  color: white;
+}
+.page_ChallengeQuiz .Stage_panel {
+  color: white;
+  font-size: 5vh;
+  margin-left: 20%;
+  margin-right: 20%;
+  font-family: 'Jua', sans-serif;
+}
+
+.page_ChallengeQuiz .blackboard {
+  border: solid 15px #6f490b ;
+  height: 40vh;
+  margin-left: 20%;
+  margin-right: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: flex-end;
+}
+.page_ChallengeQuiz .blackboard .blackboard_Quiz{
+  color: white;
+  font-size: 5vh;
+  text-align: center;
+  font-family: 'Yeon Sung', cursive;
+  margin-top: 5vh;
+}
+.page_ChallengeQuiz .DisplayBox{
+  height: 70vh;
+}
+.page_ChallengeQuiz .blackboard_Img {
+ background-color: #422b06;
+  height: 2vh;
+  align-items: flex-end;
+}
+.CQ_BTstyle{
+  background-color: #284135;
+  border-radius: 15px;
+  font-family: 'Jua', sans-serif;
+  color: white;
+  border: solid 5px white;
+  font-size: 3vh;
+  text-align: center;
+  padding: 1vh 4vh 1vh 4vh;
+  margin: auto auto 1vh auto;
+  height: auto;
+}
