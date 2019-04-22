@@ -24,14 +24,14 @@
 			<th>year</th>
 		</tr>
 		<c:forEach items="${li}" var="dto" varStatus="status">
-				<tr>
-					<td>${dto.id}</td>
-					<td>${dto.studentName}</td>
-					<td>${dto.name}</td>
-					<td>${dto.departmentId}</td>
-					<td>${dto.year}</td>
-				<tr>
-			</c:forEach>
+			<tr>
+				<td>${dto.id}</td>
+				<td>${dto.studentName}</td>
+				<td>${dto.name}</td>
+				<td>${dto.departmentId}</td>
+				<td>${dto.year}</td>
+			<tr>
+		</c:forEach>
 	</table>
 
 </body>

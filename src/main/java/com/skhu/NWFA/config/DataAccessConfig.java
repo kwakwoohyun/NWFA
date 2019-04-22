@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @Configuration
-@MapperScan(basePackages = "com.skhu.NWFA.dao")
+@MapperScan(basePackages = "com.skhu.NWFA.sejongGame.sejongDao")
 public class DataAccessConfig {
 	//test
 	@Bean

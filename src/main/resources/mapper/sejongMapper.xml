@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.skhu.NWFA.sejongGame.sejongDao.sejongDao">
+	<select id="example"
+		resultType="com.skhu.NWFA.sejongGame.sejongModel.sejongModel">
+		select * from syllables order by rand();
+	</select>
+
+
+</mapper>
