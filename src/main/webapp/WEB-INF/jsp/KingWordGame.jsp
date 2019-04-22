@@ -116,24 +116,24 @@
 	<div class="viewBox">
 		<div class="ControlBox">
 			<div class="page_main KingWordGamePanel">
-					<button id="KWGQ_BT1" class="KWGQ_BT" value="${li.1 }"
-						onclick="KingWordGame1_click(this.value)">아</button>
-					<button id="KWGQ_BT2" class="KWGQ_BT" value="지"
-						onclick="KingWordGame2_click(this.value)">지</button>
-					<button id="KWGQ_BT3" class="KWGQ_BT" value="마"
-						onclick="KingWordGame3_click(this.value)">마</button>
-					<button id="KWGQ_BT4" class="KWGQ_BT" value="즈"
-						onclick="KingWordGame4_click(this.value)">즈</button>
-					<button id="KWGQ_BT5" class="KWGQ_BT" value="가"
-						onclick="KingWordGame5_click(this.value)">가</button>
-					<button id="KWGQ_BT6" class="KWGQ_BT" value="드"
-						onclick="KingWordGame6_click(this.value)">드</button>
-					<button id="KWGQ_BT7" class="KWGQ_BT" value="라"
-						onclick="KingWordGame7_click(this.value)">라</button>
-					<button id="KWGQ_BT8" class="KWGQ_BT" value="려"
-						onclick="KingWordGame8_click(this.value)">려</button>
-					<button id="KWGQ_BT9" class="KWGQ_BT" value="려"
-						onclick="KingWordGame9_click(this.value)">려</button>
+					<button id="KWGQ_BT1" class="KWGQ_BT" value="${li[0].syllable}"
+						onclick="KingWordGame1_click(this.value)">${li[0].syllable}</button>
+					<button id="KWGQ_BT2" class="KWGQ_BT" value="${li[1].syllable}"
+						onclick="KingWordGame2_click(this.value)">${li[1].syllable}</button>
+					<button id="KWGQ_BT3" class="KWGQ_BT" value="${li[2].syllable}"
+						onclick="KingWordGame3_click(this.value)">${li[2].syllable}</button>
+					<button id="KWGQ_BT4" class="KWGQ_BT" value="${li[3].syllable}"
+						onclick="KingWordGame4_click(this.value)">${li[3].syllable}</button>
+					<button id="KWGQ_BT5" class="KWGQ_BT" value="${li[4].syllable}"
+						onclick="KingWordGame5_click(this.value)">${li[4].syllable}</button>
+					<button id="KWGQ_BT6" class="KWGQ_BT" value="${li[5].syllable}"
+						onclick="KingWordGame6_click(this.value)">${li[5].syllable}</button>
+					<button id="KWGQ_BT7" class="KWGQ_BT" value="${li[6].syllable}"
+						onclick="KingWordGame7_click(this.value)">${li[6].syllable}</button>
+					<button id="KWGQ_BT8" class="KWGQ_BT" value="${li[7].syllable}"
+						onclick="KingWordGame8_click(this.value)">${li[7].syllable}</button>
+					<button id="KWGQ_BT9" class="KWGQ_BT" value="${li[8].syllable}"
+						onclick="KingWordGame9_click(this.value)">${li[8].syllable}</button>
 			</div>
 			<footer class="page_main KingWordGamefooter">
 				<div class="KW_back KW_BTstyle">
