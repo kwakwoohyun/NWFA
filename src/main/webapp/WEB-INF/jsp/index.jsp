@@ -36,11 +36,11 @@
     <article class="page_main" >
       <div id="mainpage_logo"></div>
       <div class="UI UI_bt" onclick="location.href='KingWordGame'" data-transition="flip">게임</div>
-      <div class="UI UI_bt" onclick="location.href='personal'" data-transition="flip">사전</div>
+      <div class="UI UI_bt" onclick="location.href='dictionary'" data-transition="flip">사전</div>
     </article>
     <footer class="page_main flex justify align-end" >
-      <div class="UI mini_bt justify align-end" onclick="location.href='personal.html'" data-transition="flip">종료</div>
-      <div class="UI mini_bt justify align-end" onclick="location.href='personal.html'" data-transition="flip">사전</div>
+      <div class="UI mini_bt justify align-end" onclick="location.href='dictionary'" data-transition="flip">종료</div>
+      <div class="UI mini_bt justify align-end" onclick="location.href='dictionary'" data-transition="flip">사전</div>
 
     </footer>
   </body>

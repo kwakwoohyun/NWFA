@@ -14,11 +14,11 @@ public class sejongServiceImpl implements sejongService {
 
 	@Autowired
 	sejongDao dao;
-	
+
 	@Override
-	public List<syllablesModel> example() {
+	public List<syllablesModel> example(int count) {
 		// TODO Auto-generated method stub
-		return dao.example();
+		return dao.example(count);
 	}
 
 	@Override

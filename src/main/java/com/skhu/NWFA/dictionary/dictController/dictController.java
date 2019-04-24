@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class dictController {
 
-	@RequestMapping("personal")
+	@RequestMapping("dictionary")
 	public String dict() {
-		return "personal";
+		return "dictionary";
 	}
-	
+
 }

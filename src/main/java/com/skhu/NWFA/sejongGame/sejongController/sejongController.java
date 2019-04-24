@@ -1,5 +1,8 @@
 package com.skhu.NWFA.sejongGame.sejongController;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,19 +16,27 @@ import com.skhu.NWFA.sejongGame.sejongService.sejongService;
 
 @Controller
 public class sejongController {
-	
+
 	@Autowired
 	sejongService service;
-	
+
 	@RequestMapping("KingWordGame")
 	public String KingWordGame(Model model) {
-		
-		List<syllablesModel> list = service.example();
+
 		wordsModel words = service.sejongWords(1);
-		model.addAttribute("li",list);
+		int wordlength = words.getJustice().length(); //받아오는 단어 수가 몇 개인지
+		int count = 9-wordlength; //받아오는 단어를 제외한 랜덤된 음절 수를 구하기 위함
+		List<syllablesModel> list = service.example(count);
+		List<String> syllablesArray = new ArrayList<String>(); //실제 단어 리스트
+		List<String> wordArray = new ArrayList<String>(Arrays.asList(words.getJustice().split("")));//가짜 음절 리스트
+		for(syllablesModel syllable: list) {
+			syllablesArray.add(syllable.getSyllable());
+		}//데이터베이스에서 받아오는 객체는 'syllables'모델 이기 때문에 'string'으로 형 변환
+		syllablesArray.addAll(wordArray); //뷰에 출력하기 위한 9개의 단어를 실제 단어 리스트와 가짜 음절 리스트를 합쳐서 구함
+		Collections.shuffle(syllablesArray); //리스트를 랜덤으로 섞어줌
+		model.addAttribute("li",syllablesArray);
 		model.addAttribute("word", words);
-		
-		return "KingWordGame";
+
+		return "/game/KingWordGame";
 	}
-	
 }

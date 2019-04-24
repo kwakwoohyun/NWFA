@@ -5,7 +5,7 @@
 <mapper namespace="com.skhu.NWFA.sejongGame.sejongDao.sejongDao">
 	<select id="example"
 		resultType="com.skhu.NWFA.sejongGame.sejongModel.syllablesModel">
-		select * from syllables order by rand()
+		select * from syllables order by rand() Limit #{count}
 	</select>
 
 	<select id="sejongWords"
