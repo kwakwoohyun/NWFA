@@ -2,13 +2,13 @@ package com.skhu.NWFA.sejongGame.sejongService;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
-import com.skhu.NWFA.sejongGame.sejongModel.sejongModel;
+import com.skhu.NWFA.sejongGame.sejongModel.syllablesModel;
+import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
 
 
 public interface sejongService {
 
-	List<sejongModel> example();
+	List<syllablesModel> example();
+	wordsModel sejongWords(int id);
 	
 }

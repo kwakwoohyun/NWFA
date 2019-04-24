@@ -7,7 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.skhu.NWFA.sejongGame.sejongModel.sejongModel;
+import com.skhu.NWFA.sejongGame.sejongModel.syllablesModel;
+import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
 import com.skhu.NWFA.sejongGame.sejongService.sejongService;
 
 @Controller
@@ -19,8 +20,10 @@ public class sejongController {
 	@RequestMapping("KingWordGame")
 	public String KingWordGame(Model model) {
 		
-		List<sejongModel> list = service.example();
+		List<syllablesModel> list = service.example();
+		wordsModel words = service.sejongWords(1);
 		model.addAttribute("li",list);
+		model.addAttribute("word", words);
 		
 		return "KingWordGame";
 	}

@@ -149,8 +149,7 @@
 				<div class="KWGQ_Stage_panel">Stage 1-1</div>
 
 				<div class="KWGQ_quiz_panel">
-					스포츠 도박, 주식 같은 것을 하는 <br> 사람들이 쓰던 용어 이다. <br> 요즘에는 비트코인
-					시장에서 <br> 자주 쓰인다고 한다.<br>
+					${word.meaning}<br>
 				</div>
 			</div>
 			<div class="info_panel flex">

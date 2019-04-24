@@ -1,6 +1,6 @@
 package com.skhu.NWFA.sejongGame.sejongModel;
 
-public class sejongModel {
+public class syllablesModel {
 
 	private int syllable_id;
 	private String syllable;

@@ -4,9 +4,13 @@
 
 <mapper namespace="com.skhu.NWFA.sejongGame.sejongDao.sejongDao">
 	<select id="example"
-		resultType="com.skhu.NWFA.sejongGame.sejongModel.sejongModel">
-		select * from syllables order by rand();
+		resultType="com.skhu.NWFA.sejongGame.sejongModel.syllablesModel">
+		select * from syllables order by rand()
 	</select>
 
+	<select id="sejongWords"
+		resultType="com.skhu.NWFA.sejongGame.sejongModel.wordsModel">
+		select * from words where word_id = #{id}
+	</select>
 
 </mapper>

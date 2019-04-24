@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.springframework.context.annotation.Configuration;
 
-import com.skhu.NWFA.sejongGame.sejongModel.sejongModel;
+import com.skhu.NWFA.sejongGame.sejongModel.syllablesModel;
+import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
 
 @Configuration
 public interface sejongDao {
-	List<sejongModel> example();
-
+	List<syllablesModel> example();
+	wordsModel sejongWords(int id);
 }
