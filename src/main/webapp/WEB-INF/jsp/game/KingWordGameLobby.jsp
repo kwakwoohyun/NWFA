@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <title>메인페이지</title>
 <meta name="viewport" content="width=device-width; initial-scale=1.0" />
-<link rel="stylesheet" href="project.css">
+<link rel="stylesheet" href="/project.css">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
