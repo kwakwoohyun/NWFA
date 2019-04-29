@@ -44,7 +44,6 @@ public class sejongController {
 			int index = syllablesArray.indexOf(word);
 			map.put(String.valueOf(wordindex++),index);
 		}
-		System.out.println(map.values());
 		model.addAttribute("wordIndex", map);
 		model.addAttribute("word", words);
 

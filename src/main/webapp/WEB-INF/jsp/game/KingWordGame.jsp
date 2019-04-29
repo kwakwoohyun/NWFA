@@ -308,8 +308,7 @@
 				<div class="KW_Hint KW_BTstyle" onclick="hint();">ÈùÆ®</div>
 				<script>
 					function hint() {
-						var index= ${wordIndex["0"]}
-						alert(index)
+						var index= ${wordIndex["0"]}+1;
 						document.querySelector('#KWGQ_BT'+index).className='KWGQ_BT2';
 					}
 				</script>
