@@ -13,6 +13,11 @@ public class userController {
 	
 	@RequestMapping("login")
 	public String login() {
-		return "login";
+		return "/login/login";
+	}
+	
+	@RequestMapping("accounts")
+	public String accounts() {
+		return "/login/accounts";
 	}
 }

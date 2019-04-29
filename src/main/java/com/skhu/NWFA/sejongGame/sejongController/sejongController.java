@@ -23,6 +23,11 @@ public class sejongController {
 	@Autowired
 	sejongService service;
 
+	@RequestMapping("KingWordGameLobby")
+	public String KingWordGameLobby(Model model) {
+		return "/game/KingWordGameLobby";
+	}
+	
 	@RequestMapping("KingWordGame")
 	public String KingWordGame(Model model) {
 
@@ -44,6 +49,8 @@ public class sejongController {
 			int index = syllablesArray.indexOf(word);
 			map.put(String.valueOf(wordindex++),index);
 		}
+		//
+		model.addAttribute("wordlength", wordlength);
 		model.addAttribute("wordIndex", map);
 		model.addAttribute("word", words);
 
@@ -63,6 +70,8 @@ public class sejongController {
 		}//데이터베이스에서 받아오는 객체는 'syllables'모델 이기 때문에 'string'으로 형 변환
 		syllablesArray.addAll(wordArray); //뷰에 출력하기 위한 9개의 단어를 실제 단어 리스트와 가짜 음절 리스트를 합쳐서 구함
 		Collections.shuffle(syllablesArray); //리스트를 랜덤으로 섞어줌
+		
+		model.addAttribute("wordlength", wordlength);
 		model.addAttribute("li",syllablesArray);
 		model.addAttribute("word", words);
 

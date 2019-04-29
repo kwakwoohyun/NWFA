@@ -13,7 +13,6 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 @Configuration
 @MapperScan(basePackages = "com.skhu.NWFA.sejongGame.sejongDao")
 public class DataAccessConfig {
-	//test
 	@Bean
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception{
 		

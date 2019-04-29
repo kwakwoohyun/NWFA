@@ -1,24 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html lang="ko" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <style type="text/css">
-      a{
-
-      }
-    </style>
-  </head>
-  <body>
-  <div class="mke">
-
-  </div>
-
-  </body>
-</html>
-
 
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
@@ -59,7 +40,7 @@
       <a class="Sort_BT_game Sort_BT" href="#">사전</a>
       <h1>로그인회원가입</h1>
       <a class="Sort_BT_game Sort_BT" href="login">★로그인</a>
-      <a class="Sort_BT_game Sort_BT" href="accounts.html">★회원가입</a>
+      <a class="Sort_BT_game Sort_BT" href="accounts">★회원가입</a>
       <h1>사용자메뉴</h1>
       <a class="Sort_BT_game Sort_BT" href="#">랭킹</a>
       <a class="Sort_BT_game Sort_BT" href="#">점수</a>

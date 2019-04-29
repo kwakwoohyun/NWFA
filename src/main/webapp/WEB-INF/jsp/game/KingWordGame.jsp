@@ -24,7 +24,7 @@
 		if (btnState[0] == -1) {
 			clickWord = clickWord + event;
 			document.querySelector('#KWGQ_BT1').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT1').className='KWGQ_BT';
+			document.querySelector('#KWGQ_BT1').className = 'KWGQ_BT';
 			count++;
 			check();
 		} else {
@@ -41,7 +41,7 @@
 		if (btnState[1] == -1) {
 			clickWord = clickWord + event;
 			document.querySelector('#KWGQ_BT2').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT2').className='KWGQ_BT';
+			document.querySelector('#KWGQ_BT2').className = 'KWGQ_BT';
 			count++;
 			check();
 		} else {
@@ -58,7 +58,7 @@
 		if (btnState[2] == -1) {
 			clickWord = clickWord + event;
 			document.querySelector('#KWGQ_BT3').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT3').className='KWGQ_BT';
+			document.querySelector('#KWGQ_BT3').className = 'KWGQ_BT';
 			count++;
 			check();
 		} else {
@@ -75,7 +75,7 @@
 		if (btnState[3] == -1) {
 			clickWord = clickWord + event;
 			document.querySelector('#KWGQ_BT4').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT4').className='KWGQ_BT';
+			document.querySelector('#KWGQ_BT4').className = 'KWGQ_BT';
 			count++;
 			check();
 		} else {
@@ -92,7 +92,7 @@
 		if (btnState[4] == -1) {
 			clickWord = clickWord + event;
 			document.querySelector('#KWGQ_BT5').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT5').className='KWGQ_BT';
+			document.querySelector('#KWGQ_BT5').className = 'KWGQ_BT';
 			count++;
 			check();
 		} else {
@@ -109,7 +109,7 @@
 		if (btnState[5] == -1) {
 			clickWord = clickWord + event;
 			document.querySelector('#KWGQ_BT6').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT6').className='KWGQ_BT';
+			document.querySelector('#KWGQ_BT6').className = 'KWGQ_BT';
 			count++;
 			check();
 		} else {
@@ -126,7 +126,7 @@
 		if (btnState[6] == -1) {
 			clickWord = clickWord + event;
 			document.querySelector('#KWGQ_BT7').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT7').className='KWGQ_BT';
+			document.querySelector('#KWGQ_BT7').className = 'KWGQ_BT';
 			count++;
 			check();
 		} else {
@@ -143,7 +143,7 @@
 		if (btnState[7] == -1) {
 			clickWord = clickWord + event;
 			document.querySelector('#KWGQ_BT8').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT8').className='KWGQ_BT';
+			document.querySelector('#KWGQ_BT8').className = 'KWGQ_BT';
 			count++;
 			check();
 		} else {
@@ -160,7 +160,7 @@
 		if (btnState[8] == -1) {
 			clickWord = clickWord + event;
 			document.querySelector('#KWGQ_BT9').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT9').className='KWGQ_BT';
+			document.querySelector('#KWGQ_BT9').className = 'KWGQ_BT';
 			count++;
 			check();
 		} else {
@@ -192,12 +192,12 @@
 		check();
 	}
 	function check() {
-		
+
 		if (time < 1) {
 			alert('더이상 게임을 진행할 수 없습니다.');
 			setInitialize();
 			setDisable();
-		} else if (count == 3) {
+		} else if (count == "${wordlength}") {
 			if (clickWord == '${word.justice}') {
 				setDisable();
 				setTimeout(function() {
@@ -302,26 +302,29 @@
 			</div>
 			<footer class="page_main KingWordGamefooter">
 				<div class="KW_back KW_BTstyle">
-					<a href="/">뒤로</a>
+					<a href="KingWordGameLobby">뒤로</a>
 				</div>
 				<div class="KW_regame KW_BTstyle" onclick="window.location.reload()">다시하기</div>
 				<div class="KW_Hint KW_BTstyle" onclick="hint();">힌트</div>
 				<script>
 					function hint() {
-						var index= ${wordIndex["0"]}+1;
-						document.querySelector('#KWGQ_BT'+index).className='KWGQ_BT2';
+						var index = ${wordIndex["0"]}+1;
+						document.querySelector('#KWGQ_BT' + index).className = 'KWGQ_BT2';
 					}
 				</script>
 			</footer>
 		</div>
 		<div class="DisplayBox">
 			<div class="KWGQ_quiz">
-
 				<div class="KWGQ_Stage_panel">Stage 1-1</div>
-
 				<div class="KWGQ_quiz_panel">
 					${word.meaning}<br>
 				</div>
+			</div>
+			<div class="KWGQ_answer">
+			<c:forEach var="x" begin="0" end="${wordlength-1}" step="1">
+				<div class="KWGQ_answer_ward">_</div>
+			</c:forEach>
 			</div>
 			<div class="info_panel flex">
 				<div class="point_panel KingWordGameporint flex">

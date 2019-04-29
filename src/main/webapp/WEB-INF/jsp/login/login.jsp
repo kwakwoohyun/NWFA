@@ -75,7 +75,7 @@
   </article>
   <footer class="page_main Userfooter">
     <div class="KW_back KW_BTstyle">
-      <a href="index.html">뒤로</a>
+      <a href="/">뒤로</a>
     </div>
     <div class="KW_regame KW_BTstyle">
 
