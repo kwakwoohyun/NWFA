@@ -22,7 +22,7 @@ public class sejongServiceImpl implements sejongService {
 	}
 
 	@Override
-	public wordsModel sejongWords(int id) {
+	public wordsModel sejongWords(String id) {
 		// TODO Auto-generated method stub
 		return dao.sejongWords(id);
 	}

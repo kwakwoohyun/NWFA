@@ -205,7 +205,7 @@
 				}, 500);
 				setTimeout(
 						function() {
-							window.location.href = "/KingWordGameNext/${word.word_id+1}";
+							window.location.href = "/KingWordGame/${word.word_id+1}";
 						}, 300);
 			} else {
 				time--;
@@ -302,14 +302,14 @@
 			</div>
 			<footer class="page_main KingWordGamefooter">
 				<div class="KW_back KW_BTstyle">
-					<a href="KingWordGameLobby">뒤로</a>
+					<a href="/KingWordGameLobby">뒤로</a>
 				</div>
 				<div class="KW_regame KW_BTstyle" onclick="window.location.reload()">다시하기</div>
 				<div class="KW_Hint KW_BTstyle" onclick="hint();">힌트</div>
 				<script>
 					function hint() {
 						var index = ${wordIndex["0"]}+1;
-						document.querySelector('#KWGQ_BT' + index).className = 'KWGQ_BT2';
+						document.querySelector('#answer' + index).innerHTML =${li[index]} ;
 					}
 				</script>
 			</footer>
@@ -322,8 +322,8 @@
 				</div>
 			</div>
 			<div class="KWGQ_answer">
-			<c:forEach var="x" begin="0" end="${wordlength-1}" step="1">
-				<div class="KWGQ_answer_ward">_</div>
+			<c:forEach var="x" varStatus="index" begin="0" end="${wordlength-1}" step="1">
+				<div class="KWGQ_answer_ward" id="answer${index.count }">_</div>
 			</c:forEach>
 			</div>
 			<div class="info_panel flex">

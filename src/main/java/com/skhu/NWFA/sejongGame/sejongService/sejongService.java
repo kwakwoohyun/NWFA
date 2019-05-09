@@ -9,6 +9,6 @@ import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
 public interface sejongService {
 
 	List<syllablesModel> example(int count);
-	wordsModel sejongWords(int id);
+	wordsModel sejongWords(String id);
 
 }
