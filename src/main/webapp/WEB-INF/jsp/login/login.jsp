@@ -1,28 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko" dir="ltr">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>¸ÞÀÎÆäÀÌÁö</title>
-  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
-  <link rel="stylesheet" href="project.css">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-  <script type="text/javascript">
-  </script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width", initial-scale="1">
+<link rel="stylesheet" href="project.css">
+<title>JSP ê²Œì‹œíŒ ì›¹ ì‚¬ì´íŠ¸</title>
 </head>
-
 <body id="page_account" class="page_main page_normal" class="background">
-  <header class="page_main">
+	<header class="page_main">
     <div class="L_headerbar">
       <div id="mini_logo">
       </div>
     </div>
     <div class="C_headerbar">
       <div class="personal_titleBar">
-        | ·Î±×ÀÎ
+        | ë¡œê·¸ì¸
       </div>
     </div>
     <div class="R_headerbar">
@@ -33,49 +27,51 @@
     <div class="login_main">
       <section class="login_page">
       <div class="login_Introduce">
-        ¼¼´ë°ø°¨! ÄûÁî°ÔÀÓ ¸ðµÎÀÇ ½ÅÁ¶¾î¿¡<br>
-        ´Ù½Ã¿À½Å°ÍÀ» È¯¿µÇÕ´Ï´Ù.
+        ì„¸ëŒ€ê³µê°! í€´ì¦ˆê²Œìž„ ëª¨ë‘ì˜ ì‹ ì¡°ì–´ì—<br>
+        ë‹¤ì‹œì˜¤ì‹ ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤.
+      </div>
+	<div class="container">
+				<form method="post" action="loginAction" id="loginAction">
+					<div class="account_form">
+        <label for="ì´ë©”ì¼">ì•„ì´ë””</label>
+        <input class="account_form_input" type="text" name="userID" value="" placeholder="ì•„ì´ë””ë¥¼ ìž…ë ¥í•˜ì„¸ìš”">
       </div>
       <div class="account_form">
-        <label for="ÀÌ¸ÞÀÏ">ÀÌ¸ÞÀÏ</label>
-        <input class="account_form_input" type="text" name="ÀÌ¸ÞÀÏ" value="" placeholder="ÀÌ¸ÞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä">
-      </div>
-      <div class="account_form">
-        <label for="ÀÌ¸ÞÀÏ">ºñ¹Ð¹øÈ£</label>
-        <input class="account_form_input" type="password" name="ºñ¹Ð¹øÈ£" value="" placeholder="ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä">
+        <label for="ì´ë©”ì¼">ë¹„ë°€ë²ˆí˜¸</label>
+        <input class="account_form_input" type="password" name="userPassword" value="" placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”">
       </div>
       <div class="find_id">
-        <a href="accounts.html">È¸¿ø°¡ÀÔ</a>
-        <a href="#">¾ÆÀÌµðÃ£±â</a>
+        <a href="account">íšŒì›ê°€ìž…</a>
+        <a href="#">ì•„ì´ë””ì°¾ê¸°</a>
       </div>
-
-      <div class="login_id">
-        ·Î±×ÀÎ
-      </div>
-
-      </section>
+      <div class="login_id"><a href="#"onclick="document.getElementById('loginAction').submit();">
+				        ë¡œê·¸ì¸
+				      </a></div>
+				</form>
+			</div>
+	</section>
       <section class="intro">
         <div class="">
-        È¸¿øÀÌ ¾Æ´Ï¶ó°í¿ä?<br>
-        È¸¿øÀ¸·Î ¹«·á·Î °¡ÀÔÇÏ¼¼¿ä
+        íšŒì›ì´ ì•„ë‹ˆë¼ê³ ìš”?<br>
+        íšŒì›ìœ¼ë¡œ ë¬´ë£Œë¡œ ê°€ìž…í•˜ì„¸ìš”
         </div>
         <div class="">
-          ¼¼´ë°ø°¨ ÄûÁî°ÔÀÓ ¸ðµÎÀÇ ½ÅÁ¶¾î¿¡ °¡ÀÔÇÏ¼¼¿ä.<br>
-          ÀÚ½ÅÀÇ Á¡¼ö¿Í ·©Å·À» º¼ ¼ö ÀÖ½À´Ï´Ù.<br>
-          ´õ ½±°í °¡Á·°ú °¡±îÀÌ ´ëÈ­ÇÒ ¼ö ÀÖ½À´Ï´Ù.<br>
+          ì„¸ëŒ€ê³µê° í€´ì¦ˆê²Œìž„ ëª¨ë‘ì˜ ì‹ ì¡°ì–´ì— ê°€ìž…í•˜ì„¸ìš”.<br>
+          ìžì‹ ì˜ ì ìˆ˜ì™€ ëž­í‚¹ì„ ë³¼ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.<br>
+          ë” ì‰½ê³  ê°€ì¡±ê³¼ ê°€ê¹Œì´ ëŒ€í™”í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.<br>
         </div>
         <div class="">
-          ´Ü 1ºÐ¸¸¿¡<br>
-          °£´ÜÇÏ°Ô °¡ÀÔ ÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù<br>
-          ¾îµð¼­³ª ÀÚ½ÅÀÇ °ÔÁ¤À¸·Î<br>
-          °ÔÀÓÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù <br>
+          ë‹¨ 1ë¶„ë§Œì—<br>
+          ê°„ë‹¨í•˜ê²Œ ê°€ìž… í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤<br>
+          ì–´ë””ì„œë‚˜ ìžì‹ ì˜ ê²Œì •ìœ¼ë¡œ<br>
+          ê²Œìž„í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤ <br>
         </div>
       </section>
     </div>
   </article>
   <footer class="page_main Userfooter">
     <div class="KW_back KW_BTstyle">
-      <a href="/">µÚ·Î</a>
+      <a href="index.jsp">ë’¤ë¡œ</a>
     </div>
     <div class="KW_regame KW_BTstyle">
 
@@ -84,6 +80,6 @@
 
     </div>
   </footer>
-</body>
 
+</body>
 </html>

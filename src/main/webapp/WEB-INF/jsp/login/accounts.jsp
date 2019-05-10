@@ -1,19 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
-<html lang="ko" dir="ltr">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>¸ÞÀÎÆäÀÌÁö</title>
-  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
-  <link rel="stylesheet" href="project.css">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-  <script type="text/javascript">
-  </script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="project.css">
+<title>íšŒì›ê°€ìž…</title>
 </head>
-
 <body id="page_account" class="page_main page_normal" class="background">
   <header class="page_main">
     <div class="L_headerbar">
@@ -22,7 +18,7 @@
     </div>
     <div class="C_headerbar">
       <div class="personal_titleBar">
-        | È¸¿ø°¡ÀÔ
+        | íšŒì›ê°€ìž…
       </div>
     </div>
     <div class="R_headerbar">
@@ -32,63 +28,93 @@
   <article class="page_main">
     <div class="account_main">
       <section class="account">
-
-      <div class="account_form">
-        <label for="ÀÌ¸ÞÀÏ">ÀÌ¸ÞÀÏ</label>
-        <input class="account_form_input" type="text" name="ÀÌ¸ÞÀÏ" value="" placeholder="ÀÌ¸ÞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä">
+      
+      <div class="container">
+ <form method="post" action="userRegister" id="userRegister">
+	 <div class="account_form">
+        <label for="ì´ë©”ì¼">ì•„ì´ë””</label>
+        <input class="account_form_input" type="text" name="userID" id="userID" value="" placeholder="ì•„ì´ë””ë¥¼ ìž…ë ¥í•˜ì„¸ìš”" maxLength="20">
       </div>
       <div class="account_form">
-        <label for="ÀÌ¸ÞÀÏ">ºñ¹Ð¹øÈ£</label>
-        <input class="account_form_input" type="password" name="ºñ¹Ð¹øÈ£" value="" placeholder="ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä">
+        <label for="ì´ë©”ì¼">ë¹„ë°€ë²ˆí˜¸</label>
+        <input class="account_form_input" type="password" name="userPassword1" id="userPassword1" value="" placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”" maxLength="20">
       </div>
       <div class="account_form">
-        <label for="ÀÌ¸ÞÀÏ">ºñ¹Ð¹øÈ£ È®ÀÎ</label>
-        <input class="account_form_input" type="password" name="ºñ¹Ð¹øÈ£È®ÀÎ" value="" placeholder="ºñ¹Ð¹øÈ£¸¦ ÇÑ¹ø´õ ÀÔ·ÂÇÏ¼¼¿ä">
+        <label for="ì´ë©”ì¼">ë¹„ë°€ë²ˆí˜¸ í™•ì¸</label>
+        <input class="account_form_input" type="password" name="userPassword2" id="userPassword2" value="" placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ í•œë²ˆë” ìž…ë ¥í•˜ì„¸ìš”" maxLength="20">
       </div>
       <div class="account_form">
-        <label for="ÀÌ¸ÞÀÏ">ÀÌ¸§</label>
-        <input class="account_form_input" type="text" name="ÀÌ¸§" value="" placeholder="ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä">
+        <label for="ì´ë©”ì¼">ì´ë¦„</label>
+        <input class="account_form_input" type="text" name="userName" id="userName" value="" placeholder="ì´ë¦„ì„ ìž…ë ¥í•˜ì„¸ìš”" maxLength="20">
       </div>
       <div class="account_form">
-        <label for="ÀÌ¸ÞÀÏ">³ªÀÌ </label>
-        <input class="account_form_input" type="text" name="³ªÀÌ" value="" placeholder="³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä">
+        <label for="ì´ë©”ì¼">ë‚˜ì´ </label>
+        <input class="account_form_input" type="text" name="userAge" id="userAge" value="" placeholder="ë‚˜ì´ë¥¼ ìž…ë ¥í•˜ì„¸ìš”">
       </div>
       <div class="account_form">
-        <label for="ÀÌ¸ÞÀÏ">¼ºº°À» ÀÔ·ÂÇÏ¼¼¿ä</label>
+        <label for="ì´ë©”ì¼">ì„±ë³„ì„ ìž…ë ¥í•˜ì„¸ìš”</label>
         <div class="account_form_sex">
-          ³²ÀÚ
-          <input type="radio" name="¼ºº°" value="1">
-          ¿©ÀÚ
-          <input type="radio" name="¼ºº°" value="2">
+          ë‚¨ìž
+          <input type="radio" name="userGender" value="ë‚¨ìž">
+          ì—¬ìž
+          <input type="radio" name="userGender" value="ì—¬ìž">
         </div>
       </div>
-      <div class="make_id">
-        È¸¿ø°¡ÀÔ
+      <div class="account_form">
+        <label for="ì´ë©”ì¼">ì´ë©”ì¼</label>
+        <input class="account_form_input" type="text" name="userEmail" id="userEmail" value="" placeholder="ì´ë©”ì¼ì„ ìž…ë ¥í•˜ì„¸ìš”" maxLength="30">
       </div>
-
+		<div class="make_id"><a href="#"onclick="document.getElementById('userRegister').submit();">
+        íšŒì›ê°€ìž…
+      </a></div>
+      <%
+	  String messageContent = null;
+	if(session.getAttribute("messageContent") != null){
+		messageContent = (String) session.getAttribute("messageContent");
+	}
+	 String messageType = null;
+		if(session.getAttribute("messageType") != null){
+			messageType = (String) session.getAttribute("messageType");
+		} 
+			if(messageContent != null){
+				if(messageContent == "íšŒì›ê°€ìž…ì— ì„±ê³µí–ˆìŠµë‹ˆë‹¤."){
+					PrintWriter script = response.getWriter();
+					script.println("<script>");
+					script.println("location.href='login'");
+					script.println("</script>");
+				}
+    %>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="ì´ë©”ì¼"><%= messageContent %></label>
+	<%
+		session.removeAttribute("messageContent");
+		session.removeAttribute("messageType");
+			}
+	%>
+     </form>
+  </div>
       </section>
       <section class="intro">
         <div class="">
-        È¸¿øÀÌ ¾Æ´Ï¶ó°í¿ä?<br>
-        È¸¿øÀ¸·Î ¹«·á·Î °¡ÀÔÇÏ¼¼¿ä
+        íšŒì›ì´ ì•„ë‹ˆë¼ê³ ìš”?<br>
+        íšŒì›ìœ¼ë¡œ ë¬´ë£Œë¡œ ê°€ìž…í•˜ì„¸ìš”
         </div>
         <div class="">
-          ¼¼´ë°ø°¨ ÄûÁî°ÔÀÓ ¸ðµÎÀÇ ½ÅÁ¶¾î¿¡ °¡ÀÔÇÏ¼¼¿ä.<br>
-          ÀÚ½ÅÀÇ Á¡¼ö¿Í ·©Å·À» º¼ ¼ö ÀÖ½À´Ï´Ù.<br>
-          ´õ ½±°í °¡Á·°ú °¡±îÀÌ ´ëÈ­ÇÒ ¼ö ÀÖ½À´Ï´Ù.<br>
+          ì„¸ëŒ€ê³µê° í€´ì¦ˆê²Œìž„ ëª¨ë‘ì˜ ì‹ ì¡°ì–´ì— ê°€ìž…í•˜ì„¸ìš”.<br>
+          ìžì‹ ì˜ ì ìˆ˜ì™€ ëž­í‚¹ì„ ë³¼ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.<br>
+          ë” ì‰½ê³  ê°€ì¡±ê³¼ ê°€ê¹Œì´ ëŒ€í™”í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.<br>
         </div>
         <div class="">
-          ´Ü 1ºÐ¸¸¿¡<br>
-          °£´ÜÇÏ°Ô °¡ÀÔ ÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù<br>
-          ¾îµð¼­³ª ÀÚ½ÅÀÇ °ÔÁ¤À¸·Î<br>
-          °ÔÀÓÇÏ½Ç ¼ö ÀÖ½À´Ï´Ù <br>
+          ë‹¨ 1ë¶„ë§Œì—<br>
+          ê°„ë‹¨í•˜ê²Œ ê°€ìž… í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤<br>
+          ì–´ë””ì„œë‚˜ ìžì‹ ì˜ ê³„ì •ìœ¼ë¡œ<br>
+          ê²Œìž„í•˜ì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤ <br>
         </div>
       </section>
     </div>
   </article>
-  <footer class="page_main Userfooter">
+   <footer class="page_main Userfooter">
     <div class="KW_back KW_BTstyle">
-      <a href="/">µÚ·Î</a>
+      <a href="index.jsp">ë’¤ë¡œ</a>
     </div>
     <div class="KW_regame KW_BTstyle">
 
@@ -96,7 +122,6 @@
     <div class="KW_Hint KW_BTstyle">
 
     </div>
-  </footer>
+  </footer> 
 </body>
-
 </html>

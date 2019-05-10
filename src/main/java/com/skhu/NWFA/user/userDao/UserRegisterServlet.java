@@ -1,49 +1,17 @@
-package com.skhu.NWFA.user.userController;
+package com.skhu.NWFA.user.userDao;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+public class UserRegisterServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-import com.skhu.NWFA.user.userDao.UserDAO;
-
-@Controller
-public class userController {
-
-	@RequestMapping("tmepmenu")
-	public String tmepmenu() {
-		return "tmepmenu";
-	}
-
-	@RequestMapping("login")
-	public String login() {
-		return "/login/login";
-	}
-	
-	@RequestMapping("logout")
-	public String logout(){
-		return "/login/logout";
-	}
-
-	@RequestMapping("account")
-	public String accounts() {
-		return "/login/accounts";
-	}
-
-	@RequestMapping("loginAction")
-	public String loginAction() {
-		return "/login/loginAction";
-	}
-
-	@RequestMapping("userRegister")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		final long serialVersionUID = 1L;
-
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		String userID = request.getParameter("userID");
@@ -59,25 +27,25 @@ public class userController {
 				|| userEmail == null || userEmail.equals("")) {
 			request.getSession().setAttribute("messageType", "오류 메시지");
 			request.getSession().setAttribute("messageContent", "모든 내용을 입력하세요.");
-			response.sendRedirect("account");
+			response.sendRedirect("account.jsp");
 			return;
 		}
 		if (!userPassword1.equals(userPassword2)) {
 			request.getSession().setAttribute("messageType", "오류 메시지");
 			request.getSession().setAttribute("messageContent", "비밀번호가 일치하지 않습니다.");
-			response.sendRedirect("account");
+			response.sendRedirect("account.jsp");
 			return;
 		}
 		int result = new UserDAO().register(userID, userPassword1, userName, userAge, userGender, userEmail);
 		if (result == 1) {
 			request.getSession().setAttribute("messageType", "성공 메시지");
 			request.getSession().setAttribute("messageContent", "회원가입에 성공했습니다.");
-			response.sendRedirect("account");
+			response.sendRedirect("account.jsp");
 			return;
 		} else {
 			request.getSession().setAttribute("messageType", "오류 메시지");
 			request.getSession().setAttribute("messageContent", "이미 존재하는 회원입니다.");
-			response.sendRedirect("account");
+			response.sendRedirect("account.jsp");
 			return;
 		}
 	}
