@@ -2,19 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.skhu.NWFA.sejongGame.sejongDao.sejongDao">
+<mapper namespace="com.skhu.NWFA.yaminGame.yaminDao.yaminDao">
 	<select id="example"
-		resultType="com.skhu.NWFA.sejongGame.sejongModel.syllablesModel">
+		resultType="com.skhu.NWFA.yaminGame.yaminModel.syllablesModel">
 		select * from syllables order by rand() Limit #{count}
 	</select>
-
-	<select id="sejongWords"
-		resultType="com.skhu.NWFA.sejongGame.sejongModel.wordsModel">
+	
+	<select id="yaminWords"
+		resultType="com.skhu.NWFA.yaminGame.yaminModel.wordsModel">
 		select word_id, justice, mean, gameNub from
 		sejong inner
 		join word on
-		sejong.Word_word_id = capstonedesign.word.word_id and
-		sejong.sejong_id=#{sejong_id};
+		yamin.Word_word_id = word.word_id and
+		yamin.yamin_id=#{yamin_id};
 	</select>
-
 </mapper>

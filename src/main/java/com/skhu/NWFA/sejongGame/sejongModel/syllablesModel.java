@@ -2,25 +2,25 @@ package com.skhu.NWFA.sejongGame.sejongModel;
 
 public class syllablesModel {
 
-	private int syllable_id;
-	private String syllable;
+	private int syllables_id;
+	private String syllables;
 	
 	public int getSyllable_id() {
-		return syllable_id;
+		return syllables_id;
 	}
 	public void setSyllable_id(int syllable_id) {
-		this.syllable_id = syllable_id;
+		this.syllables_id = syllable_id;
 	}
 	public String getSyllable() {
-		return syllable;
+		return syllables;
 	}
-	public void setSyllable(String syllable) {
-		this.syllable = syllable;
+	public void setSyllable(String syllables) {
+		this.syllables = syllables;
 	}
 	
 	@Override
 	public String toString() {
-		return "sejongDaoModel [syllable_id=" + syllable_id + ", syllable=" + syllable + "]";
+		return "sejongDaoModel [syllable_id=" + syllables_id + ", syllable=" + syllables + "]";
 	}
 	
 }

@@ -26,9 +26,9 @@ public class sejongController {
 		return "/game/KingWordGameLobby";
 	}
 
-	@RequestMapping("KingWordGame/{wordId}")
-	public String KingWordGameNext(Model model, @PathVariable String wordId) {
-		wordsModel words = service.sejongWords(wordId);
+	@RequestMapping("KingWordGame/{sejongId}")
+	public String KingWordGameNext(Model model, @PathVariable String sejongId) {
+		wordsModel words = service.sejongWords(sejongId);
 		int wordlength = words.getJustice().length(); //받아오는 단어 수가 몇 개인지
 		int count = 9-wordlength; //받아오는 단어를 제외한 랜덤된 음절 수를 구하기 위함
 		List<syllablesModel> list = service.example(count);
@@ -39,7 +39,8 @@ public class sejongController {
 		}//데이터베이스에서 받아오는 객체는 'syllables'모델 이기 때문에 'string'으로 형 변환
 		syllablesArray.addAll(wordArray); //뷰에 출력하기 위한 9개의 단어를 실제 단어 리스트와 가짜 음절 리스트를 합쳐서 구함
 		Collections.shuffle(syllablesArray); //리스트를 랜덤으로 섞어줌
-
+		
+		model.addAttribute("sejong", sejongId);
 		model.addAttribute("wordlength", wordlength);
 		model.addAttribute("li",syllablesArray);
 		model.addAttribute("word", words);

@@ -205,7 +205,7 @@
 				}, 500);
 				setTimeout(
 						function() {
-							window.location.href = "/KingWordGame/${word.word_id+1}";
+							window.location.href = "/KingWordGame/${sejong+1}";
 						}, 300);
 			} else {
 				time--;
@@ -318,7 +318,7 @@
 			<div class="KWGQ_quiz">
 				<div class="KWGQ_Stage_panel">Stage 1-1</div>
 				<div class="KWGQ_quiz_panel">
-					${word.meaning}<br>
+					${word.mean}<br>
 				</div>
 			</div>
 			<div class="KWGQ_answer">

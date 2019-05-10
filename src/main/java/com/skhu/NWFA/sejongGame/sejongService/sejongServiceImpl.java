@@ -22,9 +22,9 @@ public class sejongServiceImpl implements sejongService {
 	}
 
 	@Override
-	public wordsModel sejongWords(String id) {
+	public wordsModel sejongWords(String sejongId) {
 		// TODO Auto-generated method stub
-		return dao.sejongWords(id);
+		return dao.sejongWords(sejongId);
 	}
 
 }

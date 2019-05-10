@@ -53,7 +53,7 @@
       <a class="Sort_BT_game Sort_BT" href="KingWordGame">★인게임</a>
       <h1>게임2</h1>
       <a class="Sort_BT_game Sort_BT" href="#">난이도선택</a>
-      <a class="Sort_BT_game Sort_BT" href="#">인게임</a>
+      <a class="Sort_BT_game Sort_BT" href="YaminGame">★인게임</a>
       <h1>게임3</h1>
       <a class="Sort_BT_game Sort_BT" href="#">난이도선택</a>
       <a class="Sort_BT_game Sort_BT" href="#">인게임</a>

@@ -1,4 +1,4 @@
-package com.skhu.NWFA.sejongGame.sejongModel;
+package com.skhu.NWFA.yaminGame.yaminModel;
 
 public class wordsModel {
 
@@ -6,9 +6,18 @@ public class wordsModel {
 	private String justice;
 	private String mean;
 	private int gameNub;
+	private byte[] img;
 
 	public int getWord_id() {
 		return word_id;
+	}
+
+	public byte[] getImg() {
+		return img;
+	}
+
+	public void setImg(byte[] img) {
+		this.img = img;
 	}
 
 	public void setWord_id(int word_id) {

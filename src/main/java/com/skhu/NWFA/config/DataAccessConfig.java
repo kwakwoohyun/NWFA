@@ -11,7 +11,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @Configuration
-@MapperScan(basePackages = "com.skhu.NWFA.sejongGame.sejongDao")
+//@MapperScan(basePackages = "com.skhu.NWFA.sejongGame.sejongDao")
+@MapperScan(basePackages = {
+		"com.skhu.NWFA.sejongGame.sejongDao",
+		"com.skhu.NWFA.yaminGame.yaminDao",
+})
 public class DataAccessConfig {
 	@Bean
 	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception{
