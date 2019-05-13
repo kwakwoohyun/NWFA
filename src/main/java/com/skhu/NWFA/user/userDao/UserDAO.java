@@ -13,8 +13,8 @@ public class UserDAO {
 
 	public UserDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/capstonedesign?serverTimezone=UTC";
-			String dbID = "root";
+			String dbURL = "jdbc:mysql://soptserver.cbspdyahhen8.ap-northeast-2.rds.amazonaws.com:3306/capstonedesign?serverTimezone=UTC";
+			String dbID = "minjony1014";
 			String dbPassword = "1a2w3e4r!!";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
@@ -24,7 +24,7 @@ public class UserDAO {
 	}
 
 	public int login(String login_id, String userPassword) {
-		String SQL = "SELECT password FROM USER WHERE login_id = ?";
+		String SQL = "SELECT password FROM User WHERE login_id = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, login_id);
@@ -43,7 +43,7 @@ public class UserDAO {
 	}
 
 	public int registerCheck(String userID) {
-		String SQL = "SELECT * FROM USER WHERE login_id = ?";
+		String SQL = "SELECT * FROM User WHERE login_id = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, userID);
@@ -72,7 +72,7 @@ public class UserDAO {
 			String email) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String SQL = "INSERT INTO USER (login_id,password,name,age,sex,email) VALUES (?, ?, ?, ?, ?, ?)";
+		String SQL = "INSERT INTO User(login_id,password,name,age,sex,email) VALUES (?, ?, ?, ?, ?, ?)";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, login_id);

@@ -11,10 +11,10 @@ import com.skhu.NWFA.yaminGame.yaminModel.wordsModel;
 
 @Service
 public class yaminServiceImpl implements yaminService {
-
+	
 	@Autowired(required=false)
 	yaminDao dao;
-
+	
 	@Override
 	public List<syllablesModel> example(int count) {
 		// TODO Auto-generated method stub
