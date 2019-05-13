@@ -152,7 +152,7 @@
     </div>
       <footer class="page_main KingWordGamefooter">
         <div class="WQ_back CQ_BTstyle">
-          <a href="mainLobby.html">뒤로</a>
+          <a href="GameLobby">뒤로</a>
         </div>
         <div class="WQ_BTNewStart CQ_BTstyle">
           스테이지 1-1 부터 시작하기
