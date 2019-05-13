@@ -5,16 +5,16 @@
 <mapper namespace="com.skhu.NWFA.sejongGame.sejongDao.sejongDao">
 	<select id="example"
 		resultType="com.skhu.NWFA.sejongGame.sejongModel.syllablesModel">
-		select * from syllables order by rand() Limit #{count}
+		select * from Syllables order by rand() Limit #{count}
 	</select>
 
 	<select id="sejongWords"
 		resultType="com.skhu.NWFA.sejongGame.sejongModel.wordsModel">
 		select word_id, justice, mean, gameNub from
-		sejong inner
-		join word on
-		sejong.Word_word_id = capstonedesign.word.word_id and
-		sejong.sejong_id=#{sejong_id};
+		capstonedesign.Sejong inner
+		join Word on
+		Sejong.Word_word_id = capstonedesign.Word.word_id and
+		Sejong.sejong_id=#{sejong_id};
 	</select>
 
 </mapper>

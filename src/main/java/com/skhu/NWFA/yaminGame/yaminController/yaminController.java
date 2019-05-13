@@ -1,28 +1,24 @@
 package com.skhu.NWFA.yaminGame.yaminController;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.skhu.NWFA.yaminGame.yaminModel.syllablesModel;
-import com.skhu.NWFA.yaminGame.yaminModel.wordsModel;
 import com.skhu.NWFA.yaminGame.yaminService.yaminService;
 
 
 
 @Controller
 public class yaminController {
-	
+
 	@Autowired
 	yaminService serviece;
-	
+
 	@RequestMapping("YaminGame")
 	public String YaminGame(Model model) {
 //		wordsModel words = serviece.yaminWords(yaminId);
@@ -36,13 +32,13 @@ public class yaminController {
 //		}
 //		syllablesArray.addAll(wordArray);
 		Collections.shuffle(syllablesArray);
-		
+
 //		model.addAttribute("yamin",yaminId);
 //		model.addAttribute("wordlength",wordlength);
 		model.addAttribute("li",syllablesArray);
 //		model.addAttribute("word",words);
-		
-		return "/game/YaminGame";
+
+		return "game/YaminGame";
 	}
-	
+
 }

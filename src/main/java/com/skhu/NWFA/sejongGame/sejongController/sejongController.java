@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,7 @@ public class sejongController {
 
 	@RequestMapping("KingWordGameLobby")
 	public String KingWordGameLobby(Model model) {
-		return "/game/KingWordGameLobby";
+		return "game/KingWordGameLobby";
 	}
 
 	@RequestMapping("KingWordGame/{sejongId}")
@@ -39,12 +40,16 @@ public class sejongController {
 		}//데이터베이스에서 받아오는 객체는 'syllables'모델 이기 때문에 'string'으로 형 변환
 		syllablesArray.addAll(wordArray); //뷰에 출력하기 위한 9개의 단어를 실제 단어 리스트와 가짜 음절 리스트를 합쳐서 구함
 		Collections.shuffle(syllablesArray); //리스트를 랜덤으로 섞어줌
-		
+		Random random = new Random();
+		int hintIndex = random.nextInt(wordlength);
+
 		model.addAttribute("sejong", sejongId);
 		model.addAttribute("wordlength", wordlength);
 		model.addAttribute("li",syllablesArray);
 		model.addAttribute("word", words);
+		model.addAttribute("hintWord", wordArray.get(hintIndex));
+		model.addAttribute("hintIndex", hintIndex);
 
-		return "/game/KingWordGame";
+		return "game/KingWordGame";
 	}
 }

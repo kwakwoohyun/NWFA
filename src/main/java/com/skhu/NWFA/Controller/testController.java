@@ -9,7 +9,6 @@ public class testController {
 
 	@RequestMapping("/")
 	public String test(Model model) {
-
 		return "index";
 	}
 }

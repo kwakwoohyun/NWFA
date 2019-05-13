@@ -16,22 +16,38 @@
 	var clickWord = ""; // 단어변수
 	var DoubleClickCheck = new Array();
 	var btnState = [ 1, 1, 1, 1, 1, 1, 1, 1, 1 ];
+	var btnChars = [ "${li[0]}", "${li[1]}", "${li[2]}", "${li[3]}",
+			"${li[4]}", "${li[5]}", "${li[6]}", "${li[7]}", "${li[8]}" ];
 	var count = 0;
+	var hintIndex = 0;
 	var time = 3;
+
+	function buttonClick(id, index, event) {
+		hintIndex += 1;
+		clickWord = clickWord + event;
+		document.querySelector('#answer' + hintIndex).innerHTML = btnChars[index];
+		document.querySelector('#KWGQ_BT' + id).style.backgroundColor = '#ffc834';
+		document.querySelector('#KWGQ_BT' + id).className = 'KWGQ_BT';
+		count++;
+		check();
+	}
+
+	function buttonClickRelease(id) {
+		document.querySelector('#answer' + hintIndex).innerHTML = "_";
+		hintIndex += -1;
+		clickWord = clickWord.replace(event, "");
+		document.querySelector('#KWGQ_BT' + id).style.backgroundColor = '#ffffff';
+		count--;
+		check();
+	}
+
 	function KingWordGame1_click(event) {
 		// alert("버튼1을 누르셨습니다.");
 		btnState[0] *= -1;
 		if (btnState[0] == -1) {
-			clickWord = clickWord + event;
-			document.querySelector('#KWGQ_BT1').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT1').className = 'KWGQ_BT';
-			count++;
-			check();
+			buttonClick(1, 0, event);
 		} else {
-			clickWord = clickWord.replace(event, "");
-			document.querySelector('#KWGQ_BT1').style.backgroundColor = '#ffffff';
-			count--;
-			check();
+			buttonClickRelease(1);
 		}
 	}
 
@@ -39,16 +55,9 @@
 		// alert("버튼2을 누르셨습니다.");
 		btnState[1] *= -1;
 		if (btnState[1] == -1) {
-			clickWord = clickWord + event;
-			document.querySelector('#KWGQ_BT2').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT2').className = 'KWGQ_BT';
-			count++;
-			check();
+			buttonClick(2, 1, event);
 		} else {
-			clickWord = clickWord.replace(event, "");
-			document.querySelector('#KWGQ_BT2').style.backgroundColor = '#ffffff';
-			count--;
-			check();
+			buttonClickRelease(2);
 		}
 	}
 
@@ -56,16 +65,9 @@
 		// alert("버튼3을 누르셨습니다.");
 		btnState[2] *= -1;
 		if (btnState[2] == -1) {
-			clickWord = clickWord + event;
-			document.querySelector('#KWGQ_BT3').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT3').className = 'KWGQ_BT';
-			count++;
-			check();
+			buttonClick(3, 2, event);
 		} else {
-			clickWord = clickWord.replace(event, "");
-			document.querySelector('#KWGQ_BT3').style.backgroundColor = '#ffffff';
-			count--;
-			check();
+			buttonClickRelease(3);
 		}
 	}
 
@@ -73,16 +75,9 @@
 		// alert("버튼4을 누르셨습니다.");
 		btnState[3] *= -1;
 		if (btnState[3] == -1) {
-			clickWord = clickWord + event;
-			document.querySelector('#KWGQ_BT4').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT4').className = 'KWGQ_BT';
-			count++;
-			check();
+			buttonClick(4, 3, event);
 		} else {
-			clickWord = clickWord.replace(event, "");
-			document.querySelector('#KWGQ_BT4').style.backgroundColor = '#ffffff';
-			count--;
-			check();
+			buttonClickRelease(4);
 		}
 	}
 
@@ -90,16 +85,9 @@
 		// alert("버튼5을 누르셨습니다.");
 		btnState[4] *= -1;
 		if (btnState[4] == -1) {
-			clickWord = clickWord + event;
-			document.querySelector('#KWGQ_BT5').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT5').className = 'KWGQ_BT';
-			count++;
-			check();
+			buttonClick(5, 4, event);
 		} else {
-			clickWord = clickWord.replace(event, "");
-			document.querySelector('#KWGQ_BT5').style.backgroundColor = '#ffffff';
-			count--;
-			check();
+			buttonClickRelease(5);
 		}
 	}
 
@@ -107,16 +95,9 @@
 		// alert("버튼6을 누르셨습니다.");
 		btnState[5] *= -1;
 		if (btnState[5] == -1) {
-			clickWord = clickWord + event;
-			document.querySelector('#KWGQ_BT6').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT6').className = 'KWGQ_BT';
-			count++;
-			check();
+			buttonClick(6, 5, event);
 		} else {
-			clickWord = clickWord.replace(event, "");
-			document.querySelector('#KWGQ_BT6').style.backgroundColor = '#ffffff';
-			count--;
-			check();
+			buttonClickRelease(6);
 		}
 	}
 
@@ -124,16 +105,9 @@
 		// alert("버튼7을 누르셨습니다.");
 		btnState[6] *= -1;
 		if (btnState[6] == -1) {
-			clickWord = clickWord + event;
-			document.querySelector('#KWGQ_BT7').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT7').className = 'KWGQ_BT';
-			count++;
-			check();
+			buttonClick(7, 6, event);
 		} else {
-			clickWord = clickWord.replace(event, "");
-			document.querySelector('#KWGQ_BT7').style.backgroundColor = '#ffffff';
-			count--;
-			check();
+			buttonClickRelease(7);
 		}
 	}
 
@@ -141,16 +115,9 @@
 		// alert("버튼8을 누르셨습니다.");
 		btnState[7] *= -1;
 		if (btnState[7] == -1) {
-			clickWord = clickWord + event;
-			document.querySelector('#KWGQ_BT8').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT8').className = 'KWGQ_BT';
-			count++;
-			check();
+			buttonClick(8, 7, event);
 		} else {
-			clickWord = clickWord.replace(event, "");
-			document.querySelector('#KWGQ_BT8').style.backgroundColor = '#ffffff';
-			count--;
-			check();
+			buttonClickRelease(8);
 		}
 	}
 
@@ -158,39 +125,12 @@
 		// alert("버튼9을 누르셨습니다.");
 		btnState[8] *= -1;
 		if (btnState[8] == -1) {
-			clickWord = clickWord + event;
-			document.querySelector('#KWGQ_BT9').style.backgroundColor = '#ffc834';
-			document.querySelector('#KWGQ_BT9').className = 'KWGQ_BT';
-			count++;
-			check();
+			buttonClick(9, 8, event);
 		} else {
-			clickWord = clickWord.replace(event, "");
-			document.querySelector('#KWGQ_BT9').style.backgroundColor = '#ffffff';
-			count--;
-			check();
+			buttonClickRelease(9);
 		}
 	}
 
-	function KingWordGame10_click(event) {
-		// alert("버튼10을 누르셨습니다.");
-		clickWord = clickWord + event;
-		document.querySelector('#KWGQ_BT10').style.backgroundColor = '#ffc834';
-		check();
-	}
-
-	function KingWordGame11_click(event) {
-		// alert("버튼11을 누르셨습니다.");
-		clickWord = clickWord + event;
-		document.querySelector('#KWGQ_BT11').style.backgroundColor = '#ffc834';
-		check();
-	}
-
-	function KingWordGame12_click(event) {
-		// alert("버튼12을 누르셨습니다.");
-		clickWord = clickWord + event;
-		document.querySelector('#KWGQ_BT12').style.backgroundColor = '#ffc834';
-		check();
-	}
 	function check() {
 
 		if (time < 1) {
@@ -203,10 +143,9 @@
 				setTimeout(function() {
 					alert('정답입니다.');
 				}, 500);
-				setTimeout(
-						function() {
-							window.location.href = "/KingWordGame/${sejong+1}";
-						}, 300);
+				setTimeout(function() {
+					window.location.href = "/KingWordGame/${sejong+1}";
+				}, 300);
 			} else {
 				time--;
 				setDisable();
@@ -219,38 +158,24 @@
 		setHeart();
 	}
 	function setInitialize() {
-		document.querySelector('#KWGQ_BT1').style.backgroundColor = '#ffffff';
-		document.querySelector('#KWGQ_BT2').style.backgroundColor = '#ffffff';
-		document.querySelector('#KWGQ_BT3').style.backgroundColor = '#ffffff';
-		document.querySelector('#KWGQ_BT4').style.backgroundColor = '#ffffff';
-		document.querySelector('#KWGQ_BT5').style.backgroundColor = '#ffffff';
-		document.querySelector('#KWGQ_BT6').style.backgroundColor = '#ffffff';
-		document.querySelector('#KWGQ_BT7').style.backgroundColor = '#ffffff';
-		document.querySelector('#KWGQ_BT8').style.backgroundColor = '#ffffff';
-		document.querySelector('#KWGQ_BT9').style.backgroundColor = '#ffffff';
+		for (var i = 1; i <= 9; i++) {
+			document.querySelector('#KWGQ_BT' + i).style.backgroundColor = '#ffffff';
+		}// 배경색 reset
+		for (var i = 1; i <= 9; i++) {
+			document.querySelector('#KWGQ_BT' + i).disabled = false;
+		}// 버튼 클릭 disable
+		for (var i = 1; i <= 3; i++) {
+			document.querySelector('#answer' + i).innerHTML = "_";
+		}// 힌트 reset
 		clickWord = "";
 		btnState = [ 1, 1, 1, 1, 1, 1, 1, 1, 1 ];
 		count = 0;
-		document.querySelector('#KWGQ_BT1').disabled = false;
-		document.querySelector('#KWGQ_BT2').disabled = false;
-		document.querySelector('#KWGQ_BT3').disabled = false;
-		document.querySelector('#KWGQ_BT4').disabled = false;
-		document.querySelector('#KWGQ_BT5').disabled = false;
-		document.querySelector('#KWGQ_BT6').disabled = false;
-		document.querySelector('#KWGQ_BT7').disabled = false;
-		document.querySelector('#KWGQ_BT8').disabled = false;
-		document.querySelector('#KWGQ_BT9').disabled = false;
+		hintIndex = 0;
 	}
 	function setDisable() {
-		document.querySelector('#KWGQ_BT1').disabled = 'disabled';
-		document.querySelector('#KWGQ_BT2').disabled = 'disabled';
-		document.querySelector('#KWGQ_BT3').disabled = 'disabled';
-		document.querySelector('#KWGQ_BT4').disabled = 'disabled';
-		document.querySelector('#KWGQ_BT5').disabled = 'disabled';
-		document.querySelector('#KWGQ_BT6').disabled = 'disabled';
-		document.querySelector('#KWGQ_BT7').disabled = 'disabled';
-		document.querySelector('#KWGQ_BT8').disabled = 'disabled';
-		document.querySelector('#KWGQ_BT9').disabled = 'disabled';
+		for (var i = 1; i <= 9; i++) {
+			document.querySelector('#KWGQ_BT' + i).disabled = 'disabled';
+		}// 버튼 클릭 disable
 	}
 	function setHeart() {
 		if (time == 3) {
@@ -308,8 +233,12 @@
 				<div class="KW_Hint KW_BTstyle" onclick="hint();">힌트</div>
 				<script>
 					function hint() {
-						var index = ${wordIndex["0"]}+1;
-						document.querySelector('#answer' + index).innerHTML =${li[index]} ;
+						var index = $
+						{
+							hintIndex
+						}
+						+1;
+						document.querySelector('#answer' + index).innerHTML = '${hintWord}';
 					}
 				</script>
 			</footer>
@@ -322,9 +251,10 @@
 				</div>
 			</div>
 			<div class="KWGQ_answer">
-			<c:forEach var="x" varStatus="index" begin="0" end="${wordlength-1}" step="1">
-				<div class="KWGQ_answer_ward" id="answer${index.count }">_</div>
-			</c:forEach>
+				<c:forEach var="x" varStatus="index" begin="0" end="${wordlength-1}"
+					step="1">
+					<div class="KWGQ_answer_ward" id="answer${index.count }">_</div>
+				</c:forEach>
 			</div>
 			<div class="info_panel flex">
 				<div class="point_panel KingWordGameporint flex">
