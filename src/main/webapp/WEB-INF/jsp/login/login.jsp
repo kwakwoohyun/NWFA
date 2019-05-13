@@ -41,7 +41,7 @@
         <input class="account_form_input" type="password" name="userPassword" value="" placeholder="비밀번호를 입력하세요">
       </div>
       <div class="find_id">
-        <a href="account">회원가입</a>
+        <a href="accounts">회원가입</a>
         <a href="#">아이디찾기</a>
       </div>
       <div class="login_id"><a href="#"onclick="document.getElementById('loginAction').submit();">
@@ -71,7 +71,7 @@
   </article>
   <footer class="page_main Userfooter">
     <div class="KW_back KW_BTstyle">
-      <a href="index.jsp">뒤로</a>
+      <a href="/">뒤로</a>
     </div>
     <div class="KW_regame KW_BTstyle">
 

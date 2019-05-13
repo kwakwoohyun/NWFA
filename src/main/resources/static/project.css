@@ -1,28 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Black+And+White+Picture|Black+Han+Sans|Cute+Font|Do+Hyeon|Dokdo|East+Sea+Dokdo|Gaegu|Gamja+Flower|Gothic+A1|Gugi|Hi+Melody|Jua|Kirang+Haerang|Nanum+Brush+Script|Nanum+Gothic|Nanum+Gothic+Coding|Nanum+Myeongjo|Nanum+Pen+Script|Noto+Sans+KR|Poor+Story|Song+Myung|Stylish|Sunflower:300|Yeon+Sung');
-.KWGQ_BT2 {
-	background-color: white;
-	width: 23%;
-	height: 30%;
-	margin: auto 5% auto 5%;
-	font-family: 'Jua', sans-serif;
-	color: black;
-	font-size: 17vh;
-	text-align: center;
-	border-radius: 20px;
-	box-shadow: 1vh 1vh #cda705;
- animation: blink-animation 0.5s steps(5, start) infinite;
-  -webkit-animation: blink-animation 0.5s steps(5, start) infinite;
-}
-@keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}
-@-webkit-keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}
+
 /* 레이아웃 */
 #page_main {
   display: flex;
@@ -292,6 +269,299 @@ a:visited {
   flex: 1;
   /* height: 85vh; 미디어쿼리참초 */
   width: 100%;
+}
+/* 로비 CSS */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+#mainLobby_background{
+  background-color: #ff5050;
+  width: 100%;
+  height: 100vh;
+}
+
+#page_mainLobby .mainlobbyTitle{
+  font-family: 'Jua', sans-serif;
+  font-size: 5vh;
+  color: #fff;
+  margin-top: 3vh;
+}
+
+#mainLobbyLOGO {
+  width: 8vh;
+}
+
+.gameList{
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+.gameList .gameRail{
+  width: 150%;
+  height: 50vh;
+  /* overflow: hidden; */
+}
+
+.gameSelector{
+  width: 100%;
+  height: 20vh;
+}
+.gameRail{
+  display: flex;
+  margin: 0% 0% 0% 25%;
+  transition: margin 2s;
+}
+/* .gameRail:hover{
+  transition: 10px;
+  margin: 0% 0% 0% -75%;
+  transition: margin 2s;
+} */
+
+.game{
+  margin: 5vh 5vh;
+  width: 40%;
+  height: 40vh;
+  border-radius: 30px;
+  box-shadow: 3px 3px 10px black;
+}
+
+.gameNumber{
+  display: flex;
+  justify-content: center;
+}
+
+.gameNumber div{
+  margin: 0vh 3vh;
+  width: 3vh;
+  height: 3vh;
+  border-radius: 30px;
+  border: 3px solid #fff;
+  transition: background-color 0.5s;
+}
+.gameNumber .game1{
+  background-color: #fad644;
+}
+
+.gameInfo{
+  display: flex;
+}
+
+.gameInfo > div{
+  width: 30%;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+
+}
+
+.gameInfo > .gameStart{
+  width: 30%;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+
+}
+
+#gameStartBotton{
+  width: 100%;
+  height: 15%;
+  border-radius: 15px;
+  border: 5px solid #fff;
+  background-color: #ff5050;
+  font-family: 'Jua', sans-serif;
+  font-size: 5vh;
+  line-height: 0;
+  padding: 5vh 1vh;
+  color: #fff;
+}
+.gameRanking{
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+}
+
+.img_gamerank {
+  background-color: white;
+  width: 8vh;
+  height: 8vh;
+  border-radius: 500px;
+}
+
+.img_gamerank  img {
+  margin: 10%;
+}
+.RankPlace{
+  color: white;
+  font-size: 2vh;
+  font-family: 'Jua', sans-serif;
+  text-align: center;
+  margin-right: 5vh;
+}
+.GameName{
+  color: white;
+  font-size: 3vh;
+  font-family: 'Jua', sans-serif;
+}
+
+.GameRank{
+  color: white;
+  font-size: 7vh;
+  font-family: 'Jua', sans-serif;
+}
+
+
+.RED_UIstyle {
+  background-color: #ff5050;
+  border-radius: 15px;
+  font-family: 'Jua', sans-serif;
+  color: white;
+  border: solid 5px white;
+  font-size: 3vh;
+  text-align: center;
+  padding: 1vh 4vh 1vh 4vh;
+  margin: auto auto 1vh auto;
+  height: auto;
+}
+/* 각 게임 이미지  */
+#game_Sejong{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  background-image: url('icon/kingLobby.png');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: right bottom;
+}
+
+#game_Sejong_TEXT{
+  font-size: 5vh;
+  font-family: 'Jua', sans-serif;
+  text-shadow: 2px 2px 2px gray;
+  color: white;
+  margin: 3%;
+}
+
+#game_Sejong_TEXT span:nth-child(1) {
+  color: red;
+}
+
+#game_WordQuiz{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  background-image: url('icon/teacher.png');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: right bottom;
+}
+
+#game_WordQuiz_TEXT{
+  font-size: 8vh;
+  font-family: 'Yeon Sung', sans-serif;
+  text-shadow: 1px 1px 2px black;
+  color: white;
+  margin: 15% 5%;
+}
+
+#game_Talk{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  background-image: url('icon/TalklogoLobby.png');
+  background-repeat: no-repeat;
+  background-size: auto 70%;
+  background-position: center;
+}
+
+
+@media screen and (max-width:699px) {
+  #page_mainLobby .mainlobbyTitle{
+    font-size: 3vh;
+    margin-top: 5vh;
+  }
+  .gameList{
+    height: 40vh;
+    overflow: hidden;
+  }
+  .gameList .gameRail{
+    width: 150%;
+    height: 40vh;
+    /* overflow: hidden; */
+  }
+  #mainLobbyLOGO {
+    width: 5vh;
+  }
+  .gameRail{
+    display: flex;
+    margin: 0% 0% 0% 15%;
+    transform : 2s;
+  }
+
+  .game{
+    margin: 5vh 1vh;
+    width: 50%;
+    height: 30vh;
+    border-radius: 30px;
+    box-shadow: 3px 3px 10px black;
+  }
+
+  .gameNumber{
+    margin-bottom: 2.5vh;
+  }
+
+  .gameInfo{
+    flex-direction: column-reverse;
+  }
+
+  .gameInfo > div{
+    width: 80%;
+    margin: 2.5vh 10% 0;
+  }
+  .gameInfo > .gameStart{
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .gameRanking{
+    justify-content: center;
+  }
+  .gameSelector{
+    height: 30vh;
+  }
+  .GameName{
+    color: white;
+    font-size: 2vh;
+    font-family: 'Jua', sans-serif;
+  }
+
+  .GameRank{
+    color: white;
+    font-size: 5vh;
+    font-family: 'Jua', sans-serif;
+  }
+  .img_gamerank {
+    background-color: white;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 500px;
+  }
+
+  .img_gamerank  img {
+    margin: 10%;
+  }
+
+}
+/* 각 게임별 */
+
+#game_Sejong {
+  background-color: #ffc000;
+}
+#game_WordQuiz{
+  background-color: #284135;
+}
+#game_Talk{
+  background-color: #4e677d;
 }
 
 /* 로그인 CSS */
@@ -841,6 +1111,154 @@ a:visited {
   }
 }
 
+
+/* .blackboard_img{
+ background-color:  #422b06;
+ background-size: 100% 50%;
+} */
+
+/* 야민정음 로비 개별CSS */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+#page_ChallengeQuizgameLobby .WordQuizTitle {
+  color: white;
+  padding-top: 5vh;
+  height: 10vh;
+  font-size: 10vh;
+  font-family: 'Jua', sans-serif;
+  text-align: center;
+}
+
+#page_ChallengeQuizgameLobby .blackboard {
+  border: solid 2vh #6f490b;
+  height: 40vh;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: flex-end;
+}
+#page_ChallengeQuizgameLobby .DisplayBox{
+  height: 50vh;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+#page_ChallengeQuizgameLobby .blackboard{
+  height: 50vh;
+}
+
+#page_ChallengeQuizgameLobby .blackboard_Level_text{
+  color: white;
+  font-family: 'Jua', sans-serif;
+  font-size: 5vh;
+  text-align: center;
+}
+
+#page_ChallengeQuizgameLobby .blackboard_Level{
+  display: flex;
+  justify-content: center;
+}
+
+#page_ChallengeQuizgameLobby .WQ_Level{
+  font-size: 3vh;
+  color: #ffffff;
+  background-color: #284135;
+  font-family: 'Jua', sans-serif;
+  border : 3px solid #fff;
+  border-radius: 50px;
+  margin : 0 5vh;
+  line-height: 3vh;
+  width: 7vh;
+  height: 7vh;
+  transition: color 0.5s, border-color 0.5s;
+}
+
+
+
+#page_ChallengeQuizgameLobby .blackboard_stage{
+  display: flex;
+  justify-content: center;
+  height: 15vh;
+}
+
+#page_ChallengeQuizgameLobby .WQ_stage{
+  background-color: #284135;
+  font-family: 'Jua', sans-serif;
+  color: #ffffff;
+  border : 3px solid #fff;
+  border-radius: 30px;
+  width: 12vh;
+  height: 12vh;
+  margin : 0 1vh;
+}
+
+#page_ChallengeQuizgameLobby .WQ_stageno{
+  font-size: 5vh;
+  color: #ffffff;
+}
+
+#page_ChallengeQuizgameLobby .WQ_stagestar{
+  background-color: #ffffff;
+  font-size: 3vh;
+  border-radius: 20px;
+  height: 4vh;
+  color: #284135;
+}
+
+#page_ChallengeQuizgameLobby  .blackboard_Img {
+  background-color: #422b06;
+  height: 2vh;
+  align-items: flex-end;
+}
+#page_ChallengeQuizgameLobby .blackboard_img img {
+  width: 30%;
+}
+
+@media screen and (max-width:699px) {
+  #page_ChallengeQuizgameLobby .WordQuizTitle {
+    color: white;
+    padding-top: 5vh;
+    height: 10vh;
+    font-size: 5vh;
+    font-family: 'Jua', sans-serif;
+    text-align: center;
+  }
+
+  #page_ChallengeQuizgameLobby .WQ_Level{
+    margin : 0 1vh;
+    width: 7vh;
+    height: 7vh;
+  }
+  #page_ChallengeQuizgameLobby .blackboard_stage{
+    flex-wrap: wrap;
+    height: auto;
+  }
+  #page_ChallengeQuizgameLobby .WQ_stage{
+    background-color: #284135;
+    font-family: 'Jua', sans-serif;
+    color: #ffffff;
+    border : 3px solid #fff;
+    border-radius: 15px;
+    width: 8vh;
+    height: 8vh;
+    margin : 0 1vh;
+  }
+  #page_ChallengeQuizgameLobby .WQ_stageno{
+    font-size: 3vh;
+  }
+
+  #page_ChallengeQuizgameLobby .WQ_stagestar{
+    font-size: 2vh;
+    height: 2.5vh;
+  }
+  #page_ChallengeQuizgameLobby .WQ_BTNewStart {
+    font-size: 2vh;
+    height: 5vh;
+  }
+}
+
 /* 야민정음 개별CSS */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* 레이어(백그라운드 부분) */
@@ -887,7 +1305,7 @@ a:visited {
   text-align: center;
 }
 
-.page_ChallengeQuiz .blackboard {
+#page_ChallengeQuizgame .blackboard {
   border: solid 2vh #6f490b;
   height: 40vh;
   margin-left: 20%;
@@ -898,7 +1316,7 @@ a:visited {
   align-content: flex-end;
 }
 
-.page_ChallengeQuiz .blackboard .blackboard_Quiz {
+#page_ChallengeQuizgame .blackboard .blackboard_Quiz {
   color: white;
   font-size: 5vh;
   text-align: center;
@@ -907,7 +1325,7 @@ a:visited {
   height: 15vh;
 }
 
-.page_ChallengeQuiz .blackboard .blackboard_Quiz_Question{
+#page_ChallengeQuizgame .blackboard .blackboard_Quiz_Question{
   color: white;
   font-size: 5vh;
   text-align: center;
@@ -917,7 +1335,7 @@ a:visited {
 
 }
 
-.page_ChallengeQuiz .blackboard .blackboard_Quiz_Answer{
+#page_ChallengeQuizgame .blackboard .blackboard_Quiz_Answer{
   color: white;
   font-size: 5vh;
   text-align: center;
@@ -946,14 +1364,16 @@ a:visited {
   border: solid 5px white;
   font-size: 3vh;
   text-align: center;
-  padding: 1vh 4vh 1vh 4vh;
+  padding: 0 4vh;
   margin: auto auto 1vh auto;
-  height: auto;
+  height: 5vh;
+  line-height: 5vh;
 }
 
 .page_ChallengeQuiz .ControlBox {
   height: 20vh;
 }
+
 
 .page_ChallengeQuiz .buttonbox {
   display: flex;

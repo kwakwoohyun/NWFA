@@ -21,17 +21,16 @@ public class userController {
 
 	@RequestMapping("login")
 	public String login() {
-		return "/login/login";
+		return "login/login";
 	}
-	
 	@RequestMapping("logout")
 	public String logout(){
 		return "/login/logout";
 	}
-
-	@RequestMapping("account")
+	
+	@RequestMapping("accounts")
 	public String accounts() {
-		return "/login/accounts";
+		return "login/accounts";
 	}
 
 	@RequestMapping("loginAction")

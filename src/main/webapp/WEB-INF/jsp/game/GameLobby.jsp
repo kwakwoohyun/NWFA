@@ -39,7 +39,7 @@
       }
       function click_GameStart(){
         if (gameNo == 0) {
-          location.href='KingWordGameLobby.html';
+          location.href='KingWordGameLobby';
         }
 
         else if (gameNo == 1) {
@@ -149,7 +149,7 @@
       </div>
       <footer class="page_main KingWordGamefooter">
         <div class="KW_back RED_UIstyle">
-          <a href="index.html">뒤로</a>
+          <a href="/">뒤로</a>
         </div>
         <div class="visibilityhidden RED_UIstyle">
 
