@@ -12,4 +12,9 @@ public class testController {
 
 		return "index";
 	}
+
+	@RequestMapping("GameLobby")
+	public String gameLobby(Model model) {
+		return "game/GameLobby";
+	}
 }

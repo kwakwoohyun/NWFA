@@ -46,7 +46,7 @@
 	</header>
 	<article class="page_main">
 		<div id="mainpage_logo"></div>
-		<div class="UI UI_bt" onclick="location.href='KingWordGameLobby'"
+		<div class="UI UI_bt" onclick="location.href='GameLobby'"
 			data-transition="flip">게임</div>
 		<div class="UI UI_bt" onclick="location.href='dictionary'"
 			data-transition="flip">사전</div>
