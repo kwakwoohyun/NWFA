@@ -71,7 +71,7 @@
 		</div>
 		<div class="R_headerbar visibilityhidden">
 			<div class="UI login"></div>
-	</header>
+	</header>	
 	<div class="viewBox">
 		<div class="KingWordLevel">
 			<div class="L_KingWordLevel">

@@ -43,7 +43,7 @@
         }
 
         else if (gameNo == 1) {
-          location.href='wordQuizLobby.html';
+          location.href='YaminGameLobby';
         }
 
         else if (gameNo == 2) {
