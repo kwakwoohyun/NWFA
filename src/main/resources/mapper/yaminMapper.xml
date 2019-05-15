@@ -5,15 +5,15 @@
 <mapper namespace="com.skhu.NWFA.yaminGame.yaminDao.yaminDao">
 	<select id="example"
 		resultType="com.skhu.NWFA.yaminGame.yaminModel.syllablesModel">
-		select * from syllables order by rand() Limit #{count}
+		select * from Syllables order by rand() Limit #{count}
 	</select>
 	
 	<select id="yaminWords"
 		resultType="com.skhu.NWFA.yaminGame.yaminModel.wordsModel">
 		select word_id, justice, mean, gameNub from
-		sejong inner
-		join word on
-		yamin.Word_word_id = word.word_id and
-		yamin.yamin_id=#{yamin_id};
+		Yamin inner
+		join Word on
+		Yamin.Word_word_id = Word.word_id and
+		Yamin.yamin_id=#{yamin_id};
 	</select>
 </mapper>
