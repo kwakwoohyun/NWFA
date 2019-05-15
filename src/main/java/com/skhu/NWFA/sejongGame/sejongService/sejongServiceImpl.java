@@ -12,7 +12,7 @@ import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
 @Service
 public class sejongServiceImpl implements sejongService {
 
-	@Autowired
+	@Autowired(required=false)
 	sejongDao dao;
 
 	@Override
