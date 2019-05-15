@@ -31,20 +31,20 @@ public class yaminController {
 	@RequestMapping("YaminGame/{yaminId}")
 	public String YaminGame(Model model, @PathVariable String yaminId) {
 		wordsModel words = serviece.yaminWords(yaminId);
-		int wordlength = words.getJustice().length();
-		int count = 6-wordlength;
-		List<syllablesModel> list = serviece.example(count);
-		List<String> syllablesArray = new ArrayList<String>();
-		List<String> wordArray = new ArrayList<String>(Arrays.asList(words.getJustice().split("")));
-		for(syllablesModel syllable: list) {
-			syllablesArray.add(syllable.getSyllables());
-		}
-		syllablesArray.addAll(wordArray);
-		Collections.shuffle(syllablesArray);
+//		int wordlength = words.getJustice().length();
+//		int count = 6-wordlength;
+//		List<syllablesModel> list = serviece.example(count);
+//		List<String> syllablesArray = new ArrayList<String>();
+//		List<String> wordArray = new ArrayList<String>(Arrays.asList(words.getJustice().split("")));
+//		for(syllablesModel syllable: list) {
+//			syllablesArray.add(syllable.getSyllables());
+//		}
+//		syllablesArray.addAll(wordArray);
+//		Collections.shuffle(syllablesArray);
 
-		model.addAttribute("yamin",yaminId);
-		model.addAttribute("wordlength",wordlength);
-		model.addAttribute("li",syllablesArray);
+//		model.addAttribute("yamin",yaminId);
+//		model.addAttribute("wordlength",wordlength);
+//		model.addAttribute("li",syllablesArray);
 		model.addAttribute("word",words);
 
 		return "game/YaminGame";

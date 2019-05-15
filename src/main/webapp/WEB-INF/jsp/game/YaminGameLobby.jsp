@@ -100,7 +100,7 @@
 								<div class="WQ_stagestar">¡Ú¡Ú¡Ù</div>
 							<script type="text/javascript">
 								function game_click(stage){
-									$(location).attr('href', '/YaminGame/'+1)
+									$(location).attr('href', '/YaminGame/'+stage)
 								}
 							</script>
 							</button>
