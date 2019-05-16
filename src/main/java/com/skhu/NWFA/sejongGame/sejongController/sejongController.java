@@ -26,7 +26,6 @@ public class sejongController {
 	@RequestMapping("KingWordGameLobby")
 	public String KingWordGameLobby(Model model) {
 		List<stageModel> stages = service.sejongStage();
-		System.out.println(stages);
 		model.addAttribute("stages", stages);
 
 		return "game/KingWordGameLobby";
