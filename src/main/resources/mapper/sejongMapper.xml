@@ -13,8 +13,20 @@
 		select word_id, justice, mean, gameNub from
 		capstonedesign.Sejong inner
 		join Word on
-		Sejong.Word_word_id = capstonedesign.Word.word_id and
+		Sejong.Word_word_id =
+		capstonedesign.Word.word_id and
 		Sejong.sejong_id=#{sejong_id};
 	</select>
+
+	<select id="sejongStage"
+		resultType="com.skhu.NWFA.sejongGame.sejongModel.stageModel">
+		SELECT * FROM SejongStage
+	</select>
+	
+	<update id="stageLockUpdate" parameterType="int">
+		UPDATE SejongStage SET open_game = 1
+		WHERE stage_id =
+		#{stageId}
+	</update>
 
 </mapper>

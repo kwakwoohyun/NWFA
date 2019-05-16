@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
 
@@ -12,53 +13,69 @@
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
-             
-            $( document ).ready( function() {
-                 
-                $("#KWG_stage1").click(function(){
-                	var value = $(this).attr('value')
-                	$(location).attr('href', '/KingWordGame/'+value)
-                });
-         
-            });
-            $( document ).ready( function() {
-                
-                $("#KWG_stage2").click(function(){
-                	var value = $(this).attr('value')
-                	$(location).attr('href', '/KingWordGame/'+value)
- 
-                });
-         
-            });
-            $( document ).ready( function() {
-                
-                $("#KWG_stage3").click(function(){
-                	var value = $(this).attr('value')
-                	$(location).attr('href', '/KingWordGame/'+value)
- 
-                });
-         
-            });
-            $( document ).ready( function() {
-                
-                $("#KWG_stage4").click(function(){
-                	var value = $(this).attr('value')
-                	$(location).attr('href', '/KingWordGame/'+value)
- 
-                });
-         
-            });
-            $( document ).ready( function() {
-                
-                $("#KWG_stage5").click(function(){
-                	var value = $(this).attr('value')
-                	$(location).attr('href', '/KingWordGame/'+value)
- 
-                });
-         
-            });
-            
-        </script>
+	$(document).ready(function() {
+
+		$("#KWG_stage1").click(function() {
+			var value = $(this).attr('value')
+			$(location).attr('href', '/KingWordGame/' + value)
+		});
+
+	});
+	$(document).ready(function() {
+
+		$("#KWG_stage2").click(function() {
+			var value = $(this).attr('value')
+			$(location).attr('href', '/KingWordGame/' + value)
+
+		});
+
+	});
+	$(document).ready(function() {
+
+		$("#KWG_stage3").click(function() {
+			var value = $(this).attr('value')
+			$(location).attr('href', '/KingWordGame/' + value)
+
+		});
+
+	});
+	$(document).ready(function() {
+
+		$("#KWG_stage4").click(function() {
+			var value = $(this).attr('value')
+			$(location).attr('href', '/KingWordGame/' + value)
+
+		});
+
+	});
+	$(document).ready(function() {
+
+		$("#KWG_stage5").click(function() {
+			var value = $(this).attr('value')
+			$(location).attr('href', '/KingWordGame/' + value)
+
+		});
+
+	});
+	$(document).ready(function() {
+
+		$("#KWG_stage6").click(function() {
+			var value = $(this).attr('value')
+			$(location).attr('href', '/KingWordGame/' + value)
+
+		});
+
+	});
+	$(document).ready(function() {
+
+		$("#KWG_stage7").click(function() {
+			var value = $(this).attr('value')
+			$(location).attr('href', '/KingWordGame/' + value)
+
+		});
+
+	});
+</script>
 
 </head>
 
@@ -71,7 +88,7 @@
 		</div>
 		<div class="R_headerbar visibilityhidden">
 			<div class="UI login"></div>
-	</header>	
+	</header>
 	<div class="viewBox">
 		<div class="KingWordLevel">
 			<div class="L_KingWordLevel">
@@ -111,75 +128,64 @@
 		</div>
 		<div class="KingWordStage">
 			<div class="KWG_stageline">
+				<c:forEach var="stage" items="${stages}" varStatus="status">
+					<c:choose>
+						<c:when test="${stage.open_game == 0}">
+							<button id="KWG_stage${status.index +1 }" class="KWG_stage"
+								value="${status.index +1}"  disabled="disabled">
+								<div class="KWG_stageno" style="color: gray">${status.index +1 }</div>
+								<div class="KWG_stagestar" style="color: gray">★★☆</div>
+							</button>
+						</c:when>
+						<c:otherwise>
+							<button id="KWG_stage${status.index +1 }" class="KWG_stage"
+								value="${status.index +1 }">
+								<div class="KWG_stageno">${status.index +1 }</div>
+								<div class="KWG_stagestar">★★☆</div>
+							</button>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
 
-				<button id="KWG_stage1" class="KWG_stage" value="1">
-					<div class="KWG_stageno">1</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
-				<button id="KWG_stage2" class="KWG_stage" value="2">
-					<div class="KWG_stageno">2</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
-				<button id="KWG_stage3" class="KWG_stage" value="3">
-					<div class="KWG_stageno">3</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
-				<button id="KWG_stage4" class="KWG_stage" value="4">
-					<div class="KWG_stageno">4</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
-				<button id="KWG_stage5" class="KWG_stage" value="5">
-					<div class="KWG_stageno">5</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
-				<button id="KWG_stage6" class="KWG_stage" value="6">
-					<div class="KWG_stageno">6</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
-				<button id="KWG_stage7" class="KWG_stage" value="7">
-					<div class="KWG_stageno">7</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
+
 			</div>
 			<div class="KWG_stageline">
-
-				<button id="KWG_stage0" class="KWG_stage" value="지"
-					onclick="KingWordGame2_click(this.value)">
-					<div class="KWG_stageno">8</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
-				<button id="KWG_stage0" class="KWG_stage" value="지"
-					onclick="KingWordGame2_click(this.value)">
-					<div class="KWG_stageno">9</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
-				<button id="KWG_stage0" class="KWG_stage" value="지"
-					onclick="KingWordGame2_click(this.value)">
-					<div class="KWG_stageno">10</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
-				<button id="KWG_stage0" class="KWG_stage" value="지"
-					onclick="KingWordGame2_click(this.value)">
-					<div class="KWG_stageno">11</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
-				<button id="KWG_stage0" class="KWG_stage" value="지"
-					onclick="KingWordGame2_click(this.value)">
-					<div class="KWG_stageno">12</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
-				<button id="KWG_stage0" class="KWG_stage" value="지"
-					onclick="KingWordGame2_click(this.value)">
-					<div class="KWG_stageno">13</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
-				<button id="KWG_stage0" class="KWG_stage" value="지"
-					onclick="KingWordGame2_click(this.value)">
-					<div class="KWG_stageno">★</div>
-					<div class="KWG_stagestar">★★☆</div>
-				</button>
-			</div>
-
+								<button id="KWG_stage0" class="KWG_stage" value="지"
+						onclick="KingWordGame2_click(this.value)">
+						<div class="KWG_stageno" style="color:gray">8</div>
+						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+					</button>
+					<button id="KWG_stage0" class="KWG_stage" value="지"
+						onclick="KingWordGame2_click(this.value)">
+						<div class="KWG_stageno" style="color:gray">9</div>
+						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+					</button>
+					<button id="KWG_stage0" class="KWG_stage" value="지"
+						onclick="KingWordGame2_click(this.value)">
+						<div class="KWG_stageno" style="color:gray">10</div>
+						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+					</button>
+					<button id="KWG_stage0" class="KWG_stage" value="지"
+						onclick="KingWordGame2_click(this.value)">
+						<div class="KWG_stageno" style="color:gray">11</div>
+						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+					</button>
+					<button id="KWG_stage0" class="KWG_stage" value="지"
+						onclick="KingWordGame2_click(this.value)">
+						<div class="KWG_stageno" style="color:gray">12</div>
+						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+					</button>
+					<button id="KWG_stage0" class="KWG_stage" value="지"
+						onclick="KingWordGame2_click(this.value)">
+						<div class="KWG_stageno" style="color:gray">13</div>
+						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+					</button>
+					<button id="KWG_stage0" class="KWG_stage" value="지"
+						onclick="KingWordGame2_click(this.value)">
+						<div class="KWG_stageno" style="color:gray">★</div>
+						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+					</button>
+				</div>
 		</div>
 		<footer class="page_main KingWordGamefooter">
 			<div class="KW_back KW_BTRstyle">

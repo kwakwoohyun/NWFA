@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.skhu.NWFA.sejongGame.sejongModel.stageModel;
 import com.skhu.NWFA.sejongGame.sejongModel.syllablesModel;
 import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
 import com.skhu.NWFA.sejongGame.sejongService.sejongService;
@@ -24,7 +25,10 @@ public class sejongController {
 
 	@RequestMapping("KingWordGameLobby")
 	public String KingWordGameLobby(Model model) {
-		
+		List<stageModel> stages = service.sejongStage();
+
+		model.addAttribute("stages", stages);
+
 		return "game/KingWordGameLobby";
 	}
 
@@ -51,6 +55,16 @@ public class sejongController {
 		model.addAttribute("hintWord", wordArray.get(hintIndex));
 		model.addAttribute("hintIndex", hintIndex);
 
+		List<stageModel> stages = service.sejongStage();
+
+		System.out.println(sejongId);
+
+		if (sejongId.equals("1")) {
+		} else {
+			if (stages.get(Integer.parseInt(sejongId) - 2).getOpen_game() == 1) {
+				service.stageLockUpdate(Integer.parseInt(sejongId));
+			}
+		}
 		return "game/KingWordGame";
 	}
 }

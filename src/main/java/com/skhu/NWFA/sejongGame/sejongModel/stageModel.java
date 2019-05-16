@@ -6,7 +6,7 @@ public class stageModel {
 	private int User_user_id;
 	private int Sejong_Word_word_id;
 	private int star;
-	private int lock;
+	private int open_game;
 
 	public int getStage_id() {
 		return stage_id;
@@ -40,18 +40,18 @@ public class stageModel {
 		this.star = star;
 	}
 
-	public int getLock() {
-		return lock;
+	public int getOpen_game() {
+		return open_game;
 	}
 
-	public void setLock(int lock) {
-		this.lock = lock;
+	public void setgetOpen_game(int open_game) {
+		this.open_game = open_game;
 	}
 
 	@Override
 	public String toString() {
 		return "sejongStageModel [stage_id=" + stage_id + ", User_user_id=" + User_user_id + ", Sejong_Word_word_id="
-				+ Sejong_Word_word_id + ", star=" + star + ", lock=" + lock + "]";
+				+ Sejong_Word_word_id + ", star=" + star + ", open_game=" + open_game + "]";
 	}
 
 }

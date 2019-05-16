@@ -51,13 +51,13 @@
               ${word.mean}
             </div>
             <div class="blackboard_Quiz_Question">
-              _ ¸Ó ¸®
+              <img src="/icon/WQ1.gif">
             </div>
             <div class="blackboard_Quiz_Answer">
-              <img src="icon/WQ1.gif">
+              <img src="/icon/WQ1.gif">
             </div>
             <div class="blackboard_img">
-              <img src="icon/chalk.png">
+              <img src="/icon/chalk.png">
             </div>
           </div>
 
