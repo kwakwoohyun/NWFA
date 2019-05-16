@@ -21,4 +21,9 @@ public class testController {
 	public String dict(Model model) {
 		return "dict";
 	}
+	
+	@RequestMapping("personal")
+	public String personal(Model model) {
+		return "personal";
+	}
 }

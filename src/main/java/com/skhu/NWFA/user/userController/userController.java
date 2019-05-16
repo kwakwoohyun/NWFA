@@ -5,14 +5,24 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.skhu.NWFA.sejongGame.sejongService.sejongService;
 import com.skhu.NWFA.user.userDao.UserDAO;
+import com.skhu.NWFA.user.userModel.userModel;
+import com.skhu.NWFA.user.userService.userService;
 
 @Controller
 public class userController {
+
+	@Autowired(required = false)
+	userService Uservice;
+	@Autowired
+	sejongService Sservice;
 
 	@RequestMapping("tempmenu")
 	public String tmepmenu() {
@@ -23,11 +33,12 @@ public class userController {
 	public String login() {
 		return "login/login";
 	}
+
 	@RequestMapping("logout")
-	public String logout(){
+	public String logout() {
 		return "/login/logout";
 	}
-	
+
 	@RequestMapping("accounts")
 	public String accounts() {
 		return "login/accounts";
@@ -39,7 +50,7 @@ public class userController {
 	}
 
 	@RequestMapping("userRegister")
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response, HttpSession session)
 			throws ServletException, IOException {
 		final long serialVersionUID = 1L;
 
@@ -69,6 +80,17 @@ public class userController {
 		}
 		int result = new UserDAO().register(userID, userPassword1, userName, userAge, userGender, userEmail);
 		if (result == 1) {
+
+			userModel user = Uservice.selectID(userID);
+			int user_id = user.getUser_id();
+			Uservice.insertInfo(user_id);
+			for (int i = 2; i < 4; i++) {
+				Uservice.insertInfo2(user_id, i);
+			}
+			for (int i = 5; i < 9; i++) {
+				Uservice.insertInfo3(user_id, i);
+			}
+
 			request.getSession().setAttribute("messageType", "성공 메시지");
 			request.getSession().setAttribute("messageContent", "회원가입에 성공했습니다.");
 			response.sendRedirect("login");

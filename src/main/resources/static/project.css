@@ -1448,7 +1448,7 @@ a:visited {
   display: flex;
   flex-direction: column;
 }
-#page_account #account_Error{
+#page_account .account_Error{
   text-align: center;
   color: #ff5050;
 }
