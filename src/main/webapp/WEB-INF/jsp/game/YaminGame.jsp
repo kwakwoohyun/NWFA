@@ -27,9 +27,7 @@
 			'-ms-filter' : 'blur(15px)'
 		});
 		$(".popup_GameOver").css('top', '0vh');
-
 	}
-
 	function GameClear() {
 		//  게임클리어 팝업을 뛰우는 함수
 		$(".popup_GameEnd").show().css('display', 'flex');
@@ -48,8 +46,15 @@
 		$(".popup_GameEnd").hide(); // [정인국] 모달창 초기 설정 ..1
 		$(".popup_GameOver").css('top', '-100vh'); // [정인국] 모달창 초기 설정 ..2
 		$(".popup_GameClear").css('top', '-100vh'); // [정인국] 모달창 초기 설정 ..3
+		$(".blackboard_Quiz_Question").show(); // [정인국] 모달창 초기 설정 ..3
+		$(".blackboard_Quiz_Answer").hide(); // [정인국] 모달창 초기 설정 ..3
 	}
 
+	function Answer() {
+		$(".blackboard_Quiz_Question").hide(); // [정인국] 모달창 초기 설정 ..3
+		$(".blackboard_Quiz_Answer").show(); // [정인국] 모달창 초기 설정 ..3
+
+	}
 	var clickWord = ""; // 단어변수
 	var DoubleClickCheck = new Array();
 	var btnState = [ 1, 1, 1, 1, 1, 1 ];
@@ -160,9 +165,8 @@
 		} else if (count == "${word.yamin_word.length()}") {
 			if (clickWord == '${word.yamin_word}') {
 				setDisable();
-				setTimeout(function() {
-					GameClear();
-				}, 500);
+				Answer();
+				setTimeout(GameClear, 10000);
 			} else {
 				time--;
 				setDisable();
@@ -227,8 +231,9 @@
 								<span id="answer${status.index +1}">${example}</span>
 							</c:forEach>
 						</div>
-						<div class="blackboard_Quiz_Answer">
-							<img src="/icon/WQ1.gif">
+						<div class="blackboard_Quiz_Answer"
+							style="display: none; position: relative; position: relative; bottom: 30px;">
+							<img src="/icon/WQ${yamin }.gif">
 						</div>
 						<div class="blackboard_img">
 							<img src="/icon/chalk.png">
@@ -287,7 +292,7 @@
 					onclick="window.location.href = '/YaminGameLobby'">로비로 나가기</div>
 			</div>
 			<div class="popup_GameOver">
-				<div class="popup_GameOver_Text">GAME OVErr</div>
+				<div class="popup_GameOver_Text">GAME OVER</div>
 
 				<div class="popup_GameOver_Regame" id="ReGame"
 					onclick="window.location.reload()">게임 다시하기</div>
