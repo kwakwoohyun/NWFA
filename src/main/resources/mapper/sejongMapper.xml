@@ -1,32 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.skhu.NWFA.sejongGame.sejongDao.sejongDao">
-	<select id="example"
-		resultType="com.skhu.NWFA.sejongGame.sejongModel.syllablesModel">
-		select * from Syllables order by rand() Limit #{count}
-	</select>
+   <select id="example"
+      resultType="com.skhu.NWFA.sejongGame.sejongModel.syllablesModel">
+      select * from Syllables order by rand() Limit #{count}
+   </select>
 
-	<select id="sejongWords"
-		resultType="com.skhu.NWFA.sejongGame.sejongModel.wordsModel">
-		select word_id, justice, mean, gameNub from
-		capstonedesign.Sejong inner
-		join Word on
-		Sejong.Word_word_id =
-		capstonedesign.Word.word_id and
-		Sejong.sejong_id=#{sejong_id};
-	</select>
+   <select id="sejongWords"
+      resultType="com.skhu.NWFA.sejongGame.sejongModel.wordsModel">
+      select word_id, justice, mean, gameNub from
+      capstonedesign.Sejong inner
+      join Word on
+      Sejong.Word_word_id =
+      capstonedesign.Word.word_id and
+      Sejong.sejong_id=#{sejong_id};
+   </select>
 
-	<select id="sejongStage"
-		resultType="com.skhu.NWFA.sejongGame.sejongModel.stageModel">
-		SELECT * FROM SejongStage
-	</select>
-	
-	<update id="stageLockUpdate" parameterType="int">
-		UPDATE SejongStage SET open_game = 1
-		WHERE stage_id =
-		#{stageId}
-	</update>
+   <select id="sejongStage"
+      resultType="com.skhu.NWFA.sejongGame.sejongModel.stageModel">
+      SELECT * FROM SejongStage WHERE User_user_id = #{user_id};
+   </select>
+   
+      <select id="sejongStageAll"
+      resultType="com.skhu.NWFA.sejongGame.sejongModel.stageModel">
+      SELECT * FROM SejongStage
+   </select>
+   
+   <update id="stageLockUpdate" parameterType="int">
+      UPDATE SejongStage SET open_game = 1
+      WHERE stage_id =
+      #{stageId}
+   </update>
+   
+      <select id="loginUser"
+      resultType="com.skhu.NWFA.user.userModel.userModel" parameterType="string">
+      SELECT * FROM User WHERE login_id = #{login_id}
+   </select>
 
 </mapper>

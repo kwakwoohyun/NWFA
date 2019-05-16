@@ -7,11 +7,15 @@ import org.springframework.context.annotation.Configuration;
 import com.skhu.NWFA.sejongGame.sejongModel.stageModel;
 import com.skhu.NWFA.sejongGame.sejongModel.syllablesModel;
 import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
+import com.skhu.NWFA.user.userModel.userModel;
 
 @Configuration
 public interface sejongDao {
-	List<syllablesModel> example(int count);
-	wordsModel sejongWords(String sejongId);
-	List<stageModel> sejongStage();
-	void stageLockUpdate(int stageId);
+   List<syllablesModel> example(int count);
+   wordsModel sejongWords(String sejongId);
+   List<stageModel> sejongStage(int user_id);
+   List<stageModel> sejongStageAll();
+   void stageLockUpdate(int stageId);
+   userModel loginUser(String login_id);
+
 }
