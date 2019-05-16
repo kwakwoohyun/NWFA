@@ -172,7 +172,7 @@
       </div>
       <div class="popup_GameOver">
         <div class="popup_GameOver_Text">
-          GAME OVER
+          GAME OVErr
         </div>
         <div class="popup_GameOver_Regame" id="ReGame">
           게임 다시하기
