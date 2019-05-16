@@ -79,8 +79,11 @@
 
 </head>
 
-<body id="page_KingWordGameLobby" class="page_main page_normal"
-	class="background">
+<body id="page_KingWordGameLobby" class="page_main page_normal background">
+	<div id="layer_background">
+
+  </div>
+  <div id="layer_control">
 	<header class="page_main">
 		<div class="L_headerbar"></div>
 		<div class="C_headerbar">
@@ -194,6 +197,10 @@
 			<div class="KW_BTNewStart KW_BTRstyle">스테이지 1-1 부터 시작하기</div>
 			<div class="visibilityhidden KW_BTRstyle">더미키</div>
 		</footer>
+	</div>
+	</div>
+	<div id="layer_modal">
+	</div>
 </body>
 
 </html>

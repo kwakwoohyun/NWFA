@@ -22,6 +22,28 @@
 	var hintIndex = 0;
 	var time = 3;
 
+  // [정인국] 여기는 모달레이어를 제어하는 변수들임 프론트엔드용
+  function GameOver() {
+    // 게임오버 팝업을 뛰우는 함수
+    $(".popup_GameEnd").show().css('display', 'flex');
+    $("#layer_control").css({'filter': 'blur(15px)', '-webkit-filter': 'blur(15px)', '-moz-filter': 'blur(15px)', '-o-filter': 'blur(15px)', '-ms-filter': 'blur(15px)'});
+    $(".popup_GameOver").css('top', '0vh');
+
+  }
+  function GameClear() {
+    //  게임클리어 팝업을 뛰우는 함수
+    $(".popup_GameEnd").show().css('display', 'flex');
+    $("#layer_control").css({'filter': 'blur(15px)', '-webkit-filter': 'blur(15px)', '-moz-filter': 'blur(15px)', '-o-filter': 'blur(15px)', '-ms-filter': 'blur(15px)'});
+    $(".popup_GameClear").css('top', '0vh');
+
+  }
+  // [정인국] 모달창을 숨겨주기위한 함수임
+  function popup_Reset() {
+    $(".popup_GameEnd").hide(); // [정인국] 모달창 초기 설정 ..1
+    $(".popup_GameOver").css('top', '-100vh'); // [정인국] 모달창 초기 설정 ..2
+    $(".popup_GameClear").css('top', '-100vh'); // [정인국] 모달창 초기 설정 ..3
+  }
+
 	function buttonClick(id, index, event) {
 		hintIndex += 1;
 		clickWord = clickWord + event;
@@ -189,80 +211,107 @@
 		}
 	}
 </script>
-
 </head>
 
-<body id="page_KingWordGame" class="page_main page_normal"
-	class="background">
-	<header class="page_main">
-		<div class="L_headerbar"></div>
-		<div class="C_headerbar">
-			<div class="KingWordGameTitle">세종대왕 단어게임</div>
-		</div>
-		<div class="R_headerbar">
-			<div class="UI login"></div>
-		</div>
-	</header>
-	<div class="viewBox">
-		<div class="ControlBox">
-			<div class="page_main KingWordGamePanel">
-				<button id="KWGQ_BT1" class="KWGQ_BT" value="${li[0]}"
-					onclick="KingWordGame1_click(this.value)">${li[0]}</button>
-				<button id="KWGQ_BT2" class="KWGQ_BT" value="${li[1]}"
-					onclick="KingWordGame2_click(this.value)">${li[1]}</button>
-				<button id="KWGQ_BT3" class="KWGQ_BT" value="${li[2]}"
-					onclick="KingWordGame3_click(this.value)">${li[2]}</button>
-				<button id="KWGQ_BT4" class="KWGQ_BT" value="${li[3]}"
-					onclick="KingWordGame4_click(this.value)">${li[3]}</button>
-				<button id="KWGQ_BT5" class="KWGQ_BT" value="${li[4]}"
-					onclick="KingWordGame5_click(this.value)">${li[4]}</button>
-				<button id="KWGQ_BT6" class="KWGQ_BT" value="${li[5]}"
-					onclick="KingWordGame6_click(this.value)">${li[5]}</button>
-				<button id="KWGQ_BT7" class="KWGQ_BT" value="${li[6]}"
-					onclick="KingWordGame7_click(this.value)">${li[6]}</button>
-				<button id="KWGQ_BT8" class="KWGQ_BT" value="${li[7]}"
-					onclick="KingWordGame8_click(this.value)">${li[7]}</button>
-				<button id="KWGQ_BT9" class="KWGQ_BT" value="${li[8]}"
-					onclick="KingWordGame9_click(this.value)">${li[8]}</button>
+	<body id="page_KingWordGame" class="page_main page_normal background">
+		<div id="layer_background"></div>
+	  <div id="layer_control">
+		<header class="page_main">
+			<div class="L_headerbar"></div>
+			<div class="C_headerbar">
+				<div class="KingWordGameTitle">세종대왕 단어게임</div>
 			</div>
-			<footer class="page_main KingWordGamefooter">
-				<div class="KW_back KW_BTstyle">
-					<a href="/KingWordGameLobby">뒤로</a>
-				</div>
-				<div class="KW_regame KW_BTstyle" onclick="window.location.reload()">다시하기</div>
-				<div class="KW_Hint KW_BTstyle" onclick="hint();">힌트</div>
-				<script>
-					function hint() {
-						var index = ${hintIndex}+1;
-						document.querySelector('#answer' + index).innerHTML = '${hintWord}';
-					}
-				</script>
-			</footer>
-		</div>
-		<div class="DisplayBox">
-			<div class="KWGQ_quiz">
-				<div class="KWGQ_Stage_panel">Stage 1-1</div>
-				<div class="KWGQ_quiz_panel">
-					${word.mean}<br>
-				</div>
+			<div class="R_headerbar">
+				<div class="UI login"></div>
 			</div>
-			<div class="KWGQ_answer">
-				<c:forEach var="x" varStatus="index" begin="0" end="${wordlength-1}"
-					step="1">
-					<div class="KWGQ_answer_ward" id="answer${index.count }">_</div>
-				</c:forEach>
-			</div>
-			<div class="info_panel flex">
-				<div class="point_panel KingWordGameporint flex">
-					남은기회
-					<div class="Star_point" id="Star_point">♥♥♥</div>
-					나의최고점수
-					<div class="Heart_point">★☆☆</div>
+		</header>
+		<div class="viewBox">
+			<div class="ControlBox">
+				<div class="page_main KingWordGamePanel">
+					<button id="KWGQ_BT1" class="KWGQ_BT" value="${li[0]}"
+						onclick="KingWordGame1_click(this.value)">${li[0]}</button>
+					<button id="KWGQ_BT2" class="KWGQ_BT" value="${li[1]}"
+						onclick="KingWordGame2_click(this.value)">${li[1]}</button>
+					<button id="KWGQ_BT3" class="KWGQ_BT" value="${li[2]}"
+						onclick="KingWordGame3_click(this.value)">${li[2]}</button>
+					<button id="KWGQ_BT4" class="KWGQ_BT" value="${li[3]}"
+						onclick="KingWordGame4_click(this.value)">${li[3]}</button>
+					<button id="KWGQ_BT5" class="KWGQ_BT" value="${li[4]}"
+						onclick="KingWordGame5_click(this.value)">${li[4]}</button>
+					<button id="KWGQ_BT6" class="KWGQ_BT" value="${li[5]}"
+						onclick="KingWordGame6_click(this.value)">${li[5]}</button>
+					<button id="KWGQ_BT7" class="KWGQ_BT" value="${li[6]}"
+						onclick="KingWordGame7_click(this.value)">${li[6]}</button>
+					<button id="KWGQ_BT8" class="KWGQ_BT" value="${li[7]}"
+						onclick="KingWordGame8_click(this.value)">${li[7]}</button>
+					<button id="KWGQ_BT9" class="KWGQ_BT" value="${li[8]}"
+						onclick="KingWordGame9_click(this.value)">${li[8]}</button>
 				</div>
-				<div class="kingimg"></div>
+				<footer class="page_main KingWordGamefooter">
+					<div class="KW_back KW_BTstyle">
+						<a href="/KingWordGameLobby">뒤로</a>
+					</div>
+					<div class="KW_regame KW_BTstyle" onclick="window.location.reload()">다시하기</div>
+					<div class="KW_Hint KW_BTstyle" onclick="hint();">힌트</div>
+					<script>
+						function hint() {
+							var index = ${hintIndex}+1;
+							document.querySelector('#answer' + index).innerHTML = '${hintWord}';
+						}
+					</script>
+				</footer>
+			</div>
+			<div class="DisplayBox">
+				<div class="KWGQ_quiz">
+					<div class="KWGQ_Stage_panel">Stage 1-1</div>
+					<div class="KWGQ_quiz_panel">
+						${word.mean}<br>
+					</div>
+				</div>
+				<div class="KWGQ_answer">
+					<c:forEach var="x" varStatus="index" begin="0" end="${wordlength-1}"
+						step="1">
+						<div class="KWGQ_answer_ward" id="answer${index.count }">_</div>
+					</c:forEach>
+				</div>
+				<div class="info_panel flex">
+					<div class="point_panel KingWordGameporint flex">
+						남은기회
+						<div class="Star_point" id="Star_point">♥♥♥</div>
+						나의최고점수
+						<div class="Heart_point">★☆☆</div>
+					</div>
+					<div class="kingimg"></div>
+				</div>
 			</div>
 		</div>
 	</div>
-</body>
+		<div id="layer_modal">
+			<div class="popup_GameEnd">
+				<div class="popup_GameClear">
+					<div class="popup_GameClear_Text">
+						GAME CLEAR
+					</div>
+					<div class="popup_GameClear_NextGame" id="NextGame">
+						다음 스테이지
+					</div>
+					<div class="popup_GameClear_Lobby" id="MoveLobby">
+						로비로 나가기
+					</div>
+				</div>
+				<div class="popup_GameOver">
+					<div class="popup_GameOver_Text">
+						GAME OVER
+					</div>
+					<div class="popup_GameOver_Regame" id="ReGame">
+						게임 다시하기
+					</div>
+					<div class="popup_GameOver_Lobby" id="MoveLobby">
+						로비로 나가기
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 
 </html>
