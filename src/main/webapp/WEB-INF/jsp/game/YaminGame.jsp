@@ -1,20 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
 
 <head>
 <meta charset="utf-8">
-<title>¸ŞÀÎÆäÀÌÁö</title>
+<title>ë©”ì¸í˜ì´ì§€</title>
 <meta name="viewport" content="width=device-width; initial-scale=1.0" />
 <link rel="stylesheet" href="/project.css">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
-	// [Á¤ÀÎ±¹] ¿©±â´Â ¸ğ´Ş·¹ÀÌ¾î¸¦ Á¦¾îÇÏ´Â º¯¼öµéÀÓ ÇÁ·ĞÆ®¿£µå¿ë
+	// [ì •ì¸êµ­] ì—¬ê¸°ëŠ” ëª¨ë‹¬ë ˆì´ì–´ë¥¼ ì œì–´í•˜ëŠ” ë³€ìˆ˜ë“¤ì„ í”„ë¡ íŠ¸ì—”ë“œìš©
 	function GameOver() {
-		// °ÔÀÓ¿À¹ö ÆË¾÷À» ¶Ù¿ì´Â ÇÔ¼ö
+		// ê²Œì„ì˜¤ë²„ íŒì—…ì„ ë›°ìš°ëŠ” í•¨ìˆ˜
 		$(".popup_GameEnd").show().css('display', 'flex');
 		$("#layer_control").css({
 			'filter' : 'blur(15px)',
@@ -28,7 +31,7 @@
 	}
 
 	function GameClear() {
-		//  °ÔÀÓÅ¬¸®¾î ÆË¾÷À» ¶Ù¿ì´Â ÇÔ¼ö
+		//  ê²Œì„í´ë¦¬ì–´ íŒì—…ì„ ë›°ìš°ëŠ” í•¨ìˆ˜
 		$(".popup_GameEnd").show().css('display', 'flex');
 		$("#layer_control").css({
 			'filter' : 'blur(15px)',
@@ -40,19 +43,158 @@
 		$(".popup_GameClear").css('top', '0vh');
 
 	}
-	// [Á¤ÀÎ±¹] ¸ğ´ŞÃ¢À» ¼û°ÜÁÖ±âÀ§ÇÑ ÇÔ¼öÀÓ
+	// [ì •ì¸êµ­] ëª¨ë‹¬ì°½ì„ ìˆ¨ê²¨ì£¼ê¸°ìœ„í•œ í•¨ìˆ˜ì„
 	function popup_Reset() {
-		$(".popup_GameEnd").hide(); // [Á¤ÀÎ±¹] ¸ğ´ŞÃ¢ ÃÊ±â ¼³Á¤ ..1
-		$(".popup_GameOver").css('top', '-100vh'); // [Á¤ÀÎ±¹] ¸ğ´ŞÃ¢ ÃÊ±â ¼³Á¤ ..2
-		$(".popup_GameClear").css('top', '-100vh'); // [Á¤ÀÎ±¹] ¸ğ´ŞÃ¢ ÃÊ±â ¼³Á¤ ..3
+		$(".popup_GameEnd").hide(); // [ì •ì¸êµ­] ëª¨ë‹¬ì°½ ì´ˆê¸° ì„¤ì • ..1
+		$(".popup_GameOver").css('top', '-100vh'); // [ì •ì¸êµ­] ëª¨ë‹¬ì°½ ì´ˆê¸° ì„¤ì • ..2
+		$(".popup_GameClear").css('top', '-100vh'); // [ì •ì¸êµ­] ëª¨ë‹¬ì°½ ì´ˆê¸° ì„¤ì • ..3
 	}
 
-	$(document).ready(function() {
-		popup_Reset() //[Á¤ÀÎ±¹] ¸ğ´ŞÃ¢À» ÃÊ±âÈ­ ½ÃÄÑÁÖ´Â ÇÔ¼ö ¸ğ´ŞÃ¢À» »ç¿ëÇÏ°í ÆäÀÌÁö¸¦ ÀÌµ¿ÇÏÁö ¾Ê´ÂÀÌ»ó ÃÊ±âÈ­¸¦ ½ÃÄÑÁà¾ßÇÕ´Ï´Ù.
-		// Å×½ºÆ® ±¸¹®
-		// setTimeout(GameClear, 2000) //[°ÔÀÓÅ¬¸®¾î ÆË¾÷] GameClear() ·Î »ç¿ë°¡´É
-		// setTimeout(GameOver, 2000) //[°ÔÀÓ¿À¹ö ÆË¾÷] GameOver() ·Î »ç¿ë°¡´É
-	});
+	var clickWord = ""; // ë‹¨ì–´ë³€ìˆ˜
+	var DoubleClickCheck = new Array();
+	var btnState = [ 1, 1, 1, 1, 1, 1 ];
+	var btnChars = [ "${li[0]}", "${li[1]}", "${li[2]}", "${li[3]}",
+			"${li[4]}", "${li[5]}" ];
+	var btnAnswers = [ "${example[0]}", "${example[1]}", "${example[2]}",
+			"${example[3]}", "${example[4]}", "${example[5]}" ];
+	var count = 0;
+	var hintIndex = 0;
+	var time = 3;
+
+	function buttonClick(id, index, event) {
+		hintIndex += 1;
+		clickWord = clickWord + event;
+		document.querySelector('#answer' + hintIndex).innerHTML = btnChars[index];
+		document.querySelector('#WQ_BT' + id).style.color = "#ff69b2";
+		document.querySelector('#WQ_BT' + id).style.border = "solid 3px #ff69b2";
+		count++;
+		check();
+	}
+
+	function buttonClickRelease(id) {
+		document.querySelector('#answer' + hintIndex).innerHTML = "_";
+		hintIndex += -1;
+		clickWord = clickWord.replace(event, "");
+		document.querySelector('#WQ_BT' + id).style.color = '#ffffff';
+		document.querySelector('#WQ_BT' + id).style.border = "solid 3px white";
+		count--;
+		check();
+	}
+
+	function KingWordGame1_click(event) {
+		// alert("ë²„íŠ¼1ì„ ëˆ„ë¥´ì…¨ìŠµë‹ˆë‹¤.");
+		btnState[0] *= -1;
+		if (btnState[0] == -1) {
+			buttonClick(1, 0, event);
+		} else {
+			buttonClickRelease(1);
+		}
+	}
+
+	function KingWordGame2_click(event) {
+		// alert("ë²„íŠ¼2ì„ ëˆ„ë¥´ì…¨ìŠµë‹ˆë‹¤.");
+		btnState[1] *= -1;
+		if (btnState[1] == -1) {
+			buttonClick(2, 1, event);
+		} else {
+			buttonClickRelease(2);
+		}
+	}
+
+	function KingWordGame3_click(event) {
+		// alert("ë²„íŠ¼3ì„ ëˆ„ë¥´ì…¨ìŠµë‹ˆë‹¤.");
+		btnState[2] *= -1;
+		if (btnState[2] == -1) {
+			buttonClick(3, 2, event);
+		} else {
+			buttonClickRelease(3);
+		}
+	}
+
+	function KingWordGame4_click(event) {
+		// alert("ë²„íŠ¼4ì„ ëˆ„ë¥´ì…¨ìŠµë‹ˆë‹¤.");
+		btnState[3] *= -1;
+		if (btnState[3] == -1) {
+			buttonClick(4, 3, event);
+		} else {
+			buttonClickRelease(4);
+		}
+	}
+
+	function KingWordGame5_click(event) {
+		// alert("ë²„íŠ¼5ì„ ëˆ„ë¥´ì…¨ìŠµë‹ˆë‹¤.");
+		btnState[4] *= -1;
+		if (btnState[4] == -1) {
+			buttonClick(5, 4, event);
+		} else {
+			buttonClickRelease(5);
+		}
+	}
+
+	function KingWordGame6_click(event) {
+		// alert("ë²„íŠ¼6ì„ ëˆ„ë¥´ì…¨ìŠµë‹ˆë‹¤.");
+		btnState[5] *= -1;
+		if (btnState[5] == -1) {
+			buttonClick(6, 5, event);
+		} else {
+			buttonClickRelease(6);
+		}
+	}
+	function setHeart() {
+		if (time == 3) {
+			document.getElementById('Star_point').innerHTML = "â™¥â™¥â™¥";
+		} else if (time == 2) {
+			document.getElementById('Star_point').innerHTML = "â™¥â™¥â™¡";
+		} else if (time == 1) {
+			document.getElementById('Star_point').innerHTML = "â™¥â™¡â™¡";
+		} else {
+			document.getElementById('Star_point').innerHTML = "â™¡â™¡â™¡";
+		}
+	}
+	function check() {
+
+		if (time < 1) {
+			GameOver();
+			setInitialize();
+			setDisable();
+		} else if (count == "${word.yamin_word.length()}") {
+			if (clickWord == '${word.yamin_word}') {
+				setDisable();
+				setTimeout(function() {
+					GameClear();
+				}, 500);
+			} else {
+				time--;
+				setDisable();
+				setTimeout(function() {
+					alert('ì˜¤ë‹µì…ë‹ˆë‹¤. ë‹¤ì‹œ ì„ íƒí•´ì£¼ì„¸ìš”');
+					setInitialize();
+				}, 500);
+			}
+		}
+		setHeart();
+	}
+	function setInitialize() {
+		for (var i = 1; i <= 6; i++) {
+			document.querySelector('#WQ_BT' + i).style.color = '#ffffff';
+			document.querySelector('#WQ_BT' + i).style.border = "solid 3px white";
+		}// ë°°ê²½ìƒ‰ reset
+		for (var i = 1; i <= 6; i++) {
+			document.querySelector('#WQ_BT' + i).disabled = false;
+		}// ë²„íŠ¼ í´ë¦­ disable
+		for (var i = 1; i <= 3; i++) {
+			document.querySelector('#answer' + i).innerHTML = btnAnswers[i - 1];
+		}// íŒíŠ¸ reset
+		clickWord = "";
+		btnState = [ 1, 1, 1, 1, 1, 1, 1, 1, 1 ];
+		count = 0;
+		hintIndex = 0;
+	}
+	function setDisable() {
+		for (var i = 1; i <= 6; i++) {
+			document.querySelector('#WQ_BT' + i).disabled = 'disabled';
+		}// ë²„íŠ¼ í´ë¦­ disable
+	}
 </script>
 </head>
 
@@ -66,10 +208,10 @@
 		<header class="page_main">
 			<div class="L_headerbar"></div>
 			<div class="C_headerbar">
-				<div class="WordQuizTitle">µµÀü ½ÅÁ¶¾î!</div>
+				<div class="WordQuizTitle">ë„ì „ ì‹ ì¡°ì–´!</div>
 			</div>
 			<div class="R_headerbar">
-				<div class="UI login"></div>
+				<div class="UI login" onclick="location.href='tempmenu'"></div>
 			</div>
 		</header>
 		<div class="viewBox">
@@ -77,11 +219,13 @@
 			<div class="DisplayBox">
 				<div class="quiz">
 
-					<div class="Stage_panel">Stage 1-1</div>
+					<div class="Stage_panel">Stage 1-${yamin}</div>
 					<div class="blackboard">
 						<div class="blackboard_Quiz">${word.mean}</div>
 						<div class="blackboard_Quiz_Question">
-							${example }
+							<c:forEach var="example" items="${example}" varStatus="status">
+								<span id="answer${status.index +1}">${example}</span>
+							</c:forEach>
 						</div>
 						<div class="blackboard_Quiz_Answer">
 							<img src="/icon/WQ1.gif">
@@ -96,38 +240,38 @@
 
 			<div class="ControlBox">
 				<div class="info_panel flex">
-					³²Àº±âÈ¸
-					<div class="Star_point">¢¾¢¾¢½</div>
-					³ªÀÇÃÖ°íÁ¡¼ö
-					<div class="Heart_point">¡Ú¡Ù¡Ù</div>
+					ë‚¨ì€ê¸°íšŒ
+					<div class="Star_point" id="Star_point">â™¥â™¥â™¥</div>
+					ë‚˜ì˜ìµœê³ ì ìˆ˜
+					<div class="Heart_point">â˜…â˜†â˜†</div>
 				</div>
 
 				<div class="buttonbox">
 					<button id="WQ_BT1" class="WQ_BT" value="${li[0] }"
 						onclick="KingWordGame1_click(this.value)">${li[0] }</button>
 					<button id="WQ_BT2" class="WQ_BT" value="${li[1] }"
-						onclick="KingWordGame1_click(this.value)">${li[1] }</button>
+						onclick="KingWordGame2_click(this.value)">${li[1] }</button>
 					<button id="WQ_BT3" class="WQ_BT" value="${li[2] }"
-						onclick="KingWordGame1_click(this.value)">${li[2] }</button>
+						onclick="KingWordGame3_click(this.value)">${li[2] }</button>
 					<button id="WQ_BT4" class="WQ_BT" value="${li[3] }"
-						onclick="KingWordGame1_click(this.value)">${li[3] }</button>
+						onclick="KingWordGame4_click(this.value)">${li[3] }</button>
 					<button id="WQ_BT5" class="WQ_BT" value="${li[4] }"
-						onclick="KingWordGame1_click(this.value)">${li[4] }</button>
+						onclick="KingWordGame5_click(this.value)">${li[4] }</button>
 					<button id="WQ_BT6" class="WQ_BT" value="${li[5] }"
-						onclick="KingWordGame1_click(this.value)">${li[5] }</button>
-					<!-- <button id="WQ_BT7" class="WQ_BT" value="¸Ó" onclick="KingWordGame1_click(this.value)">
-          ¸Ó
+						onclick="KingWordGame6_click(this.value)">${li[5] }</button>
+					<!-- <button id="WQ_BT7" class="WQ_BT" value="ë¨¸" onclick="KingWordGame1_click(this.value)">
+          ë¨¸
         </button>
-        <button id="WQ_BT8" class="WQ_BT" value="¸Ó" onclick="KingWordGame1_click(this.value)">
-          ¸Ó
+        <button id="WQ_BT8" class="WQ_BT" value="ë¨¸" onclick="KingWordGame1_click(this.value)">
+          ë¨¸
         </button> -->
 				</div>
 			</div>
 			<footer class="page_main KingWordGamefooter">
 				<div class="KW_back CQ_BTstyle">
-					<a href="index.html">µÚ·Î</a>
+					<a href="/YaminGameLobby">ë’¤ë¡œ</a>
 				</div>
-				<div class="KW_regame CQ_BTstyle">´Ù½ÃÇÏ±â</div>
+				<div class="KW_regame CQ_BTstyle" onclick="window.location.reload()">ë‹¤ì‹œí•˜ê¸°</div>
 				<div class="visibilityhidden CQ_BTstyle"></div>
 			</footer>
 		</div>
@@ -136,13 +280,19 @@
 		<div class="popup_GameEnd">
 			<div class="popup_GameClear">
 				<div class="popup_GameClear_Text">GAME CLEAR</div>
-				<div class="popup_GameClear_NextGame" id="NextGame">´ÙÀ½ ½ºÅ×ÀÌÁö</div>
-				<div class="popup_GameClear_Lobby" id="MoveLobby">·Îºñ·Î ³ª°¡±â</div>
+				<div class="popup_GameClear_NextGame" id="NextGame"
+					onclick="window.location.href = '/YaminGame/${yamin+1};'">ë‹¤ìŒ
+					ìŠ¤í…Œì´ì§€</div>
+				<div class="popup_GameClear_Lobby" id="MoveLobby"
+					onclick="window.location.href = '/YaminGameLobby'">ë¡œë¹„ë¡œ ë‚˜ê°€ê¸°</div>
 			</div>
 			<div class="popup_GameOver">
 				<div class="popup_GameOver_Text">GAME OVErr</div>
-				<div class="popup_GameOver_Regame" id="ReGame">°ÔÀÓ ´Ù½ÃÇÏ±â</div>
-				<div class="popup_GameOver_Lobby" id="MoveLobby">·Îºñ·Î ³ª°¡±â</div>
+
+				<div class="popup_GameOver_Regame" id="ReGame"
+					onclick="window.location.reload()">ê²Œì„ ë‹¤ì‹œí•˜ê¸°</div>
+				<div class="popup_GameOver_Lobby" id="MoveLobby"
+					onclick="window.location.href = '/YaminGameLobby'">ë¡œë¹„ë¡œ ë‚˜ê°€ê¸°</div>
 			</div>
 		</div>
 	</div>

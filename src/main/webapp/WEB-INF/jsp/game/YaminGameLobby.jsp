@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
 
@@ -52,7 +52,6 @@
 		$(".WQ_BTNewStart").text('스테이지 ' + WQ_Level + '-1 부터시작하기')
 		// $(".GameRank").text(ranking[gameNo]+'위')
 	}
-	functio
 </script>
 </head>
 
@@ -67,7 +66,7 @@
 				<div class="WordQuizTitle">스테이지 선택</div>
 			</div>
 			<div class="R_headerbar">
-				<div class="UI login"></div>
+				<div class="UI login" onclick="location.href='tempmenu'"></div>
 			</div>
 		</header>
 		<div class="viewBox">
@@ -94,36 +93,30 @@
 							</button>
 						</div>
 						<div class="blackboard_stage">
-							<button id="WQ_stage1" class="WQ_stage" value="1"
-								onclick="game_click(this.value)">
-								<div class="WQ_stageno">1</div>
-								<div class="WQ_stagestar">★★☆</div>
-							<script type="text/javascript">
-								function game_click(stage){
-									$(location).attr('href', '/YaminGame/'+stage)
-								}
-							</script>
-							</button>
-							<button id="WQ_stage1" class="WQ_stage" value="지"
-								onclick="KingWordGame2_click(this.value)">
-								<div class="WQ_stageno">2</div>
-								<div class="WQ_stagestar">★★☆</div>
-							</button>
-							<button id="WQ_stage1" class="WQ_stage" value="지"
-								onclick="KingWordGame2_click(this.value)">
-								<div class="WQ_stageno">3</div>
-								<div class="WQ_stagestar">★★☆</div>
-							</button>
-							<button id="WQ_stage1" class="WQ_stage" value="지"
-								onclick="KingWordGame2_click(this.value)">
-								<div class="WQ_stageno">4</div>
-								<div class="WQ_stagestar">★★☆</div>
-							</button>
-							<button id="WQ_stage1" class="WQ_stage" value="지"
-								onclick="KingWordGame2_click(this.value)">
-								<div class="WQ_stageno">5</div>
-								<div class="WQ_stagestar">★★☆</div>
-							</button>
+								<script type="text/javascript">
+									function game_click(stage) {
+										$(location).attr('href',
+												'/YaminGame/' + stage)
+									}
+								</script>
+							<c:forEach var="stage" items="${stages}" varStatus="status">
+								<c:choose>
+									<c:when test="${stage.open_game == 0}">
+										<button id="WQ_stag${status.index +1 }" class="WQ_stage"
+											value="${status.index +1}" disabled="disabled" onclick="game_click(this.value)">
+											<div class="WQ_stageno" style="color: gray">${status.index +1 }</div>
+											<div class="WQ_stagestar" style="color: gray">★★☆</div>
+										</button>
+									</c:when>
+									<c:otherwise>
+										<button id="WQ_stag${status.index +1 }" class="WQ_stage"
+											value="${status.index +1 }" onclick="game_click(this.value)">
+											<div class="WQ_stageno">${status.index +1 }</div>
+											<div class="WQ_stagestar">★★☆</div>
+										</button>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
 						</div>
 						<div class="blackboard_img">
 							<img src="icon/chalk.png">

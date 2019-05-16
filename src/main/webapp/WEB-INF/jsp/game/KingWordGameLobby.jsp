@@ -192,7 +192,7 @@
 		</div>
 		<footer class="page_main KingWordGamefooter">
 			<div class="KW_back KW_BTRstyle">
-				<a href="/">뒤로</a>
+				<a href="/GameLobby">뒤로</a>
 			</div>
 			<div class="KW_BTNewStart KW_BTRstyle">스테이지 1-1 부터 시작하기</div>
 			<div class="visibilityhidden KW_BTRstyle">더미키</div>

@@ -1,17 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<%@ page import="java.io.PrintWriter" %>
+   pageEncoding="UTF-8"%>
+   <%@ page import="java.io.PrintWriter" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+   function popup_remove() {
+      $("#layer_modal .popup_account_Error_window").css('top', '-10vh');
+      $("#layer_modal .popup_account_Error_window").css('visibility', 'hidden');
+   }
+   function popup_account_Error() {
+      $("#layer_modal .popup_account_Error_window").css('top', '0vh');
+      $("#layer_modal .popup_account_Error_window").css('visibility', 'visible');
+   }
+   $(document).ready(function() {
+      // $("#layer_modal .popup_account_Error_window").css('top', '0vh');
+      // $("#layer_modal .popup_Fail_PW_window").css('top', '0vh');
+      setTimeout(popup_remove, 2000)
+   });
+</script>
 <link rel="stylesheet" href="project.css">
+
 <title>회원가입</title>
 </head>
 <body id="page_account" class="page_main page_normal" class="background">
-  <header class="page_main">
+   <div id="layer_background">
+      <div class="background_account">
+
+      </div>
+   </div>
+   <div id="layer_control">
+   <header class="page_main">
     <div class="L_headerbar">
       <div id="mini_logo">
       </div>
@@ -28,10 +51,10 @@
   <article class="page_main">
     <div class="account_main">
       <section class="account">
-      
+
       <div class="container">
  <form method="post" action="userRegister" id="userRegister">
-	 <div class="account_form">
+    <div class="account_form">
         <label for="이메일">아이디</label>
         <input class="account_form_input" type="text" name="userID" id="userID" value="" placeholder="아이디를 입력하세요" maxLength="20">
       </div>
@@ -52,7 +75,7 @@
         <input class="account_form_input" type="text" name="userAge" id="userAge" value="" placeholder="나이를 입력하세요">
       </div>
       <div class="account_form">
-        <label for="이메일">성별을 입력하세요</label>
+        <label for="이메일">성별</label>
         <div class="account_form_sex">
           남자
           <input type="radio" name="userGender" value="남자">
@@ -64,64 +87,80 @@
         <label for="이메일">이메일</label>
         <input class="account_form_input" type="text" name="userEmail" id="userEmail" value="" placeholder="이메일을 입력하세요" maxLength="30">
       </div>
-		<div class="make_id"><a href="#"onclick="document.getElementById('userRegister').submit();">
+         <%
+      String messageContent = null;
+      if(session.getAttribute("messageContent") != null){
+      messageContent = (String) session.getAttribute("messageContent");
+      }
+      String messageType = null;
+      if(session.getAttribute("messageType") != null){
+         messageType = (String) session.getAttribute("messageType");
+      }
+      if(messageContent != null){
+            if(messageContent == "회원가입에 성공했습니다."){
+               PrintWriter script = response.getWriter();
+               script.println("<script>");
+               script.println("location.href='login'");
+               script.println("</script>");
+            }
+                  %>
+                     <div id="account_Error"><%= messageContent %></div>
+               <%
+
+      session.removeAttribute("messageContent");
+      session.removeAttribute("messageType");
+         }
+      %>
+      <div class="make_id"><a href="#"onclick="document.getElementById('userRegister').submit();">
         회원가입
       </a></div>
-      <%
-	  String messageContent = null;
-	if(session.getAttribute("messageContent") != null){
-		messageContent = (String) session.getAttribute("messageContent");
-	}
-	 String messageType = null;
-		if(session.getAttribute("messageType") != null){
-			messageType = (String) session.getAttribute("messageType");
-		} 
-			if(messageContent != null){
-				if(messageContent == "회원가입에 성공했습니다."){
-					PrintWriter script = response.getWriter();
-					script.println("<script>");
-					script.println("location.href='login'");
-					script.println("</script>");
-				}
-    %>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="이메일"><%= messageContent %></label>
-	<%
-		session.removeAttribute("messageContent");
-		session.removeAttribute("messageType");
-			}
-	%>
+
      </form>
   </div>
       </section>
-      <section class="intro">
-        <div class="">
-        회원이 아니라고요?<br>
-        회원으로 무료로 가입하세요
-        </div>
-        <div class="">
-          세대공감 퀴즈게임 모두의 신조어에 가입하세요.<br>
-          자신의 점수와 랭킹을 볼 수 있습니다.<br>
-          더 쉽고 가족과 가까이 대화할 수 있습니다.<br>
-        </div>
-        <div class="">
-          단 1분만에<br>
-          간단하게 가입 하실 수 있습니다<br>
-          어디서나 자신의 계정으로<br>
-          게임하실 수 있습니다 <br>
-        </div>
-      </section>
+         <section class="intro">
+            <div class="intro_text1">
+               회원이 아니라고요?<br>
+               회원으로 무료로 가입하세요
+            </div>
+            <div class="intro_text2">
+               세대공감 퀴즈게임 모두의 신조어에 가입하세요.<br>
+               자신의 점수와 랭킹을 볼 수 있습니다.<br>
+               더 쉽고 가족과 가까이 대화할 수 있습니다.<br>
+            </div>
+            <div class="intro_text3">
+               단 1분만에<br>
+               간단하게 가입 하실 수 있습니다<br>
+               어디서나 자신의 게정으로<br>
+               게임하실 수 있습니다 <br>
+            </div>
+         </section>
     </div>
   </article>
    <footer class="page_main Userfooter">
     <div class="KW_back KW_BTstyle">
       <a href="login">뒤로</a>
     </div>
-    <div class="KW_regame KW_BTstyle">
+    <div class="visibilityhidden KW_BTstyle">
 
     </div>
-    <div class="KW_Hint KW_BTstyle">
+    <div class="visibilityhidden KW_BTstyle">
 
     </div>
-  </footer> 
+  </footer>
+</div>
+<div id="layer_modal">
+   <!--[정인국] 아이디가 존재하지 않는 경우  -->
+   <div class="popup_account_Error">
+      <div class="popup_account_Error_window">
+      </div>
+   </div>
+   <!--[정인국] 비밀번호가 존재하지 않는 경우  -->
+   <div class="popup_Fail_PW">
+      <div class="popup_Fail_PW_window">
+         비밀번호가 일치하지 않습니다.
+      </div>
+   </div>
+</div>
 </body>
 </html>

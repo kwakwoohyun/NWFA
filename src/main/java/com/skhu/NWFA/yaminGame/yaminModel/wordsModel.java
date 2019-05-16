@@ -8,6 +8,7 @@ public class wordsModel {
 	private int gameNub;
 	private byte[] img;
 	private String yamin_word;
+	private String yamin_example;
 
 	public int getWord_id() {
 		return word_id;
@@ -55,6 +56,14 @@ public class wordsModel {
 
 	public void setYamin_word(String yamin_word) {
 		this.yamin_word = yamin_word;
+	}
+
+	public String getYamin_example() {
+		return yamin_example;
+	}
+
+	public void setYamin_example(String yamin_example) {
+		this.yamin_example = yamin_example;
 	}
 
 }
