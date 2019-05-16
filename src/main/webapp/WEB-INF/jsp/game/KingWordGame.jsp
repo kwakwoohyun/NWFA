@@ -102,7 +102,7 @@
 	}
 
 	function KingWordGame7_click(event) {
-		// alert("버튼7을 누르셨습니다.");
+		// alert("버튼7을 누르셨습니다.");;;
 		btnState[6] *= -1;
 		if (btnState[6] == -1) {
 			buttonClick(7, 6, event);
