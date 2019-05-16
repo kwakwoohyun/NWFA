@@ -7,6 +7,7 @@ public class wordsModel {
 	private String mean;
 	private int gameNub;
 	private byte[] img;
+	private String yamin_word;
 
 	public int getWord_id() {
 		return word_id;
@@ -46,6 +47,14 @@ public class wordsModel {
 
 	public void setGameNub(int gameNub) {
 		this.gameNub = gameNub;
+	}
+
+	public String getYamin_word() {
+		return yamin_word;
+	}
+
+	public void setYamin_word(String yamin_word) {
+		this.yamin_word = yamin_word;
 	}
 
 }

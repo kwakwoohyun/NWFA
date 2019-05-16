@@ -15,39 +15,40 @@ import com.skhu.NWFA.yaminGame.yaminModel.syllablesModel;
 import com.skhu.NWFA.yaminGame.yaminModel.wordsModel;
 import com.skhu.NWFA.yaminGame.yaminService.yaminService;
 
-
-
 @Controller
 public class yaminController {
 
-	@Autowired
-	yaminService serviece;
-	
-	@RequestMapping("YaminGameLobby")
-	public String YaminGameLobby(Model model) {
-		return "game/YaminGameLobby";
-	}
+   @Autowired
+   yaminService serviece;
 
-	@RequestMapping("YaminGame/{yaminId}")
-	public String YaminGame(Model model, @PathVariable String yaminId) {
-		wordsModel words = serviece.yaminWords(yaminId);
-//		int wordlength = words.getJustice().length();
-//		int count = 6-wordlength;
-//		List<syllablesModel> list = serviece.example(count);
-//		List<String> syllablesArray = new ArrayList<String>();
-//		List<String> wordArray = new ArrayList<String>(Arrays.asList(words.getJustice().split("")));
-//		for(syllablesModel syllable: list) {
-//			syllablesArray.add(syllable.getSyllables());
-//		}
-//		syllablesArray.addAll(wordArray);
-//		Collections.shuffle(syllablesArray);
+   @RequestMapping("YaminGameLobby")
+   public String YaminGameLobby(Model model) {
+      return "game/YaminGameLobby";
+   }
 
-//		model.addAttribute("yamin",yaminId);
-//		model.addAttribute("wordlength",wordlength);
-//		model.addAttribute("li",syllablesArray);
-		model.addAttribute("word",words);
+   @RequestMapping("YaminGame/{yaminId}")
+   public String YaminGame(Model model, @PathVariable String yaminId) {
+      wordsModel words = serviece.yaminWords(yaminId);
+      int wordlength = words.getYamin_word().length();
+      int count = 6 - wordlength;
+      List<syllablesModel> list = serviece.example(count);
+      List<String> syllablesArray = new ArrayList<String>();
+      List<String> wordArray = new ArrayList<String>(Arrays.asList(words.getYamin_word().split("")));
+      for (syllablesModel syllable : list) {
+         syllablesArray.add(syllable.getSyllables());
+      }
+      syllablesArray.addAll(wordArray);
+      Collections.shuffle(syllablesArray);
 
-		return "game/YaminGame";
-	}
+      String example = words.getJustice().replaceFirst(words.getYamin_word(), "_");
+
+      model.addAttribute("yamin",yaminId);
+      model.addAttribute("wordlength",wordlength);
+      model.addAttribute("li",syllablesArray);
+      model.addAttribute("word", words);
+      model.addAttribute("example", example);
+
+      return "game/YaminGame";
+   }
 
 }
