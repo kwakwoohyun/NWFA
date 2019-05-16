@@ -44,15 +44,14 @@
        <div id="mainpage_logo"></div>
        <div class="UI UI_bt" onclick="location.href='GameLobby'"
           data-transition="flip">게임</div>
-       <div class="UI UI_bt" onclick="location.href='dictionary'"
+       <div class="UI UI_bt" onclick="location.href='dict'"
           data-transition="flip">사전</div>
     </article>
     <footer class="page_main flex justify align-end">
        <div class="UI mini_bt justify align-end"
-          onclick="location.href='dictionary'" data-transition="flip">종료</div>
+          onclick="location.href='logout'" data-transition="flip">종료</div>
        <div class="UI mini_bt justify align-end"
-          onclick="location.href='dict'" data-transition="flip">사전</div>
-
+          onclick="location.href='personal'" data-transition="flip">개</div>
     </footer>
   </div>
   <div id="layer_modal">

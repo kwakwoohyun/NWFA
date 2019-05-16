@@ -39,4 +39,13 @@
       SELECT * FROM User WHERE login_id = #{login_id}
    </select>
 
+	<update id="starUpdate" parameterType="int">
+		UPDATE SejongStage SET star = 3
+		WHERE stage_id = #{stageId} and User_user_id = #{User_user_id}
+	</update>
+	
+	<update id="setStar">
+		UPDATE SejongStage SET star = #{star}
+		WHERE login_id = #{user_id}
+	</update>
 </mapper>

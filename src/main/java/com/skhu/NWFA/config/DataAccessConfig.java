@@ -15,6 +15,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 @MapperScan(basePackages = {
 		"com.skhu.NWFA.sejongGame.sejongDao",
 		"com.skhu.NWFA.yaminGame.yaminDao",
+		"com.skhu.NWFA.user.userDao",
 })
 public class DataAccessConfig {
 	@Bean

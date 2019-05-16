@@ -21,6 +21,7 @@
 	var count = 0;
 	var hintIndex = 0;
 	var time = 3;
+	var star = 3;
 
   // [정인국] 여기는 모달레이어를 제어하는 변수들임 프론트엔드용
   function GameOver() {
@@ -170,6 +171,7 @@
 				}, 300);
 			} else {
 				time--;
+				star--;
 				setDisable();
 				setTimeout(function() {
 					alert('오답입니다. 다시 선택해주세요');
@@ -202,10 +204,13 @@
 	function setHeart() {
 		if (time == 3) {
 			document.getElementById("Star_point").innerHTML = "♥♥♥";
+			location.href("setstar/${time}")
 		} else if (time == 2) {
 			document.getElementById("Star_point").innerHTML = "♥♥♡";
+			location.href("setstar/${time}")
 		} else if (time == 1) {
 			document.getElementById("Star_point").innerHTML = "♥♡♡";
+			location.href("setstar/${time}")
 		} else {
 			document.getElementById("Star_point").innerHTML = "♡♡♡";
 		}
