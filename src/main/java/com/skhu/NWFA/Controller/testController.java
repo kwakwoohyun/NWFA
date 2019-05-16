@@ -16,4 +16,9 @@ public class testController {
 	public String gameLobby(Model model) {
 		return "game/GameLobby";
 	}
+	
+	@RequestMapping("dict")
+	public String dict(Model model) {
+		return "dict";
+	}
 }

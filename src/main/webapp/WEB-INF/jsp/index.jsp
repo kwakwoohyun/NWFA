@@ -55,7 +55,7 @@
 		<div class="UI mini_bt justify align-end"
 			onclick="location.href='dictionary'" data-transition="flip">종료</div>
 		<div class="UI mini_bt justify align-end"
-			onclick="location.href='dictionary'" data-transition="flip">사전</div>
+			onclick="location.href='dict'" data-transition="flip">사전</div>
 
 	</footer>
 </body>
