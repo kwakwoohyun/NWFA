@@ -14,9 +14,9 @@ import com.skhu.NWFA.user.userDao.UserDAO;
 @Controller
 public class userController {
 
-	@RequestMapping("tmepmenu")
+	@RequestMapping("tempmenu")
 	public String tmepmenu() {
-		return "tmepmenu";
+		return "tempmenu";
 	}
 
 	@RequestMapping("login")

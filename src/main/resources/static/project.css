@@ -84,20 +84,35 @@ a:visited {
 #layer_modal {
   z-index: 5;
   width: 100%;
-  height: 100vh;
-  position: absolute;
-  display: none;
-}
 
+  position: absolute;
+  /* display: none; */
+}
+@media screen and (max-width:800px) {
+  #layer_modal .popup_ID_window{
+    font-size: 3vh;
+    line-height: 5vh;
+  }
+}
+@media screen and (max-width:699px) {
+  #layer_modal .popup_ID_window{
+    font-size: 2vh;
+    line-height: 5vh;
+  }
+}
 /* 백그라운드 칼라선정 */
 #page_main {
   background-color: #ffc000;
   display: flex;
 }
 
-.page_normal {
+#page_KingWordGame #layer_background {
   background-color: #fad644;
   display: flex;
+}
+#page_main #layer_background{
+  background-image: url("icon/index.gif");
+  overflow: hidden;
 }
 
 .page_ChallengeQuiz {
@@ -110,6 +125,11 @@ a:visited {
   border: solid 5px white;
   border-radius: 50%;
   color: white;
+  transition: background-Color 1s;
+}
+
+.UI:hover{
+  background-color: #ff9090;
 }
 
 .UI_bt {
@@ -124,6 +144,7 @@ a:visited {
   font-size: 6vh;
   text-align: center;
 }
+
 
 .mini_bt {
   font-family: 'Jua', sans-serif;
@@ -174,29 +195,583 @@ a:visited {
   background-size: 100%;
 }
 
+/* 개인페이지 */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
 #mini_logo {
-  margin: auto;
-  width: 10vh;
-  height: 10vh;
+  width: 8vh;
+  height: 8vh;
   background-image: url("icon/logo.png");
   background-repeat: no-repeat;
   background-size: 90%;
+  background-position: center center;
 }
 
-.personal_titleBar {
+#personal_background {
+  background-color: #fad644;
+  width: 100%;
+  height : 100vh;
+}
+#page_personal .personal_titleBar {
   padding-top: 3vh;
   padding-bottom: 3vh;
   font-family: 'Black Han Sans', sans-serif;
   font-size: 9vh;
 }
-
-.Sort_BT_Bar {
+#page_personal .personal_main{
+  height : 70vh;
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
-  /* flex-wrap: wrap-reverse; */
 }
 
-.Sort_BT {
+#page_personal .personal_sidebar{
+  width: 23%;
+  margin: 0 1%;
+  height : 70vh;
+  background-color: #fdeca5;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#page_personal .personal_content{
+  width: 73%;
+  margin: 0 1%;
+  height : 70vh;
+}
+#page_personal .personal_sidebt{
+  transition: background-color 1s;
+  width: 90%;
+  height : 10vh;
+  margin: 5%;
+  background-color: #fad644;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 5vh;
+  font-family: 'Poor Story', cursive;
+  /* font-family: 'Jua', sans-serif; */
+  text-align: center;
+  line-height: 10vh;
+}
+
+#page_personal #personal_logoutbt{
+  background-color: #ff5050;
+
+}
+#page_personal #personal_rankingbt{
+
+  background-color: #ffc000;
+}
+#page_personal #personal_ranking{
+  font-size: 4vh;
+  font-family: 'Poor Story', cursive;
+}
+#page_personal #personal_ranking{
+  width: 100%;
+  height : 70vh;
+}
+#page_personal #personal_score{
+  width: 100%;
+  height : 70vh;
+
+}
+#page_personal #personal_achievements{
+  width: 100%;
+  height : 70vh;
+}
+#page_personal #personal_setting{
+  width: 100%;
+  height : 70vh;
+
+}
+#page_personal #personal_logout{
+  width: 100%;
+  height : 70vh;
+
+}
+@media screen and (max-width:800px) {
+  #page_personal .personal_sidebt{
+    font-size: 3vh;
+  }
+}
+@media screen and (max-width:699px) {
+  #page_personal .personal_titleBar{
+    font-size: 6vh;
+  }
+  #mini_logo{
+    background-size: 70%;
+  }
+  #page_personal .personal_main{
+    height : 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  #page_personal .personal_sidebar{
+    height : 5vh;
+    margin: 0 3%;
+    padding : 0 2%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+  }
+  #page_personal .personal_bts{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #page_personal .logout_bt{
+    width: 18%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #page_personal .personal_sidebt{
+    margin : 0;
+    font-size: 1.5vh;
+    height : 3vh;
+    line-height : 3vh;
+  }
+  #page_personal .personal_content{
+    width: 98%;
+    margin: 0 1%;
+    height : 65vh;
+  }
+}
+
+/* 모달창 */
+#layer_modal .popup_ID{
+  display: flex;
+  justify-content: center;
+  height: 8vh;
+}
+
+#layer_modal .popup_ID_window{
+  font-size: 5vh;
+  /* height: 10vh; */
+  margin-top: 2vh;
+  padding: 1vh 1vh;
+  background-color: #ff5050;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 5vh;
+  color: #fff;
+  font-family: 'Jua', sans-serif;
+  position: absolute;
+  top: -10vh;
+  transition: top 1s;
+}
+
+/* 점수 */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+#personal_score {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#personal_score .score_game_Sejong{
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 6vh;
+  font-family: 'Poor Story', cursive;
+}
+#personal_score .score_game_WordQuiz{
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 6vh;
+  font-family: 'Poor Story', cursive;
+}
+#personal_score .score_game_Talk{
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 6vh;
+  font-family: 'Poor Story', cursive;
+}
+
+#personal_score .score_game_imgarea{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.score_game_Sejong .score_game_img{
+  height: 15vh;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-image: url("icon/kingLobby.png");
+  background-size: 100%;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+.score_game_WordQuiz .score_game_img{
+  height: 15vh;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-image: url("icon/teacher.png");
+  background-size: 100%;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+.score_game_Talk .score_game_img{
+  height: 15vh;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-image: url("icon/TalklogoLobby.png");
+  background-size: 70%;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+#personal_score .score_game_img_text{
+  font-size: 3vh;
+  font-family: 'Poor Story', cursive;
+  text-align: center;
+}
+
+#personal_score .score_Star_area{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#personal_score .score_Star_point{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#personal_score .score_Star{
+  width: 70%;
+  background-color: #fdeca5;
+  border-radius: 15px;
+  text-align: center;
+}
+
+#personal_score .score_Stage_area{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#personal_score .score_Stage{
+  width: 100%;
+  background-color: #fdeca5;
+  border-radius: 15px;
+  text-align: center;
+}
+@media screen and (max-width:1300px) {
+  #personal_score .score_game_Sejong{
+    font-size: 4vh;
+  }
+  #personal_score .score_game_WordQuiz{
+    font-size: 4vh;
+  }
+  #personal_score .score_game_Talk{
+    font-size: 4vh;
+  }
+}
+@media screen and (max-width:900px) {
+  #personal_score .score_game_Sejong{
+    font-size: 3vh;
+  }
+  #personal_score .score_game_WordQuiz{
+    font-size: 3vh;
+  }
+  #personal_score .score_game_Talk{
+    font-size: 3vh;
+  }
+}
+@media screen and (max-width:699px) {
+  #page_personal #personal_score{
+    height: 65vh;
+  }
+  #personal_score .score_game_Sejong{
+    font-size: 2.5vh;
+  }
+  #personal_score .score_game_WordQuiz{
+    font-size: 2.5vh;
+  }
+  #personal_score .score_game_Talk{
+    font-size: 2.5vh;
+  }
+  #personal_score .score_Star_area{
+    justify-content: center;
+  }
+  #personal_score .score_Stage_area{
+    justify-content: center;
+  }
+}
+/* 업적 */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+
+#personal_achievements .personal_achievements_point_area{
+  display: flex;
+  justify-content: flex-end;
+  height: 5vh;
+}
+#personal_achievements .personal_achievements_point{
+  background-color: #fdeca5;
+  border-radius: 5px;
+  font-size: 4vh;
+  font-family: 'Jua', sans-serif;
+  text-align: center;
+  padding: 0 3vh;
+  line-height: 6vh;
+}
+#personal_achievements .personal_achievements_point_Text{
+  font-size: 4vh;
+  font-family: 'Poor Story', cursive;
+  text-align: center;
+  padding: 0 3vh;
+  line-height: 6vh;
+}
+
+#personal_achievements .personal_achievements_btarea{
+  display: flex;
+  height: 5vh;
+  justify-content: flex-end;
+  margin: 2vh 0;
+}
+
+#personal_achievements .personal_achievements_btarea > div{
+  background-color: #ffc000;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 3vh;
+  padding: 0 3vh;
+  margin-left: 5vh;
+  line-height: 5vh;
+}
+
+#personal_achievements .personal_achievements_list{
+  height: 55vh;
+  background-color: #fdeca5;
+  border-radius: 15px;
+  overflow-y: scroll;
+}
+.achievement_Obj {
+  height: 13vh;
+  margin: 1vh 1vh;
+  background-color: #ffc000;
+  display: flex;
+  justify-content: space-between;
+  border-radius:15px;
+  overflow-y: hidden;
+}
+.achievement_Left {
+  display: flex;
+
+}
+.achievement_Thumbnail{
+  min-width: 10vh;
+  min-height: 10vh;
+  background-color: #fdeca5;
+  margin : 1.5vh;
+  border-radius: 15px;
+}
+.achievement_Text{
+  display: flex;
+  flex-direction: column;
+  margin: 0.5vh 0vh;
+}
+.achievement_Name{
+  font-family: 'Poor Story', cursive;
+  font-size: 6vh;
+}
+.achievement_Info{
+  display: flex;
+  font-family: 'Poor Story', cursive;
+  font-size: 3vh;
+}
+.achievement_Tag{
+  color: #ff5050;
+  margin-right: 1vh;
+}
+
+.achievement_Right {
+  display: flex;
+  /* justify-content: space-around; */
+  flex-direction: column;
+  margin : 1.5vh;
+}
+.achievement_Point{
+  font-family: 'Poor Story', cursive;
+  height: 3vh;
+  font-size: 3vh;
+  margin-bottom: 1vh;
+  text-align: right;
+}
+
+.achievement_Clear{
+  font-family: 'Jua', sans-serif;
+  min-width: 6vh;
+  font-size: 3vh;
+  text-align: center;
+  line-height: 5vh;
+  color: #fff;
+  background-color: #ff5050;
+  padding: 0vh 3vh;
+  margin-top: 1vh;
+  border-radius: 15px;
+}
+@media screen and (max-width:899px) {
+  .achievement_Name{
+    font-family: 'Poor Story', cursive;
+    font-size: 4vh;
+  }
+  .achievement_Info{
+    display: flex;
+    font-family: 'Poor Story', cursive;
+    font-size: 2vh;
+  }
+  #personal_achievements .personal_achievements_btarea > div{
+    background-color: #ffc000;
+    border-radius: 5px;
+    font-family: 'Jua', sans-serif;
+    color: #fff;
+    font-size: 2vh;
+    padding: 0 3vh;
+    margin-left: 2.5vh;
+    line-height: 5vh;
+  }
+}
+
+
+@media screen and (max-width:699px) {
+  #page_personal #personal_achievements{
+    height: 65vh;
+  }
+  #personal_achievements .personal_achievements_point_area{
+    margin-top: 2.5vh;
+  }
+  #personal_achievements .personal_achievements_list{
+    height: 47.5vh;
+    background-color: #fdeca5;
+    border-radius: 5px;
+  }
+  .achievement_Info{
+    display: flex;
+    font-family: 'Poor Story', cursive;
+    font-size: 2vh;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width:499px) {
+  .achievement_Name{
+    font-family: 'Poor Story', cursive;
+    font-size: 3vh;
+  }
+
+  #personal_achievements .personal_achievements_btarea > div{
+    background-color: #ffc000;
+    border-radius: 5px;
+    font-family: 'Jua', sans-serif;
+    color: #fff;
+    font-size: 2vh;
+    padding: 0 1vh;
+    margin-left: 3vh;
+    line-height: 5vh;
+  }
+}
+
+/* 개인설정 */
+#personal_setting{
+}
+.setting_profile{
+  display: flex;
+  flex-direction: column;
+}
+.setting_passwd{
+  display: flex;
+  flex-direction: column;
+}
+.setting_passwd_box{
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+}
+.setting_passwd_info{
+  margin: 1vh;
+  font-family: 'Jua', sans-serif;
+  font-size: 3vh;
+}
+.setting_passwd_bt{
+  font-family: 'Jua', sans-serif;
+  font-size: 3vh;
+  line-height: 6vh;
+  background-color: #ff5050;
+  color: #fff;
+  height: 5vh;
+  padding: 1.5vh 1vh;
+  margin: 1vh;
+  border-radius: 15px;
+}
+.setting_passwd_text{
+  font-family: 'Jua', sans-serif;
+  font-size: 4vh;
+  background-color: #fdeca5;
+  display:inline;
+  height: 5vh;
+  padding: 0vh 1vh;
+  border-radius: 15px;
+}
+.setting_profile_text{
+  font-family: 'Jua', sans-serif;
+  font-size: 4vh;
+  background-color: #fdeca5;
+  display:inline;
+  height: 5vh;
+  padding: 0vh 1vh;
+  border-radius: 15px;
+}
+
+.setting_profile_box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.setting_profile_box .setting_profile_img{
+  background-color: #ff5050;
+  width: 100px;
+  height: 100px;
+  margin: 2.5vh 2.5vh;
+}
+
+
+@media screen and (max-width:699px) {
+  #page_personal #personal_setting{
+    margin-top: 2.5vh;
+    height : 62.5vh;
+  }
+}
+
+@media screen and (max-width:499px) {
+    .setting_passwd_info{
+      font-size: 2vh;
+  }
+}
+
+/*
+#page_personal .Sort_BT_Bar {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap-reverse;
+}
+
+#page_personal .Sort_BT {
   background-color: #ffc000;
   border-radius: 20px;
   font-family: 'Jua', sans-serif;
@@ -208,11 +783,11 @@ a:visited {
   margin-right: 1vh;
 }
 
-.Sort_BT:hover {
+#page_personal .Sort_BT:hover {
   background-color: #ff5050;
 }
 
-.goal_contents {
+#page_personal .goal_contents {
   display: flex;
 }
 
@@ -245,7 +820,9 @@ a:visited {
 
 .personal_sidemenu_BT:hover {
   background-color: #ffc000;
-}
+} */
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 .KingWordGameTitle {
   font-family: 'Sunflower', sans-serif;
@@ -267,8 +844,11 @@ a:visited {
 
 .DisplayBox {
   flex: 1;
-  /* height: 85vh; 미디어쿼리참초 */
   width: 100%;
+}
+
+.viewBox{
+  display: flex;
 }
 /* 로비 CSS */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
@@ -371,6 +951,11 @@ a:visited {
   padding: 5vh 1vh;
   color: #fff;
 }
+#gameStartBotton:hover{
+  background-color: #ff9090;
+  transition: background-color 1s;
+}
+
 .gameRanking{
   width: 30%;
   display: flex;
@@ -419,6 +1004,11 @@ a:visited {
   margin: auto auto 1vh auto;
   height: auto;
 }
+.RED_UIstyle:hover{
+  background-color: #ff9090;
+  transition: background-color 1s;
+}
+
 /* 각 게임 이미지  */
 #game_Sejong{
   display: flex;
@@ -571,7 +1161,13 @@ a:visited {
   flex-direction: row;
 }
 
-.login_page {
+#page_Login .background_Login{
+  width: 100%;
+  height: 100vh;
+  background-color: #fad644;
+}
+
+/* #page_Login .personal_titleBar {
   flex: 1;
   height: 60vh;
   display: flex;
@@ -580,6 +1176,13 @@ a:visited {
   margin-top: 5vh;
   margin-bottom: 5vh;
   border-right: 3px dashed black;
+} */
+
+#page_Login .personal_titleBar {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 9vh;
 }
 
 .login_Introduce {
@@ -696,6 +1299,12 @@ a:visited {
 
 /* 왕게임 로비 개별CSS */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+#page_KingWordGameLobby #layer_background{
+  background-color: #fad644;
+}
+#page_KingWordGameLobby .viewBox{
+  flex-direction: column;
+}
 #page_KingWordGameLobby .C_headerbar .KingWordGameTitle {
   text-align: center;
   color: black;
@@ -730,12 +1339,12 @@ a:visited {
 #page_KingWordGameLobby .KWG_Level {
   margin-top: 5vh;
   border: 1vh solid #ff5050;
-  width: 10%;
+  width: 12vh;
   height: 12vh;
   border-radius: 5000px;
   background-color: #fad644;
   font-size: 5vh;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Jua', sans-serif;
   color: white;
   line-height: 5vh;
 }
@@ -766,7 +1375,8 @@ a:visited {
   justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
-  padding-top: 3vh;
+  padding-top: 2vh;
+  padding-bottom: 1vh;
 }
 
 #page_KingWordGameLobby .KWG_stage {
@@ -776,6 +1386,10 @@ a:visited {
   box-shadow: 0.2vh 0.2vh 1vh #333;
   width: 10%;
   height: 17vh;
+}
+#page_KingWordGameLobby .KWG_stage:hover {
+  box-shadow: 0.4vh 0.4vh 1vh #fff;
+  transition: box-shadow 0.3s;
 }
 
 #page_KingWordGameLobby .KWG_stageno {
@@ -793,7 +1407,13 @@ a:visited {
   background-color: #fdeca5;
   padding: 0% 5%;
 }
-
+/*  */
+.lock .KWG_stageno{
+  color: #A9A9A9 !important;
+}
+.lock .KWG_stagestar{
+  color: #A9A9A9 !important;
+}
 #page_KingWordGameLobby .KingWordGamefooter {
   background-color: #ff5050;
 }
@@ -804,11 +1424,17 @@ a:visited {
   font-family: 'Jua', sans-serif;
   color: black;
   font-size: 3vh;
+  line-height: 5vh;
   text-align: center;
-  padding: 1vh 4vh 1vh 4vh;
-  margin: auto auto 1vh auto;
+  height: 3vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
   height: auto;
   box-shadow: 0.2vh 0.2vh 1vh #333;
+}
+.KW_BTRstyle:hover {
+  box-shadow: 0.4vh 0.4vh 1vh #fff;
+  transition: box-shadow 0.3s;
 }
 
 .KW_BTRstyle a:link {
@@ -878,6 +1504,10 @@ a:visited {
   margin: auto auto 1vh auto;
   height: auto;
 }
+.KW_BTstyle:hover{
+  background-color: #cdc725;
+  transform: background-color 1s;
+}
 
 .KWGQ_quiz {
   width: 100%;
@@ -928,20 +1558,20 @@ a:visited {
   box-shadow: 1vh 1vh #cda705;
 }
 
-.info_panel {
+#page_KingWordGame .info_panel {
   width: 100%;
   margin: auto;
   flex-direction: row;
 }
 
-.point_panel {
+#page_KingWordGame .point_panel {
   flex: 1;
   flex-direction: column;
   padding-top: 10vh;
   padding-bottom: 10vh;
 }
 
-.Star_point {
+#page_KingWordGame .Star_point {
   background-color: #fdeca5;
   display: inline;
   text-align: center;
@@ -950,7 +1580,7 @@ a:visited {
   font-size: 6vh;
 }
 
-.Heart_point {
+#page_KingWordGame .Heart_point {
   background-color: #fdeca5;
   display: inline;
   text-align: center;
@@ -959,7 +1589,7 @@ a:visited {
   font-size: 6vh;
 }
 
-.KingWordGameporint {
+#page_KingWordGame .KingWordGameporint {
   font-family: 'Yeon Sung', cursive;
   font-size: 3vh;
 }
@@ -1017,7 +1647,7 @@ a:visited {
     display: none;
   }
 
-  .point_panel {
+  #page_KingWordGame .point_panel {
     flex: 1;
     flex-direction: row;
     padding-top: 0%;
@@ -1038,11 +1668,11 @@ a:visited {
     font-size: 3vh;
   }
 
-  .Star_point {
+  #page_KingWordGame .Star_point {
     font-size: 3vh;
   }
 
-  .Heart_point {
+  #page_KingWordGame .Heart_point {
     font-size: 3vh;
   }
 
@@ -1069,6 +1699,7 @@ a:visited {
 }
 
 /* 왕퀴즈 모든 미디어 쿼리 */
+
 @media screen and (min-width:700px) {
   #page_KingWordGame .viewBox {
     flex-direction: row;
@@ -1086,8 +1717,7 @@ a:visited {
   .KingWordGameTitle {
     font-size: 7vh;
     line-height: 7vh;
-    margin-top:
-      3vh;
+    margin-top: 3vh;
   }
 
   .KingWordGamePanel {
@@ -1106,17 +1736,171 @@ a:visited {
     font-size: 17vh;
   }
 
-  .info_panel {
+#page_KingWordGame  .info_panel {
     height: 45vh;
   }
 }
 
 
-/* .blackboard_img{
- background-color:  #422b06;
- background-size: 100% 50%;
-} */
+/* 모달창 */
+#page_KingWordGame #layer_modal .popup_GameEnd{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  display: none;
+}
+#page_KingWordGame #layer_control{
+  /* filter: blur(30px); */
+  transition: 2s filter linear;
+  -webkit-transition: 2s -webkit-filter linear;
+  -moz-transition: 2s -moz-filter linear;
+  -ms-transition: 2s -ms-filter linear;
+  -o-transition: 2s -o-filter linear;
+}
 
+#page_KingWordGame #layer_modal .popup_GameClear{
+  width: 50%;
+  min-width: 300px;
+  height: 50vh;
+  margin: 25vh 0 ;
+  background-color: #fad644;
+  box-shadow: 1vh 1vh 1vh #00000070;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 5vh;
+  color: #000;
+  font-family: 'Jua', sans-serif;
+  position: absolute;
+  top: -100vh;
+  transition: top 1s;
+}
+
+#page_KingWordGame #layer_modal .popup_GameClear_Text{
+  background-color: #fdeca5;
+  border-radius: 15px;
+  font-size: 5vh;
+  height: 10vh;
+  line-height: 10vh;
+}
+#page_KingWordGame #layer_modal .popup_GameClear_NextGame{
+  background-color: #ff5050;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  box-shadow: 0.2vh 0.2vh 1vh #333;
+
+}
+#page_KingWordGame #layer_modal .popup_GameClear_Lobby{
+  background-color: #ff5050;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  box-shadow: 0.2vh 0.2vh 1vh #333;
+}
+
+#page_KingWordGame #layer_modal .popup_GameClear_NextGame:hover{
+  background-color: #ff9090;
+  transition: background-color 0.3s;
+}
+#page_KingWordGame #layer_modal .popup_GameClear_Lobby:hover{
+  background-color: #ff9090;
+  transition: background-color 0.3s;
+}
+
+/* 게임오버 팝업*/
+#page_KingWordGame #layer_modal .popup_GameOver{
+  width: 50%;
+  min-width: 300px;
+  height: 50vh;
+  margin: 25vh 0 ;
+  background-color: #fad644;
+  box-shadow: 1vh 1vh 1vh #00000070;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 5vh;
+  color: #000;
+  font-family: 'Jua', sans-serif;
+  position: absolute;
+  top: -100vh;
+  transition: top 1s;
+}
+
+#page_KingWordGame #layer_modal .popup_GameOver_Text{
+  background-color: #fdeca5;
+  border-radius: 15px;
+  font-size: 5vh;
+  height: 10vh;
+  line-height: 10vh;
+}
+#page_KingWordGame #layer_modal .popup_GameOver_Regame{
+  background-color: #ff5050;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  box-shadow: 0.2vh 0.2vh 1vh #333;
+  overflow-y: hidden;
+}
+#page_KingWordGame #layer_modal .popup_GameOver_Lobby{
+  background-color: #ff5050;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  box-shadow: 0.2vh 0.2vh 1vh #333;
+  overflow-y: hidden;
+}
+
+#page_KingWordGame #layer_modal .popup_GameOver_Regame:hover{
+  background-color: #ff9090;
+  transition: background-color 0.3s;
+}
+#page_KingWordGame #layer_modal .popup_GameOver_Lobby:hover{
+  background-color: #ff9090;
+  transition: background-color 0.3s;
+}
+
+@media screen and (max-width:699px) {
+  #page_KingWordGame #layer_modal .popup_GameClear_Lobby{
+    font-size: 3.5vh;
+  }
+
+  #page_KingWordGame #layer_modal .popup_GameClear_NextGame{
+    font-size: 3.5vh;
+  }
+
+  #page_KingWordGame #layer_modal .popup_GameOver_Lobby{
+    font-size: 3.5vh;
+  }
+
+  #page_KingWordGame #layer_modal .popup_GameOver_Regame{
+    font-size: 3.5vh;
+  }
+}
 /* 야민정음 로비 개별CSS */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
@@ -1129,9 +1913,9 @@ a:visited {
   text-align: center;
 }
 
+
 #page_ChallengeQuizgameLobby .blackboard {
   border: solid 2vh #6f490b;
-  height: 40vh;
   margin-left: 5%;
   margin-right: 5%;
   display: flex;
@@ -1188,7 +1972,7 @@ a:visited {
   font-family: 'Jua', sans-serif;
   color: #ffffff;
   border : 3px solid #fff;
-  border-radius: 30px;
+  border-radius: 30%;
   width: 12vh;
   height: 12vh;
   margin : 0 1vh;
@@ -1214,6 +1998,15 @@ a:visited {
 }
 #page_ChallengeQuizgameLobby .blackboard_img img {
   width: 30%;
+}
+
+#page_ChallengeQuizgameLobby .WordQuizTitle {
+  color: white;
+  padding-top: 5vh;
+  height: 10vh;
+  font-size: 10vh;
+  font-family: 'Jua', sans-serif;
+  text-align: center;
 }
 
 @media screen and (max-width:699px) {
@@ -1262,6 +2055,10 @@ a:visited {
 /* 야민정음 개별CSS */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* 레이어(백그라운드 부분) */
+
+#page_ChallengeQuizgame .viewBox{
+  flex-direction: column;
+}
 .background_ChallengeQuiz {
   background-color: #284135;
   width: 100%;
@@ -1282,6 +2079,16 @@ a:visited {
 }
 
 /* 레이어(컨트롤 부분) */
+
+#page_ChallengeQuizgame .WordQuizTitle {
+  color: white;
+  /* padding-top: 5vh; */
+  height: 10vh;
+  font-size: 10vh;
+  font-family: 'Jua', sans-serif;
+  text-align: center;
+}
+
 .page_ChallengeQuiz .UI {
   /* padding: 3%; */
   background-color: #284135;
@@ -1307,7 +2114,7 @@ a:visited {
 
 #page_ChallengeQuizgame .blackboard {
   border: solid 2vh #6f490b;
-  height: 40vh;
+  height: 38.5vh;
   margin-left: 20%;
   margin-right: 20%;
   display: flex;
@@ -1373,14 +2180,24 @@ a:visited {
 .page_ChallengeQuiz .ControlBox {
   height: 20vh;
 }
-
+.page_ChallengeQuiz .info_panel {
+  height: 5vh;
+  font-size: 5vh;
+  font-family: 'Jua', sans-serif;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  margin: 2.5vh 20%;
+  overflow-y: hidden;
+}
 
 .page_ChallengeQuiz .buttonbox {
+  height: 10vh;
   display: flex;
   justify-content: space-around;
   margin-left: 20%;
   margin-right: 20%;
-  padding-top: 5%;
+  /* padding-top: 5%; */
 }
 
 .WQ_BT {
@@ -1388,10 +2205,12 @@ a:visited {
   border-radius: 10px;
   background-color: #284135;
   font-family: 'Yeon Sung', cursive;
+  height : 10vh;
   font-size: 5vh;
+  line-height: 5vh;
   color: white;
   font-weight: 300;
-  padding: 1vh 2vh;
+  padding:0 2vh;
 }
 
 .WQ_BT:hover {
@@ -1409,15 +2228,454 @@ a:visited {
   .img_teacher {
     display: none;
   }
-  .page_ChallengeQuiz .blackboard {
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-  .page_ChallengeQuiz .blackboard .blackboard_Quiz{
+
+  #page_ChallengeQuizgame .blackboard .blackboard_Quiz{
     font-size: 3vh;
   }
   .WQ_BT{
-    margin-top: 5vh;
     font-size: 3vh;
+  }
+  .page_ChallengeQuiz .info_panel {
+    height: 5vh;
+    font-size: 3vh;
+    line-height: 3vh;
+    margin: 2.5vh 20%;
+  }
+}
+
+@media screen and (max-width:699px) {
+  #page_ChallengeQuizgame .WordQuizTitle {
+    color: white;
+    height: 15vh;
+    font-size: 5vh;
+    line-height: 15vh;
+  }
+  #page_ChallengeQuizgame .blackboard {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+  }
+  .page_ChallengeQuiz .info_panel {
+    height: 6vh;
+    font-size: 3vh;
+    line-height: 3vh;
+    margin: 2vh 10%;
+  }
+
+  .page_ChallengeQuiz .buttonbox {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+/* 모달창 */
+
+/* 모달창 */
+#page_ChallengeQuizgame #layer_modal .popup_GameEnd{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  display: none;
+}
+#page_ChallengeQuizgame #layer_control{
+  /* filter: blur(30px); */
+  transition: 2s filter linear;
+  -webkit-transition: 2s -webkit-filter linear;
+  -moz-transition: 2s -moz-filter linear;
+  -ms-transition: 2s -ms-filter linear;
+  -o-transition: 2s -o-filter linear;
+}
+
+#page_ChallengeQuizgame #layer_modal .popup_GameClear{
+  width: 50%;
+  min-width: 300px;
+  height: 50vh;
+  margin: 25vh 0 ;
+  background-color: #284135;
+  box-shadow: 1vh 1vh 1vh #00000070;
+  border-radius: 30px;
+  text-align: center;
+  line-height: 5vh;
+  color: #fff;
+  font-family: 'Jua', sans-serif;
+  position: absolute;
+  top: -100vh;
+  transition: top 1s;
+}
+
+#page_ChallengeQuizgame #layer_modal .popup_GameClear_Text{
+  background-color: #284135;
+  border: solid 5px #fff;
+  border-radius: 30px;
+  font-size: 5vh;
+  height: 10vh;
+  line-height: 10vh;
+}
+#page_ChallengeQuizgame #layer_modal .popup_GameClear_NextGame{
+  background-color: #284135;
+  border: solid 5px #fff;
+  border-radius: 30px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  box-shadow: 0.2vh 0.2vh 1vh #333;
+
+}
+#page_ChallengeQuizgame #layer_modal .popup_GameClear_Lobby{
+  background-color: #284135;
+  border: solid 5px #fff;
+  border-radius: 30px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  box-shadow: 0.2vh 0.2vh 1vh #333;
+}
+
+#page_ChallengeQuizgame #layer_modal .popup_GameClear_NextGame:hover{
+  background-color: #fff;
+  color: #284135;
+  transition: background-color 0.3s,color 0.3s;
+}
+#page_ChallengeQuizgame #layer_modal .popup_GameClear_Lobby:hover{
+  background-color: #fff;
+  color: #284135;
+  transition: background-color 0.3s,color 0.3s;
+}
+
+/* 게임오버 팝업*/
+#page_ChallengeQuizgame #layer_modal .popup_GameOver{
+  width: 50%;
+  min-width: 300px;
+  height: 50vh;
+  margin: 25vh 0 ;
+  background-color: #284135;
+  box-shadow: 1vh 1vh 1vh #00000070;
+  border-radius: 30px;
+  text-align: center;
+  line-height: 5vh;
+  color: #fff;
+  font-family: 'Jua', sans-serif;
+  position: absolute;
+  top: -100vh;
+  transition: top 1s;
+}
+
+#page_ChallengeQuizgame #layer_modal .popup_GameOver_Text{
+  background-color: #284135;
+  border: solid 5px #fff;
+  border-radius: 30px;
+  font-size: 5vh;
+  height: 10vh;
+  line-height: 10vh;
+}
+#page_ChallengeQuizgame #layer_modal .popup_GameOver_Regame{
+  background-color: #284135;
+  border: solid 5px #fff;
+  border-radius: 30px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  box-shadow: 0.2vh 0.2vh 1vh #333;
+}
+#page_ChallengeQuizgame #layer_modal .popup_GameOver_Lobby{
+  background-color: #284135;
+  border: solid 5px #fff;
+  border-radius: 30px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  box-shadow: 0.2vh 0.2vh 1vh #333;
+}
+
+#page_ChallengeQuizgame #layer_modal .popup_GameOver_Regame:hover{
+  background-color: #fff;
+  color: #284135;
+  transition: background-color 0.3s,color 0.3s;
+}
+#page_ChallengeQuizgame #layer_modal .popup_GameOver_Lobby:hover{
+  background-color: #fff;
+  color: #284135;
+  transition: background-color 0.3s,color 0.3s;
+}
+
+@media screen and (max-width:699px) {
+
+  #page_ChallengeQuizgame #layer_modal .popup_GameClear_Lobby{
+    font-size: 3.5vh;
+  }
+
+  #page_ChallengeQuizgame #layer_modal .popup_GameClear_NextGame{
+    font-size: 3.5vh;
+  }
+
+  #page_ChallengeQuizgame #layer_modal .popup_GameOver_Lobby{
+    font-size: 3.5vh;
+  }
+
+  #page_ChallengeQuizgame #layer_modal .popup_GameOver_Regame{
+    font-size: 3.5vh;
+  }
+
+}
+/* 사전 개별CSS */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* 레이어(백그라운드 부분) */
+#dictionary_background{
+  width: 100%;
+  height: 100vh;
+  background-color: #fad644;
+}
+
+/* 레이어(백그라운드 부분) */
+#page_Dictionary .viewBox {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#page_Dictionary .viewBox > div {
+  flex: 1;
+}
+
+#page_Dictionary .ControlBox{
+  flex: 1;
+  height: 100vh;
+  width: 97%;
+  margin-left: 2%;
+}
+
+#page_Dictionary .DisplayBox{
+  flex: 1;
+  height: 100vh;
+  width: 97%;
+  margin-right: 2%;
+}
+
+#page_Dictionary .SearchBar {
+  margin-top: 3vh;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page_Dictionary .SearchBar .text{
+  display: flex;
+  font-size: 5vh;
+  font-family: 'Poor Story', cursive;
+  width: 30%;
+}
+
+#page_Dictionary .SearchBar .Search{
+  width: 60%;
+  height: 80%;
+
+}
+
+#page_Dictionary .SearchBar .Search input{
+  font-size: 4vh;
+  font-family: 'Poor Story', cursive;
+  text-align: right;
+  background-color: #fdeca5;
+  border-radius: 30px;
+  width: 95%;
+  padding: 0;
+  border: solid 0px;
+}
+
+#page_Dictionary .SearchBar .Search_btn{
+  width: 10%;
+  height: 80%;
+  background-color: #fdeca5;
+  border-radius: 30px;
+  font-size: 2vh;
+  font-family: 'Jua', sans-serif;
+  text-align: center;
+  line-height: 6vh;
+}
+#page_Dictionary .SearchBar .Search_btn:hover{
+  background-color: #ff5050;
+}
+
+#page_Dictionary .wordlist_menu{
+  display: flex;
+  justify-content : flex-start;
+  height: 5vh;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
+}
+
+#page_Dictionary .wordlist_menu > button{
+  background-color: #cda705;
+  color: #ffffff;
+  border-radius: 5px;
+  height: 5vh;
+  font-size: 2vh;
+  font-family: 'Poor Story', cursive;
+  text-align: center;
+  border: 0;
+  margin-right: 2vh;
+  padding: 0 2vh;
+  transition: background-color 1s;
+}
+
+#page_Dictionary .wordlist_menu #list_WrongAnswer {
+  background-color: #ff5050;
+}
+#page_Dictionary .wordlist_menu #list_ALL {
+  background-color: #fdeca5;
+  color: #000;
+}
+
+#page_Dictionary .Dictionary_list{
+  background-color: #fdeca5;
+  width: 100%;
+  border-radius: 15px;
+  height: 65vh;
+  overflow-y: auto;
+  font-size: 3vh;
+  font-family: 'Jua', sans-serif;
+}
+#page_Dictionary .Dictionary_Content{
+  display: flex;
+  justify-content: center;
+}
+
+#page_Dictionary .word{
+  margin: 0 10%;
+  width: 80%;
+  height : 10vh;
+  border-radius: 30px;
+  background-color: #fdeca5;
+  line-height: 10vh;
+  font-size: 5vh;
+  text-align: center;
+  font-family: 'Jua', sans-serif;
+}
+#page_Dictionary .Content{
+  margin: 5vh 10%;
+  width: 80%;
+  height : 55vh;
+  border-radius: 30px;
+  background-color: #fdeca5;
+  font-family: 'Jua', sans-serif;
+  overflow-y: hidden;
+}
+#page_Dictionary .headline{
+  padding: 0 5%;
+  font-size: 5vh;
+}
+#page_Dictionary .maintext{
+  padding: 0 5%;
+  font-size: 2vh;
+}
+
+#page_Dictionary .mainlobbyTitle{
+  display: none;
+}
+
+#page_Dictionary .Dictionary_list th{
+  padding: 1vh ;
+}
+@media screen and (max-width:1000px) {
+  #page_Dictionary .wordlist_menu > button{
+    font-size: 1.5vh;
+    padding: 0 0.5vh;
+  }
+  #page_Dictionary .SearchBar .text{
+    font-size: 4vh;
+  }
+}
+@media screen and (max-width:699px) {
+
+  #page_Dictionary .viewBox{
+    flex-direction: column-reverse;
+  }
+  #page_Dictionary .DisplayBox{
+    height : 50vh;
+    margin: 0 2%;
+    width: 96%;
+  }
+  #page_Dictionary .ControlBox{
+    margin: 0 2%;
+    width: 96%;
+  }
+  #page_Dictionary .word{
+    margin: 0;
+    width: 100%;
+    height : 5vh;
+    line-height: 5vh;
+    font-size: 5vh;
+  }
+  #page_Dictionary .Content{
+    margin: 1vh 0;
+    width: 100%;
+    height : 30vh ;
+    border-radius: 30px;
+    background-color: #fdeca5;
+    font-family: 'Jua', sans-serif;
+    overflow-y: hidden;
+  }
+  #page_Dictionary .headline{
+    padding: 0 5%;
+    font-size: 3vh;
+  }
+  #page_Dictionary .maintext{
+    padding: 0 5%;
+    font-size: 1vh;
+  }
+  #page_Dictionary .Dictionary_list{
+    background-color: #fdeca5;
+    width: 100%;
+    margin-top: 1vh;
+    border-radius: 15px;
+    height: 20vh;
+    overflow-y: auto;
+    font-size: 3vh;
+    font-family: 'Jua', sans-serif;
+  }
+  #page_Dictionary .SearchBar {
+    margin-top: 0;
+
+  }
+  #page_Dictionary .SearchBar .text {
+    display: none;
+  }
+  #page_Dictionary .SearchBar .Search{
+    width: 90%;
+  }
+  #page_Dictionary .wordlist_menu{
+    margin: 0;
+  }
+  #page_Dictionary .wordlist_menu > button{
+    font-size: 1.5vh;
+  }
+  #page_Dictionary .mainlobbyTitle{
+    display: block;
+    font-size: 5vh;
+    line-height: 15vh;
+    font-family: 'Poor Story', cursive;
   }
 }
