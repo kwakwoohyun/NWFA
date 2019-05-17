@@ -47,7 +47,8 @@ public class yaminController {
 	}
 
 	@RequestMapping("YaminGame/{yaminId}")
-	public String YaminGame(Model model, @PathVariable String yaminId, HttpSession session) throws UnsupportedEncodingException {
+	public String YaminGame(Model model, @PathVariable String yaminId, HttpSession session)
+			throws UnsupportedEncodingException {
 		wordsModel words = serviece.yaminWords(yaminId);
 		int wordlength = words.getYamin_word().length();
 		int count = 6 - wordlength;
@@ -63,10 +64,12 @@ public class yaminController {
 
 		int hintIndex = StringUtils.countOccurrencesOf(words.getYamin_example(), "_");
 
-		/*byte[] encoded = Base64.encodeBase64(words.getImg());
-		String encodedString = new String(encoded);
-
-		model.addAttribute("img", encodedString);*/
+		/*
+		 * byte[] encoded = Base64.encodeBase64(words.getImg()); String encodedString =
+		 * new String(encoded);
+		 * 
+		 * model.addAttribute("img", encodedString);
+		 */
 
 		model.addAttribute("yamin", yaminId);
 		model.addAttribute("wordlength", wordlength);
@@ -77,17 +80,20 @@ public class yaminController {
 
 		List<stageModel> stages = serviece.yaminStageAll();
 
-			String userID = null;
-			userModel user = null;
-			if (session.getAttribute("userID") != null) {
-				userID = (String) session.getAttribute("userID");
-				user = serviece.loginUser(userID);
-			}
+		String userID = null;
+		userModel user = null;
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+			user = serviece.loginUser(userID);
+		}
+		if (yaminId.equals("1")) {
+		} else {
 			if (stages.get(Integer.parseInt(yaminId) - 2).getOpen_game() == 1) {
-				serviece.stageLockUpdate(Integer.parseInt(yaminId),user.getUser_id());
+				serviece.stageLockUpdate(Integer.parseInt(yaminId), user.getUser_id());
 			}
+		}
 
-	return"game/YaminGame";
-}
+		return "game/YaminGame";
+	}
 
 }
