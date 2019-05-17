@@ -13,4 +13,8 @@ public interface userDaoS {
 	void insertInfo2(int user_id, int i);
 
 	void insertInfo3(int user_id, int i);
+	
+	void insertYaminInfo1(int user_id);
+	
+	void insertYaminInfo2(int user_id, int i);
 }

@@ -86,7 +86,7 @@
           </div>
         </div>
         <div class="logout_bt">
-          <div id="personal_logoutbt" class="personal_sidebt" value="logout" onclick="personal_click('logout')">
+          <div id="personal_logoutbt" class="personal_sidebt" value="logout" onclick="location.href='logout'">
             로그오프
           </div>
         </div>
@@ -478,7 +478,7 @@
     </div>
     <footer class="page_main Userfooter">
       <div class="KW_back KW_BTstyle">
-        <a href="index.html">뒤로</a>
+        <a href="/">뒤로</a>
       </div>
       <div class="visibilityhidden KW_BTstyle">
 

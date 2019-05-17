@@ -137,14 +137,14 @@
 							<button id="KWG_stage${status.index +1 }" class="KWG_stage"
 								value="${status.index +1}"  disabled="disabled">
 								<div class="KWG_stageno" style="color: gray">${status.index +1 }</div>
-								<div class="KWG_stagestar" style="color: gray">★★☆</div>
+								<div class="KWG_stagestar" style="color: gray">☆☆☆</div>
 							</button>
 						</c:when>
 						<c:otherwise>
 							<button id="KWG_stage${status.index +1 }" class="KWG_stage"
 								value="${status.index +1 }">
 								<div class="KWG_stageno">${status.index +1 }</div>
-								<div class="KWG_stagestar">★★☆</div>
+								<div class="KWG_stagestar">☆☆☆</div>
 							</button>
 						</c:otherwise>
 					</c:choose>
@@ -156,37 +156,37 @@
 								<button id="KWG_stage0" class="KWG_stage" value="지"
 						onclick="KingWordGame2_click(this.value)">
 						<div class="KWG_stageno" style="color:gray">8</div>
-						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+						<div class="KWG_stagestar" style="color:gray">☆☆☆</div>
 					</button>
 					<button id="KWG_stage0" class="KWG_stage" value="지"
 						onclick="KingWordGame2_click(this.value)">
 						<div class="KWG_stageno" style="color:gray">9</div>
-						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+						<div class="KWG_stagestar" style="color:gray">☆☆☆</div>
 					</button>
 					<button id="KWG_stage0" class="KWG_stage" value="지"
 						onclick="KingWordGame2_click(this.value)">
 						<div class="KWG_stageno" style="color:gray">10</div>
-						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+						<div class="KWG_stagestar" style="color:gray">☆☆☆</div>
 					</button>
 					<button id="KWG_stage0" class="KWG_stage" value="지"
 						onclick="KingWordGame2_click(this.value)">
 						<div class="KWG_stageno" style="color:gray">11</div>
-						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+						<div class="KWG_stagestar" style="color:gray">☆☆☆</div>
 					</button>
 					<button id="KWG_stage0" class="KWG_stage" value="지"
 						onclick="KingWordGame2_click(this.value)">
 						<div class="KWG_stageno" style="color:gray">12</div>
-						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+						<div class="KWG_stagestar" style="color:gray">☆☆☆</div>
 					</button>
 					<button id="KWG_stage0" class="KWG_stage" value="지"
 						onclick="KingWordGame2_click(this.value)">
 						<div class="KWG_stageno" style="color:gray">13</div>
-						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+						<div class="KWG_stagestar" style="color:gray">☆☆☆</div>
 					</button>
 					<button id="KWG_stage0" class="KWG_stage" value="지"
 						onclick="KingWordGame2_click(this.value)">
 						<div class="KWG_stageno" style="color:gray">★</div>
-						<div class="KWG_stagestar" style="color:gray">★★☆</div>
+						<div class="KWG_stagestar" style="color:gray">☆☆☆</div>
 					</button>
 				</div>
 		</div>

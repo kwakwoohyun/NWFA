@@ -93,26 +93,26 @@
 							</button>
 						</div>
 						<div class="blackboard_stage">
-								<script type="text/javascript">
-									function game_click(stage) {
-										$(location).attr('href',
-												'/YaminGame/' + stage)
-									}
-								</script>
+							<script type="text/javascript">
+								function game_click(stage) {
+									$(location).attr('href','/YaminGame/' + stage)
+								}
+							</script>
 							<c:forEach var="stage" items="${stages}" varStatus="status">
 								<c:choose>
 									<c:when test="${stage.open_game == 0}">
 										<button id="WQ_stag${status.index +1 }" class="WQ_stage"
-											value="${status.index +1}" disabled="disabled" onclick="game_click(this.value)">
+											value="${status.index +1}" disabled="disabled"
+											onclick="game_click(this.value)">
 											<div class="WQ_stageno" style="color: gray">${status.index +1 }</div>
-											<div class="WQ_stagestar" style="color: gray">¡Ú¡Ú¡Ù</div>
+											<div class="WQ_stagestar" style="color: gray">¡Ù¡Ù¡Ù</div>
 										</button>
 									</c:when>
 									<c:otherwise>
 										<button id="WQ_stag${status.index +1 }" class="WQ_stage"
 											value="${status.index +1 }" onclick="game_click(this.value)">
 											<div class="WQ_stageno">${status.index +1 }</div>
-											<div class="WQ_stagestar">¡Ú¡Ú¡Ù</div>
+											<div class="WQ_stagestar">¡Ù¡Ù¡Ù</div>
 										</button>
 									</c:otherwise>
 								</c:choose>

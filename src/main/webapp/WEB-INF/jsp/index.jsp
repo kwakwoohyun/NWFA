@@ -35,9 +35,17 @@
 
       </div>
       <div class="R_headerbar">
-        <div class="UI login"  onclick="location.href='tempmenu'">
+      <%
+      	String login = (String)session.getAttribute("userID");
+      	if(login==null){
+      %>
+        <div class="UI login"  onclick="location.href='login'">
           <!-- <object type="image/svg+xml" data="icon/user.svg"></object> -->
         </div>
+        <%}else {%>
+        <div class="UI login" onclick="location.href='personal'">
+        </div>
+        <%} %>
       </div>
     </header>
     <article class="page_main">
@@ -47,12 +55,12 @@
        <div class="UI UI_bt" onclick="location.href='dict'"
           data-transition="flip">사전</div>
     </article>
-    <footer class="page_main flex justify align-end">
+<!--     <footer class="page_main flex justify align-end">
        <div class="UI mini_bt justify align-end"
           onclick="location.href='logout'" data-transition="flip">종료</div>
        <div class="UI mini_bt justify align-end"
           onclick="location.href='personal'" data-transition="flip">개</div>
-    </footer>
+    </footer> -->
   </div>
   <div id="layer_modal">
     <%
@@ -69,8 +77,14 @@
         </div>
       </div>
       <%
-   }
+   }else{
    %>
+   <div class="popup_ID">
+        <div class="popup_ID_window">
+         로그인을 해주세요 +_+
+        </div>
+      </div>
+      <%} %>
   </div>
 </body>
 </html>

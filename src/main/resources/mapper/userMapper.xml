@@ -14,16 +14,28 @@
 		(User_user_id,Sejong_Word_word_id,star,open_game)
 		values(#{user_id},1,0,1)
 	</insert>
-	
+
 	<insert id="insertInfo2">
 		insert into SejongStage
 		(User_user_id,Sejong_Word_word_id,star,open_game)
 		values(#{user_id},#{i},0,0)
 	</insert>
-	
+
 	<insert id="insertInfo3">
 		insert into SejongStage
 		(User_user_id,Sejong_Word_word_id,star,open_game)
+		values(#{user_id},#{i},0,0)
+	</insert>
+
+	<insert id="insertYaminInfo1">
+		insert into YaminStage
+		(User_user_id,Yamin_Word_word_id,star,open_game)
+		values(#{user_id},4,0,1)
+	</insert>
+	
+	<insert id="insertYaminInfo2">
+		insert into YaminStage
+		(User_user_id,Yamin_Word_word_id,star,open_game)
 		values(#{user_id},#{i},0,0)
 	</insert>
 </mapper>

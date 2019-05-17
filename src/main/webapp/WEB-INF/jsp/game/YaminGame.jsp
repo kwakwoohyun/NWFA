@@ -166,7 +166,7 @@
 			if (clickWord == '${word.yamin_word}') {
 				setDisable();
 				Answer();
-				setTimeout(GameClear, 10000);
+				setTimeout(GameClear, 5000);
 			} else {
 				time--;
 				setDisable();

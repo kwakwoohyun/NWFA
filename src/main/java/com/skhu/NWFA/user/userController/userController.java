@@ -90,7 +90,11 @@ public class userController {
 			for (int i = 5; i < 9; i++) {
 				Uservice.insertInfo3(user_id, i);
 			}
-
+		
+			Uservice.insertYaminInfo1(user_id);
+			for(int i=9;i<13;i++) {
+				Uservice.insertYaminInfo2(user_id, i);
+			}
 			request.getSession().setAttribute("messageType", "성공 메시지");
 			request.getSession().setAttribute("messageContent", "회원가입에 성공했습니다.");
 			response.sendRedirect("login");

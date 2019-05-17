@@ -72,8 +72,17 @@
           </div>
         </div>
         <div class="R_headerbar">
-          <div class="UI login">
-          </div>
+           <%
+      	String login = (String)session.getAttribute("userID");
+      	if(login==null){
+      %>
+        <div class="UI login"  onclick="location.href='login'">
+          <!-- <object type="image/svg+xml" data="icon/user.svg"></object> -->
+        </div>
+        <%}else {%>
+        <div class="UI login" onclick="location.href='personal'">
+        </div>
+        <%} %>
         </div>
       </header>
       <div class="gameList">

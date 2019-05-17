@@ -36,4 +36,16 @@ public class userServiceImpl implements userService {
 		dao.insertInfo3(user_id, i);
 	}
 
+	@Override
+	public void insertYaminInfo1(int user_id) {
+		// TODO Auto-generated method stub
+		dao.insertYaminInfo1(user_id);
+	}
+
+	@Override
+	public void insertYaminInfo2(int user_id, int i) {
+		// TODO Auto-generated method stub
+		dao.insertYaminInfo2(user_id, i);
+	}
+
 }
