@@ -50,7 +50,7 @@ public class sejongController {
 	@RequestMapping("setStar/{star}")
 	public void setStar(Model model, HttpSession session, @PathVariable int star) {
 		String userID = (String) session.getAttribute("userID");
-		int array[] = {1,2,3,5,6,7,8};
+		int array[] = { 1, 2, 3, 5, 6, 7, 8 };
 		userModel user = service.loginUser(userID);
 		int user_id = user.getUser_id();
 		service.setStar(user_id, star);
@@ -86,19 +86,17 @@ public class sejongController {
 
 		List<stageModel> stages = service.sejongStageAll();
 
-		System.out.println(sejongId);
-
-		if (sejongId.equals("1")) {
-		} else {
-			if (stages.get(Integer.parseInt(sejongId) - 2).getOpen_game() == 1) {
-				service.stageLockUpdate(Integer.parseInt(sejongId));
-			}
-		}
 		String userID = (String) session.getAttribute("userID");
 		userModel temp = service.loginUser(userID);
 		int User_user_id = temp.getUser_id();
 		int star = 3;
 		service.starUpdate(star, Integer.parseInt(sejongId), User_user_id);
+		if (sejongId.equals("1")) {
+		} else {
+			if (stages.get(Integer.parseInt(sejongId) - 2).getOpen_game() == 1) {
+				service.stageLockUpdate(Integer.parseInt(sejongId), temp.getUser_id());
+			}
+		}
 
 		model.addAttribute("star", star);
 		return "game/KingWordGame";

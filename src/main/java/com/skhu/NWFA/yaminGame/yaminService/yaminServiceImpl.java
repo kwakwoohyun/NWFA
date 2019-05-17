@@ -40,8 +40,8 @@ public class yaminServiceImpl implements yaminService {
 	}
 
 	@Override
-	public void stageLockUpdate(int stageId) {
-		dao.stageLockUpdate(stageId);
+	public void stageLockUpdate(int stageId, int userId) {
+		dao.stageLockUpdate(stageId, userId);
 	}
 
 	@Override

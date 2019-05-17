@@ -32,7 +32,7 @@
 	<update id="stageLockUpdate" parameterType="int">
 		UPDATE YaminStage SET open_game = 1
 		WHERE stage_id =
-		#{stageId}
+		#{stageId} AND User_user_id = #{userId}
 	</update>
 
 	<select id="loginUser"

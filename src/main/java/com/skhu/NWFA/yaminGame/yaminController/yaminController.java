@@ -47,7 +47,7 @@ public class yaminController {
 	}
 
 	@RequestMapping("YaminGame/{yaminId}")
-	public String YaminGame(Model model, @PathVariable String yaminId) throws UnsupportedEncodingException {
+	public String YaminGame(Model model, @PathVariable String yaminId, HttpSession session) throws UnsupportedEncodingException {
 		wordsModel words = serviece.yaminWords(yaminId);
 		int wordlength = words.getYamin_word().length();
 		int count = 6 - wordlength;
@@ -77,14 +77,17 @@ public class yaminController {
 
 		List<stageModel> stages = serviece.yaminStageAll();
 
-		if (yaminId.equals("1")) {
-		} else {
-			if (stages.get(Integer.parseInt(yaminId) - 2).getOpen_game() == 1) {
-				serviece.stageLockUpdate(Integer.parseInt(yaminId));
+			String userID = null;
+			userModel user = null;
+			if (session.getAttribute("userID") != null) {
+				userID = (String) session.getAttribute("userID");
+				user = serviece.loginUser(userID);
 			}
-		}
+			if (stages.get(Integer.parseInt(yaminId) - 2).getOpen_game() == 1) {
+				serviece.stageLockUpdate(Integer.parseInt(yaminId),user.getUser_id());
+			}
 
-		return "game/YaminGame";
-	}
+	return"game/YaminGame";
+}
 
 }

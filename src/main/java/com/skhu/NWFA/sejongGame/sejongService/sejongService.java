@@ -17,7 +17,7 @@ public interface sejongService {
 
 	List<stageModel> sejongStageAll();
 
-	void stageLockUpdate(int stageId);
+	void stageLockUpdate(int stageId,int userId);
 
 	userModel loginUser(String login_id);
 

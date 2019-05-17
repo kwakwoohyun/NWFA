@@ -15,7 +15,7 @@ public interface sejongDao {
    wordsModel sejongWords(String sejongId);
    List<stageModel> sejongStage(int user_id);
    List<stageModel> sejongStageAll();
-   void stageLockUpdate(int stageId);
+   void stageLockUpdate(int stageId,int userId);
    userModel loginUser(String login_id);
    void starUpdate(int star, int stageId, int User_user_id);
    void setStar(int user_id, int star);
