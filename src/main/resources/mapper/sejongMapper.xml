@@ -30,7 +30,7 @@
 
 	<update id="stageLockUpdate" parameterType="int">
 		UPDATE SejongStage SET open_game = 1
-		WHERE stage_id =
+		WHERE Sejong_Word_word_id =
 		#{stageId} And User_user_id = #{userId}
 	</update>
 

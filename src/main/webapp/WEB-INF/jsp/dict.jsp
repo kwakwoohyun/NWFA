@@ -81,7 +81,7 @@
           </div>
           <footer class="page_main KingWordGamefooter">
             <div class="KW_back RED_UIstyle">
-              <a href="index.html">뒤로</a>
+              <a href="/">뒤로</a>
             </div>
             <div class="visibilityhidden RED_UIstyle">
 
