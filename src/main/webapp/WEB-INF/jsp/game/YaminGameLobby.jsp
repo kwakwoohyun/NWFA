@@ -1,153 +1,271 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
 
 <head>
-<meta charset="utf-8">
-<title>메인페이지</title>
-<meta name="viewport" content="width=device-width; initial-scale=1.0" />
-<link rel="stylesheet" href="project.css">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script type="text/javascript">
-	WordQuizLevel_click
+  <meta charset="utf-8">
+  <title>메인페이지</title>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+  <link rel="stylesheet" href="project.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script type="text/javascript">
+    var WQ_Level = 0;
+    var cardloc = 0;
 
-	var ranking = [ "134", "222", "33" ];
-	var WQ_Level = 0
-	function WordQuizLevel_click(event) {
-		WQ_Level = event
-		$(".WQ_Level").css({
-			'border-color' : '#ffffff'
-		})
-		$(".WQ_Level").css({
-			'color' : '#ffffff'
-		})
+    $(document).ready(function() {
+      $("#WQ_Level1").css({'border-color': '#ff69b2'})
+      $(".prevBT").hide(); // 맨 처음 카드를 화면에 보여줄때 이전으로 가기 버튼을 비활성화 시킴
+    });
 
-		if (WQ_Level == 1) {
-			$("#WQ_Level1").css({
-				'border-color' : '#ff69b2'
-			})
-			$("#WQ_Level1").css({
-				'color' : '#ff69b2'
-			})
-		} else if (WQ_Level == 2) {
-			$("#WQ_Level2").css({
-				'border-color' : '#ff69b2'
-			})
-			$("#WQ_Level2").css({
-				'color' : '#ff69b2'
-			})
-		} else if (WQ_Level == 3) {
-			$("#WQ_Level3").css({
-				'border-color' : '#ff69b2'
-			})
-			$("#WQ_Level3").css({
-				'color' : '#ff69b2'
-			})
-		}
-		$(".WQ_BTNewStart").text('스테이지 ' + WQ_Level + '-1 부터시작하기')
-		// $(".GameRank").text(ranking[gameNo]+'위')
-	}
-</script>
+    function WordQuizLevel_click(event) {
+      WQ_Level = event
+      // 초기화
+      $(".WQ_list").css({"margin-left": "0%"});
+      cardloc = 0;
+      $(".prevBT").hide();
+      $(".nextBT").show();
+      for (var i = 1; i < 6; i++) {
+        if(cardloc+1 ==i){
+          // alert(cardloc+1)
+          $("#QuizCard_"+(i)).css({"opacity": "1"});
+        } else{
+          $("#QuizCard_"+(i)).css({"opacity": "0.3"});
+        }
+      }
+
+      $(".WQ_Level").css({
+        'border-color': '#ffffff'
+      })
+      $(".WQ_Level").css({
+        'color': '#ffffff'
+      })
+
+      if (WQ_Level == 1) {
+        $("#WQ_Level1").css({
+          'border-color': '#ff69b2'
+        })
+        $("#WQ_Level1").css({
+          'color': '#ff69b2'
+        })
+      } else if (WQ_Level == 2) {
+        $("#WQ_Level2").css({
+          'border-color': '#ff69b2'
+        })
+        $("#WQ_Level2").css({
+          'color': '#ff69b2'
+        })
+      } else if (WQ_Level == 3) {
+        $("#WQ_Level3").css({
+          'border-color': '#ff69b2'
+        })
+        $("#WQ_Level3").css({
+          'color': '#ff69b2'
+        })
+      }
+      $(".blackboard_Level_text").text('Stage ' + (WQ_Level))
+      // $(".GameRank").text(ranking[gameNo]+'위')
+    }
+
+    function card_Move(direction) {
+
+
+
+
+      if (direction == "prev") {
+        cardloc = cardloc - 1
+        moveloc = cardloc * -100
+        for (var i = 1; i < 6; i++) {
+          if(cardloc+1 ==i){
+            // alert(cardloc+1)
+            $("#QuizCard_"+(i)).css({"opacity": "1"});
+          } else{
+            $("#QuizCard_"+(i)).css({"opacity": "0.3"});
+          }
+        }
+        $(".WQ_list").css({"margin-left": moveloc+"%"});
+      } else if (direction == "next") {
+        cardloc = cardloc + 1
+        moveloc = cardloc * -100
+        for (var i = 1; i < 6; i++) {
+          if(cardloc+1 ==i){
+            // alert(cardloc+1)
+            $("#QuizCard_"+(i)).css({"opacity": "1"});
+          } else{
+            $("#QuizCard_"+(i)).css({"opacity": "0"});
+          }
+        }
+        $(".WQ_list").css({"margin-left": moveloc+"%"});
+      }
+      if (cardloc == 0){
+        $(".prevBT").hide();
+      } else {
+        $(".prevBT").show();
+      }
+      if (cardloc == 4) {
+        $(".nextBT").hide();
+      } else {
+        $(".nextBT").show();
+      }
+    }
+  </script>
 </head>
 
 <body id="page_ChallengeQuizgameLobby" class="page_ChallengeQuiz">
-	<div id="layer_background">
-		<div class="background_ChallengeQuiz"></div>
-	</div>
-	<div id="layer_control">
-		<header class="page_main">
-			<div class="L_headerbar"></div>
-			<div class="C_headerbar">
-				<div class="WordQuizTitle">스테이지 선택</div>
-			</div>
-			<div class="R_headerbar">
-				<div class="UI login" onclick="location.href='tempmenu'"></div>
-			</div>
-		</header>
-		<div class="viewBox">
+  <div id="layer_background">
+    <div class="background_ChallengeQuiz">
 
-			<div class="DisplayBox">
-				<div class="quiz">
+    </div>
+  </div>
+  <div id="layer_control">
+    <header class="page_main">
+      <div class="L_headerbar">
 
-					<div class="blackboard">
-						<div class="blackboard_Level_text">Stage 1</div>
-						<div class="blackboard_Level">
-							<button id="WQ_Level1" class="WQ_Level" value="1"
-								onclick="WordQuizLevel_click(this.value)">
-								<div class="WQ_Levelno">1</div>
-							</button>
+      </div>
+      <div class="C_headerbar">
+        <div class="WordQuizTitle">
+          스테이지 선택
+        </div>
+      </div>
+      <div class="R_headerbar">
+        <div class="UI login">
+        </div>
+      </div>
+    </header>
+    <div class="viewBox">
 
-							<button id="WQ_Level2" class="WQ_Level" value="2"
-								onclick="WordQuizLevel_click(this.value)">
-								<div class="WQ_Levelno">2</div>
-							</button>
+      <div class="DisplayBox">
+        <div class="quiz">
 
-							<button id="WQ_Level3" class="WQ_Level" value="3"
-								onclick="WordQuizLevel_click(this.value)">
-								<div class="WQ_Levelno">3</div>
-							</button>
-						</div>
-						<div class="blackboard_stage">
-							<script type="text/javascript">
-								function game_click(stage) {
-									$(location).attr('href','/YaminGame/' + stage)
-								}
-							</script>
-							<c:forEach var="stage" items="${stages}" varStatus="status">
-								<c:choose>
-									<c:when test="${stage.open_game == 0}">
-										<button id="WQ_stag${status.index +1 }" class="WQ_stage"
-											value="${status.index +1}" disabled="disabled"
-											onclick="game_click(this.value)">
-											<div class="WQ_stageno" style="color: gray">${status.index +1 }</div>
-											<div class="WQ_stagestar" style="color: gray">☆☆☆</div>
-										</button>
-									</c:when>
-									<c:otherwise>
-										<button id="WQ_stag${status.index +1 }" class="WQ_stage"
-											value="${status.index +1 }" onclick="game_click(this.value)">
-											<div class="WQ_stageno">${status.index +1 }</div>
-											<div class="WQ_stagestar">☆☆☆</div>
-										</button>
-									</c:otherwise>
-								</c:choose>
-							</c:forEach>
-						</div>
-						<div class="blackboard_img">
-							<img src="icon/chalk.png">
-						</div>
-					</div>
+          <div class="blackboard">
 
-				</div>
-				<!--
-      <div class="info_panel flex">
-          남은기회
-          <div class="Star_point">
-            ♥♥♡
+            <div class="blackboard_Level">
+              <div class="blackboard_Level_text">
+                Stage 1
+              </div>
+              <div>
+                <button id="WQ_Level1" class="WQ_Level" value="1" onclick="WordQuizLevel_click(this.value)">
+                  <div class="WQ_Levelno">
+                    1
+                  </div>
+                </button>
+
+                <button id="WQ_Level2" class="WQ_Level" value="2" onclick="WordQuizLevel_click(this.value)">
+                  <div class="WQ_Levelno">
+                    2
+                  </div>
+                </button>
+
+                <button id="WQ_Level3" class="WQ_Level" value="3" onclick="WordQuizLevel_click(this.value)">
+                  <div class="WQ_Levelno">
+                    3
+                  </div>
+                </button>
+              </div>
+
+            </div>
+            <div class="blackboard_Cardbox">
+              <div class="aaa">
+                <div class="prevBT" onclick="card_Move('prev');">
+                  < </div> <div class="nextBT" onclick="card_Move('next');">
+                    >
+                </div>
+              </div>
+              <div class="WQ_list">
+                <div class="WQ_Cardline">
+                  <div id="QuizCard_1" class="WQ_Card learning_quiz" onclick="click_quiz(1);">
+                    <div class="Card_top">
+                      <div class="card_name">
+                        머머리
+                      </div>
+                      <div class="card_number">
+                        1/5
+                      </div>
+                    </div>
+                    <div class="Card_bottom">
+                      대머리를 보이는대로 변형한 단어
+                    </div>
+                  </div>
+                  <div id="QuizCard_2" class="WQ_Card learning_quiz" onclick="click_quiz(1);">
+                    <div class="Card_top">
+                      <div class="card_name">
+                        네넴띤
+                      </div>
+                      <div class="card_number">
+                        2/5
+                      </div>
+                    </div>
+                    <div class="Card_bottom">
+                      비빔면을 보이는대로 변형한 단어로 최근 비빔면보다 5배 매운 비빔면으로 출시되었다.
+                    </div>
+                  </div>
+                  <div id="QuizCard_3" class="WQ_Card learning_quiz" onclick="click_quiz(1);">
+                    <div class="Card_top">
+                      <div class="card_name">
+                        댕댕이
+                      </div>
+                      <div class="card_number">
+                        3/5
+                      </div>
+                    </div>
+                    <div class="Card_bottom">
+                      멍멍이를 보이는대로 변형한 단어
+                    </div>
+                  </div>
+                  <div id="QuizCard_4" class="WQ_Card learning_quiz" onclick="click_quiz(1);">
+                    <div class="Card_top">
+                      <div class="card_name">
+                        신조어
+                      </div>
+                      <div class="card_number">
+                        4/5
+                      </div>
+                    </div>
+                    <div class="Card_bottom">
+                      신조어를 보이는대로 변형한 단어
+                    </div>
+                  </div>
+                  <div id="QuizCard_5" class="WQ_Card learning_quiz" onclick="click_quiz(1);">
+                    <div class="Card_top">
+                      <div class="card_name">
+                        신조어
+                      </div>
+                      <div class="card_number">
+                        5/5
+                      </div>
+                    </div>
+                    <div class="Card_bottom">
+                      신조어를 보이는대로 변형한 단어
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="blackboard_img">
+              <img src="icon/chalk.png">
+            </div>
+
           </div>
-          나의최고점수
-          <div class="Heart_point">
-            ★☆☆
-          </div>
 
-      </div> -->
-			</div>
-		</div>
-		<footer class="page_main KingWordGamefooter">
-			<div class="WQ_back CQ_BTstyle">
-				<a href="GameLobby">뒤로</a>
-			</div>
-			<div class="WQ_BTNewStart CQ_BTstyle">스테이지 1-1 부터 시작하기</div>
-			<div class="visibilityhidden CQ_BTstyle">
-		</footer>
-	</div>
-	</div>
-	<div id="layer_modal"></div>
+        </div>
+        <footer class="page_main KingWordGamefooter">
+          <div class="WQ_back CQ_BTstyle">
+            <a href="mainLobby.html">뒤로</a>
+          </div>
+          <div class="WQ_BTNewStart CQ_BTstyle">
+            게임시작
+          </div>
+          <div class="visibilityhidden CQ_BTstyle">
+
+        </footer>
+      </div>
+    </div>
+    <div id="layer_modal">
+
+    </div>
 </body>
 
 </html>

@@ -30,19 +30,7 @@ public class yaminController {
 	@RequestMapping("YaminGameLobby")
 	public String YaminGameLobby(Model model, HttpSession session) {
 
-		String userID = null;
-		userModel user = null;
-		List<stageModel> stages = null;
-		if (session.getAttribute("userID") != null) {
-			userID = (String) session.getAttribute("userID");
-			user = serviece.loginUser(userID);
-			stages = serviece.yaminStage(user.getUser_id());
-		}
 
-		if (stages == null) {
-		} else {
-			model.addAttribute("stages", stages);
-		}
 		return "game/YaminGameLobby";
 	}
 

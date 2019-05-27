@@ -30,19 +30,19 @@ public class sejongController {
 	@RequestMapping(value = "KingWordGameLobby", method = RequestMethod.GET)
 	public String KingWordGameLobby(Model model, HttpSession session) {
 
-		String userID = null;
-		userModel user = null;
-		List<stageModel> stages = null;
-		if (session.getAttribute("userID") != null) {
-			userID = (String) session.getAttribute("userID");
-			user = service.loginUser(userID);
-			stages = service.sejongStage(user.getUser_id());
-		}
-
-		if (stages == null) {
-		} else {
-			model.addAttribute("stages", stages);
-		}
+//		String userID = null;
+//		userModel user = null;
+//		List<stageModel> stages = null;
+//		if (session.getAttribute("userID") != null) {
+//			userID = (String) session.getAttribute("userID");
+//			user = service.loginUser(userID);
+//			stages = service.sejongStage(user.getUser_id());
+//		}
+//
+//		if (stages == null) {
+//		} else {
+//			model.addAttribute("stages", stages);
+//		}
 
 		return "game/KingWordGameLobby";
 	}
