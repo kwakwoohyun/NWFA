@@ -18,35 +18,25 @@
 		(1,3,0,Now(),#{user_id},0),
 		(1,4,0,Now(),#{user_id},0),
 		(1,5,0,Now(),#{user_id},0),
+		(1,6,0,Now(),#{user_id},0),
 		(2,1,1,Now(),#{user_id},0),
 		(2,2,0,Now(),#{user_id},0),
 		(2,3,0,Now(),#{user_id},0),
+		(2,4,0,Now(),#{user_id},0),
 		(3,1,1,Now(),#{user_id},0),
 		(3,2,0,Now(),#{user_id},0),
-		(3,3,0,Now(),#{user_id},0)
+		(3,3,0,Now(),#{user_id},0),
+		(3,4,0,Now(),#{user_id},0)
 	</insert>
 
-	<insert id="insertInfo2">
-		insert into SejongStage
-		(User_user_id,Sejong_Word_word_id,star,open_game)
-		values(#{user_id},#{i},0,0)
-	</insert>
-
-	<insert id="insertInfo3">
-		insert into SejongStage
-		(User_user_id,Sejong_Word_word_id,star,open_game)
-		values(#{user_id},#{i},0,0)
-	</insert>
-
-	<insert id="insertYaminInfo1">
-		insert into YaminStage
-		(User_user_id,Yamin_Word_word_id,star,open_game)
-		values(#{user_id},4,0,1)
-	</insert>
-
-	<insert id="insertYaminInfo2">
-		insert into YaminStage
-		(User_user_id,Yamin_Word_word_id,star,open_game)
-		values(#{user_id},#{i},0,0)
+	<select id="Allwords" resultType="com.skhu.NWFA.yaminGame.yaminModel.wordsModel">
+		select * from Word
+	</select>
+	
+	<insert id="insertUserWord">
+		insert into UserWords
+		(gameNum,isCorrect,answer,favorite,stage_id,user_id,word_id)
+		values
+		(#{gameNum},0,'null',0,#{stage_id},#{user_id},#{word_id})
 	</insert>
 </mapper>

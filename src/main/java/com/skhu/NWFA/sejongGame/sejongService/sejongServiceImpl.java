@@ -10,6 +10,7 @@ import com.skhu.NWFA.sejongGame.sejongModel.stageModel;
 import com.skhu.NWFA.sejongGame.sejongModel.syllablesModel;
 import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
 import com.skhu.NWFA.user.userModel.userModel;
+import com.skhu.NWFA.user.userModel.userStages;
 
 @Service
 public class sejongServiceImpl implements sejongService {
@@ -38,8 +39,8 @@ public class sejongServiceImpl implements sejongService {
 	}
 
 	@Override
-	public userModel loginUser(String login_id) {
-		return dao.loginUser(login_id);
+	public userModel loginUser(String id) {
+		return dao.loginUser(id);
 	}
 
 	@Override
@@ -57,6 +58,12 @@ public class sejongServiceImpl implements sejongService {
 	public void setStar(int user_id, int star) {
 		// TODO Auto-generated method stub
 		dao.setStar(user_id, star);
+	}
+
+	@Override
+	public List<userStages> selectUserStage(int id) {
+		// TODO Auto-generated method stub
+		return dao.selectUserStage(id);
 	}
 
 

@@ -1,6 +1,7 @@
 package com.skhu.NWFA.user.userController;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,12 +10,15 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mysql.cj.conf.BooleanPropertyDefinition.AllowableValues;
 import com.skhu.NWFA.sejongGame.sejongService.sejongService;
 import com.skhu.NWFA.user.userDao.UserDAO;
 import com.skhu.NWFA.user.userModel.userModel;
 import com.skhu.NWFA.user.userService.userService;
+import com.skhu.NWFA.yaminGame.yaminModel.wordsModel;
 
 @Controller
 public class userController {
@@ -80,11 +84,18 @@ public class userController {
 		}
 		int result = new UserDAO().register(userID, userPassword1, userName, userAge, userGender, userEmail);
 		if (result == 1) {
-			//user stage 초기화
+			// user stage 초기화
 			userModel user = Uservice.selectID(userID);
 			int user_id = user.getUser_id();
 			Uservice.insertUserStage(user_id);
-			
+			// word 객체 가져오기
+			List<wordsModel> Allwords = Uservice.Allwords();
+			// user word 초기화
+			for (int i = 0; i < Allwords.size(); i++) {
+				Uservice.insertUserWord(user_id, Allwords.get(i).getGameNum(), Allwords.get(i).getStage_id(),
+						Allwords.get(i).getWord_id());
+			}
+
 			request.getSession().setAttribute("messageType", "성공 메시지");
 			request.getSession().setAttribute("messageContent", "회원가입에 성공했습니다.");
 			response.sendRedirect("login");

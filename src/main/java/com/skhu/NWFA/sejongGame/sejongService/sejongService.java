@@ -20,11 +20,11 @@ public interface sejongService {
 
 	void stageLockUpdate(int stageId,int userId);
 
-	userModel loginUser(String login_id);
+	userModel loginUser(String id);
 
 	void starUpdate(int star, int parseInt, int user_user_id);
 
 	void setStar(int user_id, int star);
 	
-	List<userStages> selectUserStage(String id);
+	List<userStages> selectUserStage(int id);
 }

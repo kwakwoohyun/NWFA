@@ -1,4 +1,4 @@
-package com.skhu.NWFA.user.userModel;
+package com.skhu.NWFA.sejongGame.sejongModel;
 
 import java.util.Date;
 

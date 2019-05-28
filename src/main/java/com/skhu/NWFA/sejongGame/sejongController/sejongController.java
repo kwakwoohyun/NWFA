@@ -30,8 +30,13 @@ public class sejongController {
 
 	@RequestMapping(value = "KingWordGameLobby", method = RequestMethod.GET)
 	public String KingWordGameLobby(Model model, HttpSession session) {
-		List<userStages> stageList = new ArrayList<userStages>();
 		String id = (String) session.getAttribute("userID");
+		userModel user_id = service.loginUser(id);
+		int u_id = user_id.getUser_id();
+		List<userStages> stageList = service.selectUserStage(u_id);
+		model.addAttribute("stageList",stageList);
+//		System.out.println(stageList.get(5).getIsLock());
+		
 		
 //		String userID = null;
 //		userModel user = null;

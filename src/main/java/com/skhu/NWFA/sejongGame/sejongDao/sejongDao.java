@@ -8,15 +8,25 @@ import com.skhu.NWFA.sejongGame.sejongModel.stageModel;
 import com.skhu.NWFA.sejongGame.sejongModel.syllablesModel;
 import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
 import com.skhu.NWFA.user.userModel.userModel;
+import com.skhu.NWFA.user.userModel.userStages;
 
 @Configuration
 public interface sejongDao {
-   List<syllablesModel> example(int count);
-   wordsModel sejongWords(String sejongId);
-   List<stageModel> sejongStage(int user_id);
-   List<stageModel> sejongStageAll();
-   void stageLockUpdate(int stageId,int userId);
-   userModel loginUser(String login_id);
-   void starUpdate(int star, int stageId, int User_user_id);
-   void setStar(int user_id, int star);
+	List<syllablesModel> example(int count);
+
+	wordsModel sejongWords(String sejongId);
+
+	List<stageModel> sejongStage(int user_id);
+
+	List<stageModel> sejongStageAll();
+
+	void stageLockUpdate(int stageId, int userId);
+
+	userModel loginUser(String id);
+
+	void starUpdate(int star, int stageId, int User_user_id);
+
+	void setStar(int user_id, int star);
+
+	List<userStages> selectUserStage(int id);
 }
