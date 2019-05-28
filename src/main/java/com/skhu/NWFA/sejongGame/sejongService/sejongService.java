@@ -6,6 +6,7 @@ import com.skhu.NWFA.sejongGame.sejongModel.stageModel;
 import com.skhu.NWFA.sejongGame.sejongModel.syllablesModel;
 import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
 import com.skhu.NWFA.user.userModel.userModel;
+import com.skhu.NWFA.user.userModel.userStages;
 
 public interface sejongService {
 
@@ -24,4 +25,6 @@ public interface sejongService {
 	void starUpdate(int star, int parseInt, int user_user_id);
 
 	void setStar(int user_id, int star);
+	
+	List<userStages> selectUserStage(String id);
 }

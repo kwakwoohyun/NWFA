@@ -80,21 +80,11 @@ public class userController {
 		}
 		int result = new UserDAO().register(userID, userPassword1, userName, userAge, userGender, userEmail);
 		if (result == 1) {
-
+			//user stage 초기화
 			userModel user = Uservice.selectID(userID);
 			int user_id = user.getUser_id();
-			Uservice.insertInfo(user_id);
-			for (int i = 2; i < 4; i++) {
-				Uservice.insertInfo2(user_id, i);
-			}
-			for (int i = 5; i < 9; i++) {
-				Uservice.insertInfo3(user_id, i);
-			}
-		
-			Uservice.insertYaminInfo1(user_id);
-			for(int i=9;i<13;i++) {
-				Uservice.insertYaminInfo2(user_id, i);
-			}
+			Uservice.insertUserStage(user_id);
+			
 			request.getSession().setAttribute("messageType", "성공 메시지");
 			request.getSession().setAttribute("messageContent", "회원가입에 성공했습니다.");
 			response.sendRedirect("login");

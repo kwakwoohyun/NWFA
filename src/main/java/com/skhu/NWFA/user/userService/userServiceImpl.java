@@ -19,33 +19,10 @@ public class userServiceImpl implements userService {
 	}
 
 	@Override
-	public void insertInfo(int user_id) {
+	public void insertUserStage(int user_id) {
 		// TODO Auto-generated method stub
-		dao.insertInfo(user_id);
+		dao.insertUserStage(user_id);
 	}
 
-	@Override
-	public void insertInfo2(int user_id, int i) {
-		// TODO Auto-generated method stub
-		dao.insertInfo2(user_id, i);
-	}
-
-	@Override
-	public void insertInfo3(int user_id, int i) {
-		// TODO Auto-generated method stub
-		dao.insertInfo3(user_id, i);
-	}
-
-	@Override
-	public void insertYaminInfo1(int user_id) {
-		// TODO Auto-generated method stub
-		dao.insertYaminInfo1(user_id);
-	}
-
-	@Override
-	public void insertYaminInfo2(int user_id, int i) {
-		// TODO Auto-generated method stub
-		dao.insertYaminInfo2(user_id, i);
-	}
-
+	
 }

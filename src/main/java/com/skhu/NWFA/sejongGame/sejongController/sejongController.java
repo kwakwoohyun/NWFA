@@ -20,6 +20,7 @@ import com.skhu.NWFA.sejongGame.sejongModel.syllablesModel;
 import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
 import com.skhu.NWFA.sejongGame.sejongService.sejongService;
 import com.skhu.NWFA.user.userModel.userModel;
+import com.skhu.NWFA.user.userModel.userStages;
 
 @Controller
 public class sejongController {
@@ -29,7 +30,9 @@ public class sejongController {
 
 	@RequestMapping(value = "KingWordGameLobby", method = RequestMethod.GET)
 	public String KingWordGameLobby(Model model, HttpSession session) {
-
+		List<userStages> stageList = new ArrayList<userStages>();
+		String id = (String) session.getAttribute("userID");
+		
 //		String userID = null;
 //		userModel user = null;
 //		List<stageModel> stages = null;

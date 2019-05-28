@@ -9,6 +9,7 @@ public class userModel {
    private int age;
    private String sex;
    private String email;
+   
    public int getUser_id() {
       return user_id;
    }
