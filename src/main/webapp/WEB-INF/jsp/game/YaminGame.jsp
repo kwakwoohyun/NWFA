@@ -60,11 +60,8 @@
 	var btnState = [ 1, 1, 1, 1, 1, 1 ];
 	var btnChars = [ "${li[0]}", "${li[1]}", "${li[2]}", "${li[3]}",
 			"${li[4]}", "${li[5]}" ];
-	var btnAnswers = [ "${example[0]}", "${example[1]}", "${example[2]}",
-			"${example[3]}", "${example[4]}", "${example[5]}" ];
 	var count = 0;
 	var hintIndex = 0;
-	var time = 3;
 
 	function buttonClick(id, index, event) {
 		hintIndex += 1;
@@ -145,59 +142,19 @@
 			buttonClickRelease(6);
 		}
 	}
-	function setHeart() {
-		if (time == 3) {
-			document.getElementById('Star_point').innerHTML = "♥♥♥";
-		} else if (time == 2) {
-			document.getElementById('Star_point').innerHTML = "♥♥♡";
-		} else if (time == 1) {
-			document.getElementById('Star_point').innerHTML = "♥♡♡";
-		} else {
-			document.getElementById('Star_point').innerHTML = "♡♡♡";
-		}
-	}
-	function check() {
 
-		if (time < 1) {
-			GameOver();
-			setInitialize();
-			setDisable();
-		} else if (count == "${word.yamin_word.length()}") {
-			if (clickWord == '${word.yamin_word}') {
-				setDisable();
-				Answer();
+	function check() {
+		if (count == "${word.justice.length()}") {
+			if (clickWord == '${word.justice}') {
+				
+				location.href = '/YaminGame/${word.stage_id}/${word.gameNum}/${wordIdx+1}';
 				setTimeout(GameClear, 5000);
 			} else {
-				time--;
-				setDisable();
 				setTimeout(function() {
-					alert('오답입니다. 다시 선택해주세요');
-					setInitialize();
+					location.href = '/YaminGame/${word.stage_id}/${word.gameNum}/${wordIdx+1}';
 				}, 500);
 			}
 		}
-		setHeart();
-	}
-	function setInitialize() {
-		for (var i = 1; i <= 6; i++) {
-			document.querySelector('#WQ_BT' + i).style.color = '#ffffff';
-			document.querySelector('#WQ_BT' + i).style.border = "solid 3px white";
-		}// 배경색 reset
-		for (var i = 1; i <= 6; i++) {
-			document.querySelector('#WQ_BT' + i).disabled = false;
-		}// 버튼 클릭 disable
-		for (var i = 1; i <= 3; i++) {
-			document.querySelector('#answer' + i).innerHTML = btnAnswers[i - 1];
-		}// 힌트 reset
-		clickWord = "";
-		btnState = [ 1, 1, 1, 1, 1, 1, 1, 1, 1 ];
-		count = 0;
-		hintIndex = 0;
-	}
-	function setDisable() {
-		for (var i = 1; i <= 6; i++) {
-			document.querySelector('#WQ_BT' + i).disabled = 'disabled';
-		}// 버튼 클릭 disable
 	}
 </script>
 </head>
@@ -223,17 +180,18 @@
 			<div class="DisplayBox">
 				<div class="quiz">
 
-					<div class="Stage_panel">Stage 1-${yamin}</div>
+					<div class="Stage_panel">Stage 1-${wordIdx}</div>
 					<div class="blackboard">
 						<div class="blackboard_Quiz">${word.mean}</div>
 						<div class="blackboard_Quiz_Question">
-							<c:forEach var="example" items="${example}" varStatus="status">
-								<span id="answer${status.index +1}">${example}</span>
+							<c:forEach var="x" varStatus="index" begin="0"
+								end="${wordlength-1}" step="1">
+								<span id="answer${index.count }">_</span>
 							</c:forEach>
 						</div>
 						<div class="blackboard_Quiz_Answer"
 							style="display: none; position: relative; position: relative; bottom: 30px;">
-							<img src="/icon/WQ${yamin }.gif">
+							<img src="/icon/WQ${word.img }.gif">
 						</div>
 						<div class="blackboard_img">
 							<img src="/icon/chalk.png">

@@ -11,12 +11,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.skhu.NWFA.user.userModel.userModel;
-import com.skhu.NWFA.yaminGame.yaminModel.stageModel;
 import com.skhu.NWFA.yaminGame.yaminModel.syllablesModel;
 import com.skhu.NWFA.yaminGame.yaminModel.wordsModel;
 import com.skhu.NWFA.yaminGame.yaminService.yaminService;
@@ -27,61 +24,63 @@ public class yaminController {
 	@Autowired
 	yaminService serviece;
 
-	@RequestMapping("YaminGameLobby")
-	public String YaminGameLobby(Model model, HttpSession session) {
-
+	@RequestMapping("YaminGameLobby/{yaminStageId}/{gameNum}")
+	public String YaminGameLobby(Model model,  @PathVariable String yaminStageId, @PathVariable String gameNum,HttpSession session) {
+		List<wordsModel> words = serviece.yaminWords(yaminStageId, gameNum);
+		model.addAttribute("word", words);
+		model.addAttribute("yaminStageId", yaminStageId);
+		model.addAttribute("gameNum", gameNum);
 
 		return "game/YaminGameLobby";
 	}
 
-	@RequestMapping("YaminGame/{yaminId}")
-	public String YaminGame(Model model, @PathVariable String yaminId, HttpSession session)
+	@RequestMapping("YaminGame/{yaminStageId}/{gameNum}/{wordIdx}")
+	public String YaminGame(Model model, @PathVariable String yaminStageId, @PathVariable String gameNum,@PathVariable String wordIdx,HttpSession session)
 			throws UnsupportedEncodingException {
-		wordsModel words = serviece.yaminWords(yaminId);
-		int wordlength = words.getYamin_word().length();
+
+		List<wordsModel> words = serviece.yaminWords(yaminStageId, gameNum);
+		wordsModel word = words.get(Integer.parseInt(wordIdx));
+		int wordlength = word.getJustice().length();
 		int count = 6 - wordlength;
 		List<syllablesModel> list = serviece.example(count);
 		List<String> syllablesArray = new ArrayList<String>();
-		List<String> wordArray = new ArrayList<String>(Arrays.asList(words.getYamin_word().split("")));
-		List<String> example = new ArrayList<String>(Arrays.asList(words.getYamin_example().split("")));
+		List<String> wordArray = new ArrayList<String>(Arrays.asList(word.getJustice().split("")));
 		for (syllablesModel syllable : list) {
-			syllablesArray.add(syllable.getSyllables());
+			syllablesArray.add(syllable.getSyllable());
 		}
 		syllablesArray.addAll(wordArray);
 		Collections.shuffle(syllablesArray);
 
-		int hintIndex = StringUtils.countOccurrencesOf(words.getYamin_example(), "_");
-
-		/*
-		 * byte[] encoded = Base64.encodeBase64(words.getImg()); String encodedString =
-		 * new String(encoded);
-		 * 
-		 * model.addAttribute("img", encodedString);
-		 */
-
-		model.addAttribute("yamin", yaminId);
+		model.addAttribute("wordIdx", wordIdx);
 		model.addAttribute("wordlength", wordlength);
 		model.addAttribute("li", syllablesArray);
-		model.addAttribute("word", words);
-		model.addAttribute("example", example);
-		model.addAttribute("hintIndex", hintIndex);
-
-		List<stageModel> stages = serviece.yaminStageAll();
-
-		String userID = null;
-		userModel user = null;
-		if (session.getAttribute("userID") != null) {
-			userID = (String) session.getAttribute("userID");
-			user = serviece.loginUser(userID);
-		}
-		if (yaminId.equals("1")) {
-		} else {
-			if (stages.get(Integer.parseInt(yaminId) - 2).getOpen_game() == 1) {
-				serviece.stageLockUpdate(Integer.parseInt(yaminId), user.getUser_id());
-			}
-		}
+		model.addAttribute("word", word);
 
 		return "game/YaminGame";
 	}
 
+	@RequestMapping("YaminGameUpdate/{yaminStageId}/{gameNum}/{wordIdx}")
+	public String YaminGameUpdate(Model model, @PathVariable String yaminStageId, @PathVariable String gameNum,@PathVariable String wordIdx,HttpSession session)
+			throws UnsupportedEncodingException {
+
+		List<wordsModel> words = serviece.yaminWords(yaminStageId, gameNum);
+		wordsModel word = words.get(Integer.parseInt(wordIdx));
+		int wordlength = word.getJustice().length();
+		int count = 6 - wordlength;
+		List<syllablesModel> list = serviece.example(count);
+		List<String> syllablesArray = new ArrayList<String>();
+		List<String> wordArray = new ArrayList<String>(Arrays.asList(word.getJustice().split("")));
+		for (syllablesModel syllable : list) {
+			syllablesArray.add(syllable.getSyllable());
+		}
+		syllablesArray.addAll(wordArray);
+		Collections.shuffle(syllablesArray);
+
+		model.addAttribute("wordIdx", wordIdx);
+		model.addAttribute("wordlength", wordlength);
+		model.addAttribute("li", syllablesArray);
+		model.addAttribute("word", word);
+
+		return "game/YaminGame";
+	}
 }

@@ -5,20 +5,22 @@ public class syllablesModel {
 	private int syllables_id;
 	private String syllables;
 
-	public int getSyllables_id() {
+	public int getSyllable_id() {
 		return syllables_id;
 	}
-
-	public void setSyllables_id(int syllables_id) {
-		this.syllables_id = syllables_id;
+	public void setSyllable_id(int syllable_id) {
+		this.syllables_id = syllable_id;
 	}
-
-	public String getSyllables() {
+	public String getSyllable() {
 		return syllables;
 	}
-
-	public void setSyllables(String syllables) {
+	public void setSyllable(String syllables) {
 		this.syllables = syllables;
+	}
+
+	@Override
+	public String toString() {
+		return "sejongDaoModel [syllable_id=" + syllables_id + ", syllable=" + syllables + "]";
 	}
 
 }

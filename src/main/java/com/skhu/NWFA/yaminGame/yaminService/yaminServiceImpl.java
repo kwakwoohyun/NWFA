@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.skhu.NWFA.user.userModel.userModel;
 import com.skhu.NWFA.yaminGame.yaminDao.yaminDao;
-import com.skhu.NWFA.yaminGame.yaminModel.stageModel;
 import com.skhu.NWFA.yaminGame.yaminModel.syllablesModel;
 import com.skhu.NWFA.yaminGame.yaminModel.wordsModel;
 
@@ -24,29 +23,20 @@ public class yaminServiceImpl implements yaminService {
 	}
 
 	@Override
-	public wordsModel yaminWords(String yaminId) {
+	public List<wordsModel> yaminWords(String yaminStageId,String gameNum) {
 		// TODO Auto-generated method stub
-		return dao.yaminWords(yaminId);
-	}
-
-	@Override
-	public List<stageModel> yaminStage(int user_id) {
-		return dao.yaminStage(user_id);
-	}
-
-	@Override
-	public List<stageModel> yaminStageAll() {
-		return dao.yaminStageAll();
-	}
-
-	@Override
-	public void stageLockUpdate(int stageId, int userId) {
-		dao.stageLockUpdate(stageId, userId);
+		return dao.yaminWords(yaminStageId,gameNum);
 	}
 
 	@Override
 	public userModel loginUser(String login_id) {
 		return dao.loginUser(login_id);
+	}
+
+	@Override
+	public void stageLockUpdate(int stageId, int userId) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

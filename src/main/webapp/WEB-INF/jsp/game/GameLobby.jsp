@@ -43,7 +43,7 @@
         }
 
         else if (gameNo == 1) {
-          location.href='YaminGameLobby';
+          location.href='YaminGameLobby/1/2';
         }
 
         else if (gameNo == 2) {

@@ -10,30 +10,10 @@
 
 	<select id="yaminWords"
 		resultType="com.skhu.NWFA.yaminGame.yaminModel.wordsModel">
-		select word_id, justice, mean, gameNub, yamin_word,
-		yamin_example from
-		Yamin inner
-		join Word on
-		Yamin.Word_word_id =
-		Word.word_id and
-		Yamin.yamin_id=#{yamin_id};
+		SELECT word_id, justice, mean, gameNum, img, stage_id, answer
+		FROM Word 
+		WHERE stage_id = #{yaminStageId} AND gameNum = #{gameNum}
 	</select>
-
-	<select id="yaminStage"
-		resultType="com.skhu.NWFA.yaminGame.yaminModel.stageModel">
-		SELECT * FROM YaminStage WHERE User_user_id = #{user_id};
-	</select>
-
-	<select id="yaminStageAll"
-		resultType="com.skhu.NWFA.yaminGame.yaminModel.stageModel">
-		SELECT * FROM YaminStage
-	</select>
-
-	<update id="stageLockUpdate" parameterType="int">
-		UPDATE YaminStage SET open_game = 1
-		WHERE Yamin_Word_word_id =
-		#{stageId} AND User_user_id = #{userId}
-	</update>
 
 	<select id="loginUser"
 		resultType="com.skhu.NWFA.user.userModel.userModel"
