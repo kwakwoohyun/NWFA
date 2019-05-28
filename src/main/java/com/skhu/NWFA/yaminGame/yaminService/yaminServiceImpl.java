@@ -23,9 +23,9 @@ public class yaminServiceImpl implements yaminService {
 	}
 
 	@Override
-	public List<wordsModel> yaminWords(String yaminStageId,String gameNum) {
+	public List<wordsModel> yaminWords(String yaminStageId, String gameNum) {
 		// TODO Auto-generated method stub
-		return dao.yaminWords(yaminStageId,gameNum);
+		return dao.yaminWords(yaminStageId, gameNum);
 	}
 
 	@Override
@@ -36,6 +36,18 @@ public class yaminServiceImpl implements yaminService {
 	@Override
 	public void stageLockUpdate(int stageId, int userId) {
 		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void yaminWordsCorrect(String gameNum, String yaminStageId, int user_id, int word_id, String answer) {
+		dao.yaminWordsCorrect(gameNum, yaminStageId, user_id, word_id, answer);
+
+	}
+
+	@Override
+	public void yaminWordsSave(String gameNum, String yaminStageId, int user_id, int word_id, String answer) {
+		dao.yaminWordsSave(gameNum, yaminStageId, user_id, word_id, answer);
 
 	}
 

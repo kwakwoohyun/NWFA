@@ -144,7 +144,7 @@
 				<div class="WordQuizTitle">스테이지 선택</div>
 			</div>
 			<div class="R_headerbar">
-				<div class="UI login"></div>
+			  <div class="UI login" onclick="location.href='/personal'"></div>
 			</div>
 		</header>
 		<div class="viewBox">
@@ -193,7 +193,7 @@
 											<div class="card_number">1/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br> ${word[0].justice} = ${word[0].answer} <br>
+											<br> ${word[0].justice} = ${word[0].question} <br>
 											${word[0].mean}
 										</div>
 									</div>
@@ -207,7 +207,7 @@
 											<div class="card_number">2/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br> ${word[1].justice} = ${word[1].answer} <br>
+											<br> ${word[1].justice} = ${word[1].question} <br>
 											${word[1].mean}
 										</div>
 									</div>
@@ -221,7 +221,7 @@
 											<div class="card_number">3/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br> ${word[2].justice} = ${word[2].answer} <br>
+											<br> ${word[2].justice} = ${word[2].question} <br>
 											${word[2].mean}
 										</div>
 									</div>
@@ -235,7 +235,7 @@
 											<div class="card_number">4/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br> ${word[3].justice} = ${word[3].answer} <br>
+											<br> ${word[3].justice} = ${word[3].question} <br>
 											${word[3].mean}
 										</div>
 									</div>
@@ -249,7 +249,7 @@
 											<div class="card_number">5/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br> ${word[4].justice} = ${word[4].answer} <br>
+											<br> ${word[4].justice} = ${word[4].question} <br>
 											${word[4].mean}
 										</div>
 									</div>
@@ -265,9 +265,9 @@
 				</div>
 				<footer class="page_main KingWordGamefooter">
 					<div class="WQ_back CQ_BTstyle">
-						<a href="mainLobby.html">뒤로</a>
+						<a href="/GameLobby">뒤로</a>
 					</div>
-					<div class="WQ_BTNewStart CQ_BTstyle"><a href="/YaminGame/${yaminStageId}/${gameNum}/1">게임시작</a></div>
+					<div class="WQ_BTNewStart CQ_BTstyle"><a href="/YaminGame/${yaminStageId}/${gameNum}/0">게임시작</a></div>
 					<div class="visibilityhidden CQ_BTstyle">
 				</footer>
 			</div>

@@ -12,6 +12,10 @@ public interface yaminService {
 
 	List<wordsModel> yaminWords(String yaminStageId,String gameNum);
 
+	void yaminWordsCorrect(String gameNum, String yaminStageId, int user_id, int word_id, String answer);
+
+	void yaminWordsSave(String gameNum, String yaminStageId, int user_id, int word_id,String answer);
+
 	void stageLockUpdate(int stageId, int userId);
 
 	userModel loginUser(String login_id);

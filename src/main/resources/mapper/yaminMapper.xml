@@ -10,9 +10,11 @@
 
 	<select id="yaminWords"
 		resultType="com.skhu.NWFA.yaminGame.yaminModel.wordsModel">
-		SELECT word_id, justice, mean, gameNum, img, stage_id, answer
-		FROM Word 
-		WHERE stage_id = #{yaminStageId} AND gameNum = #{gameNum}
+		SELECT word_id, justice, mean, gameNum, img, stage_id,
+		question
+		FROM Word
+		WHERE stage_id = #{yaminStageId} AND gameNum =
+		#{gameNum}
 	</select>
 
 	<select id="loginUser"
@@ -20,5 +22,21 @@
 		parameterType="string">
 		SELECT * FROM User WHERE login_id = #{login_id}
 	</select>
-	
+
+	<update id="yaminWordsCorrect">
+		UPDATE UserWords SET isCorrect = 1 WHERE
+		gameNum =
+		#{gameNum} AND stage_id = #{yaminStageId} AND user_id = #{user_id} AND
+		word_id= #{word_id}
+	</update>
+
+	<update id="yaminWordsSave">
+		UPDATE UserWords SET answer = #{answer} WHERE
+		gameNum
+		=
+		#{gameNum} AND stage_id = #{yaminStageId} AND user_id = #{user_id}
+		AND word_id= #{word_id}
+	</update>
+
+
 </mapper>

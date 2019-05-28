@@ -146,12 +146,11 @@
 	function check() {
 		if (count == "${word.justice.length()}") {
 			if (clickWord == '${word.justice}') {
-				
-				location.href = '/YaminGame/${word.stage_id}/${word.gameNum}/${wordIdx+1}';
+				location.href = '/YaminGameUpdate/${word.stage_id}/${word.gameNum}/${wordIdx}/'+clickWord;
 				setTimeout(GameClear, 5000);
 			} else {
 				setTimeout(function() {
-					location.href = '/YaminGame/${word.stage_id}/${word.gameNum}/${wordIdx+1}';
+					location.href = '/YaminGameSave/${word.stage_id}/${word.gameNum}/${wordIdx}/'+clickWord;
 				}, 500);
 			}
 		}
@@ -172,7 +171,7 @@
 				<div class="WordQuizTitle">도전 신조어!</div>
 			</div>
 			<div class="R_headerbar">
-				<div class="UI login" onclick="location.href='tempmenu'"></div>
+			  <div class="UI login" onclick="location.href='/personal'"></div>
 			</div>
 		</header>
 		<div class="viewBox">
@@ -180,9 +179,9 @@
 			<div class="DisplayBox">
 				<div class="quiz">
 
-					<div class="Stage_panel">Stage 1-${wordIdx}</div>
+					<div class="Stage_panel">Stage 1-${wordIdx+1}</div>
 					<div class="blackboard">
-						<div class="blackboard_Quiz">${word.mean}</div>
+						<div class="blackboard_Quiz">${word.question}</div>
 						<div class="blackboard_Quiz_Question">
 							<c:forEach var="x" varStatus="index" begin="0"
 								end="${wordlength-1}" step="1">

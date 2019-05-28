@@ -52,7 +52,7 @@
        <div id="mainpage_logo"></div>
        <div class="UI UI_bt" onclick="location.href='GameLobby'"
           data-transition="flip">게임</div>
-       <div class="UI UI_bt" onclick="location.href='dict'"
+       <div class="UI UI_bt" onclick="location.href='dictionary'"
           data-transition="flip">사전</div>
     </article>
 <!--     <footer class="page_main flex justify align-end">
