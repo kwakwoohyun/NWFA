@@ -66,5 +66,11 @@ public class sejongServiceImpl implements sejongService {
 		return dao.selectUserStage(id);
 	}
 
+	@Override
+	public List<wordsModel> LobbyWords(int stage) {
+		// TODO Auto-generated method stub
+		return dao.LobbyWords(stage);
+	}
+
 
 }

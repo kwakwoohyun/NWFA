@@ -28,46 +28,20 @@ public class sejongController {
 	@Autowired
 	sejongService service;
 
-	@RequestMapping(value = "KingWordGameLobby", method = RequestMethod.GET)
-	public String KingWordGameLobby(Model model, HttpSession session) {
+	@RequestMapping(value = "KingWordGameLobby/{stageId}")
+	public String KingWordGameLobby(Model model, HttpSession session, @PathVariable String stageId) {
 		String id = (String) session.getAttribute("userID");
 		userModel user_id = service.loginUser(id);
 		int u_id = user_id.getUser_id();
 		List<userStages> stageList = service.selectUserStage(u_id);
 		model.addAttribute("stageList",stageList);
-//		System.out.println(stageList.get(5).getIsLock());
-		
-		
-//		String userID = null;
-//		userModel user = null;
-//		List<stageModel> stages = null;
-//		if (session.getAttribute("userID") != null) {
-//			userID = (String) session.getAttribute("userID");
-//			user = service.loginUser(userID);
-//			stages = service.sejongStage(user.getUser_id());
-//		}
-//
-//		if (stages == null) {
-//		} else {
-//			model.addAttribute("stages", stages);
-//		}
-
+		int stage = Integer.parseInt(stageId);
+		List<wordsModel> words = service.LobbyWords(stage);
+//		System.out.println(words.get(0).getJustice());
+		model.addAttribute("words", words);
 		return "game/KingWordGameLobby";
 	}
 
-	@RequestMapping("setStar/{star}")
-	public void setStar(Model model, HttpSession session, @PathVariable int star) {
-		String userID = (String) session.getAttribute("userID");
-		int array[] = { 1, 2, 3, 5, 6, 7, 8 };
-		userModel user = service.loginUser(userID);
-		int user_id = user.getUser_id();
-		service.setStar(user_id, star);
-	}
-
-	@RequestMapping("star")
-	public String star(Model model) {
-		return "redirect:KingWordGame";
-	}
 
 	@RequestMapping("KingWordGame/{sejongId}")
 	public String KingWordGameNext(Model model, @PathVariable String sejongId, HttpSession session) {

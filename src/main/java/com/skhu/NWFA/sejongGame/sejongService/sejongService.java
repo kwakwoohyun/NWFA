@@ -27,4 +27,6 @@ public interface sejongService {
 	void setStar(int user_id, int star);
 	
 	List<userStages> selectUserStage(int id);
+	
+	List<wordsModel> LobbyWords(int stage);
 }

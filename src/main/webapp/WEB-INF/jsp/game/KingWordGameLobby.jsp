@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <title>메인페이지</title>
 <meta name="viewport" content="width=device-width; initial-scale=1.0" />
-<link rel="stylesheet" href="project.css">
+<link rel="stylesheet" href="/project.css">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script
@@ -21,7 +21,7 @@
 	$(document).ready(function() {
 		$(".Card_Back").hide();
 		$(".Card_Front").show();
-		$("#KWG_stage1").css({
+		$("#KWG_stage"+${words[0].stage_id}).css({
 			'background-color' : '#ff5050'
 		})
 		$(".prevBT").hide(); // 맨 처음 카드를 화면에 보여줄때 이전으로 가기 버튼을 비활성화 시킴
@@ -29,7 +29,6 @@
 
 	function KingWordGameLevel_click(event) {
 		WQ_Level = event;
-
 		$(".KWG_Level").css({
 			'background-color' : '#fad644'
 		})
@@ -75,6 +74,7 @@
 				$(".nextBT").show();
 			}
 		}
+		location.href="/KingWordGameLobby/"+event
 	}
 
 	function click_quiz(cardnum) {
@@ -152,7 +152,7 @@
 		<div class="viewBox">
 			<div class="KingWordLevel">
 				<div class="L_KingWordLevel">
-					<div class="L_KingWordLevel_info">Stage 1</div>
+					<div class="L_KingWordLevel_info">Stage ${words[0].stage_id }</div>
 				</div>
 				<div class="C_KingWordLevel">
 					<div class="KingWordLevel_BT">
@@ -174,14 +174,14 @@
 
 							<c:choose>
 								<c:when test="${stageList[1].isLock eq '1' }">
-									<button id="KWG_stage1" class="KWG_Level" value="2"
+									<button id="KWG_stage2" class="KWG_Level" value="2"
 										onclick="KingWordGameLevel_click(this.value)">
 										<div class="KWG_Levelno">2</div>
 									</button>
 								</c:when>
 								<c:when test="${stageList[1].isLock eq '0' }">
 									<button style="color: gray; border: 6px solid gray"
-										id="KWG_stage1" class="KWG_Level" value="2">
+										id="KWG_stage2" class="KWG_Level" value="2">
 										<div class="KWG_Levelno">2</div>
 									</button>
 								</c:when>
@@ -189,14 +189,14 @@
 
 							<c:choose>
 								<c:when test="${stageList[2].isLock eq '1' }">
-									<button id="KWG_stage1" class="KWG_Level" value="3"
+									<button id="KWG_stage3" class="KWG_Level" value="3"
 										onclick="KingWordGameLevel_click(this.value)">
 										<div class="KWG_Levelno">3</div>
 									</button>
 								</c:when>
 								<c:when test="${stageList[2].isLock eq '0' }">
 									<button style="color: gray; border: 6px solid gray"
-										id="KWG_stage1" class="KWG_Level" value="3">
+										id="KWG_stage3" class="KWG_Level" value="3">
 										<div class="KWG_Levelno">3</div>
 									</button>
 								</c:when>
@@ -205,14 +205,14 @@
 						<div class="KWG_line">
 							<c:choose>
 								<c:when test="${stageList[3].isLock eq '1' }">
-									<button id="KWG_stage1" class="KWG_Level" value="4"
+									<button id="KWG_stage4" class="KWG_Level" value="4"
 										onclick="KingWordGameLevel_click(this.value)">
 										<div class="KWG_Levelno">4</div>
 									</button>
 								</c:when>
 								<c:when test="${stageList[3].isLock eq '0' }">
 									<button style="color: gray; border: 6px solid gray"
-										id="KWG_stage1" class="KWG_Level" value="4">
+										id="KWG_stage4" class="KWG_Level" value="4">
 										<div class="KWG_Levelno">4</div>
 									</button>
 								</c:when>
@@ -220,28 +220,28 @@
 
 							<c:choose>
 								<c:when test="${stageList[4].isLock eq '1' }">
-									<button id="KWG_stage1" class="KWG_Level" value="5"
+									<button id="KWG_stage5" class="KWG_Level" value="5"
 										onclick="KingWordGameLevel_click(this.value)">
 										<div class="KWG_Levelno">5</div>
 									</button>
 								</c:when>
 								<c:when test="${stageList[4].isLock eq '0' }">
 									<button style="color: gray; border: 6px solid gray"
-										id="KWG_stage1" class="KWG_Level" value="5">
+										id="KWG_stage5" class="KWG_Level" value="5">
 										<div class="KWG_Levelno">5</div>
 									</button>
 								</c:when>
 							</c:choose>
 							<c:choose>
 								<c:when test="${stageList[5].isLock eq '1' }">
-									<button id="KWG_stage1" class="KWG_Level" value="6"
+									<button id="KWG_stage6" class="KWG_Level" value="6"
 										onclick="KingWordGameLevel_click(this.value)">
 										<div class="KWG_Levelno">?</div>
 									</button>
 								</c:when>
 								<c:when test="${stageList[5].isLock eq '0' }">
 									<button style="color: gray; border: 6px solid gray"
-										id="KWG_stage1" class="KWG_Level" value="6">
+										id="KWG_stage6" class="KWG_Level" value="6">
 										<div class="KWG_Levelno">?</div>
 									</button>
 								</c:when>
@@ -265,87 +265,86 @@
 						<div id="QuizCard_1" class="KWG_Card learning_quiz"
 							onclick="click_quiz(1);">
 							<div class="Card_Front">
-								<div class="card_name">이생망</div>
+								<div class="card_name">${words[0].justice }</div>
 								<div class="card_number">1/10</div>
 							</div>
 							<div class="Card_Back">
-								이번생은 망했어의 줄임말로 <br>한탄할때나 농담으로 사용된다.
+								${words[0].mean }
 							</div>
 						</div>
 						<div id="QuizCard_2" class="KWG_Card learning_quiz"
 							onclick="click_quiz(2);">
 							<div class="Card_Front">
-								<div class="card_name">아바라</div>
+								<div class="card_name">${words[1].justice }</div>
 								<div class="card_number">2/10</div>
 							</div>
 							<div class="Card_Back">
-								아이스 바닐라 라떼의 줄임말으로 <br>신세대에게 인기인 아이스 바닐라 라때를 주문하거나 지칭할때
-								사용된다.
+								${words[1].mean }
 							</div>
 						</div>
 						<div id="QuizCard_3" class="KWG_Card learning_quiz"
 							onclick="click_quiz(3);">
 							<div class="Card_Front">
-								<div class="card_name">신조어</div>
+								<div class="card_name">${words[2].justice }</div>
 								<div class="card_number">3/10</div>
 							</div>
-							<div class="Card_Back">신조어에 대한 뜻을 써주세요</div>
+							<div class="Card_Back">${words[2].mean }</div>
 						</div>
 						<div id="QuizCard_4" class="KWG_Card learning_quiz"
 							onclick="click_quiz(4);">
 							<div class="Card_Front">
-								<div class="card_name">신조어</div>
+								<div class="card_name">${words[3].justice }</div>
 								<div class="card_number">4/10</div>
 							</div>
-							<div class="Card_Back">신조어에 대한 뜻을 써주세요</div>
+							<div class="Card_Back">${words[3].mean }</div>
 						</div>
 						<div id="QuizCard_5" class="KWG_Card learning_quiz"
 							onclick="click_quiz(5);">
 							<div class="Card_Front">
-								<div class="card_name">신조어</div>
+								<div class="card_name">${words[4].justice }</div>
 								<div class="card_number">5/10</div>
 							</div>
-							<div class="Card_Back">신조어에 대한 뜻을 써주세요</div>
+							<div class="Card_Back">${words[4].mean }</div>
 						</div>
 						<div id="QuizCard_6" class="KWG_Card learning_quiz"
 							onclick="click_quiz(6);">
 							<div class="Card_Front">
-								<div class="card_name">신조어</div>
+								<div class="card_name">${words[5].justice }</div>
 								<div class="card_number">6/10</div>
 							</div>
-							<div class="Card_Back">신조어에 대한 뜻을 써주세요</div>
+							<div class="Card_Back">${words[5].mean }</div>
 						</div>
 						<div id="QuizCard_7" class="KWG_Card learning_quiz"
 							onclick="click_quiz(7);">
 							<div class="Card_Front">
-								<div class="card_name">신조어</div>
+								<div class="card_name">${words[6].justice }</div>
 								<div class="card_number">7/10</div>
 							</div>
-							<div class="Card_Back">신조어에 대한 뜻을 써주세요</div>
+							<div class="Card_Back">${words[6].mean }</div>
 						</div>
 						<div id="QuizCard_8" class="KWG_Card learning_quiz"
 							onclick="click_quiz(8);">
 							<div class="Card_Front">
-								<div class="card_name">신조어</div>
+								<div class="card_name">${words[7].justice }</div>
 								<div class="card_number">8/10</div>
 							</div>
-							<div class="Card_Back">신조어에 대한 뜻을 써주세요</div>
+							<div class="Card_Back">${words[7].mean }</div>
 						</div>
 						<div id="QuizCard_9" class="KWG_Card learning_quiz"
 							onclick="click_quiz(9);">
 							<div class="Card_Front">
-								<div class="card_name">신조어</div>
+								<div class="card_name">${words[8].justice }</div>
 								<div class="card_number">9/10</div>
 							</div>
-							<div class="Card_Back">신조어에 대한 뜻을 써주세요</div>
+							<div class="Card_Back">${words[8].mean }</div>
 						</div>
 						<div id="QuizCard_10" class="KWG_Card learning_quiz"
 							onclick="click_quiz(10);">
 							<div class="Card_Front">
-								<div class="card_name">신조어</div>
+								<div class="card_name">${words[9].justice }</div>
 								<div class="card_number">10/10</div>
 							</div>
-							<div class="Card_Back">신조어에 대한 뜻을 써주세요</div>
+							<div class="Card_Back">${words[9].mean }</div>
 						</div>
 					</div>
 
@@ -353,7 +352,7 @@
 			</div>
 			<footer class="page_main KingWordGamefooter">
 				<div class="KW_back KW_BTRstyle">
-					<a href="GameLobby">뒤로</a>
+					<a href="/GameLobby">뒤로</a>
 				</div>
 				<div class="KW_BTNewStart KW_BTRstyle">게임하기</div>
 				<div class="visibilityhidden KW_BTRstyle">더미키</div>

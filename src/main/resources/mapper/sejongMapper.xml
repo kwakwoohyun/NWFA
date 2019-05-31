@@ -54,8 +54,16 @@
 		#{user_id}
 	</update>
 
-	<select id="selectUserStage" resultType="com.skhu.NWFA.user.userModel.userStages">
+	<select id="selectUserStage"
+		resultType="com.skhu.NWFA.user.userModel.userStages">
 		SELECT * FROM UserStages
-		where user_id=#{user_id} and gameNum=1
+		where user_id=#{user_id} and
+		gameNum=1
+	</select>
+
+	<select id="LobbyWords"
+		resultType="com.skhu.NWFA.sejongGame.sejongModel.wordsModel">
+		SELECT word_id, justice, mean, gameNum, stage_id from Word
+		WHERE stage_id = #{stage} and gameNum = 1
 	</select>
 </mapper>

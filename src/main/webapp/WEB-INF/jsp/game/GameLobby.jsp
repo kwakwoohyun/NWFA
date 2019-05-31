@@ -39,7 +39,7 @@
       }
       function click_GameStart(){
         if (gameNo == 0) {
-          location.href='KingWordGameLobby';
+          location.href='KingWordGameLobby/1';
         }
 
         else if (gameNo == 1) {
