@@ -10,9 +10,9 @@ import com.skhu.NWFA.user.userModel.userStages;
 
 public interface sejongService {
 
+	List<wordsModel> sejongWords(String stage_id,String word_id, String gameNum);
+	
 	List<syllablesModel> example(int count);
-
-	wordsModel sejongWords(String sejongId);
 
 	List<stageModel> sejongStage(int user_id);
 

@@ -144,7 +144,7 @@
 				<div class="WordQuizTitle">스테이지 선택</div>
 			</div>
 			<div class="R_headerbar">
-			  <div class="UI login" onclick="location.href='/personal'"></div>
+				<div class="UI login" onclick="location.href='/personal'"></div>
 			</div>
 		</header>
 		<div class="viewBox">
@@ -186,8 +186,7 @@
 										onclick="click_quiz(1);">
 
 										<div class="Card_top">
-											<div class="card_name"
-												style="text-align: center; margin: 2% auto;">
+											<div class="card_name">
 												<img src="/icon/WQ${word[0].img }.gif">
 											</div>
 											<div class="card_number">1/5</div>
@@ -200,8 +199,7 @@
 									<div id="QuizCard_2" class="WQ_Card learning_quiz"
 										onclick="click_quiz(1);">
 										<div class="Card_top">
-											<div class="card_name"
-												style="text-align: center; margin: 2% auto;">
+											<div class="card_name">
 												<img src="/icon/WQ${word[1].img }.gif">
 											</div>
 											<div class="card_number">2/5</div>
@@ -214,8 +212,7 @@
 									<div id="QuizCard_3" class="WQ_Card learning_quiz"
 										onclick="click_quiz(1);">
 										<div class="Card_top">
-											<div class="card_name"
-												style="text-align: center; margin: 2% auto;">
+											<div class="card_name">
 												<img src="/icon/WQ${word[2].img }.gif">
 											</div>
 											<div class="card_number">3/5</div>
@@ -228,8 +225,7 @@
 									<div id="QuizCard_4" class="WQ_Card learning_quiz"
 										onclick="click_quiz(1);">
 										<div class="Card_top">
-										<div class="card_name"
-												style="text-align: center; margin: 2% auto;">
+											<div class="card_name">
 												<img src="/icon/WQ${word[3].img }.gif">
 											</div>
 											<div class="card_number">4/5</div>
@@ -242,7 +238,7 @@
 									<div id="QuizCard_5" class="WQ_Card learning_quiz"
 										onclick="click_quiz(1);">
 										<div class="Card_top">
-									<div class="card_name"
+											<div class="card_name"
 												style="text-align: center; margin: 2% auto;">
 												<img src="/icon/WQ${word[4].img }.gif">
 											</div>
@@ -267,7 +263,9 @@
 					<div class="WQ_back CQ_BTstyle">
 						<a href="/GameLobby">뒤로</a>
 					</div>
-					<div class="WQ_BTNewStart CQ_BTstyle"><a href="/YaminGame/${yaminStageId}/${gameNum}/0">게임시작</a></div>
+					<div class="WQ_BTNewStart CQ_BTstyle">
+						<a href="/YaminGame/${yaminStageId}/${gameNum}/0">게임시작</a>
+					</div>
 					<div class="visibilityhidden CQ_BTstyle">
 				</footer>
 			</div>

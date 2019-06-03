@@ -17,6 +17,7 @@
 <script type="text/javascript">
 	var cardClick = new Array();
 	var cardloc = 0;
+	
 	// 화면에서 보이는 카드 번호
 	$(document).ready(function() {
 		$(".Card_Back").hide();
@@ -354,7 +355,11 @@
 				<div class="KW_back KW_BTRstyle">
 					<a href="/GameLobby">뒤로</a>
 				</div>
-				<div class="KW_BTNewStart KW_BTRstyle">게임하기</div>
+				<div class="KW_BTNewStart KW_BTRstyle">
+					<a href="/KingWordGame/${words[0].stage_id }/${words[0].word_id }/${words[0].gameNum }">
+						게임하기 
+					</a>
+				</div>
 				<div class="visibilityhidden KW_BTRstyle">더미키</div>
 			</footer>
 		</div>
