@@ -10,12 +10,10 @@
 
 	<select id="sejongWords"
 		resultType="com.skhu.NWFA.sejongGame.sejongModel.wordsModel">
-		select word_id, justice, mean, gameNub from
-		capstonedesign.Sejong inner
-		join Word on
-		Sejong.Word_word_id =
-		capstonedesign.Word.word_id and
-		Sejong.sejong_id=#{sejong_id};
+		select word_id, justice, mean, gameNum, stage_id from
+		Word
+		where stage_id = #{stage_id} and word_id = #{word_id} and gameNum =
+		#{gameNum}
 	</select>
 
 	<select id="sejongStage"

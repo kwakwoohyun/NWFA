@@ -362,6 +362,135 @@ a:visited {
   top: -10vh;
   transition: top 1s;
 }
+/* 기록 */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+#personal_ranking .log_game_bar{
+  height: 5vh;
+  display: flex;
+  justify-content: space-between;
+
+}
+#personal_ranking .log_stage_bar{
+  height: 5vh;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#personal_ranking .log_stage_bt{
+  background-color: #fdeca5;
+  border-radius: 50px;
+  border: 0;
+  font-size: 3vh;
+  color: #ff5050;
+  font-family: 'Jua', sans-serif;
+  padding: 0 1vh;
+  width: 4vh;
+}
+#personal_ranking .log_stage_bt:hover{
+  background-color:#ff5050;
+  transitson: background-color 0.3s;
+  color: #fff;
+}
+#personal_ranking .log_title{
+  font-size: 5vh;
+}
+
+#personal_ranking .log_game{
+  display: flex;
+  flex-direction: row;
+  font-size: 3vh;
+}
+#personal_ranking .log_game_bt{
+  margin: 0 1vh;
+  padding: 1vh 1vh;
+  background-color: #ffc000;
+  border-radius: 15px;
+  color: #fff;
+}
+#personal_ranking .log_game_bt:hover{
+  transitson: background-color 0.3s;
+  background-color: #ff5050;
+  color: #fff;
+}
+#personal_ranking .log_content{
+  height: 60vh;
+  background-color: #fdeca5;
+  border-radius: 15px;
+  overflow-y:auto;
+}
+
+#personal_ranking .log_WrongAnswer{
+  background-color: #fad644;
+  height: 20vh;
+  margin: 1vh;
+  border-radius: 15px;
+  font-family: 'Jua', sans-serif;
+}
+#personal_ranking .WrongAnswer_quiz{
+  height: 15vh;
+  font-size: 3vh;
+  text-align: center;
+  overflow-y: hidden;
+}
+#personal_ranking .WrongAnswer_Answer{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+#personal_ranking .WrongAnswer_myAnswer{
+  width: 40%;
+  height: 5vh;
+}
+#personal_ranking .WrongAnswer_rightAnswer{
+  width: 40%;
+  height: 5vh;
+}
+@media screen and (max-width:1400px) {
+  #personal_ranking .log_game_bar{
+    flex-direction: column;
+    height:  10vh;
+  }
+  #personal_ranking .WrongAnswer_quiz{
+    font-size: 2.5vh;
+  }
+
+  #personal_ranking .log_content{
+    height: 55vh;
+  }
+  #personal_ranking .log_title{
+    font-size: 4vh;
+  }
+}
+@media screen and (max-width:900px) {
+  #personal_ranking .log_game_bar{
+    flex-direction: column;
+    height:  10vh;
+  }
+  #personal_ranking .WrongAnswer_quiz{
+    font-size: 2vh;
+  }
+
+
+  #personal_ranking .log_game_bt{
+    font-size: 2.5vh;
+  }
+}
+@media screen and (max-width:699px) {
+  #personal_ranking .log_content{
+    height: 50vh;
+  }
+
+  #personal_ranking .log_title{
+    font-size: 3vh;
+  }
+  #personal_ranking .log_game_bt{
+    font-size: 2vh;
+  }
+  #personal_ranking .WrongAnswer_Answer  {
+    font-size: 3vh;
+  }
+}
 
 /* 점수 */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
@@ -1366,28 +1495,28 @@ a:visited {
 
 /*비밀번호 변경 */
 
-  #page_pwchagne{
+  #page_pwchange{
     background-color: #fad644;
   }
-  #page_pwchagne .login_main {
+  #page_pwchange .login_main {
     display: flex;
     flex-direction: row;
   }
 
-  #page_pwchagne .background_Login{
+  #page_pwchange .background_Login{
     width: 100%;
     height: 100vh;
     background-color: #fad644;
   }
 
-  #page_pwchagne .personal_titleBar {
+  #page_pwchange .personal_titleBar {
     padding-top: 3vh;
     padding-bottom: 3vh;
     font-family: 'Black Han Sans', sans-serif;
     font-size: 9vh;
   }
 
-  #page_pwchagne .login_Introduce {
+  #page_pwchange .login_Introduce {
     height: 20vh;
     text-align: center;
     border-radius: 15px;
@@ -1402,7 +1531,7 @@ a:visited {
     align-content: center;
   }
 
-  #page_pwchagne .container{
+  #page_pwchange .container{
     height: 35vh;
     display: flex;
     flex-direction: column;
@@ -1410,7 +1539,7 @@ a:visited {
     margin: 5vh 5vh 0vh 5vh;
   }
 
-  #page_pwchagne .container .account_form{
+  #page_pwchange .container .account_form{
     height: 5vh;
     margin: 2.5vh 5vh;
     display: flex;
@@ -1419,7 +1548,7 @@ a:visited {
     font-family: 'Jua', sans-serif;
     line-height: 5vh;
   }
-  #page_pwchagne .container .account_form2{
+  #page_pwchange .container .account_form2{
     height: 5vh;
     margin: 5vh 5vh;
     display: flex;
@@ -1427,7 +1556,7 @@ a:visited {
     font-size: 2vh;
     font-family: 'Jua', sans-serif;
   }
-  #page_pwchagne .find_id {
+  #page_pwchange .find_id {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -1437,7 +1566,7 @@ a:visited {
     /* display: none; */
   }
 
-  #page_pwchagne #mini_account {
+  #page_pwchange #mini_account {
     height: 5vh;
     padding: 0 2vh;
     background-color: #ffc000;
@@ -1447,11 +1576,11 @@ a:visited {
     display: none;
     overflow: hidden;
   }
-  #page_pwchagne #mini_account:hover{
+  #page_pwchange #mini_account:hover{
     background-color: #dfb000;
     transition: background-color 0.3s;
   }
-  #page_pwchagne #mini_accountfind {
+  #page_pwchange #mini_accountfind {
     height: 5vh;
     padding: 0 2vh;
     background-color: #ffc000;
@@ -1461,11 +1590,11 @@ a:visited {
     /* visibility: hidden; */
     overflow: hidden;
   }
-  #page_pwchagne #mini_accountfind:hover{
+  #page_pwchange #mini_accountfind:hover{
     background-color: #dfb000;
     transition: background-color 0.3s;
   }
-  #page_pwchagne #big_account {
+  #page_pwchange #big_account {
     height: 10vh;
     border-radius: 15px;
     font-family: 'Jua', sans-serif;
@@ -1477,12 +1606,12 @@ a:visited {
     margin: 2.5vh 0vh;
   }
 
-  #page_pwchagne #big_account:hover {
+  #page_pwchange #big_account:hover {
     background-color: #ff9090;
     transition: background-color 0.3s;
   }
 
-  #page_pwchagne .container .login_id {
+  #page_pwchange .container .login_id {
     height: 10vh;
     border-radius: 15px;
     font-family: 'Jua', sans-serif;
@@ -1493,7 +1622,7 @@ a:visited {
     background-color: #00b0f0;
     margin: 2.5vh 5vh;
   }
-  #page_pwchagne .container .login_id:hover {
+  #page_pwchange .container .login_id:hover {
     background-color: #10c0f0;
     transition: background-color 0.3s;
   }
@@ -1502,7 +1631,7 @@ a:visited {
     height: 70vh;
     border-right: dashed 5px black ;
   }
-  #page_pwchagne .intro_text2 {
+  #page_pwchange .intro_text2 {
     height: 40vh;
     display: flex;
     flex-direction: column;
@@ -1511,27 +1640,27 @@ a:visited {
 
   @media screen and (max-width:1200px) {
 
-    #page_pwchagne . {
+    #page_pwchange . {
       margin: 5vh 2.5vh;
     }
 
-    #page_pwchagne .container{
+    #page_pwchange .container{
       margin: 2.5vh 2.5vh;
     }
 
-    #page_pwchagne .container .account_form{
+    #page_pwchange .container .account_form{
       margin: 2.5vh 1vh;
     }
-    #page_pwchagne .container .account_form2{
+    #page_pwchange .container .account_form2{
       margin: 5vh 1vh;
     }
-    #page_pwchagne .container .login_id {
+    #page_pwchange .container .login_id {
       margin: 2.5vh 1vh;
     }
-    #page_pwchagne .find_id{
+    #page_pwchange .find_id{
       margin: 0vh 1vh;
     }
-    #page_pwchagne .login_Introduce{
+    #page_pwchange .login_Introduce{
       font-size: 2vh;
     }
   }
@@ -1540,14 +1669,14 @@ a:visited {
       border-right: 0px;
       width: 100%;
     }
-    #page_pwchagne #mini_account {
+    #page_pwchange #mini_account {
       display: block;
     }
 
     .intro{
       display: none;
     }
-    #page_pwchagne .personal_titleBar {
+    #page_pwchange .personal_titleBar {
       line-height: 10vh;
       font-size: 5vh;
     }
@@ -1557,6 +1686,216 @@ a:visited {
 
 /*아이디 비밀번호 찾기  */
 
+  #page_idfinder{
+    background-color: #fad644;
+  }
+  #page_idfinder #layer_control{
+    transition: filter 1s;
+  }
+  #page_idfinder .login_main {
+    display: flex;
+    flex-direction: row;
+  }
+transition: filter
+  #page_idfinder .background_Login{
+    width: 100%;
+    height: 100vh;
+    background-color: #fad644;
+  }
+
+  #page_idfinder .personal_titleBar {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 9vh;
+  }
+
+  #page_idfinder .login_Introduce {
+    height: 20vh;
+    text-align: center;
+    border-radius: 15px;
+    border: 5px solid black;
+    font-size: 4vh;
+    margin: 5vh 5vh;
+    font-size: 3vh;
+    font-family: 'Jua', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  #page_idfinder .container{
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 5vh 5vh 0vh 5vh;
+  }
+
+  #page_idfinder .container .account_form{
+    height: 5vh;
+    margin: 2.5vh 5vh;
+    display: flex;
+    justify-content: space-between;
+    font-size: 3vh;
+    font-family: 'Jua', sans-serif;
+    line-height: 5vh;
+  }
+  #page_idfinder .container .account_form2{
+    height: 5vh;
+    margin: 5vh 5vh;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2vh;
+    font-family: 'Jua', sans-serif;
+  }
+  #page_idfinder .find_id {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 2vh;
+    font-family: 'Jua', sans-serif;
+    margin: 0 5vh;
+    /* display: none; */
+  }
+
+  #page_idfinder #mini_account {
+    height: 5vh;
+    padding: 0 2vh;
+    background-color: #ffc000;
+    border-radius: 15px;
+    color: white;
+    line-height: 5vh;
+    display: none;
+    overflow: hidden;
+  }
+  #page_idfinder #mini_account:hover{
+    background-color: #dfb000;
+    transition: background-color 0.3s;
+  }
+  #page_idfinder #mini_accountfind {
+    height: 5vh;
+    padding: 0 2vh;
+    background-color: #ffc000;
+    border-radius: 15px;
+    color: white;
+    line-height: 5vh;
+    /* visibility: hidden; */
+    overflow: hidden;
+  }
+  #page_idfinder #mini_accountfind:hover{
+    background-color: #dfb000;
+    transition: background-color 0.3s;
+  }
+  #page_idfinder #big_account {
+    height: 10vh;
+    border-radius: 15px;
+    font-family: 'Jua', sans-serif;
+    text-align: center;
+    font-size: 5vh;
+    line-height: 10vh;
+    color: white;
+    background-color: #ff5050;
+    margin: 2.5vh 0vh;
+  }
+
+  #page_idfinder #big_account:hover {
+    background-color: #ff9090;
+    transition: background-color 0.3s;
+  }
+
+  #page_idfinder .container .IDfind {
+    height: 10vh;
+    border: 0;
+    width: 80%;
+    border-radius: 15px;
+    font-family: 'Jua', sans-serif;
+    text-align: center;
+    font-size: 5vh;
+    line-height: 10vh;
+    color: white;
+    background-color: #00b0f0;
+    margin: 2.5vh 5vh;
+  }
+  #page_idfinder .container .IDfind:hover {
+    background-color: #10c0f0;
+    transition: background-color 0.3s;
+  }
+  #page_idfinder .container .PWfind {
+    height: 10vh;
+    border: 0;
+    width: 80%;
+    border-radius: 15px;
+    font-family: 'Jua', sans-serif;
+    text-align: center;
+    font-size: 5vh;
+    line-height: 10vh;
+    color: white;
+    background-color: #ff5050;
+    margin: 2.5vh 5vh;
+  }
+  #page_idfinder .container .PWfind:hover {
+    background-color: #ff9090;
+    transition: background-color 0.3s;
+  }
+   .login_page{
+    width: 50%;
+    height: 70vh;
+    border-right: dashed 5px black ;
+  }
+  #page_idfinder .intro_text2 {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+  }
+  #page_idfinder .intro_text2 span{
+    font-size: 2.3vh;
+  }
+  @media screen and (max-width:1200px) {
+
+
+    #page_idfinder .container{
+      margin: 2.5vh 2.5vh;
+    }
+
+    #page_idfinder .container .account_form{
+      margin: 2.5vh 1vh;
+    }
+    #page_idfinder .container .account_form2{
+      margin: 5vh 1vh;
+    }
+    #page_idfinder .container .login_id {
+      margin: 2.5vh 1vh;
+    }
+    #page_idfinder .find_id{
+      margin: 0vh 1vh;
+    }
+    #page_idfinder .login_Introduce{
+      font-size: 2vh;
+    }
+    #page_idfinder .intro_text2 span{
+      font-size: 2vh;
+    }
+  }
+  @media screen and (max-width:699px) {
+  .login_page {
+      border-right: 0px;
+      width: 100%;
+    }
+    #page_idfinder #mini_account {
+      display: block;
+    }
+
+    .intro{
+      display: none;
+    }
+    #page_idfinder .personal_titleBar {
+      line-height: 10vh;
+      font-size: 5vh;
+    }
+  }
 /* 회원가입 & 로그인 공통부분 */
 .intro {
   flex: 1;
@@ -1570,8 +1909,7 @@ a:visited {
   text-align: left;
 }
 .intro_text2 {
-  padding-left: 1vh;
-  padding-top: 2.5vh;
+  padding: 1vh 1.5vh;
   height: 20vh;
   font-size: 2.5vh;
   font-family: 'Jua', sans-serif;
@@ -1608,6 +1946,73 @@ a:visited {
     font-size: 2vh;
   }
 
+}
+/* 모달창 */
+/* 아이지 찾기 팝업*/
+
+#page_idfinder #layer_modal .popup_find{
+  display: flex;
+  justify-content: center;
+}
+#page_idfinder #layer_modal .popup_IDfind{
+  width: 50%;
+  min-width: 300px;
+  height: 50vh;
+  margin: 25vh 0;
+  background-color: #fad644;
+  box-shadow: 1vh 1vh 1vh #00000070;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 5vh;
+  color: #000;
+  font-family: 'Jua', sans-serif;
+  position: absolute;
+  top: -100vh;
+  transition: top 1s;
+}
+
+#page_idfinder #layer_modal .popup_IDfind_Text{
+  background-color: #fdeca5;
+  border-radius: 15px;
+  font-size: 5vh;
+  height: 10vh;
+  line-height: 10vh;
+}
+#page_idfinder #layer_modal .popup_IDfind_ID{
+  background-color: #fdeca5;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  color: #000;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  overflow-y: hidden;
+}
+#page_idfinder #layer_modal .popup_IDfind_exit{
+  background-color: #ff5050;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  box-shadow: 0.2vh 0.2vh 1vh #333;
+  overflow-y: hidden;
+}
+
+#page_idfinder #layer_modal .popup_IDfind_ID:hover{
+  /* background-color: #ff9090;
+  transition: background-color 0.3s; */
+}
+#page_idfinder #layer_modal .popup_IDfind_exit:hover{
+  background-color: #ff9090;
+  transition: background-color 0.3s;
 }
 
 
@@ -1711,7 +2116,7 @@ a:visited {
     border-right: 0px;
     width: 100%;
   }
-  #page_pwchagne #mini_account {
+  #page_pwchange #mini_account {
     display: block;
   }
 
@@ -1937,12 +2342,16 @@ a:visited {
 }
 
 #page_KingWordGameLobby .Card_Back{
-  width: 100%;
-  height: 36vh;
+  width: 95%;
+  height: 35vh;
   text-align: center;
   font-family: 'Jua', sans-serif;
   font-size: 5vh;
+  margin: 0.5vh 2.5%;
   transform:rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #page_KingWordGameLobby .KWG_stagestar {
@@ -2208,6 +2617,7 @@ a:visited {
   flex-direction: column;
   padding-top: 10vh;
   padding-bottom: 10vh;
+  visibility: hidden;
 }
 
 #page_KingWordGame .Star_point {
@@ -2291,6 +2701,7 @@ a:visited {
     flex-direction: row;
     padding-top: 0%;
     padding-bottom: 0%;
+
   }
 
   .KWGQ_quiz {
@@ -2398,12 +2809,172 @@ a:visited {
   -ms-transition: 2s -ms-filter linear;
   -o-transition: 2s -o-filter linear;
 }
+/* 결과창 */
+#page_KingWordGame #layer_modal .popup_GameScore{
+  width: 90%;
+  /* min-width: 300px; */
+  height: 90vh;
+  margin: 5vh 0 ;
+  position: absolute;
+  top: -100vh;
+  transition: top 1s;
+  display: flex;
+  justify-content: space-between;
+  /* opacity: 1;
+  transition: opacity 2s; */
+}
+#page_KingWordGame #layer_modal .popup_GameScore_quiz_window {
+  width: 60%;
+  margin-right: 2.5%;
+  height: 90vh;
+  background-color: #fab624;
+  box-shadow: 0 0 4vh #00000070;
+  border-radius: 15px;
+  text-align: center;
+}
+#page_KingWordGame #layer_modal .popup_GameScore_quiz_listText{
+  font-family: 'Jua', sans-serif;
+  color: #000;
+  font-size: 6vh;
+  height: 6vh;
+}
+#page_KingWordGame #layer_modal .popup_GameScore_quiz_list {
+  background-color: #fdeca5;
+  height: 80vh;
+  width: 90%;
+  margin: 2vh 5%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+#page_KingWordGame #layer_modal .popup_GameScore_Score_window{
+  width: 35%;
+  margin-left: 2.5%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#page_KingWordGame #layer_modal .popup_GameScore_Score_box{
+  display: flex;
+  flex-direction: column;
+}
+
+#page_KingWordGame #layer_modal .popup_GameScore_Score_Text{
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 6vh;
+  text-shadow: -0.5vh -0.5vh #ff0000;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+#page_KingWordGame #layer_modal .popup_GameScore_Score_score{
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 13vh;
+  text-shadow: 1vh 1vh #ff0000;
+  align-self: flex-end;
+  justify-content: flex-end;
+  right: 0;
+  text-align: right;
+}
+#page_KingWordGame #layer_modal .popup_GameScore_btn_box{
+  display: flex;
+  flex-direction: column;
+}
+#page_KingWordGame #layer_modal .popup_GameScore_NextGame{
+  background-color: #ff5050;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  box-shadow: 0.2vh 0.2vh 1vh #333;
+}
+#page_KingWordGame #layer_modal .popup_GameScore_Lobby{
+  background-color: #ff5050;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  box-shadow: 0.2vh 0.2vh 1vh #333;
+}
+#page_KingWordGame #layer_modal .popup_GameScore_quiz_line {
+  display: flex;
+  width: 90%;
+  background-color: #fad644;
+  border-radius: 15px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh;
+  margin: 1vh auto;
+  /* box-shadow: 0.2vh 0.2vh 1vh #333; */
+}
+#page_KingWordGame #layer_modal .popup_GameScore_quiz_no{
+  width: 25%;
+  margin: 2vh 0;
+}
+#page_KingWordGame #layer_modal .popup_GameScore_quiz_box{
+  width: 55%;
+  font-size: 1vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fdeca5;
+  color: #000;
+  border-radius: 15px;
+
+}
+
+#page_KingWordGame #layer_modal .popup_GameScore_quiz_Q{
+  font-size: 3.5vh;
+
+}
+
+#page_KingWordGame #layer_modal .popup_GameScore_quiz_A{
+  font-size: 3.5vh;
+
+}
+
+#page_KingWordGame #layer_modal .popup_GameScore_quiz_right{
+  width: 15%;
+  font-size: 4vh;
+  border: solid 5px  #ff5050;
+  color:  #ff5050;
+  height: 5vh;
+  align-items: flex-end;
+  transform: rotateZ(20deg);
+  margin: 2vh 2% 2vh 3%;
+}
+
+
+#page_KingWordGame #layer_modal .popup_GameScore_NextGame:hover{
+  background-color: #ff9090;
+  transition: background-color 0.3s;
+}
+#page_KingWordGame #layer_modal .popup_GameScore_Lobby:hover{
+  background-color: #ff9090;
+  transition: background-color 0.3s;
+}
 
 #page_KingWordGame #layer_modal .popup_GameClear{
   width: 50%;
   min-width: 300px;
-  height: 50vh;
-  margin: 25vh 0 ;
+  height: 70vh;
+  margin: 15vh 0 ;
   background-color: #fad644;
   box-shadow: 1vh 1vh 1vh #00000070;
   border-radius: 15px;
@@ -2450,7 +3021,34 @@ a:visited {
   margin: 4vh;
   box-shadow: 0.2vh 0.2vh 1vh #333;
 }
+#page_KingWordGame #layer_modal .popup_GameClear_Score{
+  height: 15vh;
+  margin: 2.5vh 4vh;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+#page_KingWordGame #layer_modal .popup_GameClear_Score_Text{
+  position: absolute;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 6vh;
+  text-shadow: -0.5vh -0.5vh #ff0000;
+  justify-content: flex-start;
+  text-align: right;
+}
 
+#page_KingWordGame #layer_modal .popup_GameClear_Score_score{
+  position: absolute;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 13vh;
+  text-shadow: 1vh 1vh #ff0000;
+  align-self: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+  text-align: right;
+}
 #page_KingWordGame #layer_modal .popup_GameClear_NextGame:hover{
   background-color: #ff9090;
   transition: background-color 0.3s;
@@ -2523,23 +3121,145 @@ a:visited {
   transition: background-color 0.3s;
 }
 
-@media screen and (max-width:699px) {
-  #page_KingWordGame #layer_modal .popup_GameClear_Lobby{
-    font-size: 3.5vh;
+@media screen and (max-width:1400px) {
+
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_line {
+    font-size: 5vh;
+
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_no{
+  font-size: 3vh;
+  margin: 3vh 0;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_box{
+  font-size: 5vh;
+
   }
 
-  #page_KingWordGame #layer_modal .popup_GameClear_NextGame{
-    font-size: 3.5vh;
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_Q{
+    font-size: 3vh;
+
   }
 
-  #page_KingWordGame #layer_modal .popup_GameOver_Lobby{
-    font-size: 3.5vh;
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_A{
+    font-size: 3vh;
+
   }
 
-  #page_KingWordGame #layer_modal .popup_GameOver_Regame{
-    font-size: 3.5vh;
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_right{
+    font-size: 2.5vh;
+    height: 3vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_NextGame {
+    font-size: 3vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_Lobby {
+    font-size: 3vh;
   }
 }
+
+@media screen and (max-width:1200px) {
+  #page_KingWordGame #layer_modal .popup_GameScore_Score_Text{
+    font-size: 4vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_Score_score{
+    font-size: 10vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_NextGame {
+    font-size: 2vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_Lobby {
+    font-size: 2vh;
+  }
+}
+
+
+@media screen and (max-width:900px) {
+  #page_KingWordGame #layer_modal .popup_GameScore{
+    flex-direction: column;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_window{
+    width: 100%;
+    height: 50vh;
+
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_list {
+    height: 40vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_no{
+  font-size: 3vh;
+  margin: 3vh 0;
+  }
+
+  #page_KingWordGame #layer_modal .popup_GameScore_Score_window{
+    width: 100%;
+    height: 40vh;
+    margin-left : 0%;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_Score_box{
+    display: flex;
+    flex-direction: column;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_btn_box{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_Score_Text{
+    margin-top: 3vh;
+    font-size: 7vh;
+  }
+
+  #page_KingWordGame #layer_modal .popup_GameScore_NextGame {
+    font-size: 3vh;
+    height : 5vh;
+    line-height : 5vh;
+    padding : 1vh 2vh;
+    margin : 1vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_Lobby {
+    font-size: 3vh;
+    height : 5vh;
+    line-height : 5vh;
+    padding : 1vh 2vh;
+    margin : 1vh;
+  }
+}
+
+@media screen and (max-width:699px) {
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_Q{
+    font-size: 2vh;
+  }
+
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_A{
+    font-size: 2vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_Score_Text{
+    font-size: 5vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_Score_score{
+    font-size: 10vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_NextGame {
+    font-size: 2vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_Lobby {
+    font-size: 2vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_box{
+    height: 6vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_line{
+    height: 6vh;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_no{
+    margin : 1vh 0 ;
+  }
+  #page_KingWordGame #layer_modal .popup_GameScore_quiz_right{
+    margin: 1vh 2% 1vh 3%;
+  }
+}
+
 /* 야민정음 로비 개별CSS */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
@@ -2683,6 +3403,12 @@ a:visited {
 }
 #page_ChallengeQuizgameLobby .card_name{
   margin: 2.5vh;
+  height: 10vh ;
+  width: auto;
+}
+#page_ChallengeQuizgameLobby .card_name > img{
+  height: 10vh ;
+  width: auto;
 }
 #page_ChallengeQuizgameLobby .card_number{
   margin: 2.5vh;
@@ -2960,10 +3686,25 @@ a:visited {
   line-height: 5vh;
 }
 
+.TALK_BTstyle {
+  background-color: #fff;
+  border: solid 5px #241d1a;
+  border-radius: 15px;
+  font-family: 'Jua', sans-serif;
+  color: #241d1a;
+  font-size: 3vh;
+  text-align: center;
+  padding: 0 4vh;
+  margin: auto auto 1vh auto;
+  height: 5vh;
+  line-height: 5vh;
+}
+
 .page_ChallengeQuiz .ControlBox {
   height: 20vh;
 }
 .page_ChallengeQuiz .info_panel {
+  visibility: hidden;
   height: 5vh;
   font-size: 5vh;
   font-family: 'Jua', sans-serif;
@@ -3069,102 +3810,84 @@ a:visited {
   -ms-transition: 2s -ms-filter linear;
   -o-transition: 2s -o-filter linear;
 }
-
-#page_ChallengeQuizgame #layer_modal .popup_GameClear{
-  width: 50%;
-  min-width: 300px;
-  height: 50vh;
-  margin: 25vh 0 ;
-  background-color: #284135;
-  box-shadow: 1vh 1vh 1vh #00000070;
-  border-radius: 30px;
-  text-align: center;
-  line-height: 5vh;
-  color: #fff;
-  font-family: 'Jua', sans-serif;
+/* 게임완료창 */
+#page_ChallengeQuizgame #layer_modal .popup_GameScore{
+  width: 90%;
+  /* min-width: 300px; */
+  height: 90vh;
+  margin: 5vh 0 ;
   position: absolute;
   top: -100vh;
   transition: top 1s;
+  display: flex;
+  justify-content: space-between;
+  /* opacity: 1;
+  transition: opacity 2s; */
 }
-
-#page_ChallengeQuizgame #layer_modal .popup_GameClear_Text{
-  background-color: #284135;
-  border: solid 5px #fff;
-  border-radius: 30px;
-  font-size: 5vh;
-  height: 10vh;
-  line-height: 10vh;
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_window {
+  width: 60%;
+  margin-right: 2.5%;
+  height: 90vh;
+  background-color: #6f490b;
+  box-shadow: 0 0 4vh #00000070;
+  border-radius: 15px;
+  text-align: center;
 }
-#page_ChallengeQuizgame #layer_modal .popup_GameClear_NextGame{
-  background-color: #284135;
-  border: solid 5px #fff;
-  border-radius: 30px;
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_listText{
   font-family: 'Jua', sans-serif;
   color: #fff;
-  font-size: 5vh;
-  line-height: 10vh;
-  text-align: center;
-  height: 10vh;
-  padding: 1vh 3vh 1vh 3vh;
-  margin: 4vh;
-  box-shadow: 0.2vh 0.2vh 1vh #333;
-
+  font-size: 6vh;
+  height: 6vh;
 }
-#page_ChallengeQuizgame #layer_modal .popup_GameClear_Lobby{
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_list {
   background-color: #284135;
-  border: solid 5px #fff;
-  border-radius: 30px;
+  height: 80vh;
+  width: 90%;
+  margin: 2vh 5%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_Score_window{
+  width: 35%;
+  margin-left: 2.5%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_Score_box{
+  display: flex;
+  flex-direction: column;
+}
+
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_Score_Text{
   font-family: 'Jua', sans-serif;
   color: #fff;
-  font-size: 5vh;
-  line-height: 10vh;
-  text-align: center;
-  height: 10vh;
-  padding: 1vh 3vh 1vh 3vh;
-  margin: 4vh;
-  box-shadow: 0.2vh 0.2vh 1vh #333;
+  font-size: 6vh;
+  text-shadow: -0.5vh -0.5vh #ff69b2;
+  justify-content: flex-start;
+  text-align: left;
 }
 
-#page_ChallengeQuizgame #layer_modal .popup_GameClear_NextGame:hover{
-  background-color: #fff;
-  color: #284135;
-  transition: background-color 0.3s,color 0.3s;
-}
-#page_ChallengeQuizgame #layer_modal .popup_GameClear_Lobby:hover{
-  background-color: #fff;
-  color: #284135;
-  transition: background-color 0.3s,color 0.3s;
-}
-
-/* 게임오버 팝업*/
-#page_ChallengeQuizgame #layer_modal .popup_GameOver{
-  width: 50%;
-  min-width: 300px;
-  height: 50vh;
-  margin: 25vh 0 ;
-  background-color: #284135;
-  box-shadow: 1vh 1vh 1vh #00000070;
-  border-radius: 30px;
-  text-align: center;
-  line-height: 5vh;
-  color: #fff;
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_Score_score{
   font-family: 'Jua', sans-serif;
-  position: absolute;
-  top: -100vh;
-  transition: top 1s;
+  color: #fff;
+  font-size: 13vh;
+  text-shadow: 1vh 1vh #ff69b2;
+  align-self: flex-end;
+  justify-content: flex-end;
+  right: 0;
+  text-align: right;
 }
-
-#page_ChallengeQuizgame #layer_modal .popup_GameOver_Text{
-  background-color: #284135;
-  border: solid 5px #fff;
-  border-radius: 30px;
-  font-size: 5vh;
-  height: 10vh;
-  line-height: 10vh;
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_btn_box{
+  display: flex;
+  flex-direction: column;
 }
-#page_ChallengeQuizgame #layer_modal .popup_GameOver_Regame{
-  background-color: #284135;
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_NextGame{
   border: solid 5px #fff;
+  background-color: #284135;
   border-radius: 30px;
   font-family: 'Jua', sans-serif;
   color: #fff;
@@ -3176,9 +3899,9 @@ a:visited {
   margin: 4vh;
   box-shadow: 0.2vh 0.2vh 1vh #333;
 }
-#page_ChallengeQuizgame #layer_modal .popup_GameOver_Lobby{
-  background-color: #284135;
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_Lobby{
   border: solid 5px #fff;
+  background-color: #284135;
   border-radius: 30px;
   font-family: 'Jua', sans-serif;
   color: #fff;
@@ -3190,37 +3913,306 @@ a:visited {
   margin: 4vh;
   box-shadow: 0.2vh 0.2vh 1vh #333;
 }
-
-#page_ChallengeQuizgame #layer_modal .popup_GameOver_Regame:hover{
-  background-color: #fff;
-  color: #284135;
-  transition: background-color 0.3s,color 0.3s;
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_line {
+  display: flex;
+  width: 90%;
+  border: solid 5px #fff;
+  background-color: #284135;
+  border-radius: 15px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh;
+  margin: 1vh auto;
+  /* box-shadow: 0.2vh 0.2vh 1vh #333; */
 }
-#page_ChallengeQuizgame #layer_modal .popup_GameOver_Lobby:hover{
-  background-color: #fff;
-  color: #284135;
-  transition: background-color 0.3s,color 0.3s;
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_no{
+  width: 25%;
+  margin: 2vh 0;
+}
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_box{
+  width: 55%;
+  font-size: 1vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #284135;
+  /* border: solid 5px #fff; */
+  color: #fff;
+  border-radius: 15px;
+
+}
+
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_Q{
+  font-size: 3.5vh;
+
+}
+
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_A{
+  font-size: 3.5vh;
+
+}
+
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_right{
+  width: 15%;
+  font-size: 4vh;
+  border: solid 5px #ff69b2;
+  color : #ff69b2;
+  height: 5vh;
+  align-items: flex-end;
+  transform: rotateZ(20deg);
+  margin: 2vh 2% 2vh 3%;
+}
+
+
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_NextGame:hover{
+  background-color: #ff69b2;
+  transition: background-color 0.3s;
+}
+#page_ChallengeQuizgame #layer_modal .popup_GameScore_Lobby:hover{
+  background-color: #ff69b2;
+  transition: background-color 0.3s;
+}
+
+@media screen and (max-width:1400px) {
+
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_line {
+    font-size: 5vh;
+
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_no{
+  font-size: 3vh;
+  margin: 3vh 0;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_box{
+  font-size: 5vh;
+
+  }
+
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_Q{
+    font-size: 3vh;
+
+  }
+
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_A{
+    font-size: 3vh;
+
+  }
+
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_right{
+    font-size: 2.5vh;
+    height: 3vh;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_NextGame {
+    font-size: 3vh;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_Lobby {
+    font-size: 3vh;
+  }
+}
+
+@media screen and (max-width:1200px) {
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_Score_Text{
+    font-size: 4vh;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_Score_score{
+    font-size: 10vh;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_NextGame {
+    font-size: 2vh;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_Lobby {
+    font-size: 2vh;
+  }
+}
+
+
+@media screen and (max-width:900px) {
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore{
+    flex-direction: column;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_window{
+    width: 100%;
+    height: 50vh;
+
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_list {
+    height: 40vh;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_no{
+  font-size: 3vh;
+  margin: 3vh 0;
+  }
+
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_Score_window{
+    width: 100%;
+    height: 40vh;
+    margin-left : 0%;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_Score_box{
+    display: flex;
+    flex-direction: column;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_btn_box{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_Score_Text{
+    margin-top: 3vh;
+    font-size: 7vh;
+  }
+
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_NextGame {
+    font-size: 3vh;
+    height : 5vh;
+    line-height : 5vh;
+    padding : 1vh 2vh;
+    margin : 1vh;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_Lobby {
+    font-size: 3vh;
+    height : 5vh;
+    line-height : 5vh;
+    padding : 1vh 2vh;
+    margin : 1vh;
+  }
 }
 
 @media screen and (max-width:699px) {
-
-  #page_ChallengeQuizgame #layer_modal .popup_GameClear_Lobby{
-    font-size: 3.5vh;
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_Q{
+    font-size: 2vh;
   }
 
-  #page_ChallengeQuizgame #layer_modal .popup_GameClear_NextGame{
-    font-size: 3.5vh;
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_A{
+    font-size: 2vh;
   }
-
-  #page_ChallengeQuizgame #layer_modal .popup_GameOver_Lobby{
-    font-size: 3.5vh;
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_Score_Text{
+    font-size: 5vh;
   }
-
-  #page_ChallengeQuizgame #layer_modal .popup_GameOver_Regame{
-    font-size: 3.5vh;
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_Score_score{
+    font-size: 10vh;
   }
-
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_NextGame {
+    font-size: 2vh;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_Lobby {
+    font-size: 2vh;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_box{
+    height: 6vh;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_line{
+    height: 6vh;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_no{
+    margin : 1vh 0 ;
+  }
+  #page_ChallengeQuizgame #layer_modal .popup_GameScore_quiz_right{
+    margin: 1vh 2% 1vh 3%;
+  }
 }
+
+/* 신조어톡  로비 개별CSS */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* 레이어(백그라운드 부분) */
+#page_TalkLobby #TalkLobby_background{
+  background-color: #fff;
+  width: 100%;
+  height: 100vh;
+}
+/* 레이어(콘텐츠 부분) */
+#page_TalkLobby header{
+  background-color: #241d1a;
+}
+
+#page_TalkLobby .L_headerbar{
+  margin-top: 4vh;
+  background-color: #423630;
+}
+
+#page_TalkLobby .C_headerbar{
+  margin-top: 4vh;
+  background-color: #423630;
+  color: #fff;
+  text-align: center;
+  font-size: 8vh;
+  font-family: 'Jua', sans-serif;
+  font-family: 'Poor Story', cursive;
+}
+
+#page_TalkLobby .R_headerbar{
+  margin-top: 4vh;
+  background-color: #423630;
+}
+#page_TalkLobby .login{
+  margin : 1vh;
+}
+#page_TalkLobby .Talk_Content{
+  height: 60vh;
+  /* background-color: #423630; */
+}
+
+#page_TalkLobby .Talk_Stage_line{
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 4vh 2.5%;
+}
+#page_TalkLobby .Talk_Stage_Left{
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+#page_TalkLobby .Talk_img{
+  height: 10vh;
+  width: 10vh;
+  background-color: #ccc;
+  justify-content: space-between;
+  border-radius: 15px;
+}
+
+#page_TalkLobby .Talk_text{
+  height: 10vh;
+  width: auto;
+  justify-content: space-between;
+  margin-left: 1vh;
+}
+
+#page_TalkLobby .Talk_name{
+  height: 6vh;
+  font-size: 5vh;
+  font-family: 'Jua', sans-serif;
+}
+
+#page_TalkLobby .Talk_info{
+  height: 4vh;
+  font-size: 3vh;
+  font-family: 'Poor Story', cursive;
+}
+
+#page_TalkLobby .Talk_Stage_Right{
+  display: flex;
+  align-content: flex-end;
+  /* justify-content: flex-end; */
+}
+
+#page_TalkLobby .Talk_gamestart{
+  background-color: #ff5050;
+  padding: 1vh;
+  height: 3vh;
+  font-size:2vh;
+  margin-top: 5vh;
+  color: #fff;
+  font-family: 'Jua', sans-serif;
+  border-radius: 15px;
+  align-items: flex-end;
+}
+
+#page_TalkLobby .Talk_gamestart a:hover{
 /* 사전 개별CSS */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* 레이어(백그라운드 부분) */
@@ -3280,7 +4272,7 @@ a:visited {
 #page_Dictionary .SearchBar .Search input{
   font-size: 4vh;
   font-family: 'Poor Story', cursive;
-  text-align: right;
+  text-align: left;
   background-color: #fdeca5;
   border-radius: 30px;
   width: 95%;
@@ -3340,7 +4332,16 @@ a:visited {
   overflow-y: auto;
   font-size: 3vh;
   font-family: 'Jua', sans-serif;
+  transition: color 0.3s;
 }
+#page_Dictionary .Dictionary_list table{
+  border: 0;
+}
+#page_Dictionary .Dictionary_list tr:hover{
+  color:  #cda705;
+
+}
+
 #page_Dictionary .Dictionary_Content{
   display: flex;
   justify-content: center;
@@ -3365,6 +4366,9 @@ a:visited {
   background-color: #fdeca5;
   font-family: 'Jua', sans-serif;
   overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 #page_Dictionary .headline{
   padding: 0 5%;
@@ -3372,9 +4376,9 @@ a:visited {
 }
 #page_Dictionary .maintext{
   padding: 0 5%;
-  font-size: 2vh;
-}
+  font-size: 4vh;
 
+}
 #page_Dictionary .mainlobbyTitle{
   display: none;
 }
@@ -3427,7 +4431,7 @@ a:visited {
   }
   #page_Dictionary .maintext{
     padding: 0 5%;
-    font-size: 1vh;
+    font-size: 2vh;
   }
   #page_Dictionary .Dictionary_list{
     background-color: #fdeca5;

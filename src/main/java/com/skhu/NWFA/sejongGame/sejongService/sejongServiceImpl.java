@@ -17,15 +17,16 @@ public class sejongServiceImpl implements sejongService {
 
 	@Autowired(required = false)
 	sejongDao dao;
+	
+	@Override
+	public List<wordsModel> sejongWords(String stage_id, String word_id, String gameNum) {
+		// TODO Auto-generated method stub
+		return dao.sejongWords(stage_id, word_id, gameNum);
+	}
 
 	@Override
 	public List<syllablesModel> example(int count) {
 		return dao.example(count);
-	}
-
-	@Override
-	public wordsModel sejongWords(String sejongId) {
-		return dao.sejongWords(sejongId);
 	}
 
 	@Override
@@ -71,6 +72,8 @@ public class sejongServiceImpl implements sejongService {
 		// TODO Auto-generated method stub
 		return dao.LobbyWords(stage);
 	}
+
+
 
 
 }
