@@ -20,8 +20,8 @@ public class dictController {
 	@Autowired
 	dictService service;
 
-	@RequestMapping("dictionary")
-	public String dictionary(Model model, HttpSession session) {
+	@RequestMapping("dictionary/{dic_id}")
+	public String dictionary(Model model, @PathVariable int dic_id, HttpSession session) {
 
 		String userID = null;
 		userModel user = null;
@@ -32,12 +32,14 @@ public class dictController {
 
 		List<wordModel> words = service.dictWordAll(user.getUser_id());
 		model.addAttribute("word", words);
+		model.addAttribute("dic_id",dic_id);
+		model.addAttribute("searchSize",0);
 
 		return "dict";
 	}
 
-	@RequestMapping("favoriteWord/{word_id}")
-	public String favoriteWord(Model model, @PathVariable int word_id, HttpSession session) {
+	@RequestMapping("favoriteWord/{word_id}/{dic_id}")
+	public String favoriteWord(Model model, @PathVariable int word_id, @PathVariable int dic_id, HttpSession session) {
 
 		String userID = null;
 		userModel user = null;
@@ -48,11 +50,12 @@ public class dictController {
 
 		service.setFavorite(user.getUser_id(), word_id);
 
-		return "redirect:/dictionary";
+		return "redirect:/dictionary/"+dic_id;
 	}
 
-	@RequestMapping("unfavoriteWord/{word_id}")
-	public String unfavoriteWord(Model model, @PathVariable int word_id, HttpSession session) {
+	@RequestMapping("unfavoriteWord/{word_id}/{dic_id}")
+	public String unfavoriteWord(Model model, @PathVariable int word_id, @PathVariable int dic_id,
+			HttpSession session) {
 
 		String userID = null;
 		userModel user = null;
@@ -63,6 +66,26 @@ public class dictController {
 
 		service.removeFavorite(user.getUser_id(), word_id);
 
-		return "redirect:/dictionary";
+		return "redirect:/dictionary/"+dic_id;
+	}
+
+	@RequestMapping("searchWord/{value}")
+	public String searchWord(Model model, @PathVariable String value,
+			HttpSession session) {
+
+		String userID = null;
+		userModel user = null;
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+			user = service.loginUser(userID);
+		}
+
+		List<wordModel> search = service.searchWord(user.getUser_id(), value);
+		model.addAttribute("search", search);
+		List<wordModel> words = service.dictWordAll(user.getUser_id());
+		model.addAttribute("word", words);
+		model.addAttribute("searchSize", search.size());
+
+		return "dict";
 	}
 }

@@ -36,4 +36,9 @@ public class dictServiceImpl implements dictService {
 		dao.removeFavorite(user_id, word_id);
 	}
 
+	@Override
+	public List<wordModel> searchWord(int user_id, String value) {
+		return dao.searchWord(user_id, value);
+	}
+
 }

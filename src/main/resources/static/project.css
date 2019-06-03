@@ -1702,6 +1702,8 @@ transition: filter
     height: 100vh;
     background-color: #fad644;
   }
+<<<<<<< HEAD
+=======
 
   #page_idfinder .personal_titleBar {
     padding-top: 3vh;
@@ -1799,6 +1801,309 @@ transition: filter
     background-color: #ff5050;
     margin: 2.5vh 0vh;
   }
+
+  #page_idfinder #big_account:hover {
+    background-color: #ff9090;
+    transition: background-color 0.3s;
+  }
+
+  #page_idfinder .container .IDfind {
+    height: 10vh;
+    border-radius: 15px;
+    font-family: 'Jua', sans-serif;
+    text-align: center;
+    font-size: 5vh;
+    line-height: 10vh;
+    color: white;
+    background-color: #00b0f0;
+    margin: 2.5vh 5vh;
+  }
+  #page_idfinder .container .IDfind:hover {
+    background-color: #10c0f0;
+    transition: background-color 0.3s;
+  }
+  #page_idfinder .container .PWfind {
+    height: 10vh;
+    border-radius: 15px;
+    font-family: 'Jua', sans-serif;
+    text-align: center;
+    font-size: 5vh;
+    line-height: 10vh;
+    color: white;
+    background-color: #ff5050;
+    margin: 2.5vh 5vh;
+  }
+  #page_idfinder .container .PWfind:hover {
+    background-color: #ff9090;
+    transition: background-color 0.3s;
+  }
+   .login_page{
+    width: 50%;
+    height: 70vh;
+    border-right: dashed 5px black ;
+  }
+  #page_idfinder .intro_text2 {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+  }
+  #page_idfinder .intro_text2 span{
+    font-size: 2.3vh;
+  }
+  @media screen and (max-width:1200px) {
+
+
+    #page_idfinder .container{
+      margin: 2.5vh 2.5vh;
+    }
+
+    #page_idfinder .container .account_form{
+      margin: 2.5vh 1vh;
+    }
+    #page_idfinder .container .account_form2{
+      margin: 5vh 1vh;
+    }
+    #page_idfinder .container .login_id {
+      margin: 2.5vh 1vh;
+    }
+    #page_idfinder .find_id{
+      margin: 0vh 1vh;
+    }
+    #page_idfinder .login_Introduce{
+      font-size: 2vh;
+    }
+    #page_idfinder .intro_text2 span{
+      font-size: 2vh;
+    }
+  }
+  @media screen and (max-width:699px) {
+  .login_page {
+      border-right: 0px;
+      width: 100%;
+    }
+    #page_idfinder #mini_account {
+      display: block;
+    }
+
+    .intro{
+      display: none;
+    }
+    #page_idfinder .personal_titleBar {
+      line-height: 10vh;
+      font-size: 5vh;
+    }
+  }
+/* 회원가입 & 로그인 공통부분 */
+.intro {
+  flex: 1;
+  height: 70vh;
+  margin: 0 10vh;
+}
+.intro_text1 {
+  height: 10vh;
+  font-family: 'Poor Story', cursive;
+  font-size: 4vh;
+  text-align: left;
+}
+.intro_text2 {
+  padding: 1vh 1.5vh;
+  height: 20vh;
+  font-size: 2.5vh;
+  font-family: 'Jua', sans-serif;
+  background-image: url("icon/speechbubble.png");
+  background-size: 100% 100%;
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+.intro_text3 {
+  height: 20vh;
+  font-family: 'Yeon Sung', sans-serif;
+  text-align: left;
+  font-size: 3vh;
+  background-image: url("icon/teacher.png");
+  background-size: auto 100%;
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+>>>>>>> 0092a4bc715066b6208f423c9a9b4c23dd9c9822
+
+  #page_idfinder .personal_titleBar {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 9vh;
+  }
+
+  #page_idfinder .login_Introduce {
+    height: 20vh;
+    text-align: center;
+    border-radius: 15px;
+    border: 5px solid black;
+    font-size: 4vh;
+    margin: 5vh 5vh;
+    font-size: 3vh;
+    font-family: 'Jua', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  #page_idfinder .container{
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 5vh 5vh 0vh 5vh;
+  }
+
+  #page_idfinder .container .account_form{
+    height: 5vh;
+    margin: 2.5vh 5vh;
+    display: flex;
+    justify-content: space-between;
+    font-size: 3vh;
+    font-family: 'Jua', sans-serif;
+    line-height: 5vh;
+  }
+  #page_idfinder .container .account_form2{
+    height: 5vh;
+    margin: 5vh 5vh;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2vh;
+    font-family: 'Jua', sans-serif;
+  }
+  #page_idfinder .find_id {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 2vh;
+    font-family: 'Jua', sans-serif;
+    margin: 0 5vh;
+    /* display: none; */
+  }
+
+<<<<<<< HEAD
+  #page_idfinder #mini_account {
+    height: 5vh;
+    padding: 0 2vh;
+    background-color: #ffc000;
+    border-radius: 15px;
+    color: white;
+    line-height: 5vh;
+    display: none;
+    overflow: hidden;
+  }
+  #page_idfinder #mini_account:hover{
+    background-color: #dfb000;
+    transition: background-color 0.3s;
+  }
+  #page_idfinder #mini_accountfind {
+    height: 5vh;
+    padding: 0 2vh;
+    background-color: #ffc000;
+    border-radius: 15px;
+    color: white;
+    line-height: 5vh;
+    /* visibility: hidden; */
+    overflow: hidden;
+  }
+  #page_idfinder #mini_accountfind:hover{
+    background-color: #dfb000;
+    transition: background-color 0.3s;
+  }
+  #page_idfinder #big_account {
+    height: 10vh;
+    border-radius: 15px;
+    font-family: 'Jua', sans-serif;
+    text-align: center;
+    font-size: 5vh;
+    line-height: 10vh;
+    color: white;
+    background-color: #ff5050;
+    margin: 2.5vh 0vh;
+  }
+=======
+}
+/* 모달창 */
+/* 아이지 찾기 팝업*/
+
+#page_idfinder #layer_modal .popup_find{
+  display: flex;
+  justify-content: center;
+}
+#page_idfinder #layer_modal .popup_IDfind{
+  width: 50%;
+  min-width: 300px;
+  height: 50vh;
+  margin: 25vh 0;
+  background-color: #fad644;
+  box-shadow: 1vh 1vh 1vh #00000070;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 5vh;
+  color: #000;
+  font-family: 'Jua', sans-serif;
+  position: absolute;
+  top: -100vh;
+  transition: top 1s;
+}
+
+#page_idfinder #layer_modal .popup_IDfind_Text{
+  background-color: #fdeca5;
+  border-radius: 15px;
+  font-size: 5vh;
+  height: 10vh;
+  line-height: 10vh;
+}
+#page_idfinder #layer_modal .popup_IDfind_ID{
+  background-color: #fdeca5;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  color: #000;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  overflow-y: hidden;
+}
+#page_idfinder #layer_modal .popup_IDfind_exit{
+  background-color: #ff5050;
+  border-radius: 5px;
+  font-family: 'Jua', sans-serif;
+  color: #fff;
+  font-size: 5vh;
+  line-height: 10vh;
+  text-align: center;
+  height: 10vh;
+  padding: 1vh 3vh 1vh 3vh;
+  margin: 4vh;
+  box-shadow: 0.2vh 0.2vh 1vh #333;
+  overflow-y: hidden;
+}
+
+#page_idfinder #layer_modal .popup_IDfind_ID:hover{
+  /* background-color: #ff9090;
+  transition: background-color 0.3s; */
+}
+#page_idfinder #layer_modal .popup_IDfind_exit:hover{
+  background-color: #ff9090;
+  transition: background-color 0.3s;
+}
+
+
+/* 회원가입 CSS */
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+#page_account .background_account{
+  width: 100%;
+  height: 100vh;
+  background-color: #fad644;
+}
+>>>>>>> 0092a4bc715066b6208f423c9a9b4c23dd9c9822
 
   #page_idfinder #big_account:hover {
     background-color: #ff9090;
@@ -2809,12 +3114,28 @@ transition: filter
   -ms-transition: 2s -ms-filter linear;
   -o-transition: 2s -o-filter linear;
 }
+<<<<<<< HEAD
 /* 결과창 */
 #page_KingWordGame #layer_modal .popup_GameScore{
   width: 90%;
   /* min-width: 300px; */
   height: 90vh;
   margin: 5vh 0 ;
+=======
+
+#page_KingWordGame #layer_modal .popup_GameClear{
+  width: 50%;
+  min-width: 300px;
+  height: 70vh;
+  margin: 15vh 0 ;
+  background-color: #fad644;
+  box-shadow: 1vh 1vh 1vh #00000070;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 5vh;
+  color: #000;
+  font-family: 'Jua', sans-serif;
+>>>>>>> 0092a4bc715066b6208f423c9a9b4c23dd9c9822
   position: absolute;
   top: -100vh;
   transition: top 1s;
@@ -4333,6 +4654,7 @@ transition: filter
   font-size: 3vh;
   font-family: 'Jua', sans-serif;
   transition: color 0.3s;
+<<<<<<< HEAD
 }
 #page_Dictionary .Dictionary_list table{
   border: 0;
@@ -4341,6 +4663,16 @@ transition: filter
   color:  #cda705;
 
 }
+=======
+}
+#page_Dictionary .Dictionary_list table{
+  border: 0;
+}
+#page_Dictionary .Dictionary_list tr:hover{
+  color:  #cda705;
+
+}
+>>>>>>> 0092a4bc715066b6208f423c9a9b4c23dd9c9822
 
 #page_Dictionary .Dictionary_Content{
   display: flex;
@@ -4365,10 +4697,15 @@ transition: filter
   border-radius: 30px;
   background-color: #fdeca5;
   font-family: 'Jua', sans-serif;
+<<<<<<< HEAD
   overflow-y: hidden;
   display: flex;
   justify-content: center;
   flex-direction: column;
+=======
+  overflow-y: auto;
+
+>>>>>>> 0092a4bc715066b6208f423c9a9b4c23dd9c9822
 }
 #page_Dictionary .headline{
   padding: 0 5%;
@@ -4377,7 +4714,13 @@ transition: filter
 #page_Dictionary .maintext{
   padding: 0 5%;
   font-size: 4vh;
+<<<<<<< HEAD
 
+=======
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+>>>>>>> 0092a4bc715066b6208f423c9a9b4c23dd9c9822
 }
 #page_Dictionary .mainlobbyTitle{
   display: none;
