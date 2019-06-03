@@ -15,7 +15,7 @@
 		ON Word.word_id =
 		UserWords.word_id
 		WHERE
-		UserWords.user_id = #{user_id}
+		UserWords.user_id = #{user_id} ORDER BY Word.justice ASC
 	</select>
 
 	<select id="loginUser"
@@ -31,4 +31,19 @@
 		<update id="removeFavorite">
 		UPDATE UserWords SET favorite=0 WHERE user_id = #{user_id} AND word_id = #{word_id}
 	</update>
+	
+		<select id="searchWord"
+		resultType="com.skhu.NWFA.dictionary.dictModel.wordModel">
+				SELECT Word.word_id, Word.justice, Word.mean, Word.gameNum,
+		Word.year, Word.img,
+		Word.stage_id,UserWords.favorite,
+		Word.question
+		FROM
+		Word
+		JOIN UserWords
+		ON Word.word_id =
+		UserWords.word_id
+		WHERE
+		UserWords.user_id = #{user_id} AND Word.justice LIKE  '%${value}%' 
+	</select>
 </mapper>

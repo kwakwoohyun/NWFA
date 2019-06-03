@@ -18,4 +18,6 @@ public interface dictDao {
 
 	userModel loginUser(String login_id);
 
+	List<wordModel> searchWord(int user_id, String value);
+
 }
