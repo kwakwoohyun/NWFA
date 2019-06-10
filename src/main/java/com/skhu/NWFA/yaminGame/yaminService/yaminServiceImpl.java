@@ -9,6 +9,7 @@ import com.skhu.NWFA.user.userModel.userModel;
 import com.skhu.NWFA.yaminGame.yaminDao.yaminDao;
 import com.skhu.NWFA.yaminGame.yaminModel.syllablesModel;
 import com.skhu.NWFA.yaminGame.yaminModel.wordsModel;
+import com.skhu.NWFA.yaminGame.yaminModel.yaminWordsModel;
 
 @Service
 public class yaminServiceImpl implements yaminService {
@@ -49,6 +50,12 @@ public class yaminServiceImpl implements yaminService {
 	public void yaminWordsSave(String gameNum, String yaminStageId, int user_id, int word_id, String answer) {
 		dao.yaminWordsSave(gameNum, yaminStageId, user_id, word_id, answer);
 
+	}
+
+	@Override
+	public List<yaminWordsModel> yaminWrongNote(int user_id, String yaminStageId) {
+
+		return dao.yaminWrongNote(user_id, yaminStageId);
 	}
 
 }

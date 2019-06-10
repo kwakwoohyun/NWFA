@@ -19,7 +19,7 @@
 	var cardloc = 0;
 
 	$(document).ready(function() {
-		$("#WQ_Level1").css({
+		$("#WQ_Level"+${word[0].stage_id}).css({
 			'border-color' : '#ff69b2'
 		})
 		$(".prevBT").hide(); // 맨 처음 카드를 화면에 보여줄때 이전으로 가기 버튼을 비활성화 시킴
@@ -68,6 +68,8 @@
 			$("#WQ_Level2").css({
 				'color' : '#ff69b2'
 			})
+		    location.href='/YaminGameLobby/2/2'
+		    
 		} else if (WQ_Level == 3) {
 			$("#WQ_Level3").css({
 				'border-color' : '#ff69b2'
@@ -126,8 +128,14 @@
 		}
 		if (cardloc == 4) {
 			$(".nextBT").hide();
+			$("#gameStart").css({
+				 'box-shadow' : '0vh 0vh 1vh #fff'
+			})
 		} else {
 			$(".nextBT").show();
+			$("#gameStart").css({
+				 'box-shadow' : 'none'
+			})
 		}
 	}
 </script>
@@ -155,7 +163,7 @@
 					<div class="blackboard">
 
 						<div class="blackboard_Level">
-							<div class="blackboard_Level_text">Stage 1</div>
+							<div class="blackboard_Level_text">Stage ${word[0].stage_id }</div>
 							<div>
 								<button id="WQ_Level1" class="WQ_Level" value="1"
 									onclick="WordQuizLevel_click(this.value)">
@@ -263,10 +271,10 @@
 					<div class="WQ_back CQ_BTstyle">
 						<a href="/GameLobby">뒤로</a>
 					</div>
-					<div class="WQ_BTNewStart CQ_BTstyle">
+					<div class="WQ_BTNewStart CQ_BTstyle" id="gameStart">
 						<a href="/YaminGame/${yaminStageId}/${gameNum}/0">게임시작</a>
 					</div>
-					<div class="visibilityhidden CQ_BTstyle">
+					<div class="visibilityhidden CQ_BTstyle"></div>
 				</footer>
 			</div>
 		</div>

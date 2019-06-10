@@ -5,6 +5,7 @@ import java.util.List;
 import com.skhu.NWFA.user.userModel.userModel;
 import com.skhu.NWFA.yaminGame.yaminModel.syllablesModel;
 import com.skhu.NWFA.yaminGame.yaminModel.wordsModel;
+import com.skhu.NWFA.yaminGame.yaminModel.yaminWordsModel;
 
 public interface yaminService {
 
@@ -19,4 +20,6 @@ public interface yaminService {
 	void stageLockUpdate(int stageId, int userId);
 
 	userModel loginUser(String login_id);
+
+	List<yaminWordsModel> yaminWrongNote(int user_id,String yaminStageId);
 }
