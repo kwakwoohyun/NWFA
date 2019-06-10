@@ -24,19 +24,38 @@
 	</select>
 
 	<update id="yaminWordsCorrect">
-		UPDATE UserWords SET isCorrect = 1 WHERE
+		UPDATE UserWords SET answer = #{answer},isCorrect = 1
+		WHERE
 		gameNum =
-		#{gameNum} AND stage_id = #{yaminStageId} AND user_id = #{user_id} AND
+		#{gameNum} AND stage_id = #{yaminStageId} AND user_id =
+		#{user_id} AND
 		word_id= #{word_id}
 	</update>
 
 	<update id="yaminWordsSave">
-		UPDATE UserWords SET answer = #{answer} WHERE
+		UPDATE UserWords SET answer = #{answer}, isCorrect =
+		0 WHERE
 		gameNum
 		=
-		#{gameNum} AND stage_id = #{yaminStageId} AND user_id = #{user_id}
+		#{gameNum} AND stage_id = #{yaminStageId} AND user_id =
+		#{user_id}
 		AND word_id= #{word_id}
 	</update>
 
+	<select id="yaminWrongNote"
+		resultType="com.skhu.NWFA.yaminGame.yaminModel.yaminWordsModel">
+		SELECT Word.word_id, Word.justice, Word.mean, Word.gameNum,
+		Word.year, Word.img,
+		Word.stage_id,UserWords.answer,UserWords.isCorrect,
+		Word.question
+		FROM
+		Word
+		JOIN UserWords
+		ON Word.word_id =
+		UserWords.word_id
+		WHERE
+		UserWords.user_id = #{user_id} AND Word.stage_id = #{yaminStageId} AND
+		Word.gameNum = 2
+	</select>
 
 </mapper>

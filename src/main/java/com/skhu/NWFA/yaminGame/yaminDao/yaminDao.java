@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import com.skhu.NWFA.user.userModel.userModel;
 import com.skhu.NWFA.yaminGame.yaminModel.syllablesModel;
 import com.skhu.NWFA.yaminGame.yaminModel.wordsModel;
+import com.skhu.NWFA.yaminGame.yaminModel.yaminWordsModel;
 
 @Configuration
 public interface yaminDao {
@@ -21,4 +22,6 @@ public interface yaminDao {
 	void stageLockUpdate(int stageId,int userId);
 
 	userModel loginUser(String login_id);
+
+	List<yaminWordsModel> yaminWrongNote(int user_id,String yaminStageId);
 }
