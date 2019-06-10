@@ -29,4 +29,5 @@ public interface sejongService {
 	List<userStages> selectUserStage(int id);
 	
 	List<wordsModel> LobbyWords(int stage);
+
 }
