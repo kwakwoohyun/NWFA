@@ -441,7 +441,7 @@
                 이메일 인증이 필요합니다.
               </div>
               <div class="setting_passwd_bt">
-              비밀번호 변경
+              <a href = "update">비밀번호 변경</a>
               </div>
             </div>
           </div>

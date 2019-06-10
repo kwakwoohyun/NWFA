@@ -4,13 +4,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.skhu.NWFA.user.userModel.UserDTO;
+import com.skhu.NWFA.util.RandomPassword;
 
 public class UserDAO {
 
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	
+
 	public UserDAO() {
 		try {
 			String dbURL = "jdbc:mysql://soptserver.cbspdyahhen8.ap-northeast-2.rds.amazonaws.com:3306/capstonedesign?serverTimezone=UTC";
@@ -22,6 +26,98 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public String updateUserPassword(String userEmail) {
+	      String newPassword = RandomPassword.randomPassword(10);
+	      String SQL = "UPDATE User SET password = ? WHERE email = ?";
+	      try {
+	         PreparedStatement pstmt = conn.prepareStatement(SQL);
+	         pstmt.setString(1, newPassword);
+	         pstmt.setString(2, userEmail);
+	         pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      }
+	      return newPassword; // 비밀번호 반환
+	   }
+	
+	public String searchPassword(String userEmail) {
+	      String SQL = "SELECT password FROM User WHERE email = ?";
+	      try {
+	         PreparedStatement pstmt = conn.prepareStatement(SQL);
+	         pstmt.setString(1, userEmail);
+	         rs = pstmt.executeQuery();
+	         while (rs.next()) {
+	            return rs.getString(1); // password 주소 반환
+	         }
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      }
+	      return null; // 데이터베이스 오류
+	   }
+
+	public String getUserID(String userEmail) {
+	      String SQL = "SELECT login_id FROM User WHERE email = ?";
+	      try {
+	         PreparedStatement pstmt = conn.prepareStatement(SQL);
+	         pstmt.setString(1, userEmail);
+	         rs = pstmt.executeQuery();
+	         while (rs.next()) {
+	            return rs.getString(1); // ID 주소 반환
+	         }
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      }
+	      return null; // 데이터베이스 오류
+	   }
+	
+	public UserDTO getUser(String userID) {
+		UserDTO user = new UserDTO();
+		String SQL = "SELECT login_id, password FROM User WHERE login_id = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, userID);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				user.setUserID(userID);
+				user.setUserPassword(rs.getString("password"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return user;
+	}
+	
+	public int update(String userPassword, String userID) {
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String SQL ="UPDATE User SET password = ? WHERE login_id = ?";
+        try {
+           pstmt = conn.prepareStatement(SQL);
+           pstmt.setString(1, userPassword);
+           pstmt.setString(2, userID);
+           return pstmt.executeUpdate();
+        } catch (Exception e) {
+           e.printStackTrace();
+        } finally {
+           try {
+              if(rs != null) rs.close();
+              if(pstmt != null) pstmt.close();
+           } catch (Exception e) {
+              e.printStackTrace();
+        }
+     }
+        return -1; //데이터베이스 오류
+     }
 
 	public int login(String login_id, String userPassword) {
 		String SQL = "SELECT password FROM User WHERE login_id = ?";
@@ -68,8 +164,7 @@ public class UserDAO {
 		return -1; // 데이터베이스 오류
 	}
 
-	public int register(String login_id, String password, String name, String age, String sex,
-			String email) {
+	public int register(String login_id, String password, String name, String age, String sex, String email) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String SQL = "INSERT INTO User(login_id,password,name,age,sex,email) VALUES (?, ?, ?, ?, ?, ?)";
