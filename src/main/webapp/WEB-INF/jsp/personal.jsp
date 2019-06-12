@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
 
@@ -11,11 +12,35 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script type="text/javascript">
     var sidebar = "ranking"; // 단어변수
+    var game_Select = 1 // 1은 세종게임 2는 신조어 게임 3은 신조어톡
 
     $(document).ready(function() {
       $(".personal_content>div").hide();
       $("#personal_ranking").show();
+
+      $("#QW_log_Bt").hide();
+      $("#Talk_log_Bt").hide();
+      $(".log_game_bt:nth-of-type(1)").css("background-color", "#ff5050");
     });
+
+    function log_btc_click(event) {
+      game_Selectr = event;
+      $("#KWG_log_Bt").hide();
+      $("#QW_log_Bt").hide();
+      $("#Talk_log_Bt").hide();
+      $(".log_game_bt").css("background-color", "#ffc000");
+
+      if (game_Selectr==1) {
+      $(".log_game_bt:nth-of-type(1)").css("background-color", "#ff5050");
+      $("#KWG_log_Bt").show();
+      } else if (game_Selectr==2) {
+      $(".log_game_bt:nth-of-type(2)").css("background-color", "#ff5050");
+      $("#QW_log_Bt").show();
+      } else if (game_Selectr==3) {
+      $(".log_game_bt:nth-of-type(3)").css("background-color", "#ff5050");
+      $("#Talk_log_Bt").show();
+      }
+    }
 
     function personal_click(event) {
       sidebar = event;
@@ -25,7 +50,7 @@
       if (sidebar == "ranking") {
         $("#personal_ranking").show();
         $("#personal_rankingbt").css("background-color", "#ffc000")
-        $(".personal_titleBar").text("| 랭킹")
+        $(".personal_titleBar").text("| 오답")
 
       } else if (sidebar == "score") {
         $("#personal_score").show();
@@ -61,7 +86,7 @@
       </div>
       <div class="C_headerbar">
         <div class="personal_titleBar">
-          | 랭킹
+          | 오답
         </div>
       </div>
       <div class="R_headerbar">
@@ -72,7 +97,7 @@
       <div class="personal_sidebar">
         <div class="personal_bts">
           <div id="personal_rankingbt" class="personal_sidebt" value="ranking" onclick="personal_click('ranking')">
-            랭킹
+            오답
           </div>
 
           <div id="personal_scorebt" class="personal_sidebt" value="score" onclick="personal_click('score')">
@@ -94,7 +119,110 @@
       </div>
       <div class="personal_content">
         <div id="personal_ranking">
-          지금 당신의 신조어 실력은 ?
+          <div class="log_game_bar">
+            <div class="log_title">
+              오답을 확인하실수 있습니다
+            </div>
+            <div class="log_game">
+              <div class="log_game_bt" onclick="log_btc_click(1);">
+                세종대왕 단어게임
+              </div>
+              <div class="log_game_bt" onclick="log_btc_click(2);">
+                도전 신조어
+              </div>
+              <div class="log_game_bt" onclick="log_btc_click(3);">
+                신조어톡
+              </div>
+            </div>
+          </div>
+          <div class="log_stage_bar">
+            <div id="KWG_log_Bt" class="log_stage">
+              <button class="log_stage_bt" type="button" value="1" name="button">1</button>
+              <button class="log_stage_bt" type="button" value="2" name="button">2</button>
+              <button class="log_stage_bt" type="button" value="3" name="button">3</button>
+              <button class="log_stage_bt" type="button" value="4" name="button">4</button>
+              <button class="log_stage_bt" type="button" value="5" name="button">5</button>
+              <button class="log_stage_bt" type="button" value="6" name="button">?</button>
+            </div>
+            <div id="QW_log_Bt" class="log_stage">
+              <button class="log_stage_bt" type="button" value="1" name="button">1</button>
+              <button class="log_stage_bt" type="button" value="2" name="button">2</button>
+              <button class="log_stage_bt" type="button" value="3" name="button">3</button>
+              <button class="log_stage_bt" type="button" value="3" name="button">?</button>
+            </div>
+            <div id="Talk_log_Bt" class="log_stage">
+              <button class="log_stage_bt" type="button" value="1" name="button">1</button>
+              <button class="log_stage_bt" type="button" value="2" name="button">2</button>
+              <button class="log_stage_bt" type="button" value="3" name="button">3</button>
+              <button class="log_stage_bt" type="button" value="4" name="button">4</button>
+              <button class="log_stage_bt" type="button" value="5" name="button">5</button>
+            </div>
+          </div>
+          <div class="log_content">
+            <!-- 오답 템플릿 -->
+            <div class="log_WrongAnswer">
+              <div class="WrongAnswer_quiz">
+                신조어
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequa
+              </div>
+              <div class="WrongAnswer_Answer">
+                <div class="WrongAnswer_myAnswer">
+                  나의답 :
+                </div>
+                <div class="WrongAnswer_rightAnswer">
+                  정답 :
+                </div>
+              </div>
+
+            </div>
+            <div class="log_WrongAnswer">
+              <div class="WrongAnswer_quiz">
+                신조어
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequa
+              </div>
+              <div class="WrongAnswer_Answer">
+                <div class="WrongAnswer_myAnswer">
+                  나의답 :
+                </div>
+                <div class="WrongAnswer_rightAnswer">
+                  정답 :
+                </div>
+              </div>
+
+            </div>
+            <div class="log_WrongAnswer">
+              <div class="WrongAnswer_quiz">
+                신조어
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequa
+              </div>
+              <div class="WrongAnswer_Answer">
+                <div class="WrongAnswer_myAnswer">
+                  나의답 :
+                </div>
+                <div class="WrongAnswer_rightAnswer">
+                  정답 :
+                </div>
+              </div>
+
+            </div>
+            <div class="log_WrongAnswer">
+              <div class="WrongAnswer_quiz">
+                신조어
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequa
+              </div>
+              <div class="WrongAnswer_Answer">
+                <div class="WrongAnswer_myAnswer">
+                  나의답 :
+                </div>
+                <div class="WrongAnswer_rightAnswer">
+                  정답 :
+                </div>
+              </div>
+
+            </div>
+            <!-- 오답 템플릿 -->
+          </div>
+
         </div>
         <div id="personal_score">
           <div class="score_game_Sejong">
@@ -105,7 +233,7 @@
                 세종대왕 단어게임
               </div>
             </div>
-            <div class="score_Star_area">
+            <!-- <div class="score_Star_area">
               <div class="score_Star_text">
                 모운 별의 숫자
               </div>
@@ -118,7 +246,7 @@
                 </div>
               </div>
 
-            </div>
+            </div> -->
             <div class="score_Stage_area">
               <div class="score_Stage_text">
                 최고 도달 스테이지
@@ -136,7 +264,7 @@
                 도전 줄임말 !
               </div>
             </div>
-            <div class="score_Star_area">
+            <!-- <div class="score_Star_area">
               <div class="score_Star_text">
                 모운 별의 숫자
               </div>
@@ -149,7 +277,7 @@
                 </div>
               </div>
 
-            </div>
+            </div> -->
             <div class="score_Stage_area">
               <div class="score_Stage_text">
                 최고 도달 스테이지
@@ -167,7 +295,7 @@
                 신조어톡
               </div>
             </div>
-            <div class="score_Star_area">
+            <!-- <div class="score_Star_area">
               <div class="score_Star_text">
                 모운 별의 숫자
               </div>
@@ -180,13 +308,13 @@
                 </div>
               </div>
 
-            </div>
+            </div> -->
             <div class="score_Stage_area">
               <div class="score_Stage_text">
                 최고 도달 스테이지
               </div>
               <div class="score_Stage" id="score_Stage_Talk">
-                Stage 4 - 2
+                Stage 4
               </div>
             </div>
           </div>

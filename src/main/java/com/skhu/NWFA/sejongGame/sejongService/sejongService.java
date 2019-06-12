@@ -30,4 +30,5 @@ public interface sejongService {
 	
 	List<wordsModel> LobbyWords(int stage);
 
+
 }

@@ -33,4 +33,5 @@ public interface sejongDao {
 	
 	List<wordsModel> LobbyWords(int stage);
 
+
 }

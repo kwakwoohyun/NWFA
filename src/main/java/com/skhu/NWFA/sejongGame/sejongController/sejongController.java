@@ -13,9 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.skhu.NWFA.sejongGame.sejongModel.stageModel;
 import com.skhu.NWFA.sejongGame.sejongModel.syllablesModel;
 import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
 import com.skhu.NWFA.sejongGame.sejongService.sejongService;
@@ -28,7 +26,7 @@ public class sejongController {
 	@Autowired
 	sejongService service;
 
-	@RequestMapping(value = "KingWordGameLobby/{stageId}")
+	@RequestMapping("KingWordGameLobby/{stageId}")
 	public String KingWordGameLobby(Model model, HttpSession session, @PathVariable String stageId) {
 		String id = (String) session.getAttribute("userID");
 		userModel user_id = service.loginUser(id);

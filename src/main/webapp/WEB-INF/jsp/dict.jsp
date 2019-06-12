@@ -288,7 +288,9 @@
 						<div class="mainlobbyTitle">단어사전</div>
 					</div>
 					<div class="R_headerbar">
-						<div class="UI login"></div>
+						<div class="UI login">
+							<a href="personal"></a>
+						</div>
 					</div>
 				</header>
 				<div class="Dictionary_Content"></div>
