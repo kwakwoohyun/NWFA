@@ -14,6 +14,7 @@ import com.skhu.NWFA.dictionary.dictModel.wordModel;
 import com.skhu.NWFA.dictionary.dictModel.wrongNote;
 import com.skhu.NWFA.dictionary.dictService.dictService;
 import com.skhu.NWFA.user.userModel.userModel;
+import com.skhu.NWFA.user.userModel.userStages;
 
 @Controller
 public class dictController {
@@ -100,8 +101,11 @@ public class dictController {
 		}
 
 		List<wrongNote> wrongNote = service.wrongNote(user.getUser_id(), stage_id, gameNum);
-
+		List<userStages> stages = service.stageIsLock(user.getUser_id(), gameNum);
 		model.addAttribute("wrongNote", wrongNote);
+		model.addAttribute("stage_id", stage_id);
+		model.addAttribute("gameNum", gameNum);
+		model.addAttribute("stage", stages);
 
 		return "personal";
 	}

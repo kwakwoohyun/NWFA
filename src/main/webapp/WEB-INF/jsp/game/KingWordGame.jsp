@@ -15,6 +15,11 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
+	history.pushState(null, null, location.href);
+	window.onpopstate = function(event) {
+		history.go(1);
+	};
+
 	function GameClear() {
 		//  게임클리어 팝업을 뛰우는 함수
 		$(".popup_GameEnd").show().css('display', 'flex');
@@ -85,7 +90,7 @@
 		if (btnState[0] == -1) {
 			buttonClick(1, 0, event);
 		} else {
-			buttonClickRelease(1,0, event);
+			buttonClickRelease(1, 0, event);
 		}
 	}
 
@@ -180,7 +185,6 @@
 			}
 		}
 	}
-
 </script>
 </head>
 

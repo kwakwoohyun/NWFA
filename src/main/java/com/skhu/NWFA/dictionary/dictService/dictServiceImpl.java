@@ -9,6 +9,7 @@ import com.skhu.NWFA.dictionary.dictDao.dictDao;
 import com.skhu.NWFA.dictionary.dictModel.wordModel;
 import com.skhu.NWFA.dictionary.dictModel.wrongNote;
 import com.skhu.NWFA.user.userModel.userModel;
+import com.skhu.NWFA.user.userModel.userStages;
 
 @Service
 public class dictServiceImpl implements dictService {
@@ -46,6 +47,12 @@ public class dictServiceImpl implements dictService {
 	public List<wrongNote> wrongNote(int user_id, int stage_id, int gameNum) {
 
 		return dao.wrongNote(user_id, stage_id, gameNum);
+	}
+
+	@Override
+	public List<userStages> stageIsLock(int user_id, int gameNum) {
+
+		return dao.stageIsLock(user_id, gameNum);
 	}
 
 }
