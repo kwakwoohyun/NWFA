@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.skhu.NWFA.talkGame.talkDao.talkDao">
+	<select id="words"
+		resultType="com.skhu.NWFA.talkGame.talkModel.talkModel">
+		select
+		Options.word_id, answer, option1, option2, option3,
+		option4, gameNum,
+		stage_id, profie
+		from Options right join Word on
+		Options.word_id = Word.word_id
+		where gameNum=#{gameNum} and
+		stage_id=#{stage_id};
+	</select>
+</mapper>
