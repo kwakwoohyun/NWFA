@@ -68,7 +68,7 @@
 				<div class="Talk_Stage_Left">
 					<!-- 왼쪽 -->
 					<div class="Talk_img">
-						<img src="icon/talk_stage3.jpg">
+						<img src="icon/talk_stage3.png">
 					</div>
 					<div class="Talk_text">
 						<div class="Talk_name">중학생 아들</div>
@@ -87,13 +87,13 @@
 						<img src="icon/talk_stage4.png">
 					</div>
 					<div class="Talk_text">
-						<div class="Talk_name">딸(중학생)</div>
+						<div class="Talk_name">여자친구</div>
 						<div class="Talk_info">스테이지4</div>
 					</div>
 				</div>
 				<div class="Talk_Stage_Right">
 					<!-- 오른쪽 -->
-					<div class="Talk_gamestart">게임시작</div>
+					<div class="Talk_gamestart" onclick="location.href='/TalkGame/3/4'">게임시작</div>
 				</div>
 			</div>
 			<div class="Talk_Stage_line">
@@ -103,18 +103,19 @@
 						<img src="icon/talk_stage5.png">
 					</div>
 					<div class="Talk_text">
-						<div class="Talk_name">막내아들(초등학생)</div>
+						<div class="Talk_name">웬수같은 동생</div>
 						<div class="Talk_info">스테이지5</div>
 					</div>
 				</div>
 				<div class="Talk_Stage_Right">
 					<!-- 오른쪽 -->
-					<div class="Talk_gamestart">게임시작</div>
+					<div class="Talk_gamestart" onclick="location.href='/TalkGame/3/5'">게임시작</div>
 				</div>
 			</div>
 		</div>
 		<footer class="page_main KingWordGamefooter">
 			<div class="WQ_back TALK_BTstyle" onclick="location.href='GameLobby'">
+			뒤로
 			</div>
 			<div class="visibilityhidden TALK_BTstyle">게임시작</div>
 			<div class="visibilityhidden TALK_BTstyle"></div>

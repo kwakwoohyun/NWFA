@@ -231,9 +231,6 @@ window.onpopstate = function(event) {
 										style="background-color: gray; color: white; pointer-events: none; cursor: default;">5</button>
 								</c:when>
 							</c:choose>
-							<button class="log_stage_bt" type="button" value="6"
-								name="button" id="KWG_btn6" onclick="KWG_btn(6)"
-								style="background-color: gray; color: white; pointer-events: none; cursor: default;">?</button>
 						</div>
 						<div id="QW_log_Bt" class="log_stage">
 							<c:choose>
