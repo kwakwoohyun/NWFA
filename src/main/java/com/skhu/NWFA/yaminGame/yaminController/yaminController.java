@@ -57,12 +57,12 @@ public class yaminController {
 			}
 			syllablesArray.addAll(wordArray);
 			Collections.shuffle(syllablesArray);
-
+			System.out.println(word.getStage_id());
 			model.addAttribute("wordIdx", wordIdx);
 			model.addAttribute("wordlength", wordlength);
 			model.addAttribute("li", syllablesArray);
 			model.addAttribute("word", word);
-
+	
 			return "game/YaminGame";
 		}
 
@@ -125,6 +125,7 @@ public class yaminController {
 		}
 
 		List<yaminWordsModel> words = serviece.yaminWrongNote(user.getUser_id(), yaminStageId);
+		System.out.println(words.get(0).getStage_id());
 
 		model.addAttribute("words", words);
 

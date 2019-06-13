@@ -54,16 +54,19 @@
 			%>
 			<div class="UI UI_bt" onclick="location.href='login'"
 				data-transition="flip">게임</div>
+				<div class="UI UI_bt" onclick="location.href='login'"
+				data-transition="flip">사전</div>
 			<%
 				} else {
 			%>
 			<div class="UI UI_bt" onclick="location.href='GameLobby'"
 				data-transition="flip">게임</div>
+				<div class="UI UI_bt" onclick="location.href='dictionary/1'"
+				data-transition="flip">사전</div>
 			<%
 				}
 			%>
-			<div class="UI UI_bt" onclick="location.href='dictionary/1'"
-				data-transition="flip">사전</div>
+			
 		</article>
 	</div>
 	<div id="layer_modal">

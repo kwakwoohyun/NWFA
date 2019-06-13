@@ -61,6 +61,7 @@
 			$("#WQ_Level1").css({
 				'color' : '#ff69b2'
 			})
+			location.href='/YaminGameLobby/1/2'
 		} else if (WQ_Level == 2) {
 			$("#WQ_Level2").css({
 				'border-color' : '#ff69b2'

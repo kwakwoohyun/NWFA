@@ -232,7 +232,7 @@
 			</div>
 			<footer class="page_main KingWordGamefooter">
 				<div class="KW_back CQ_BTstyle">
-					<a href="/YaminGameLobby">뒤로</a>
+					<a href="/YaminGameLobby/1/2">뒤로</a>
 				</div>
 				<div class="KW_regame CQ_BTstyle" onclick="window.location.reload()">다시하기</div>
 				<div class="visibilityhidden CQ_BTstyle"></div>
