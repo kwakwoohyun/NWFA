@@ -244,20 +244,6 @@
 									</button>
 								</c:when>
 							</c:choose>
-							<c:choose>
-								<c:when test="${stageList[5].isLock eq '1' }">
-									<button id="KWG_stage6" class="KWG_Level" value="6"
-										onclick="KingWordGameLevel_click(this.value)">
-										<div class="KWG_Levelno">?</div>
-									</button>
-								</c:when>
-								<c:when test="${stageList[5].isLock eq '0' }">
-									<button style="color: gray; border: 6px solid gray"
-										id="KWG_stage6" class="KWG_Level" value="6">
-										<div class="KWG_Levelno">?</div>
-									</button>
-								</c:when>
-							</c:choose>
 						</div>
 
 					</div>

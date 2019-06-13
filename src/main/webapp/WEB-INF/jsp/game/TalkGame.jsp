@@ -118,19 +118,15 @@
       <div class="C_message">
         <div class="message_list">
           <div id="message_1"class="message_answer">
-          <br>
            ${words.option1 } 
           </div>
           <div id="message_2"class="message_answer">
-          <br>
             ${words.option2 }
           </div>
           <div id="message_3"class="message_answer">
-          <br>
             ${words.option3 }
           </div>
           <div id="message_4"class="message_answer">
-          <br>
             ${words.option4 }
           </div>
         </div>
