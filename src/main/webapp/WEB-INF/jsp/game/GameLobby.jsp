@@ -11,31 +11,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
       <script type="text/javascript">
 
-      var ranking =["134", "222", "33"];
+      var ranking =["${islock1}", "${islock2}", "${islock3}"];
       var gameNo = 0;
       function click_Sejong(){
         gameNo = 0;
         $(".gameRail").css({'margin-left':'25%'})
         $(".gameNumber div").css({'background-color':'#ff5050'})
         $(".gameNumber .game1").css({'background-color':'#fad644'})
-        $(".GameName").text('세종대왕 게임 랭킹')
-        $(".GameRank").text(ranking[gameNo]+'위')
+        $(".GameName").text('최고 도달 스테이지')
+        $(".GameRank").text('Lv.'+ranking[gameNo])
       }
       function click_WordQuiz(){
         gameNo = 1;
         $(".gameRail").css({'margin-left':'-25%'})
         $(".gameNumber div").css({'background-color':'#ff5050'})
         $(".gameNumber .game2").css({'background-color':'#fad644'})
-        $(".GameName").text('도전 신조어 랭킹')
-        $(".GameRank").text(ranking[gameNo]+'위')
+        $(".GameName").text('최고 도달 스테이지')
+        $(".GameRank").text('Lv.'+ranking[gameNo])
       }
       function click_Talk(){
         gameNo = 2;
         $(".gameRail").css({'margin-left':'-75%'})
         $(".gameNumber div").css({'background-color':'#ff5050'})
         $(".gameNumber .game3").css({'background-color':'#fad644'})
-        $(".GameName").text('신조어 톡 랭킹')
-        $(".GameRank").text(ranking[gameNo]+'위')
+        $(".GameName").text('최고 도달 스테이지')
+        $(".GameRank").text('Lv.'+ranking[gameNo])
       }
       function click_GameStart(){
         if (gameNo == 0) {
@@ -146,10 +146,10 @@
             </div>
             <div class="GameNamePlace">
               <div class="GameName">
-                세종대왕 게임 랭킹
+                최고 도달 스테이지 
               </div>
               <div class="GameRank">
-                123위
+               Lv.${islock1 } 
               </div>
             </div>
           </div>

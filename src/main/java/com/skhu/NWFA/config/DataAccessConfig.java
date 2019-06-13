@@ -17,6 +17,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 		"com.skhu.NWFA.yaminGame.yaminDao",
 		"com.skhu.NWFA.user.userDao",
 		"com.skhu.NWFA.dictionary.dictDao",
+		"com.skhu.NWFA.Controller.Dao",
 })
 public class DataAccessConfig {
 	@Bean
