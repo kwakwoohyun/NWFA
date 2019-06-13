@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.context.annotation.Configuration;
 
+import com.skhu.NWFA.sejongGame.sejongModel.sejongWordsModel;
 import com.skhu.NWFA.sejongGame.sejongModel.stageModel;
 import com.skhu.NWFA.sejongGame.sejongModel.syllablesModel;
 import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
@@ -12,9 +13,9 @@ import com.skhu.NWFA.user.userModel.userStages;
 
 @Configuration
 public interface sejongDao {
-	
+
 	List<wordsModel> sejongWords(String stage_id, String word_id, String gameNum);
-	
+
 	List<syllablesModel> example(int count);
 
 	List<stageModel> sejongStage(int user_id);
@@ -30,8 +31,14 @@ public interface sejongDao {
 	void setStar(int user_id, int star);
 
 	List<userStages> selectUserStage(int id);
-	
+
 	List<wordsModel> LobbyWords(int stage);
+
+	List<sejongWordsModel> sejongWrongNote(int user_id,String stage_id);
+
+	void sejongWordsCorrect(String gameNum, String stage_id, int user_id, int word_id, String answer);
+
+	void sejongWordsSave(String gameNum, String stage_id, int user_id, int word_id,String answer);
 
 
 }

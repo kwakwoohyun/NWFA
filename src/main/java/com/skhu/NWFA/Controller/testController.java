@@ -24,6 +24,8 @@ public class testController {
 
 	@RequestMapping("personal")
 	public String personal(Model model) {
-		return "personal";
+		return "redirect:/wrongNote/3/1";
 	}
+
+
 }

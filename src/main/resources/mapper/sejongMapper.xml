@@ -27,11 +27,11 @@
 	</select>
 
 	<update id="stageLockUpdate" parameterType="int">
-		UPDATE SejongStage
-		SET open_game = 1
-		WHERE Sejong_Word_word_id =
+		UPDATE UserStages
+		SET isLock = 1
+		WHERE stage_id =
 		#{stageId} And
-		User_user_id = #{userId}
+		user_id = #{userId} AND gameNum = 1
 	</update>
 
 	<select id="loginUser"
@@ -64,4 +64,40 @@
 		SELECT word_id, justice, mean, gameNum, stage_id from Word
 		WHERE stage_id = #{stage} and gameNum = 1
 	</select>
+
+	<select id="sejongWrongNote"
+		resultType="com.skhu.NWFA.sejongGame.sejongModel.sejongWordsModel">
+		SELECT Word.word_id, Word.justice, Word.mean, Word.gameNum,
+		Word.year, Word.img,
+		Word.stage_id,UserWords.answer,UserWords.isCorrect,
+		Word.question
+		FROM
+		Word
+		JOIN UserWords
+		ON Word.word_id =
+		UserWords.word_id
+		WHERE
+		UserWords.user_id = #{user_id} AND Word.stage_id = #{stage_id} AND
+		Word.gameNum = 1
+	</select>
+	
+		<update id="sejongWordsCorrect">
+		UPDATE UserWords SET answer = #{answer},isCorrect = 1
+		WHERE
+		gameNum =
+		#{gameNum} AND stage_id = #{stage_id} AND user_id =
+		#{user_id} AND
+		word_id= #{word_id}
+	</update>
+
+	<update id="sejongWordsSave">
+		UPDATE UserWords SET answer = #{answer}, isCorrect =
+		0 WHERE
+		gameNum
+		=
+		#{gameNum} AND stage_id = #{stage_id} AND user_id =
+		#{user_id}
+		AND word_id= #{word_id}
+	</update>
+
 </mapper>

@@ -39,5 +39,5 @@ public class userServiceImpl implements userService {
 		dao.insertUserWord(user_id, gameNum, stage_id, word_id);
 	}
 
-	
+
 }

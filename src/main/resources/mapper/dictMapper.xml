@@ -25,18 +25,38 @@
 	</select>
 
 	<update id="setFavorite">
-		UPDATE UserWords SET favorite=1 WHERE user_id = #{user_id} AND word_id = #{word_id}
+		UPDATE UserWords SET favorite=1 WHERE user_id =
+		#{user_id} AND word_id = #{word_id}
 	</update>
-	
-		<update id="removeFavorite">
-		UPDATE UserWords SET favorite=0 WHERE user_id = #{user_id} AND word_id = #{word_id}
+
+	<update id="removeFavorite">
+		UPDATE UserWords SET favorite=0 WHERE user_id =
+		#{user_id} AND word_id = #{word_id}
 	</update>
-	
-		<select id="searchWord"
+
+	<select id="searchWord"
 		resultType="com.skhu.NWFA.dictionary.dictModel.wordModel">
-				SELECT Word.word_id, Word.justice, Word.mean, Word.gameNum,
-		Word.year, Word.img,
+		SELECT Word.word_id, Word.justice, Word.mean, Word.gameNum,
+		Word.year,
+		Word.img,
 		Word.stage_id,UserWords.favorite,
+		Word.question
+		FROM
+		Word
+		JOIN
+		UserWords
+		ON Word.word_id =
+		UserWords.word_id
+		WHERE
+		UserWords.user_id =
+		#{user_id} AND Word.justice LIKE '%${value}%'
+	</select>
+
+	<select id="wrongNote"
+		resultType="com.skhu.NWFA.dictionary.dictModel.wrongNote">
+		SELECT Word.word_id, Word.justice, Word.mean, Word.gameNum,
+		Word.year, Word.img,
+		Word.stage_id,UserWords.answer,UserWords.isCorrect,
 		Word.question
 		FROM
 		Word
@@ -44,6 +64,8 @@
 		ON Word.word_id =
 		UserWords.word_id
 		WHERE
-		UserWords.user_id = #{user_id} AND Word.justice LIKE  '%${value}%' 
+		UserWords.user_id = #{user_id} AND Word.stage_id = #{stage_id} AND
+		Word.gameNum = #{gameNum}
 	</select>
+	
 </mapper>

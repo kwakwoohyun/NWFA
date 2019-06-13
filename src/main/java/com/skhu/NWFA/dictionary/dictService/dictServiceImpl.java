@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.skhu.NWFA.dictionary.dictDao.dictDao;
 import com.skhu.NWFA.dictionary.dictModel.wordModel;
+import com.skhu.NWFA.dictionary.dictModel.wrongNote;
 import com.skhu.NWFA.user.userModel.userModel;
 
 @Service
@@ -39,6 +40,12 @@ public class dictServiceImpl implements dictService {
 	@Override
 	public List<wordModel> searchWord(int user_id, String value) {
 		return dao.searchWord(user_id, value);
+	}
+
+	@Override
+	public List<wrongNote> wrongNote(int user_id, int stage_id, int gameNum) {
+
+		return dao.wrongNote(user_id, stage_id, gameNum);
 	}
 
 }

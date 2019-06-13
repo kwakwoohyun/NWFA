@@ -3,6 +3,7 @@ package com.skhu.NWFA.dictionary.dictService;
 import java.util.List;
 
 import com.skhu.NWFA.dictionary.dictModel.wordModel;
+import com.skhu.NWFA.dictionary.dictModel.wrongNote;
 import com.skhu.NWFA.user.userModel.userModel;
 
 public interface dictService {
@@ -16,5 +17,7 @@ public interface dictService {
 	userModel loginUser(String login_id);
 
 	List<wordModel> searchWord(int user_id, String value);
+
+	List<wrongNote> wrongNote(int user_id, int stage_id, int gameNum);
 
 }
