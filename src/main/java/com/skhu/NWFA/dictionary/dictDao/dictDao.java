@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import com.skhu.NWFA.dictionary.dictModel.wordModel;
 import com.skhu.NWFA.dictionary.dictModel.wrongNote;
 import com.skhu.NWFA.user.userModel.userModel;
+import com.skhu.NWFA.user.userModel.userStages;
 
 @Configuration
 public interface dictDao {
@@ -23,4 +24,5 @@ public interface dictDao {
 
 	List<wrongNote> wrongNote(int user_id, int stage_id, int gameNum);
 
+	List<userStages> stageIsLock(int user_id, int gameNum);
 }

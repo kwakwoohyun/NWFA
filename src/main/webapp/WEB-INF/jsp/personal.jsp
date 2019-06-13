@@ -13,16 +13,39 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
+history.pushState(null, null, location.href);
+window.onpopstate = function(event) {
+	history.go(1);
+};
 	var sidebar = "ranking"; // 단어변수
 	var game_Select = 1 // 1은 세종게임 2는 신조어 게임 3은 신조어톡
 
 	$(document).ready(function() {
 		$(".personal_content>div").hide();
 		$("#personal_ranking").show();
-
-		$("#QW_log_Bt").hide();
-		$("#Talk_log_Bt").hide();
-		$(".log_game_bt:nth-of-type(1)").css("background-color", "#ff5050");
+		
+		switch (${gameNum }) {
+		case 1:
+			$("#KWG_btn"+"${stage_id}").css("background-color", "#ff5050");
+			$("#KWG_btn"+"${stage_id}").css("color", "#fff");
+			$(".log_game_bt:nth-of-type(1)").css("background-color", "#ff5050");
+			$("#QW_log_Bt").hide();
+			$("#Talk_log_Bt").hide();
+			break;
+		case 2:
+			$("#QW_btn"+"${stage_id}").css("background-color", "#ff5050");
+			$("#QW_btn"+"${stage_id}").css("color", "#fff");
+			$(".log_game_bt:nth-of-type(2)").css("background-color", "#ff5050");
+			$("#KWG_log_Bt").hide();
+			$("#Talk_log_Bt").hide();
+			break;
+		case 3:
+			$(".log_game_bt:nth-of-type(3)").css("background-color", "#ff5050");
+			$("#KWG_log_Bt").hide();
+			$("#QW_log_Bt").hide();
+			break;
+		}
+		
 	});
 
 	function log_btc_click(event) {
@@ -35,9 +58,11 @@
 		if (game_Selectr == 1) {
 			$(".log_game_bt:nth-of-type(1)").css("background-color", "#ff5050");
 			$("#KWG_log_Bt").show();
+			location.href = "/wrongNote/1/1"
 		} else if (game_Selectr == 2) {
 			$(".log_game_bt:nth-of-type(2)").css("background-color", "#ff5050");
 			$("#QW_log_Bt").show();
+			location.href = "/wrongNote/1/2"
 		} else if (game_Selectr == 3) {
 			$(".log_game_bt:nth-of-type(3)").css("background-color", "#ff5050");
 			$("#Talk_log_Bt").show();
@@ -71,6 +96,33 @@
 			$("#personal_logoutbt").css("background-color", "#ffc000")
 		}
 	}
+	
+	function KWG_btn(event){
+		switch(event){
+		case 1:	location.href = "/wrongNote/1/1"
+			break;
+		case 2:location.href = "/wrongNote/2/1"
+			break;
+		case 3:location.href = "/wrongNote/3/1"
+			break;
+		case 4:location.href = "/wrongNote/4/1"
+			break;
+		case 5:location.href = "/wrongNote/5/1"
+			break;
+		case 6:location.href = "/wrongNote/6/1"
+			break;
+	}
+}
+	function QW_btn(event){
+		switch(event){
+		case 1:	location.href = "/wrongNote/1/2"
+			break;
+		case 2:location.href = "/wrongNote/2/2"
+			break;
+		case 3:location.href = "/wrongNote/3/2"
+			break;
+	}
+}
 </script>
 </head>
 
@@ -124,28 +176,99 @@
 					</div>
 					<div class="log_stage_bar">
 						<div id="KWG_log_Bt" class="log_stage">
-							<button class="log_stage_bt" type="button" value="1"
-								name="button">1</button>
-							<button class="log_stage_bt" type="button" value="2"
-								name="button">2</button>
-							<button class="log_stage_bt" type="button" value="3"
-								name="button">3</button>
-							<button class="log_stage_bt" type="button" value="4"
-								name="button">4</button>
-							<button class="log_stage_bt" type="button" value="5"
-								name="button">5</button>
+							<c:choose>
+								<c:when test="${stage[0].isLock eq '1' }">
+									<button class="log_stage_bt" type="button" value="1"
+										name="button" id="KWG_btn1" onclick="KWG_btn(1)">1</button>
+								</c:when>
+								<c:when test="${stage[0].isLock eq '0' }">
+									<button class="log_stage_bt" type="button" value="1"
+										name="button" id="KWG_btn1" onclick="KWG_btn(1)"
+										style="background-color: gray; color: white; pointer-events: none; cursor: default;">1</button>
+								</c:when>
+							</c:choose>
+							<c:choose>
+								<c:when test="${stage[1].isLock eq '1' }">
+									<button class="log_stage_bt" type="button" value="2"
+										name="button" id="KWG_btn2" onclick="KWG_btn(2)">2</button>
+								</c:when>
+								<c:when test="${stage[1].isLock eq '0' }">
+									<button class="log_stage_bt" type="button" value="2"
+										name="button" id="KWG_btn2" onclick="KWG_btn(2)"
+										style="background-color: gray; color: white;">2</button>
+								</c:when>
+							</c:choose>
+							<c:choose>
+								<c:when test="${stage[2].isLock eq '1' }">
+									<button class="log_stage_bt" type="button" value="3"
+										name="button" id="KWG_btn3" onclick="KWG_btn(3)">3</button>
+								</c:when>
+								<c:when test="${stage[2].isLock eq '0' }">
+									<button class="log_stage_bt" type="button" value="3"
+										name="button" id="KWG_btn3" onclick="KWG_btn(3)"
+										style="background-color: gray; color: white;">3</button>
+								</c:when>
+							</c:choose>
+							<c:choose>
+								<c:when test="${stage[3].isLock eq '1' }">
+									<button class="log_stage_bt" type="button" value="4"
+										name="button" id="KWG_btn4" onclick="KWG_btn(4)">4</button>
+								</c:when>
+								<c:when test="${stage[3].isLock eq '0' }">
+									<button class="log_stage_bt" type="button" value="4"
+										name="button" id="KWG_btn4" onclick="KWG_btn(4)"
+										style="background-color: gray; color: white; pointer-events: none; cursor: default;">4</button>
+								</c:when>
+							</c:choose>
+							<c:choose>
+								<c:when test="${stage[4].isLock eq '1' }">
+									<button class="log_stage_bt" type="button" value="5"
+										name="button" id="KWG_btn5" onclick="KWG_btn(5)">5</button>
+								</c:when>
+								<c:when test="${stage[4].isLock eq '0' }">
+									<button class="log_stage_bt" type="button" value="5"
+										name="button" id="KWG_btn5" onclick="KWG_btn(5)"
+										style="background-color: gray; color: white; pointer-events: none; cursor: default;">5</button>
+								</c:when>
+							</c:choose>
 							<button class="log_stage_bt" type="button" value="6"
-								name="button">?</button>
+								name="button" id="KWG_btn6" onclick="KWG_btn(6)"
+								style="background-color: gray; color: white; pointer-events: none; cursor: default;">?</button>
 						</div>
 						<div id="QW_log_Bt" class="log_stage">
-							<button class="log_stage_bt" type="button" value="1"
-								name="button">1</button>
-							<button class="log_stage_bt" type="button" value="2"
-								name="button">2</button>
-							<button class="log_stage_bt" type="button" value="3"
-								name="button">3</button>
-							<button class="log_stage_bt" type="button" value="3"
-								name="button">?</button>
+							<c:choose>
+								<c:when test="${stage[0].isLock eq '1' }">
+									<button class="log_stage_bt" type="button" value="1"
+										name="button" id="QW_btn1" onclick="QW_btn(1)">1</button>
+								</c:when>
+								<c:when test="${stage[0].isLock eq '0' }">
+									<button class="log_stage_bt" type="button" value="1"
+										name="button" id="QW_btn1" onclick="QW_btn(1)"
+										style="background-color: gray; color: white; pointer-events: none; cursor: default;">1</button>
+								</c:when>
+							</c:choose>
+							<c:choose>
+								<c:when test="${stage[1].isLock eq '1' }">
+									<button class="log_stage_bt" type="button" value="2"
+										name="button" id="QW_btn2" onclick="QW_btn(2)">2</button>
+								</c:when>
+								<c:when test="${stage[1].isLock eq '0' }">
+									<button class="log_stage_bt" type="button" value="2"
+										name="button" id="QW_btn2" onclick="QW_btn(2)"
+										style="background-color: gray; color: white; pointer-events: none; cursor: default;">2</button>
+								</c:when>
+							</c:choose>
+							<c:choose>
+								<c:when test="${stage[2].isLock eq '1' }">
+									<button class="log_stage_bt" type="button" value="3"
+										name="button" id="QW_btn3" onclick="QW_btn(3)">3</button>
+								</c:when>
+								<c:when test="${stage[2].isLock eq '0' }">
+									<button class="log_stage_bt" type="button" value="3"
+										name="button" id="QW_btn3" onclick="QW_btn(3)"
+										style="background-color: gray; color: white; pointer-events: none; cursor: default;">3</button>
+								</c:when>
+							</c:choose>
 						</div>
 						<div id="Talk_log_Bt" class="log_stage">
 							<button class="log_stage_bt" type="button" value="1"

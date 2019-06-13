@@ -67,5 +67,11 @@
 		UserWords.user_id = #{user_id} AND Word.stage_id = #{stage_id} AND
 		Word.gameNum = #{gameNum}
 	</select>
-	
+
+	<select id="stageIsLock"
+		resultType="com.skhu.NWFA.user.userModel.userStages">
+		SELECT * FROM UserStages
+		where user_id=#{user_id} and
+		gameNum=#{gameNum}
+	</select>
 </mapper>
