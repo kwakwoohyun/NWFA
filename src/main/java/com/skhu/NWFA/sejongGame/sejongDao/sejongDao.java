@@ -34,11 +34,11 @@ public interface sejongDao {
 
 	List<wordsModel> LobbyWords(int stage);
 
-	List<sejongWordsModel> sejongWrongNote(int user_id,String stage_id);
+	List<sejongWordsModel> sejongWrongNote(int user_id, String stage_id);
 
 	void sejongWordsCorrect(String gameNum, String stage_id, int user_id, int word_id, String answer);
 
-	void sejongWordsSave(String gameNum, String stage_id, int user_id, int word_id,String answer);
+	void sejongWordsSave(String gameNum, String stage_id, int user_id, int word_id, String answer);
 
-
+	void setScore(int user_id,int stage_id, int gameNum, int score);
 }

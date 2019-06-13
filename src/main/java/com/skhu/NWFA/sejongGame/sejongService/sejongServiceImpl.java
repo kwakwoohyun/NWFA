@@ -91,6 +91,10 @@ public class sejongServiceImpl implements sejongService {
 	}
 
 
+	@Override
+	public void setScore(int user_id, int stage_id, int gameNum, int score) {
+		dao.setScore(user_id, stage_id, gameNum, score);
 
+	}
 
 }

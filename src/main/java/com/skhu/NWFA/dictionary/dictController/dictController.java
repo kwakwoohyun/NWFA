@@ -102,10 +102,16 @@ public class dictController {
 
 		List<wrongNote> wrongNote = service.wrongNote(user.getUser_id(), stage_id, gameNum);
 		List<userStages> stages = service.stageIsLock(user.getUser_id(), gameNum);
+		List<userStages> stagesking = service.stageIsLock(user.getUser_id(), 1);
+		List<userStages> stagesYamin = service.stageIsLock(user.getUser_id(), 2);
+		List<userStages> stagesTalk = service.stageIsLock(user.getUser_id(), 3);
 		model.addAttribute("wrongNote", wrongNote);
 		model.addAttribute("stage_id", stage_id);
 		model.addAttribute("gameNum", gameNum);
 		model.addAttribute("stage", stages);
+		model.addAttribute("stagesking", stagesking);
+		model.addAttribute("stagesYamin", stagesYamin);
+		model.addAttribute("stagesTalk", stagesTalk);
 
 		return "personal";
 	}

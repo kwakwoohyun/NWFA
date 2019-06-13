@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skhu.NWFA.user.userModel.userModel;
+import com.skhu.NWFA.user.userModel.userStages;
 import com.skhu.NWFA.yaminGame.yaminModel.syllablesModel;
 import com.skhu.NWFA.yaminGame.yaminModel.wordsModel;
 import com.skhu.NWFA.yaminGame.yaminModel.yaminWordsModel;
@@ -30,11 +31,53 @@ public class yaminController {
 	public String YaminGameLobby(Model model, @PathVariable String yaminStageId, @PathVariable String gameNum,
 			HttpSession session) {
 		List<wordsModel> words = serviece.yaminWords(yaminStageId, gameNum);
+		String userID = null;
+		userModel user = null;
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+			user = serviece.loginUser(userID);
+		}
+		int u_id = user.getUser_id();
+		List<userStages> stageList = serviece.selectUserStage(u_id);
+		model.addAttribute("stageList", stageList);
 		model.addAttribute("word", words);
 		model.addAttribute("yaminStageId", yaminStageId);
 		model.addAttribute("gameNum", gameNum);
 
 		return "game/YaminGameLobby";
+	}
+
+	@RequestMapping("setScoreYamin/{stageId}/{score}")
+	public String setScoreYamin(Model model, HttpSession session, @PathVariable String stageId,
+			@PathVariable int score) {
+
+		String userID = null;
+		userModel user = null;
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+			user = serviece.loginUser(userID);
+		}
+
+		serviece.setScore(user.getUser_id(), Integer.parseInt(stageId), 2, score);
+		int nextStage = Integer.parseInt(stageId) + 1;
+
+		return "redirect:/YaminGameLobby/" + nextStage + "/2";
+	}
+
+	@RequestMapping("reGameYamin/{stageId}/{score}")
+	public String reGameYamin(Model model, HttpSession session, @PathVariable String stageId, @PathVariable int score) {
+
+		String userID = null;
+		userModel user = null;
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+			user = serviece.loginUser(userID);
+		}
+
+		serviece.setScore(user.getUser_id(), Integer.parseInt(stageId), 2, score);
+		int nextStage = Integer.parseInt(stageId);
+
+		return "redirect:/YaminGameLobby/" + nextStage + "/2";
 	}
 
 	@RequestMapping("YaminGame/{yaminStageId}/{gameNum}/{wordIdx}")
@@ -62,7 +105,7 @@ public class yaminController {
 			model.addAttribute("wordlength", wordlength);
 			model.addAttribute("li", syllablesArray);
 			model.addAttribute("word", word);
-	
+
 			return "game/YaminGame";
 		}
 
@@ -125,7 +168,6 @@ public class yaminController {
 		}
 
 		List<yaminWordsModel> words = serviece.yaminWrongNote(user.getUser_id(), yaminStageId);
-		System.out.println(words.get(0).getStage_id());
 
 		model.addAttribute("words", words);
 
@@ -133,7 +175,12 @@ public class yaminController {
 			isCorrect += words.get(i).getIsCorrect();
 		}
 
-		model.addAttribute("score", isCorrect*20);
+		if (isCorrect * 20 >= 60) {
+			System.out.println("in");
+			int nextStage = Integer.parseInt(yaminStageId) + 1;
+			serviece.stageLockUpdate(nextStage, user.getUser_id());
+		}
+		model.addAttribute("score", isCorrect * 20);
 
 		return "game/YaminGameModal";
 	}

@@ -310,19 +310,59 @@ window.onpopstate = function(event) {
 						<div class="score_Stage_area">
 
 							<div class="score_Stage" id="score_Stage_Sejong">
-								스테이지1 <br> <span class="Sejong_Stage" id="Sejong_Stage1">90점</span>
+								스테이지1 <br>
+								<c:choose>
+									<c:when test="${stagesking[0].score == 0}">
+										<span class="Sejong_Stage" id="Sejong_Stage1">?</span>
+									</c:when>
+									<c:otherwise>
+										<span class="Sejong_Stage" id="Sejong_Stage1">${stagesking[0].score }점</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_Stage_Sejong">
-								스테이지2 <br> <span class="Sejong_Stage" id="Sejong_Stage2">90점</span>
+								스테이지2 <br>
+								<c:choose>
+									<c:when test="${stagesking[1].score == 0}">
+										<span class="Sejong_Stage" id="Sejong_Stage2">?</span>
+									</c:when>
+									<c:otherwise>
+										<span class="Sejong_Stage" id="Sejong_Stage2">${stagesking[1].score }점</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_Stage_Sejong">
-								스테이지3 <br> <span class="Sejong_Stage" id="Sejong_Stage3">90점</span>
+								스테이지3 <br>
+								<c:choose>
+									<c:when test="${stagesking[2].score eq 0 }">
+										<span class="Sejong_Stage" id="Sejong_Stage3">?</span>
+									</c:when>
+									<c:otherwise>
+										<span class="Sejong_Stage" id="Sejong_Stage3">${stagesking[2].score }점</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_Stage_Sejong">
-								스테이지4 <br> <span class="Sejong_Stage" id="Sejong_Stage4">90점</span>
+								스테이지4 <br>
+								<c:choose>
+									<c:when test="${stagesking[3].score eq 0 }">
+										<span class="Sejong_Stage" id="Sejong_Stage4">?</span>
+									</c:when>
+									<c:otherwise>
+										<span class="Sejong_Stage" id="Sejong_Stage4">${stagesking[3].score }점</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_Stage_Sejong">
-								스테이지5 <br> <span class="Sejong_Stage" id="Sejong_Stage5">90점</span>
+								스테이지5 <br>
+								<c:choose>
+									<c:when test="${stagesking[4].score eq 0 }">
+										<span class="Sejong_Stage" id="Sejong_Stage5">?</span>
+									</c:when>
+									<c:otherwise>
+										<span class="Sejong_Stage" id="Sejong_Stage5">${stagesking[4].score }점</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 						</div>
 					</div>
@@ -334,16 +374,37 @@ window.onpopstate = function(event) {
 						<div class="score_Stage_area">
 
 							<div class="score_Stage" id="score_WordQuiz_Sejong">
-								스테이지1 <br> <span class="WordQuiz_Stage"
-									id="WordQuiz_Stage1">90점</span>
+								스테이지1 <br>
+								<c:choose>
+									<c:when test="${stagesYamin[0].score eq 0 }">
+										<span class="WordQuiz_Stage" id="WordQuiz_Stage1">?</span>
+									</c:when>
+									<c:otherwise>
+										<span class="WordQuiz_Stage" id="WordQuiz_Stage1">${stagesYamin[0].score }점</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_WordQuiz_Sejong">
-								스테이지2 <br> <span class="WordQuiz_Stage"
-									id="WordQuiz_Stage2">90점</span>
+								스테이지2 <br>
+								<c:choose>
+									<c:when test="${stagesYamin[1].score eq 0 }">
+										<span class="WordQuiz_Stage" id="WordQuiz_Stage2">?</span>
+									</c:when>
+									<c:otherwise>
+										<span class="WordQuiz_Stage" id="WordQuiz_Stage2">${stagesYamin[1].score }점</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_WordQuiz_Sejong">
-								스테이지3 <br> <span class="WordQuiz_Stage"
-									id="WordQuiz_Stage3">90점</span>
+								스테이지3 <br>
+								<c:choose>
+									<c:when test="${stagesYamin[2].score eq 0 }">
+										<span class="WordQuiz_Stage" id="WordQuiz_Stage3">?</span>
+									</c:when>
+									<c:otherwise>
+										<span class="WordQuiz_Stage" id="WordQuiz_Stage3">${stagesYamin[2].score }점</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 						</div>
 					</div>
@@ -356,19 +417,59 @@ window.onpopstate = function(event) {
 						<div class="score_Stage_area">
 
 							<div class="score_Stage" id="score_Stage_Talk">
-								스테이지1 <br> <span class="Talk_Stage" id="Talk_Stage1">100점</span>
+								스테이지1 <br>
+								<c:choose>
+									<c:when test="${stagesTalk[0].score eq 0 }">
+										<span class="Talk_Stage" id="Talk_Stage1">?</span>
+									</c:when>
+									<c:otherwise>
+										<span class="Talk_Stage" id="Talk_Stage1">${stagesTalk[0].score }점</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_Stage_Sejong">
-								스테이지2 <br> <span class="Talk_Stage" id="Talk_Stage2">100점</span>
+								스테이지2 <br>
+								<c:choose>
+									<c:when test="${stagesTalk[1].score eq 0 }">
+										<span class="Talk_Stage" id="Talk_Stage2">?</span>
+									</c:when>
+									<c:otherwise>
+										<span class="Talk_Stage" id="Talk_Stage2">${stagesTalk[1].score }점</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_Stage_Sejong">
-								스테이지3 <br> <span class="Talk_Stage" id="Talk_Stage3">100점</span>
+								스테이지3 <br>
+								<c:choose>
+									<c:when test="${stagesTalk[2].score eq 0 }">
+										<span class="Talk_Stage" id="Talk_Stage3">?</span>
+									</c:when>
+									<c:otherwise>
+										<span class="Talk_Stage" id="Talk_Stage3">${stagesTalk[2].score }점</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_Stage_Sejong">
-								스테이지4 <br> <span class="Talk_Stage" id="Talk_Stage4">100점</span>
+								스테이지4 <br>
+								<c:choose>
+									<c:when test="${stagesTalk[3].score eq 0 }">
+										<span class="Talk_Stage" id="Talk_Stage4">?</span>
+									</c:when>
+									<c:otherwise>
+										<span class="Talk_Stage" id="Talk_Stage4">${stagesTalk[3].score }점</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_Stage_Sejong">
-								스테이지5 <br> <span class="Talk_Stage" id="Talk_Stage5">100점</span>
+								스테이지5 <br>
+								<c:choose>
+									<c:when test="${stagesTalk[4].score eq 0 }">
+										<span class="Talk_Stage" id="Talk_Stage5">?</span>
+									</c:when>
+									<c:otherwise>
+										<span class="Talk_Stage" id="Talk_Stage5">${stagesTalk[4].score }점</span>
+									</c:otherwise>
+								</c:choose>
 							</div>
 						</div>
 					</div>
@@ -524,22 +625,11 @@ window.onpopstate = function(event) {
 							<div class="setting_passwd_info">
 								계정의 비밀번호를 변경할수 있습니다.<br> 이메일 인증이 필요합니다.
 							</div>
-							<div class="setting_passwd_bt">
-								<a href="/update">비밀번호 변경</a>
-							</div>
+							<div class="setting_passwd_bt" onclick="location.href='/update'">
+								비밀번호 변경</div>
 						</div>
 					</div>
-					<div class="setting_profile">
-						<div class="setting_profile_text">프로필 이미지 설정</div>
-						<div class="setting_profile_box">
-							<div class="setting_profile_img"></div>
-							<div class="setting_profile_img"></div>
-							<div class="setting_profile_img"></div>
-							<div class="setting_profile_img"></div>
-							<div class="setting_profile_img"></div>
-							<div class="setting_profile_img"></div>
-						</div>
-					</div>
+					<div class="setting_profile"></div>
 				</div>
 				<div id="personal_logout"></div>
 			</div>

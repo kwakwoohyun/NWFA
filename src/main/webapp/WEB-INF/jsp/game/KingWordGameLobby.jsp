@@ -27,7 +27,7 @@
 	$(document).ready(function() {
 		$(".Card_Back").hide();
 		$(".Card_Front").show();
-		$("#KWG_stage"+${words[0].stage_id}).css({
+		$("#KWG_stage"+'${words[0].stage_id}').css({
 			'background-color' : '#ff5050'
 		})
 		$(".prevBT").hide(); // 맨 처음 카드를 화면에 보여줄때 이전으로 가기 버튼을 비활성화 시킴

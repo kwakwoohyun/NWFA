@@ -173,20 +173,50 @@ var cardloc = 0;
 						<div class="blackboard_Level">
 							<div class="blackboard_Level_text">Stage ${word[0].stage_id }</div>
 							<div>
-								<button id="WQ_Level1" class="WQ_Level" value="1"
-									onclick="WordQuizLevel_click(this.value)">
-									<div class="WQ_Levelno">1</div>
-								</button>
-
-								<button id="WQ_Level2" class="WQ_Level" value="2"
-									onclick="WordQuizLevel_click(this.value)">
-									<div class="WQ_Levelno">2</div>
-								</button>
-
-								<button id="WQ_Level3" class="WQ_Level" value="3"
-									onclick="WordQuizLevel_click(this.value)">
-									<div class="WQ_Levelno">3</div>
-								</button>
+								<c:choose>
+									<c:when test="${stageList[0].isLock eq '1' }">
+										<button id="WQ_Level1" class="WQ_Level" value="1"
+											onclick="WordQuizLevel_click(this.value)">
+											<div class="WQ_Levelno">1</div>
+										</button>
+									</c:when>
+									<c:when test="${stageList[0].isLock eq '0' }">
+										<button id="WQ_Level1" class="WQ_Level" value="1"
+											onclick="WordQuizLevel_click(this.value)">
+											<div class="WQ_Levelno">1</div>
+										</button>
+									</c:when>
+								</c:choose>
+								<c:choose>
+									<c:when test="${stageList[1].isLock eq '1' }">
+										<button id="WQ_Level2" class="WQ_Level" value="2"
+											onclick="WordQuizLevel_click(this.value)">
+											<div class="WQ_Levelno">2</div>
+										</button>
+									</c:when>
+									<c:when test="${stageList[1].isLock eq '0' }">
+										<button id="WQ_Level2" class="WQ_Level" value="2"
+											onclick="WordQuizLevel_click(this.value)"
+											style="background-color: gray; color: white; pointer-events: none; cursor: default;">
+											<div class="WQ_Levelno">2</div>
+										</button>
+									</c:when>
+								</c:choose>
+								<c:choose>
+									<c:when test="${stageList[2].isLock eq '1' }">
+										<button id="WQ_Level3" class="WQ_Level" value="3"
+											onclick="WordQuizLevel_click(this.value)">
+											<div class="WQ_Levelno">3</div>
+										</button>
+									</c:when>
+									<c:when test="${stageList[2].isLock eq '0' }">
+										<button id="WQ_Level3" class="WQ_Level" value="3"
+											onclick="WordQuizLevel_click(this.value)"
+											style="background-color: gray; color: white; pointer-events: none; cursor: default;">
+											<div class="WQ_Levelno">3</div>
+										</button>
+									</c:when>
+								</c:choose>
 							</div>
 
 						</div>
@@ -208,8 +238,7 @@ var cardloc = 0;
 											<div class="card_number">1/5</div>
 										</div>
 										<div class="Card_bottom">
-							<br>
-											${word[0].mean}
+											<br> ${word[0].mean}
 										</div>
 									</div>
 									<div id="QuizCard_2" class="WQ_Card learning_quiz"
@@ -221,8 +250,7 @@ var cardloc = 0;
 											<div class="card_number">2/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br> 
-											${word[1].mean}
+											<br> ${word[1].mean}
 										</div>
 									</div>
 									<div id="QuizCard_3" class="WQ_Card learning_quiz"
@@ -234,8 +262,7 @@ var cardloc = 0;
 											<div class="card_number">3/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br> 
-											${word[2].mean}
+											<br> ${word[2].mean}
 										</div>
 									</div>
 									<div id="QuizCard_4" class="WQ_Card learning_quiz"
@@ -247,8 +274,7 @@ var cardloc = 0;
 											<div class="card_number">4/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br>
-											${word[3].mean}
+											<br> ${word[3].mean}
 										</div>
 									</div>
 									<div id="QuizCard_5" class="WQ_Card learning_quiz"
@@ -261,8 +287,7 @@ var cardloc = 0;
 											<div class="card_number">5/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br>
-											${word[4].mean}
+											<br> ${word[4].mean}
 										</div>
 									</div>
 								</div>

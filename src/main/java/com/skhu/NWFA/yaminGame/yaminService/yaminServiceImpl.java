@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skhu.NWFA.user.userModel.userModel;
+import com.skhu.NWFA.user.userModel.userStages;
 import com.skhu.NWFA.yaminGame.yaminDao.yaminDao;
 import com.skhu.NWFA.yaminGame.yaminModel.syllablesModel;
 import com.skhu.NWFA.yaminGame.yaminModel.wordsModel;
@@ -36,8 +37,7 @@ public class yaminServiceImpl implements yaminService {
 
 	@Override
 	public void stageLockUpdate(int stageId, int userId) {
-		// TODO Auto-generated method stub
-
+		dao.stageLockUpdate(stageId, userId);
 	}
 
 	@Override
@@ -56,6 +56,17 @@ public class yaminServiceImpl implements yaminService {
 	public List<yaminWordsModel> yaminWrongNote(int user_id, String yaminStageId) {
 
 		return dao.yaminWrongNote(user_id, yaminStageId);
+	}
+
+	@Override
+	public void setScore(int user_id, int stage_id, int gameNum, int score) {
+		dao.setScore(user_id, stage_id, gameNum, score);
+
+	}
+
+	@Override
+	public List<userStages> selectUserStage(int id) {
+		return dao.selectUserStage(id);
 	}
 
 }

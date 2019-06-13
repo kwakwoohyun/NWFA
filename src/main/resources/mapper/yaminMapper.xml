@@ -58,4 +58,27 @@
 		Word.gameNum = 2
 	</select>
 
+	<update id="setScore">
+		UPDATE UserStages SET score = #{score} WHERE
+		gameNum =
+		#{gameNum} AND stage_id = #{stage_id} AND user_id =
+		#{user_id}
+	</update>
+
+	<select id="selectUserStage"
+		resultType="com.skhu.NWFA.user.userModel.userStages">
+		SELECT * FROM UserStages
+		where user_id = #{user_id} and
+		gameNum = 2
+	</select>
+
+	<update id="stageLockUpdate" >
+		UPDATE UserStages
+		SET
+		isLock = 1
+		WHERE stage_id =
+		#{stageId} And
+		user_id = #{userId} AND
+		gameNum = 2
+	</update>
 </mapper>

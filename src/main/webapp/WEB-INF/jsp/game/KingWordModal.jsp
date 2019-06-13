@@ -95,18 +95,27 @@
 						<div class="popup_GameScore_Score_score" id="Score">${score }점</div>
 					</div>
 					<div class="popup_GameScore_btn_box">
-						<c:if test="${score ge 60}">
-							<div class="popup_GameScore_Score_Text">다음 스테이지에 도전하세요!</div>
-							<div class="popup_GameScore_NextGame" id="NextGame"
-								onclick="location.href='/KingWordGameLobby/${words[0].stage_id+1}'">다음
-								스테이지 학습하기</div>
-						</c:if>
-						<c:if test="${score lt 60}">
-							<div class="popup_GameScore_Score_Text">60점을 향해 노력하세요!</div>
-							<div class="popup_GameScore_NextGame" id="NextGame"
-								onclick="location.href='/KingWordGameLobby/${words[0].stage_id}'">다시
-								학습하기</div>
-						</c:if>
+						<c:choose>
+							<c:when test="${words[0].stage_id eq 5}">
+								<div class="popup_GameScore_NextGame" id="NextGame"
+									onclick="location.href='/YaminGameLobby/1/2'">다음 게임 학습하기</div>
+							</c:when>
+							<c:otherwise>
+								<c:if test="${score ge 60}">
+									<div class="popup_GameScore_Score_Text">다음 스테이지에 도전하세요!</div>
+									<div class="popup_GameScore_NextGame" id="NextGame"
+										onclick="location.href='/setScore/${words[0].stage_id}/${score }'">다음
+										스테이지 학습하기</div>
+								</c:if>
+								<c:if test="${score lt 60}">
+									<div class="popup_GameScore_Score_Text">60점을 향해 노력하세요!</div>
+									<div class="popup_GameScore_NextGame" id="NextGame"
+										onclick="location.href='/reGame/${words[0].stage_id}/${score }'">다시
+										학습하기</div>
+								</c:if>
+							</c:otherwise>
+						</c:choose>
+
 						<div class="popup_GameScore_Lobby" id="MoveLobby">
 							<a href="/GameLobby">로비로 나가기</a>
 						</div>

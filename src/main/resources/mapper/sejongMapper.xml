@@ -28,10 +28,12 @@
 
 	<update id="stageLockUpdate" parameterType="int">
 		UPDATE UserStages
-		SET isLock = 1
+		SET
+		isLock = 1
 		WHERE stage_id =
 		#{stageId} And
-		user_id = #{userId} AND gameNum = 1
+		user_id = #{userId} AND
+		gameNum = 1
 	</update>
 
 	<select id="loginUser"
@@ -80,8 +82,8 @@
 		UserWords.user_id = #{user_id} AND Word.stage_id = #{stage_id} AND
 		Word.gameNum = 1
 	</select>
-	
-		<update id="sejongWordsCorrect">
+
+	<update id="sejongWordsCorrect">
 		UPDATE UserWords SET answer = #{answer},isCorrect = 1
 		WHERE
 		gameNum =
@@ -100,4 +102,10 @@
 		AND word_id= #{word_id}
 	</update>
 
+	<update id="setScore">
+		UPDATE UserStages SET score = #{score} WHERE
+		gameNum =
+		#{gameNum} AND stage_id = #{stage_id} AND user_id =
+		#{user_id}
+	</update>
 </mapper>

@@ -38,7 +38,6 @@ public class sejongController {
 			user = service.loginUser(userID);
 		}
 
-		service.stageLockUpdate(Integer.parseInt(stageId), user.getUser_id());
 		String id = (String) session.getAttribute("userID");
 		userModel user_id = service.loginUser(id);
 		int u_id = user_id.getUser_id();
@@ -46,9 +45,41 @@ public class sejongController {
 		model.addAttribute("stageList", stageList);
 		int stage = Integer.parseInt(stageId);
 		List<wordsModel> words = service.LobbyWords(stage);
-//		System.out.println(words.get(0).getJustice());
+
 		model.addAttribute("words", words);
 		return "game/KingWordGameLobby";
+	}
+
+	@RequestMapping("setScore/{stageId}/{score}")
+	public String setScore(Model model, HttpSession session, @PathVariable String stageId, @PathVariable int score) {
+
+		String userID = null;
+		userModel user = null;
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+			user = service.loginUser(userID);
+		}
+
+		service.setScore(user.getUser_id(), Integer.parseInt(stageId), 1, score);
+		int nextStage = Integer.parseInt(stageId) + 1;
+
+		return "redirect:/KingWordGameLobby/" + nextStage;
+	}
+
+	@RequestMapping("reGame/{stageId}/{score}")
+	public String reGame(Model model, HttpSession session, @PathVariable String stageId, @PathVariable int score) {
+
+		String userID = null;
+		userModel user = null;
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+			user = service.loginUser(userID);
+		}
+
+		service.setScore(user.getUser_id(), Integer.parseInt(stageId), 1, score);
+		int nextStage = Integer.parseInt(stageId);
+
+		return "redirect:/KingWordGameLobby/" + nextStage;
 	}
 
 	@RequestMapping("KingWordGame/{stage_id}/{word_id}/{gameNum}")
@@ -148,7 +179,10 @@ public class sejongController {
 		for (int i = 0; i < words.size(); i++) {
 			isCorrect += words.get(i).getIsCorrect();
 		}
-
+		if (isCorrect * 10 >= 60) {
+			int nextStage = Integer.parseInt(stage_id) + 1;
+			service.stageLockUpdate(nextStage, user.getUser_id());
+		}
 		model.addAttribute("score", isCorrect * 10);
 
 		return "game/KingWordModal";

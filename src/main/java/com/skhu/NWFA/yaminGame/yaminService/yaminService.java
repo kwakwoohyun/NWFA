@@ -3,6 +3,7 @@ package com.skhu.NWFA.yaminGame.yaminService;
 import java.util.List;
 
 import com.skhu.NWFA.user.userModel.userModel;
+import com.skhu.NWFA.user.userModel.userStages;
 import com.skhu.NWFA.yaminGame.yaminModel.syllablesModel;
 import com.skhu.NWFA.yaminGame.yaminModel.wordsModel;
 import com.skhu.NWFA.yaminGame.yaminModel.yaminWordsModel;
@@ -22,4 +23,8 @@ public interface yaminService {
 	userModel loginUser(String login_id);
 
 	List<yaminWordsModel> yaminWrongNote(int user_id,String yaminStageId);
+
+	void setScore(int user_id, int stage_id, int gameNum, int score);
+
+	List<userStages> selectUserStage(int id);
 }

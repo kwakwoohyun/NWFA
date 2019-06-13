@@ -11,7 +11,7 @@ import com.skhu.NWFA.user.userModel.userStages;
 
 public interface sejongService {
 
-	List<wordsModel> sejongWords(String stage_id,String word_id, String gameNum);
+	List<wordsModel> sejongWords(String stage_id, String word_id, String gameNum);
 
 	List<syllablesModel> example(int count);
 
@@ -19,7 +19,7 @@ public interface sejongService {
 
 	List<stageModel> sejongStageAll();
 
-	void stageLockUpdate(int stageId,int userId);
+	void stageLockUpdate(int stageId, int userId);
 
 	userModel loginUser(String id);
 
@@ -31,11 +31,11 @@ public interface sejongService {
 
 	List<wordsModel> LobbyWords(int stage);
 
-	List<sejongWordsModel> sejongWrongNote(int user_id,String stage_id);
+	List<sejongWordsModel> sejongWrongNote(int user_id, String stage_id);
 
 	void sejongWordsCorrect(String gameNum, String stage_id, int user_id, int word_id, String answer);
 
-	void sejongWordsSave(String gameNum, String stage_id, int user_id, int word_id,String answer);
+	void sejongWordsSave(String gameNum, String stage_id, int user_id, int word_id, String answer);
 
-
+	void setScore(int user_id, int stage_id, int gameNum, int score);
 }
