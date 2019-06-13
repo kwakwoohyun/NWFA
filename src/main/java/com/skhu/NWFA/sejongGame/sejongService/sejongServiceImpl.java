@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skhu.NWFA.sejongGame.sejongDao.sejongDao;
+import com.skhu.NWFA.sejongGame.sejongModel.sejongWordsModel;
 import com.skhu.NWFA.sejongGame.sejongModel.stageModel;
 import com.skhu.NWFA.sejongGame.sejongModel.syllablesModel;
 import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
@@ -17,7 +18,7 @@ public class sejongServiceImpl implements sejongService {
 
 	@Autowired(required = false)
 	sejongDao dao;
-	
+
 	@Override
 	public List<wordsModel> sejongWords(String stage_id, String word_id, String gameNum) {
 		// TODO Auto-generated method stub
@@ -71,6 +72,22 @@ public class sejongServiceImpl implements sejongService {
 	public List<wordsModel> LobbyWords(int stage) {
 		// TODO Auto-generated method stub
 		return dao.LobbyWords(stage);
+	}
+
+	@Override
+	public List<sejongWordsModel> sejongWrongNote(int user_id, String stage_id) {
+		return dao.sejongWrongNote(user_id, stage_id);
+	}
+
+	@Override
+	public void sejongWordsCorrect(String gameNum, String stage_id, int user_id, int word_id, String answer) {
+		dao.sejongWordsCorrect(gameNum, stage_id, user_id, word_id, answer);
+	}
+
+	@Override
+	public void sejongWordsSave(String gameNum, String stage_id, int user_id, int word_id, String answer) {
+		dao.sejongWordsSave(gameNum, stage_id, user_id, word_id, answer);
+
 	}
 
 

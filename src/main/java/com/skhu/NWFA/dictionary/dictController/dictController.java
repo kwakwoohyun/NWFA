@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skhu.NWFA.dictionary.dictModel.wordModel;
+import com.skhu.NWFA.dictionary.dictModel.wrongNote;
 import com.skhu.NWFA.dictionary.dictService.dictService;
 import com.skhu.NWFA.user.userModel.userModel;
 
@@ -32,8 +33,8 @@ public class dictController {
 
 		List<wordModel> words = service.dictWordAll(user.getUser_id());
 		model.addAttribute("word", words);
-		model.addAttribute("dic_id",dic_id);
-		model.addAttribute("searchSize",0);
+		model.addAttribute("dic_id", dic_id);
+		model.addAttribute("searchSize", 0);
 
 		return "dict";
 	}
@@ -50,7 +51,7 @@ public class dictController {
 
 		service.setFavorite(user.getUser_id(), word_id);
 
-		return "redirect:/dictionary/"+dic_id;
+		return "redirect:/dictionary/" + dic_id;
 	}
 
 	@RequestMapping("unfavoriteWord/{word_id}/{dic_id}")
@@ -66,12 +67,11 @@ public class dictController {
 
 		service.removeFavorite(user.getUser_id(), word_id);
 
-		return "redirect:/dictionary/"+dic_id;
+		return "redirect:/dictionary/" + dic_id;
 	}
 
 	@RequestMapping("searchWord/{value}")
-	public String searchWord(Model model, @PathVariable String value,
-			HttpSession session) {
+	public String searchWord(Model model, @PathVariable String value, HttpSession session) {
 
 		String userID = null;
 		userModel user = null;
@@ -87,5 +87,22 @@ public class dictController {
 		model.addAttribute("searchSize", search.size());
 
 		return "dict";
+	}
+
+	@RequestMapping("wrongNote/{stage_id}/{gameNum}")
+	public String wrongNote(Model model, @PathVariable int stage_id, @PathVariable int gameNum, HttpSession session) {
+
+		String userID = null;
+		userModel user = null;
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+			user = service.loginUser(userID);
+		}
+
+		List<wrongNote> wrongNote = service.wrongNote(user.getUser_id(), stage_id, gameNum);
+
+		model.addAttribute("wrongNote", wrongNote);
+
+		return "personal";
 	}
 }

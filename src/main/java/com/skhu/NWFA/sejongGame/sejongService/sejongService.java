@@ -2,6 +2,7 @@ package com.skhu.NWFA.sejongGame.sejongService;
 
 import java.util.List;
 
+import com.skhu.NWFA.sejongGame.sejongModel.sejongWordsModel;
 import com.skhu.NWFA.sejongGame.sejongModel.stageModel;
 import com.skhu.NWFA.sejongGame.sejongModel.syllablesModel;
 import com.skhu.NWFA.sejongGame.sejongModel.wordsModel;
@@ -11,7 +12,7 @@ import com.skhu.NWFA.user.userModel.userStages;
 public interface sejongService {
 
 	List<wordsModel> sejongWords(String stage_id,String word_id, String gameNum);
-	
+
 	List<syllablesModel> example(int count);
 
 	List<stageModel> sejongStage(int user_id);
@@ -25,10 +26,16 @@ public interface sejongService {
 	void starUpdate(int star, int parseInt, int user_user_id);
 
 	void setStar(int user_id, int star);
-	
+
 	List<userStages> selectUserStage(int id);
-	
+
 	List<wordsModel> LobbyWords(int stage);
+
+	List<sejongWordsModel> sejongWrongNote(int user_id,String stage_id);
+
+	void sejongWordsCorrect(String gameNum, String stage_id, int user_id, int word_id, String answer);
+
+	void sejongWordsSave(String gameNum, String stage_id, int user_id, int word_id,String answer);
 
 
 }

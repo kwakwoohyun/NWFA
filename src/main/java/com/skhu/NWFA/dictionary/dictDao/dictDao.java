@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.context.annotation.Configuration;
 
 import com.skhu.NWFA.dictionary.dictModel.wordModel;
+import com.skhu.NWFA.dictionary.dictModel.wrongNote;
 import com.skhu.NWFA.user.userModel.userModel;
 
 @Configuration
@@ -19,5 +20,7 @@ public interface dictDao {
 	userModel loginUser(String login_id);
 
 	List<wordModel> searchWord(int user_id, String value);
+
+	List<wrongNote> wrongNote(int user_id, int stage_id, int gameNum);
 
 }
