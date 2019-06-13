@@ -26,7 +26,7 @@
 			</div>
 			<div class="C_headerbar">스테이지 선택</div>
 			<div class="R_headerbar">
-				<div class="login" onclick="location.href='tmepmenu.html'">
+				<div class="login" onclick="location.href='/personal'">
 					<!-- <object type="image/svg+xml" data="icon/user.svg"></object> -->
 				</div>
 			</div>
@@ -39,13 +39,13 @@
 						<img src="icon/talk_stage1.png">
 					</div>
 					<div class="Talk_text">
-						<div class="Talk_name">신조어에 빠진 친구</div>
+						<div class="Talk_name">302호 친구</div>
 						<div class="Talk_info">스테이지1</div>
 					</div>
 				</div>
 				<div class="Talk_Stage_Right">
 					<!-- 오른쪽 -->
-					<div class="Talk_gamestart">게임시작</div>
+					<div class="Talk_gamestart" onclick="location.href='/TalkGame/3/1'">게임시작</div>
 				</div>
 			</div>
 			<div class="Talk_Stage_line">
@@ -55,13 +55,13 @@
 						<img src="icon/talk_stage2.png">
 					</div>
 					<div class="Talk_text">
-						<div class="Talk_name">수업 받는 학생</div>
+						<div class="Talk_name">같은 반 친구</div>
 						<div class="Talk_info">스테이지2</div>
 					</div>
 				</div>
 				<div class="Talk_Stage_Right">
 					<!-- 오른쪽 -->
-					<div class="Talk_gamestart">게임시작</div>
+					<div class="Talk_gamestart" onclick="location.href='/TalkGame/3/2'">게임시작</div>
 				</div>
 			</div>
 			<div class="Talk_Stage_line">
@@ -71,13 +71,13 @@
 						<img src="icon/talk_stage3.jpg">
 					</div>
 					<div class="Talk_text">
-						<div class="Talk_name">아들(대학생)</div>
+						<div class="Talk_name">중학생 아들</div>
 						<div class="Talk_info">스테이지3</div>
 					</div>
 				</div>
 				<div class="Talk_Stage_Right">
 					<!-- 오른쪽 -->
-					<div class="Talk_gamestart">게임시작</div>
+					<div class="Talk_gamestart" onclick="location.href='/TalkGame/3/3'">게임시작</div>
 				</div>
 			</div>
 			<div class="Talk_Stage_line">

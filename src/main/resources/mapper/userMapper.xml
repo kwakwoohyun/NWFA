@@ -37,6 +37,6 @@
 		insert into UserWords
 		(gameNum,isCorrect,answer,favorite,stage_id,user_id,word_id)
 		values
-		(#{gameNum},0,'null',0,#{stage_id},#{user_id},#{word_id})
+		(#{gameNum},0,'미입력',0,#{stage_id},#{user_id},#{word_id})
 	</insert>
 </mapper>
