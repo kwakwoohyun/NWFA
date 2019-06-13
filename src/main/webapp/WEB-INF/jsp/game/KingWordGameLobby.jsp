@@ -129,8 +129,14 @@
 		}
 		if (cardloc == 9) {
 			$(".nextBT").hide();
+			$("#gameStart").css({
+				 'box-shadow' : '0vh 0vh 1vh #fff'
+			})
 		} else {
 			$(".nextBT").show();
+			$("#gameStart").css({
+				 'box-shadow' : 'none'
+			})
 		}
 	}
 </script>
@@ -153,7 +159,7 @@
 		<div class="viewBox">
 			<div class="KingWordLevel">
 				<div class="L_KingWordLevel">
-					<div class="L_KingWordLevel_info">Stage ${words[0].stage_id }</div>
+					<div class="L_KingWordLevel_info">Stage-${words[0].stage_id }</div>
 				</div>
 				<div class="C_KingWordLevel">
 					<div class="KingWordLevel_BT">
@@ -269,9 +275,7 @@
 								<div class="card_name">${words[0].justice }</div>
 								<div class="card_number">1/10</div>
 							</div>
-							<div class="Card_Back">
-								${words[0].mean }
-							</div>
+							<div class="Card_Back">${words[0].mean }</div>
 						</div>
 						<div id="QuizCard_2" class="KWG_Card learning_quiz"
 							onclick="click_quiz(2);">
@@ -279,9 +283,7 @@
 								<div class="card_name">${words[1].justice }</div>
 								<div class="card_number">2/10</div>
 							</div>
-							<div class="Card_Back">
-								${words[1].mean }
-							</div>
+							<div class="Card_Back">${words[1].mean }</div>
 						</div>
 						<div id="QuizCard_3" class="KWG_Card learning_quiz"
 							onclick="click_quiz(3);">
@@ -355,10 +357,10 @@
 				<div class="KW_back KW_BTRstyle">
 					<a href="/GameLobby">뒤로</a>
 				</div>
-				<div class="KW_BTNewStart KW_BTRstyle">
-					<a href="/KingWordGame/${words[0].stage_id }/${words[0].word_id }/${words[0].gameNum }">
-						게임하기 
-					</a>
+				<div class="KW_BTNewStart KW_BTRstyle" id="gameStart">
+					<a
+						href="/KingWordGame/${words[0].stage_id }/0/${words[0].gameNum }">
+						게임하기 </a>
 				</div>
 				<div class="visibilityhidden KW_BTRstyle">더미키</div>
 			</footer>

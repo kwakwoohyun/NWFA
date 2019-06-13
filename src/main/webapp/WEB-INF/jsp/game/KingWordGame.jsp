@@ -44,8 +44,6 @@
 			"${li[4]}", "${li[5]}", "${li[6]}", "${li[7]}", "${li[8]}" ];
 	var count = 0;
 	var hintIndex = 0;
-	var time = 3;
-	var star = 3;
 
 	// [정인국] 여기는 모달레이어를 제어하는 변수들임 프론트엔드용
 	function GameOver() {
@@ -65,14 +63,14 @@
 	function buttonClick(id, index, event) {
 		hintIndex += 1;
 		clickWord = clickWord + event;
-/* 		document.querySelector('#answer' + hintIndex).innerHTML = btnChars[index];
- */		document.querySelector('#KWGQ_BT' + id).style.backgroundColor = '#ffc834';
+		document.querySelector('#answer' + hintIndex).innerHTML = btnChars[index];
+		document.querySelector('#KWGQ_BT' + id).style.backgroundColor = '#ffc834';
 		document.querySelector('#KWGQ_BT' + id).className = 'KWGQ_BT';
 		count++;
 		check();
 	}
 
-	function buttonClickRelease(id) {
+	function buttonClickRelease(id, index, event) {
 		document.querySelector('#answer' + hintIndex).innerHTML = "_";
 		hintIndex += -1;
 		clickWord = clickWord.replace(event, "");
@@ -87,7 +85,7 @@
 		if (btnState[0] == -1) {
 			buttonClick(1, 0, event);
 		} else {
-			buttonClickRelease(1);
+			buttonClickRelease(1,0, event);
 		}
 	}
 
@@ -97,7 +95,7 @@
 		if (btnState[1] == -1) {
 			buttonClick(2, 1, event);
 		} else {
-			buttonClickRelease(2);
+			buttonClickRelease(2, 1, event);
 		}
 	}
 
@@ -107,7 +105,7 @@
 		if (btnState[2] == -1) {
 			buttonClick(3, 2, event);
 		} else {
-			buttonClickRelease(3);
+			buttonClickRelease(3, 2, event);
 		}
 	}
 
@@ -117,7 +115,7 @@
 		if (btnState[3] == -1) {
 			buttonClick(4, 3, event);
 		} else {
-			buttonClickRelease(4);
+			buttonClickRelease(4, 3, event);
 		}
 	}
 
@@ -127,7 +125,7 @@
 		if (btnState[4] == -1) {
 			buttonClick(5, 4, event);
 		} else {
-			buttonClickRelease(5);
+			buttonClickRelease(5, 4, event);
 		}
 	}
 
@@ -137,7 +135,7 @@
 		if (btnState[5] == -1) {
 			buttonClick(6, 5, event);
 		} else {
-			buttonClickRelease(6);
+			buttonClickRelease(6, 5, event);
 		}
 	}
 
@@ -147,7 +145,7 @@
 		if (btnState[6] == -1) {
 			buttonClick(7, 6, event);
 		} else {
-			buttonClickRelease(7);
+			buttonClickRelease(7, 6, event);
 		}
 	}
 
@@ -157,7 +155,7 @@
 		if (btnState[7] == -1) {
 			buttonClick(8, 7, event);
 		} else {
-			buttonClickRelease(8);
+			buttonClickRelease(8, 7, event);
 		}
 	}
 
@@ -167,65 +165,22 @@
 		if (btnState[8] == -1) {
 			buttonClick(9, 8, event);
 		} else {
-			buttonClickRelease(9);
+			buttonClickRelease(9, 8, event);
 		}
 	}
 
 	function check() {
-
-		if (time < 1) {
-			GameOver();
-			setInitialize();
-			setDisable();
-		} else if (count == "${wordlength}") {
-			if (clickWord == '${words[0].justice}') {
-				setDisable();
-				setTimeout(function() {
-					if(${words[0].word_id}%10==0){
-						GameClear();
-					}else{
-					location.href="/KingWordGame/${words[0].stage_id}/${words[0].word_id+1}/${words[0].gameNum}";						
-					}
-					/*  */
-				}, 500);
+		if (count == "${wordlength }") {
+			if (clickWord == '${word.justice }') {
+				location.href = '/SejongGameUpdate/${word.stage_id}/${wordIdx}/${word.gameNum}/'
+						+ clickWord;
 			} else {
-				time--;
-				star--;
-				setDisable();
-				setTimeout(function() {
-					alert('오답입니다. 다시 선택해주세요');
-					setInitialize();
-				}, 500);
+				location.href = '/SejongGameSave/${word.stage_id}/${wordIdx}/${word.gameNum}/'
+						+ clickWord;
 			}
 		}
 	}
-	function setInitialize() {
-		for (var i = 1; i <= 9; i++) {
-			document.querySelector('#KWGQ_BT' + i).style.backgroundColor = '#ffffff';
-		}// 배경색 reset
-		for (var i = 1; i <= 9; i++) {
-			document.querySelector('#KWGQ_BT' + i).disabled = false;
-		}// 버튼 클릭 disable
-		for (var i = 1; i <= 3; i++) {
-			document.querySelector('#answer' + i).innerHTML = "_";
-		}// 힌트 reset
-		clickWord = "";
-		btnState = [ 1, 1, 1, 1, 1, 1, 1, 1, 1 ];
-		count = 0;
-		hintIndex = 0;
-	}
-	function setDisable() {
-		for (var i = 1; i <= 9; i++) {
-			document.querySelector('#KWGQ_BT' + i).disabled = 'disabled';
-		}// 버튼 클릭 disable
-	}
 
-/* 	$(document).ready(function() {
-		popup_Reset() //[정인국] 모달창을 초기화 시켜주는 함수 모달창을 사용하고 페이지를 이동하지 않는이상 초기화를 시켜줘야합니다.
-		// 테스트 구문
-		setTimeout(GameClear, 500) //[게임클리어 팝업] GameClear() 로 사용가능
-		// setTimeout(GameOver, 2000) //[게임오버 팝업] GameOver() 로 사용가능
-	}); */
 </script>
 </head>
 
@@ -265,7 +220,7 @@
 				</div>
 				<footer class="page_main KingWordGamefooter">
 					<div class="KW_back KW_BTstyle">
-						<a href="/KingWordGameLobby/${words[0].stage_id }">뒤로</a>
+						<a href="/KingWordGameLobby/${word.stage_id }">뒤로</a>
 					</div>
 					<div class="KW_regame KW_BTstyle"
 						onclick="window.location.reload()">다시하기</div>
@@ -284,16 +239,15 @@
 			</div>
 			<div class="DisplayBox">
 				<div class="KWGQ_quiz">
-					<div class="KWGQ_Stage_panel">Stage 1-1</div>
+					<div class="KWGQ_Stage_panel">Stage 1-${wordIdx+1 }</div>
 					<div class="KWGQ_quiz_panel">
-						${words[0].mean}<br>
+						${word.mean}<br>
 					</div>
 				</div>
 				<div class="KWGQ_answer">
 					<c:forEach var="x" varStatus="index" begin="0"
 						end="${wordlength-1}" step="1">
-						<%-- 						<div class="KWGQ_answer_ward" id="answer${index.count }">_</div>
- --%>
+						<div class="KWGQ_answer_ward" id="answer${index.count }">_</div>
 					</c:forEach>
 				</div>
 				<div class="info_panel flex">
@@ -307,112 +261,6 @@
 				</div>
 				-
 			</div>
-		</div>
-	</div>
-	<div id="layer_modal">
-		<div class="popup_GameEnd">
-			<div class="popup_GameScore">
-				<!-- 결과창 -->
-				<div class="popup_GameScore_quiz_window">
-					<div class="popup_GameScore_quiz_listText">게임 결과</div>
-					<div class="popup_GameScore_quiz_list">
-						<div class="popup_GameScore_quiz_1 popup_GameScore_quiz_line">
-							<div class="popup_GameScore_quiz_no">1/10</div>
-							<div class="popup_GameScore_quiz_box">
-								<div class="popup_GameScore_quiz_Q">정답 : 가나다</div>
-								<div class="popup_GameScore_quiz_A">나의답 : 가나다</div>
-							</div>
-
-							<div class="popup_GameScore_quiz_right">정답</div>
-						</div>
-						<!-- 정답과 오답  -->
-						<div class="popup_GameScore_quiz_2 popup_GameScore_quiz_line">
-							<div class="popup_GameScore_quiz_no">2/10</div>
-							<div class="popup_GameScore_quiz_box">
-								<div class="popup_GameScore_quiz_Q">정답 : 가나다</div>
-								<div class="popup_GameScore_quiz_A">나의답 : 가나다</div>
-							</div>
-							<div class="popup_GameScore_quiz_right">정답</div>
-						</div>
-						<div class="popup_GameScore_quiz_3 popup_GameScore_quiz_line">
-							<div class="popup_GameScore_quiz_no">3/10</div>
-							<div class="popup_GameScore_quiz_box">
-								<div class="popup_GameScore_quiz_Q">정답 : 가나다</div>
-								<div class="popup_GameScore_quiz_A">나의답 : 가나다</div>
-							</div>
-							<div class="popup_GameScore_quiz_right">정답</div>
-						</div>
-						<div class="popup_GameScore_quiz_4 popup_GameScore_quiz_line">
-							<div class="popup_GameScore_quiz_no">5/10</div>
-							<div class="popup_GameScore_quiz_box">
-								<div class="popup_GameScore_quiz_Q">정답 : 가나다</div>
-								<div class="popup_GameScore_quiz_A">나의답 : 가나다</div>
-							</div>
-							<div class="popup_GameScore_quiz_right">정답</div>
-						</div>
-						<div class="popup_GameScore_quiz_4 popup_GameScore_quiz_line">
-							<div class="popup_GameScore_quiz_no">6/10</div>
-							<div class="popup_GameScore_quiz_box">
-								<div class="popup_GameScore_quiz_Q">정답 : 가나다</div>
-								<div class="popup_GameScore_quiz_A">나의답 : 가나다</div>
-							</div>
-							<div class="popup_GameScore_quiz_right">정답</div>
-						</div>
-						<div class="popup_GameScore_quiz_4 popup_GameScore_quiz_line">
-							<div class="popup_GameScore_quiz_no">7/10</div>
-							<div class="popup_GameScore_quiz_box">
-								<div class="popup_GameScore_quiz_Q">정답 : 가나다</div>
-								<div class="popup_GameScore_quiz_A">나의답 : 가나다</div>
-							</div>
-							<div class="popup_GameScore_quiz_right">정답</div>
-						</div>
-						<div class="popup_GameScore_quiz_4 popup_GameScore_quiz_line">
-							<div class="popup_GameScore_quiz_no">8/10</div>
-							<div class="popup_GameScore_quiz_box">
-								<div class="popup_GameScore_quiz_Q">정답 : 가나다</div>
-								<div class="popup_GameScore_quiz_A">나의답 : 가나다</div>
-							</div>
-							<div class="popup_GameScore_quiz_right">정답</div>
-						</div>
-						<div class="popup_GameScore_quiz_4 popup_GameScore_quiz_line">
-							<div class="popup_GameScore_quiz_no">9/10</div>
-							<div class="popup_GameScore_quiz_box">
-								<div class="popup_GameScore_quiz_Q">정답 : 가나다</div>
-								<div class="popup_GameScore_quiz_A">나의답 : 가나다</div>
-							</div>
-							<div class="popup_GameScore_quiz_right">정답</div>
-						</div>
-						<div class="popup_GameScore_quiz_4 popup_GameScore_quiz_line">
-							<div class="popup_GameScore_quiz_no">10/10</div>
-							<div class="popup_GameScore_quiz_box">
-								<div class="popup_GameScore_quiz_Q">정답 : 가나다</div>
-								<div class="popup_GameScore_quiz_A">나의답 : 가나다</div>
-							</div>
-							<div class="popup_GameScore_quiz_right">정답</div>
-						</div>
-
-					</div>
-				</div>
-				<!-- 점수윈도우 -->
-				<div class="popup_GameScore_Score_window">
-					<div class="popup_GameScore_Score_box">
-						<div class="popup_GameScore_Score_Text">당신의 점수는 ?</div>
-						<div class="popup_GameScore_Score_score" id="Score">90점</div>
-					</div>
-					<div class="popup_GameScore_btn_box">
-						<div class="popup_GameScore_NextGame" id="NextGame">오답 확인하기
-						</div>
-						<div class="popup_GameScore_Lobby" id="MoveLobby">
-							<a href="/">로비로 나가기</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<!-- 게임오버 -->
-
-
 		</div>
 	</div>
 
