@@ -307,24 +307,23 @@ window.onpopstate = function(event) {
 							<div class="score_game_img"></div>
 							<div class="score_game_img_text">세종대왕 단어게임</div>
 						</div>
-						<!-- <div class="score_Star_area">
-              <div class="score_Star_text">
-                모운 별의 숫자
-              </div>
-              <div class="score_Star_point">
-                <div class="star_img">
-                  ★
-                </div>
-                <div class="score_Star" id="score_Star_Sejong">
-                  84개
-                </div>
-              </div>
-
-            </div> -->
 						<div class="score_Stage_area">
-							<div class="score_Stage_text">최고 도달 스테이지</div>
-							<div class="score_Stage" id="score_Stage_Sejong">Stage 4 -
-								2</div>
+
+							<div class="score_Stage" id="score_Stage_Sejong">
+								스테이지1 <br> <span class="Sejong_Stage" id="Sejong_Stage1">90점</span>
+							</div>
+							<div class="score_Stage" id="score_Stage_Sejong">
+								스테이지2 <br> <span class="Sejong_Stage" id="Sejong_Stage2">90점</span>
+							</div>
+							<div class="score_Stage" id="score_Stage_Sejong">
+								스테이지3 <br> <span class="Sejong_Stage" id="Sejong_Stage3">90점</span>
+							</div>
+							<div class="score_Stage" id="score_Stage_Sejong">
+								스테이지4 <br> <span class="Sejong_Stage" id="Sejong_Stage4">90점</span>
+							</div>
+							<div class="score_Stage" id="score_Stage_Sejong">
+								스테이지5 <br> <span class="Sejong_Stage" id="Sejong_Stage5">90점</span>
+							</div>
 						</div>
 					</div>
 					<div class="score_game_WordQuiz">
@@ -332,24 +331,20 @@ window.onpopstate = function(event) {
 							<div class="score_game_img"></div>
 							<div class="score_game_img_text">도전 줄임말 !</div>
 						</div>
-						<!-- <div class="score_Star_area">
-              <div class="score_Star_text">
-                모운 별의 숫자
-              </div>
-              <div class="score_Star_point">
-                <div class="star_img">
-                  ★
-                </div>
-                <div class="score_Star" id="score_Star_WordQuiz">
-                  84개
-                </div>
-              </div>
-
-            </div> -->
 						<div class="score_Stage_area">
-							<div class="score_Stage_text">최고 도달 스테이지</div>
-							<div class="score_Stage" id="score_Stage_WordQuiz">Stage 4
-								- 2</div>
+
+							<div class="score_Stage" id="score_WordQuiz_Sejong">
+								스테이지1 <br> <span class="WordQuiz_Stage"
+									id="WordQuiz_Stage1">90점</span>
+							</div>
+							<div class="score_Stage" id="score_WordQuiz_Sejong">
+								스테이지2 <br> <span class="WordQuiz_Stage"
+									id="WordQuiz_Stage2">90점</span>
+							</div>
+							<div class="score_Stage" id="score_WordQuiz_Sejong">
+								스테이지3 <br> <span class="WordQuiz_Stage"
+									id="WordQuiz_Stage3">90점</span>
+							</div>
 						</div>
 					</div>
 					<div class="score_game_Talk">
@@ -357,23 +352,24 @@ window.onpopstate = function(event) {
 							<div class="score_game_img"></div>
 							<div class="score_game_img_text">신조어톡</div>
 						</div>
-						<!-- <div class="score_Star_area">
-              <div class="score_Star_text">
-                모운 별의 숫자
-              </div>
-              <div class="score_Star_point">
-                <div class="star_img">
-                  ★
-                </div>
-                <div class="score_Star" id="score_Star_Talk">
-                  84개
-                </div>
-              </div>
 
-            </div> -->
 						<div class="score_Stage_area">
-							<div class="score_Stage_text">최고 도달 스테이지</div>
-							<div class="score_Stage" id="score_Stage_Talk">Stage 4</div>
+
+							<div class="score_Stage" id="score_Stage_Talk">
+								스테이지1 <br> <span class="Talk_Stage" id="Talk_Stage1">100점</span>
+							</div>
+							<div class="score_Stage" id="score_Stage_Sejong">
+								스테이지2 <br> <span class="Talk_Stage" id="Talk_Stage2">100점</span>
+							</div>
+							<div class="score_Stage" id="score_Stage_Sejong">
+								스테이지3 <br> <span class="Talk_Stage" id="Talk_Stage3">100점</span>
+							</div>
+							<div class="score_Stage" id="score_Stage_Sejong">
+								스테이지4 <br> <span class="Talk_Stage" id="Talk_Stage4">100점</span>
+							</div>
+							<div class="score_Stage" id="score_Stage_Sejong">
+								스테이지5 <br> <span class="Talk_Stage" id="Talk_Stage5">100점</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -529,7 +525,7 @@ window.onpopstate = function(event) {
 								계정의 비밀번호를 변경할수 있습니다.<br> 이메일 인증이 필요합니다.
 							</div>
 							<div class="setting_passwd_bt">
-								<a href="update">비밀번호 변경</a>
+								<a href="/update">비밀번호 변경</a>
 							</div>
 						</div>
 					</div>
