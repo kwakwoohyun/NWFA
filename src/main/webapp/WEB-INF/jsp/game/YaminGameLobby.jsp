@@ -15,9 +15,16 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
+history.pushState(null, null, location.href);
+window.onpopstate = function(event) {
+	history.go(1);
+};
+var cardClick = new Array();
+var cardloc = 0;
+
 	var WQ_Level = 0;
 	var cardloc = 0;
-
+	
 	$(document).ready(function() {
 		$("#WQ_Level"+${word[0].stage_id}).css({
 			'border-color' : '#ff69b2'

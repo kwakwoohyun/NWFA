@@ -15,6 +15,13 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
+	history.pushState(null, null, location.href);
+	window.onpopstate = function(event) {
+		history.go(1);
+	};
+	var cardClick = new Array();
+	var cardloc = 0;
+
 	// [정인국] 여기는 모달레이어를 제어하는 변수들임 프론트엔드용
 	function GameOver() {
 		// 게임오버 팝업을 뛰우는 함수
@@ -153,14 +160,14 @@
 
 	function check() {
 		if (count == "${word.justice.length()}") {
-				if (clickWord == '${word.justice }') {
-					location.href = '/YaminGameUpdate/${word.stage_id}/${word.gameNum}/${wordIdx}/'
-							+ clickWord;
-				} else {
-					location.href = '/YaminGameSave/${word.stage_id}/${word.gameNum}/${wordIdx}/'
-							+ clickWord;
-				}
+			if (clickWord == '${word.justice }') {
+				location.href = '/YaminGameUpdate/${word.stage_id}/${word.gameNum}/${wordIdx}/'
+						+ clickWord;
+			} else {
+				location.href = '/YaminGameSave/${word.stage_id}/${word.gameNum}/${wordIdx}/'
+						+ clickWord;
 			}
+		}
 	}
 </script>
 </head>

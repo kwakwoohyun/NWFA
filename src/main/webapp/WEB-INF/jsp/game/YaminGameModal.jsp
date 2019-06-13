@@ -15,6 +15,13 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
+	history.pushState(null, null, location.href);
+	window.onpopstate = function(event) {
+		history.go(1);
+	};
+	var cardClick = new Array();
+	var cardloc = 0;
+
 	// [정인국] 여기는 모달레이어를 제어하는 변수들임 프론트엔드용
 	function GameOver() {
 		// 게임오버 팝업을 뛰우는 함수
@@ -123,16 +130,16 @@
 					</div>
 					<div class="popup_GameScore_btn_box">
 						<c:if test="${score ge 60}">
-						<div class="popup_GameScore_Score_Text">다음 스테이지에 도전하세요!</div>
+							<div class="popup_GameScore_Score_Text">다음 스테이지에 도전하세요!</div>
 							<div class="popup_GameScore_NextGame" id="NextGame"
-							onclick="location.href='/YaminGameLobby/${words[0].stage_id+1}/2'">다음 스테이지 학습하기
-						</div>
+								onclick="location.href='/YaminGameLobby/${words[0].stage_id+1}/2'">다음
+								스테이지 학습하기</div>
 						</c:if>
 						<c:if test="${score lt 60}">
-						<div class="popup_GameScore_Score_Text">60점을 향해 노력하세요!</div>
+							<div class="popup_GameScore_Score_Text">60점을 향해 노력하세요!</div>
 							<div class="popup_GameScore_NextGame" id="NextGame"
-							onclick="location.href='/YaminGameLobby/${words[0].stage_id}/2'">다시 학습하기 
-						</div>
+								onclick="location.href='/YaminGameLobby/${words[0].stage_id}/2'">다시
+								학습하기</div>
 						</c:if>
 						<div class="popup_GameScore_Lobby" id="MoveLobby"
 							onclick="location.href='/GameLobby'">로비로 나가기</div>

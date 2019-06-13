@@ -115,7 +115,6 @@
 					<button type="button" id="list_D" name="button" onclick="year18();">2018</button>
 					<button type="button" id="list_E" name="button">2019</button>
 					<button type="button" id="list_Yamin" name="button">야민정음</button>
-					<button type="button" id="list_WrongAnswer" name="button">오답</button>
 				</div>
 				<div class="Dictionary_list" style="display: block">
 					<table id="all">
