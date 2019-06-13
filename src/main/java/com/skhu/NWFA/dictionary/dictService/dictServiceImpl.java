@@ -51,7 +51,7 @@ public class dictServiceImpl implements dictService {
 
 	@Override
 	public List<userStages> stageIsLock(int user_id, int gameNum) {
-
+	
 		return dao.stageIsLock(user_id, gameNum);
 	}
 

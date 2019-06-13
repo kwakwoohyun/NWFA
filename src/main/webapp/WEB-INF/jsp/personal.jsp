@@ -158,7 +158,7 @@ window.onpopstate = function(event) {
 				</div>
 				<div class="logout_bt">
 					<div id="personal_logoutbt" class="personal_sidebt" value="logout"
-						onclick="location.href='logout'">로그오프</div>
+						onclick="location.href='/logout'">로그오프</div>
 				</div>
 
 			</div>

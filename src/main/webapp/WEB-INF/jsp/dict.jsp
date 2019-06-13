@@ -11,7 +11,10 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
-
+history.pushState(null, null, location.href);
+window.onpopstate = function(event) {
+	history.go(1);
+};
 	function setWord(justice, mean) {
     	document.querySelector('#justice').innerHTML = justice;
     	document.querySelector('#mean').innerHTML = mean;
@@ -24,7 +27,17 @@
         	})
         })
  	}
-	
+	// 수정정인국
+	   function bt(num){
+	     $('.wordlist_menu > button').css({
+	      'background-color': '#cda705',
+	      'color': '#fff'
+	    })
+	    $('.wordlist_menu > button:nth-of-type('+num+')').css({
+	      'background-color': '#fdeca5',
+	      'color': '#000'
+	  })}
+
 	function Search_click(){
 		location.href='/searchWord/'+$('#search').val();
 	}
@@ -36,52 +49,92 @@
 		location.href='/unfavoriteWord/'+word_id+"/"+dic_id;
 	}
 	function alls(){
+		bt(1);
 		document.querySelector('#all').style.display = 'block';
 		document.querySelector('#favorite').style.display= 'none';
 		document.querySelector('#year15').style.display = 'none';
 		document.querySelector('#year16').style.display = 'none';
 		document.querySelector('#year17').style.display = 'none';
 		document.querySelector('#year18').style.display = 'none';
+		document.querySelector('#year19').style.display = 'none';
+		document.querySelector('#yamin').style.display = 'none';
 	}
 	function favorite(){
+		bt(2);
 		document.querySelector('#all').style.display = 'none';
 		document.querySelector('#favorite').style.display= 'block';
 		document.querySelector('#year15').style.display = 'none';
 		document.querySelector('#year16').style.display = 'none';
 		document.querySelector('#year17').style.display = 'none';
 		document.querySelector('#year18').style.display = 'none';
+		document.querySelector('#year19').style.display = 'none';
+		document.querySelector('#yamin').style.display = 'none';
 	}
 	function year15(){
+		bt(3);
 		document.querySelector('#year15').style.display = 'block';
 		document.querySelector('#all').style.display = 'none';
 		document.querySelector('#favorite').style.display= 'none';
 		document.querySelector('#year16').style.display = 'none';
 		document.querySelector('#year17').style.display = 'none';
 		document.querySelector('#year18').style.display = 'none';
+		document.querySelector('#year19').style.display = 'none';
+		document.querySelector('#yamin').style.display = 'none';
 	}
 	function year16(){
+		bt(4);
 		document.querySelector('#all').style.display = 'none';
 		document.querySelector('#favorite').style.display= 'none';
 		document.querySelector('#year15').style.display = 'none';
 		document.querySelector('#year16').style.display = 'block';
 		document.querySelector('#year17').style.display = 'none';
 		document.querySelector('#year18').style.display = 'none';
+		document.querySelector('#year19').style.display = 'none';
+		document.querySelector('#yamin').style.display = 'none';
 	}
 	function year17(){
+		bt(5);
 		document.querySelector('#all').style.display = 'none';
 		document.querySelector('#favorite').style.display= 'none';
 		document.querySelector('#year15').style.display = 'none';
 		document.querySelector('#year16').style.display = 'none';
 		document.querySelector('#year17').style.display = 'block';
 		document.querySelector('#year18').style.display = 'none';
+		document.querySelector('#year19').style.display = 'none';
+		document.querySelector('#yamin').style.display = 'none';
 	}
 	function year18(){
+		bt(6);
 		document.querySelector('#all').style.display = 'none';
 		document.querySelector('#favorite').style.display= 'none';
 		document.querySelector('#year15').style.display = 'none';
 		document.querySelector('#year16').style.display = 'none';
 		document.querySelector('#year17').style.display = 'none';
 		document.querySelector('#year18').style.display = 'block';
+		document.querySelector('#year19').style.display = 'none';
+		document.querySelector('#yamin').style.display = 'none';
+	}
+	function year19(){
+		bt(7);
+		document.querySelector('#all').style.display = 'none';
+		document.querySelector('#favorite').style.display= 'none';
+		document.querySelector('#year15').style.display = 'none';
+		document.querySelector('#year16').style.display = 'none';
+		document.querySelector('#year17').style.display = 'none';
+		document.querySelector('#year18').style.display = 'none';
+		document.querySelector('#year19').style.display = 'block';
+		document.querySelector('#yamin').style.display = 'none';
+	}
+	function yamin(){
+		bt(8);
+		document.querySelector('#all').style.display = 'none';
+		document.querySelector('#favorite').style.display= 'none';
+		document.querySelector('#year15').style.display = 'none';
+		document.querySelector('#year16').style.display = 'none';
+		document.querySelector('#year17').style.display = 'none';
+		document.querySelector('#year18').style.display = 'none';
+		document.querySelector('#year19').style.display = 'none';
+		document.querySelector('#yamin').style.display = 'block';
 	}
 	
 </script>
@@ -113,8 +166,9 @@
 					<button type="button" id="list_B" name="button" onclick="year16();">2016</button>
 					<button type="button" id="list_C" name="button" onclick="year17();">2017</button>
 					<button type="button" id="list_D" name="button" onclick="year18();">2018</button>
-					<button type="button" id="list_E" name="button">2019</button>
-					<button type="button" id="list_Yamin" name="button">야민정음</button>
+					<button type="button" id="list_E" name="button" onclick="year19();">2019</button>
+					<button type="button" id="list_Yamin" name="button"
+						onclick="yamin();">야민정음</button>
 				</div>
 				<div class="Dictionary_list" style="display: block">
 					<table id="all">
@@ -239,8 +293,8 @@
 					</table>
 					<table id="year18" style="display: none">
 						<c:forEach items="${word}" var="word">
-							<tr id="wordrow">
-								<c:if test="${word.year eq '2018'}">
+							<c:if test="${word.year eq '2018'}">
+								<tr id="wordrow">
 									<c:choose>
 										<c:when test="${word.favorite eq 1}">
 											<th onclick="removeFavorite(${word.word_id });">★</th>
@@ -253,8 +307,48 @@
 												onclick="setWord('${word.justice }','${word.mean }');">${word.justice}</th>
 										</c:otherwise>
 									</c:choose>
-								</c:if>
-							</tr>
+								</tr>
+							</c:if>
+						</c:forEach>
+					</table>
+					<table id="year19" style="display: none">
+						<c:forEach items="${word}" var="word">
+							<c:if test="${word.year eq '2019'}">
+								<tr id="wordrow">
+									<c:choose>
+										<c:when test="${word.favorite eq 1}">
+											<th onclick="removeFavorite(${word.word_id });">★</th>
+											<th style="text-align: left"
+												onclick="setWord('${word.justice }','${word.mean }');">${word.justice}</th>
+										</c:when>
+										<c:otherwise>
+											<th onclick="setFavorite(${word.word_id });">☆</th>
+											<th style="text-align: left"
+												onclick="setWord('${word.justice }','${word.mean }');">${word.justice}</th>
+										</c:otherwise>
+									</c:choose>
+								</tr>
+							</c:if>
+						</c:forEach>
+					</table>
+					<table id="yamin" style="display: none">
+						<c:forEach items="${word}" var="word">
+							<c:if test="${word.gameNum eq '2'}">
+								<tr id="wordrow">
+									<c:choose>
+										<c:when test="${word.favorite eq 1}">
+											<th onclick="removeFavorite(${word.word_id });">★</th>
+											<th style="text-align: left"
+												onclick="setWord('${word.justice }','${word.mean }');">${word.justice}</th>
+										</c:when>
+										<c:otherwise>
+											<th onclick="setFavorite(${word.word_id });">☆</th>
+											<th style="text-align: left"
+												onclick="setWord('${word.justice }','${word.mean }');">${word.justice}</th>
+										</c:otherwise>
+									</c:choose>
+								</tr>
+							</c:if>
 						</c:forEach>
 					</table>
 				</div>
@@ -269,6 +363,12 @@
 					year16();
 				}else if(${dic_id}==5){
 					year17();
+				}else if(${dic_id}==6){
+					year18();
+				}else if(${dic_id}==7){
+					year19();
+				}else if(${dic_id}==8){
+					yamin();
 				}
 				</script>
 				<footer class="page_main KingWordGamefooter">

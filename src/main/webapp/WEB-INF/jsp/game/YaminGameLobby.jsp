@@ -208,7 +208,7 @@ var cardloc = 0;
 											<div class="card_number">1/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br> ${word[0].justice} = ${word[0].question} <br>
+							<br>
 											${word[0].mean}
 										</div>
 									</div>
@@ -221,7 +221,7 @@ var cardloc = 0;
 											<div class="card_number">2/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br> ${word[1].justice} = ${word[1].question} <br>
+											<br> 
 											${word[1].mean}
 										</div>
 									</div>
@@ -234,7 +234,7 @@ var cardloc = 0;
 											<div class="card_number">3/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br> ${word[2].justice} = ${word[2].question} <br>
+											<br> 
 											${word[2].mean}
 										</div>
 									</div>
@@ -247,7 +247,7 @@ var cardloc = 0;
 											<div class="card_number">4/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br> ${word[3].justice} = ${word[3].question} <br>
+											<br>
 											${word[3].mean}
 										</div>
 									</div>
@@ -261,7 +261,7 @@ var cardloc = 0;
 											<div class="card_number">5/5</div>
 										</div>
 										<div class="Card_bottom">
-											<br> ${word[4].justice} = ${word[4].question} <br>
+											<br>
 											${word[4].mean}
 										</div>
 									</div>
