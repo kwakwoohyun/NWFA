@@ -72,7 +72,7 @@
 		}
 
 		else if (gameNo == 2) {
-			location.href = 'http://www.naver.com';
+			location.href = 'TalkGameLobby';
 		}
 
 	}

@@ -245,7 +245,7 @@
 				<div class="KWGQ_quiz">
 					<div class="KWGQ_Stage_panel">Stage 1-${wordIdx+1 }</div>
 					<div class="KWGQ_quiz_panel">
-						${word.mean}<br>
+						<br><br>${word.mean}<br>
 					</div>
 				</div>
 				<div class="KWGQ_answer">
