@@ -31,6 +31,9 @@
 		$(".gameNumber .game1").css({
 			'background-color' : '#fad644'
 		})
+		$("#rank").show();
+		$(".GameName").show();
+		$(".GameRank").show();
 		$(".GameName").text('최고 도달 스테이지')
 		$(".GameRank").text('Lv.' + ranking[gameNo])
 	}
@@ -45,6 +48,9 @@
 		$(".gameNumber .game2").css({
 			'background-color' : '#fad644'
 		})
+		$("#rank").show();
+		$(".GameName").show();
+		$(".GameRank").show();
 		$(".GameName").text('최고 도달 스테이지')
 		$(".GameRank").text('Lv.' + ranking[gameNo])
 	}
@@ -59,8 +65,9 @@
 		$(".gameNumber .game3").css({
 			'background-color' : '#fad644'
 		})
-		$(".GameName").text('최고 도달 스테이지')
-		$(".GameRank").text('Lv.' + ranking[gameNo])
+		$("#rank").hide();
+		$(".GameName").hide();
+		$(".GameRank").hide();
 	}
 	function click_GameStart() {
 		if (gameNo == 0) {
@@ -143,7 +150,7 @@
 
 				</div>
 				<div class="gameRanking">
-					<div class="RankPlace">
+					<div class="RankPlace" id="rank">
 						<div class="img_gamerank">
 							<img src="icon/rank.svg" alt="랭킹">
 						</div>
@@ -158,9 +165,7 @@
 
 		</div>
 		<footer class="page_main KingWordGamefooter">
-			<div class="KW_back RED_UIstyle">
-				<a href="/">뒤로</a>
-			</div>
+			<a href="/"><div class="KW_back RED_UIstyle">뒤로</div></a>
 			<div class="visibilityhidden RED_UIstyle"></div>
 			<div class="visibilityhidden RED_UIstyle"></div>
 		</footer>

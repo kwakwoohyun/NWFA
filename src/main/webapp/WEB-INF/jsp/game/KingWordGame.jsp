@@ -223,12 +223,10 @@
 						onclick="KingWordGame9_click(this.value)">${li[8]}</button>
 				</div>
 				<footer class="page_main KingWordGamefooter">
-					<div class="KW_back KW_BTstyle">
-						<a href="/KingWordGameLobby/${word.stage_id }">뒤로</a>
-					</div>
+					<a href="/KingWordGameLobby/${word.stage_id }"><div
+							class="KW_back KW_BTstyle">뒤로</div></a>
 					<div class="KW_regame KW_BTstyle"
 						onclick="window.location.reload()">다시하기</div>
-					<div class="KW_Hint KW_BTstyle" onclick="hint();">힌트</div>
 					<script>
 						function hint() {
 							var index = $
@@ -245,7 +243,8 @@
 				<div class="KWGQ_quiz">
 					<div class="KWGQ_Stage_panel">Stage 1-${wordIdx+1 }</div>
 					<div class="KWGQ_quiz_panel">
-						<br><br>${word.mean}<br>
+						<br>
+						<br>${word.mean}<br>
 					</div>
 				</div>
 				<div class="KWGQ_answer">

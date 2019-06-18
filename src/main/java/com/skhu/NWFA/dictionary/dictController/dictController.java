@@ -36,7 +36,7 @@ public class dictController {
 		model.addAttribute("word", words);
 		model.addAttribute("dic_id", dic_id);
 		model.addAttribute("searchSize", 0);
-		
+
 		return "dict";
 	}
 

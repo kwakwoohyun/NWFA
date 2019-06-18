@@ -10,7 +10,10 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
-	
+	history.pushState(null, null, location.href);
+	window.onpopstate = function(event) {
+		history.go(1);
+	};
 </script>
 </head>
 <body id="page_TalkLobby">
@@ -115,8 +118,7 @@
 		</div>
 		<footer class="page_main KingWordGamefooter">
 			<div class="WQ_back TALK_BTstyle" onclick="location.href='GameLobby'">
-			뒤로
-			</div>
+				뒤로</div>
 			<div class="visibilityhidden TALK_BTstyle">게임시작</div>
 			<div class="visibilityhidden TALK_BTstyle"></div>
 		</footer>

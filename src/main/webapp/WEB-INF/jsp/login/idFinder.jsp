@@ -13,6 +13,10 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
+	history.pushState(null, null, location.href);
+	window.onpopstate = function(event) {
+		history.go(1);
+	};
 	function mySubmit(index) {
 		if (index == 1) {
 			document.finder.action = './IDFinder';

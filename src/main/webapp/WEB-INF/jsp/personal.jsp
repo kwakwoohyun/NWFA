@@ -187,7 +187,7 @@ window.onpopstate = function(event) {
 								단어게임</div>
 							<div class="log_game_bt" onclick="log_btc_click(2);">도전 신조어
 							</div>
-							<div class="log_game_bt" onclick="log_btc_click(3);">신조어톡</div>
+
 						</div>
 					</div>
 					<div class="log_stage_bar">
@@ -283,63 +283,7 @@ window.onpopstate = function(event) {
 								</c:when>
 							</c:choose>
 						</div>
-						<div id="Talk_log_Bt" class="log_stage">
-							<c:choose>
-								<c:when test="${stage[0].isLock eq '1' }">
-									<button class="log_stage_bt" type="button" value="1"
-										name="button" id="Talk_btn1" onclick="Talk_btn(1)">1</button>
-								</c:when>
-								<c:when test="${stage[0].isLock eq '0' }">
-									<button class="log_stage_bt" type="button" value="1"
-										name="button" id="Talk_btn1" onclick="Talk_btn(1)"
-										style="background-color: gray; color: white; pointer-events: none; cursor: default;">1</button>
-								</c:when>
-							</c:choose>
-							<c:choose>
-								<c:when test="${stage[1].isLock eq '1' }">
-									<button class="log_stage_bt" type="button" value="2"
-										id="Talk_btn2" onclick="Talk_btn(2)" name="button">2</button>
-								</c:when>
-								<c:when test="${stage[1].isLock eq '0' }">
-									<button class="log_stage_bt" type="button" value="2"
-										name="button" id="Talk_btn2" onclick="Talk_btn(2)"
-										style="background-color: gray; color: white; pointer-events: none; cursor: default;">2</button>
-								</c:when>
-							</c:choose>
-							<c:choose>
-								<c:when test="${stage[2].isLock eq '1' }">
-									<button class="log_stage_bt" type="button" value="3"
-										id="Talk_btn3" onclick="Talk_btn(3)" name="button">3</button>
-								</c:when>
-								<c:when test="${stage[2].isLock eq '0' }">
-									<button class="log_stage_bt" type="button" value="3"
-										id="Talk_btn3" onclick="Talk_btn(3)" name="button"
-										style="background-color: gray; color: white; pointer-events: none; cursor: default;">3</button>
-								</c:when>
-							</c:choose>
-							<c:choose>
-								<c:when test="${stage[3].isLock eq '1' }">
-									<button class="log_stage_bt" type="button" value="4"
-										id="Talk_btn4" onclick="Talk_btn(4)" name="button">4</button>
-								</c:when>
-								<c:when test="${stage[3].isLock eq '0' }">
-									<button class="log_stage_bt" type="button" value="4"
-										id="Talk_btn4" onclick="Talk_btn(4)" name="button"
-										style="background-color: gray; color: white; pointer-events: none; cursor: default;">4</button>
-								</c:when>
-							</c:choose>
-							<c:choose>
-								<c:when test="${stage[4].isLock eq '1' }">
-									<button class="log_stage_bt" type="button" value="5"
-										id="Talk_btn5" onclick="Talk_btn(5)" name="button">5</button>
-								</c:when>
-								<c:when test="${stage[4].isLock eq '0' }">
-									<button class="log_stage_bt" type="button" value="5"
-										id="Talk_btn5" onclick="Talk_btn(5)" name="button"
-										style="background-color: gray; color: white; pointer-events: none; cursor: default;">5</button>
-								</c:when>
-							</c:choose>
-						</div>
+
 					</div>
 					<div class="log_content">
 						<!-- 오답 템플릿 -->
@@ -475,57 +419,57 @@ window.onpopstate = function(event) {
 						<div class="score_Stage_area">
 
 							<div class="score_Stage" id="score_Stage_Talk">
-								스테이지1 <br>
+								302호 친구 <br>
 								<c:choose>
-									<c:when test="${stagesTalk[0].score eq 0 }">
-										<span class="Talk_Stage" id="Talk_Stage1">?</span>
+									<c:when test="${stagesTalk[0].isLock eq 0 }">
+										<span class="Talk_Stage" id="Talk_Stage1">x</span>
 									</c:when>
 									<c:otherwise>
-										<span class="Talk_Stage" id="Talk_Stage1">${stagesTalk[0].score }점</span>
+										<span class="Talk_Stage" id="Talk_Stage1">o</span>
 									</c:otherwise>
 								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_Stage_Sejong">
-								스테이지2 <br>
+								같은반 친구 <br>
 								<c:choose>
-									<c:when test="${stagesTalk[1].score eq 0 }">
-										<span class="Talk_Stage" id="Talk_Stage2">?</span>
+									<c:when test="${stagesTalk[1].isLock eq 0 }">
+										<span class="Talk_Stage" id="Talk_Stage2">x</span>
 									</c:when>
 									<c:otherwise>
-										<span class="Talk_Stage" id="Talk_Stage2">${stagesTalk[1].score }점</span>
+										<span class="Talk_Stage" id="Talk_Stage2">o</span>
 									</c:otherwise>
 								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_Stage_Sejong">
-								스테이지3 <br>
+								중학생 아들 <br>
 								<c:choose>
-									<c:when test="${stagesTalk[2].score eq 0 }">
-										<span class="Talk_Stage" id="Talk_Stage3">?</span>
+									<c:when test="${stagesTalk[2].isLock eq 0 }">
+										<span class="Talk_Stage" id="Talk_Stage3">x</span>
 									</c:when>
 									<c:otherwise>
-										<span class="Talk_Stage" id="Talk_Stage3">${stagesTalk[2].score }점</span>
+										<span class="Talk_Stage" id="Talk_Stage3">o</span>
 									</c:otherwise>
 								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_Stage_Sejong">
-								스테이지4 <br>
+								여자친구 <br>
 								<c:choose>
-									<c:when test="${stagesTalk[3].score eq 0 }">
-										<span class="Talk_Stage" id="Talk_Stage4">?</span>
+									<c:when test="${stagesTalk[3].isLock eq 0 }">
+										<span class="Talk_Stage" id="Talk_Stage4">x</span>
 									</c:when>
 									<c:otherwise>
-										<span class="Talk_Stage" id="Talk_Stage4">${stagesTalk[3].score }점</span>
+										<span class="Talk_Stage" id="Talk_Stage4">o</span>
 									</c:otherwise>
 								</c:choose>
 							</div>
 							<div class="score_Stage" id="score_Stage_Sejong">
-								스테이지5 <br>
+								웬수같은동생 <br>
 								<c:choose>
-									<c:when test="${stagesTalk[4].score eq 0 }">
-										<span class="Talk_Stage" id="Talk_Stage5">?</span>
+									<c:when test="${stagesTalk[4].isLock eq 0 }">
+										<span class="Talk_Stage" id="Talk_Stage5">x</span>
 									</c:when>
 									<c:otherwise>
-										<span class="Talk_Stage" id="Talk_Stage5">${stagesTalk[4].score }점</span>
+										<span class="Talk_Stage" id="Talk_Stage5">o</span>
 									</c:otherwise>
 								</c:choose>
 							</div>

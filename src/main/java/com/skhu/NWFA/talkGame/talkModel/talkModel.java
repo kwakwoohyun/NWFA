@@ -10,7 +10,8 @@ public class talkModel {
 	private int gameNum;
 	private int stage_id;
 	private String profie;
-	
+	private String correct;
+
 	public int getWord_id() {
 		return word_id;
 	}
@@ -82,5 +83,14 @@ public class talkModel {
 	public void setProfie(String profie) {
 		this.profie = profie;
 	}
+
+	public String getCorrect() {
+		return correct;
+	}
+
+	public void setCorrect(String correct) {
+		this.correct = correct;
+	}
+
 
 }

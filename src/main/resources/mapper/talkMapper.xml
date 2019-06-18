@@ -8,10 +8,19 @@
 		select
 		Options.word_id, answer, option1, option2, option3,
 		option4, gameNum,
-		stage_id, profie
-		from Options right join Word on
-		Options.word_id = Word.word_id
+		stage_id, profie, correct
+		from Options right join Word
+		on
+		Options.word_id =
+		Word.word_id
 		where gameNum=#{gameNum} and
 		stage_id=#{stage_id};
 	</select>
+
+	<update id="updateTalk">
+		UPDATE UserStages SET isLock = #{isCorrect} WHERE
+		gameNum = #{gameNum} AND
+		stage_id = #{stage_id}
+		AND user_id = #{user_id}
+	</update>
 </mapper>

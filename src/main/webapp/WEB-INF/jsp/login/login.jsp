@@ -12,6 +12,10 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
+	history.pushState(null, null, location.href);
+	window.onpopstate = function(event) {
+		history.go(1);
+	};
 	function popup_remove() {
 		$("#layer_modal .popup_Fail_ID_window").css('top', '-20vh');
 		$("#layer_modal .popup_Fail_PW_window").css('top', '-20vh');
@@ -111,8 +115,8 @@
 								<div id="mini_account" onclick="location.href='accounts'">
 									회원가입</div>
 								<!-- [정인국] 여기다가 아이디찾기 이동 링크 넣기 이창은 모바일화면에서만 보임 -->
-								<div id="mini_accountfind"
-									onclick="location.href='idFinder'">아이디/비밀번호 찾기</div>
+								<div id="mini_accountfind" onclick="location.href='idFinder'">아이디/비밀번호
+									찾기</div>
 							</div>
 							<div class="login_id">
 								<a href="#"

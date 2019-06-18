@@ -12,6 +12,10 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
+	history.pushState(null, null, location.href);
+	window.onpopstate = function(event) {
+		history.go(1);
+	};
 	function popup_remove() {
 		$("#layer_modal .popup_ID_window").css('top', '-10vh');
 	}
@@ -54,19 +58,19 @@
 			%>
 			<div class="UI UI_bt" onclick="location.href='login'"
 				data-transition="flip">게임</div>
-				<div class="UI UI_bt" onclick="location.href='login'"
+			<div class="UI UI_bt" onclick="location.href='login'"
 				data-transition="flip">사전</div>
 			<%
 				} else {
 			%>
 			<div class="UI UI_bt" onclick="location.href='GameLobby'"
 				data-transition="flip">게임</div>
-				<div class="UI UI_bt" onclick="location.href='dictionary/1'"
+			<div class="UI UI_bt" onclick="location.href='dictionary/1'"
 				data-transition="flip">사전</div>
 			<%
 				}
 			%>
-			
+
 		</article>
 	</div>
 	<div id="layer_modal">

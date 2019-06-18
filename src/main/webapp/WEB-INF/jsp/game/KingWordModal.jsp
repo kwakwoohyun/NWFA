@@ -16,6 +16,10 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script type="text/javascript">
 	// [정인국] 여기는 모달레이어를 제어하는 변수들임 프론트엔드용
+	history.pushState(null, null, location.href);
+	window.onpopstate = function(event) {
+		history.go(1);
+	};
 	function GameClear() {
 		//  게임클리어 팝업을 뛰우는 함수
 		$(".popup_GameEnd").show().css('display', 'flex');

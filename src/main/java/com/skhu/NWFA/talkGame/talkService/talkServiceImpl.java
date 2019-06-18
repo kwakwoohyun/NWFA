@@ -17,5 +17,10 @@ public class talkServiceImpl implements talkService {
 		// TODO Auto-generated method stub
 		return dao.words(gameNum, stage_id);
 	}
-	
+
+	@Override
+	public void updateTalk(int gameNum, int stage_id, int user_id, int isCorrect) {
+		dao.updateTalk(gameNum, stage_id, user_id, isCorrect);
+	}
+
 }

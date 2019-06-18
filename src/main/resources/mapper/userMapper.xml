@@ -26,7 +26,8 @@
 		(3,1,1,Now(),#{user_id},0),
 		(3,2,0,Now(),#{user_id},0),
 		(3,3,0,Now(),#{user_id},0),
-		(3,4,0,Now(),#{user_id},0)
+		(3,4,0,Now(),#{user_id},0),
+		(3,5,0,Now(),#{user_id},0)
 	</insert>
 
 	<select id="Allwords" resultType="com.skhu.NWFA.yaminGame.yaminModel.wordsModel">
