@@ -227,6 +227,7 @@
 							class="KW_back KW_BTstyle">뒤로</div></a>
 					<div class="KW_regame KW_BTstyle"
 						onclick="window.location.reload()">다시하기</div>
+
 					<script>
 						function hint() {
 							var index = $
@@ -243,8 +244,7 @@
 				<div class="KWGQ_quiz">
 					<div class="KWGQ_Stage_panel">Stage 1-${wordIdx+1 }</div>
 					<div class="KWGQ_quiz_panel">
-						<br>
-						<br>${word.mean}<br>
+						<br><br>${word.mean}<br>
 					</div>
 				</div>
 				<div class="KWGQ_answer">

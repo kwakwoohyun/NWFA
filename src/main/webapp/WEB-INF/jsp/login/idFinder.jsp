@@ -169,7 +169,7 @@
 		</article>
 		<footer class="page_main Userfooter">
 			<div class="KW_back KW_BTstyle">
-				<a href="login.jsp">뒤로</a>
+				<a href="/">뒤로</a>
 			</div>
 			<div class="visibilityhidden KW_BTstyle"></div>
 			<div class="visibilityhidden KW_BTstyle"></div>
