@@ -228,7 +228,7 @@
 					</div>
 					<div class="KW_regame KW_BTstyle"
 						onclick="window.location.reload()">다시하기</div>
-					<div class="KW_Hint KW_BTstyle" onclick="hint();">힌트</div>
+					
 					<script>
 						function hint() {
 							var index = $

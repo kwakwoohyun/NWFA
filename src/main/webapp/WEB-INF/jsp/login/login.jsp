@@ -141,7 +141,7 @@
 			</div>
 		</article>
 		<footer class="page_main Userfooter">
-			<div class="KW_back KW_BTstyle">
+			<div class="KW_back KW_BTstyle" onclick="">
 				<a href="/">뒤로</a>
 			</div>
 			<div class="visibilityhidden KW_BTstyle"></div>
